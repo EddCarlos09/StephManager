@@ -56,5 +56,49 @@ namespace CreativaSL.Dll.StephManager.Negocio
                 throw ex;
             }
         }
+
+
+
+
+
+        public int GenerarReporteProductosVendidos(string Conexion, DateTime FechaInicio, DateTime FechaFin, string IDUsuario)
+        {
+            try
+            {
+                Reporte_Datos Datos = new Reporte_Datos();
+                return Datos.GenerarReporteProductosVendidos(Conexion, FechaInicio, FechaFin, IDUsuario);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public ReporteProductosVendidos ObtenerDetalleReporteProductosVendidos(string Conexion, int IDReporte)
+        {
+            try
+            {
+                Reporte_Datos Datos = new Reporte_Datos();
+                return Datos.ObtenerDetalleReporteProductosVendidos(Conexion, IDReporte);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public List<ReporteProductosVendidos> ObtenerReportesProductosVendidos(string Conexion)
+        {
+            try
+            {
+                Reporte_Datos Datos = new Reporte_Datos();
+                return Datos.ObtenerReportesProductosVendidos(Conexion);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
     }
 }

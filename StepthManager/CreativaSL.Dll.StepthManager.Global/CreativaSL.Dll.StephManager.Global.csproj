@@ -82,6 +82,8 @@
     <Compile Include="ChechkListResultado.cs" />
     <Compile Include="ReporteConsumoMaterial.cs" />
     <Compile Include="ReporteMaterialesProduccion.cs" />
+    <Compile Include="ReporteProductosVendidos.cs" />
+    <Compile Include="ReporteProductosVendidosDetalle.cs" />
     <Compile Include="ReporteServiciosRealizados.cs" />
     <Compile Include="TipoChechkList.cs" />
     <Compile Include="Curso.cs" />

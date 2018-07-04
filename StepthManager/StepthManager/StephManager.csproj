@@ -123,11 +123,35 @@
     <Compile Include="ClasesAux\LectorHuella.cs" />
     <Compile Include="ClasesAux\LogError.cs" />
     <Compile Include="ClasesAux\UtilFtp.cs" />
+    <Compile Include="Form2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form2.Designer.cs">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmNuevoReporteProductosVendidos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNuevoReporteProductosVendidos.Designer.cs">
+      <DependentUpon>frmNuevoReporteProductosVendidos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmReportesProductosVendidos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReportesProductosVendidos.Designer.cs">
+      <DependentUpon>frmReportesProductosVendidos.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmVerReporte.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmVerReporte.Designer.cs">
       <DependentUpon>frmVerReporte.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmVerReporteProductosVendidos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmVerReporteProductosVendidos.Designer.cs">
+      <DependentUpon>frmVerReporteProductosVendidos.cs</DependentUpon>
     </Compile>
     <Compile Include="frmVerRespuestaCheckList.cs">
       <SubType>Form</SubType>
@@ -1025,8 +1049,20 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form2.resx">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNuevoReporteProductosVendidos.resx">
+      <DependentUpon>frmNuevoReporteProductosVendidos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReportesProductosVendidos.resx">
+      <DependentUpon>frmReportesProductosVendidos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmVerReporte.resx">
       <DependentUpon>frmVerReporte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmVerReporteProductosVendidos.resx">
+      <DependentUpon>frmVerReporteProductosVendidos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmVerRespuestaCheckList.resx">
       <DependentUpon>frmVerRespuestaCheckList.cs</DependentUpon>
@@ -1484,6 +1520,7 @@
     <EmbeddedResource Include="Informes\CheckListActividad.rdlc" />
     <EmbeddedResource Include="Informes\MaterialesProduccion.rdlc" />
     <EmbeddedResource Include="Informes\Reportes\ConsumoMaterial.rdlc" />
+    <EmbeddedResource Include="Informes\Reportes\ProductosVendidos.rdlc" />
     <EmbeddedResource Include="Informes\Reportes\ServiciosRealizados.rdlc" />
     <EmbeddedResource Include="Informes\ServiciosXClave.rdlc" />
     <EmbeddedResource Include="Informes\UsosClaves.rdlc" />
@@ -1506,6 +1543,7 @@
     <None Include="Properties\DataSources\CreativaSL.Dll.StephManager.Global.PedidoDetalle.datasource" />
     <None Include="Properties\DataSources\CreativaSL.Dll.StephManager.Global.ReporteConsumoMaterial.datasource" />
     <None Include="Properties\DataSources\CreativaSL.Dll.StephManager.Global.ReporteMaterialesProduccion.datasource" />
+    <None Include="Properties\DataSources\CreativaSL.Dll.StephManager.Global.ReporteProductosVendidosDetalle.datasource" />
     <None Include="Properties\DataSources\CreativaSL.Dll.StephManager.Global.ReporteServiciosRealizados.datasource" />
     <None Include="Properties\DataSources\CreativaSL.Dll.StepthManager.Global.Producto.datasource" />
     <None Include="Properties\Settings.settings">

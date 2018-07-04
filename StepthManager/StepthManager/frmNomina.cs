@@ -167,6 +167,7 @@ namespace StephManager
 
         #region Eventos
 
+        #region Eventos Click
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             try
@@ -299,6 +300,10 @@ namespace StephManager
             }
         }
 
+        #endregion
+
+        #region Otros eventos
+
         private void dtpFechaInicio_Enter(object sender, EventArgs e)
         {
             try
@@ -394,7 +399,7 @@ namespace StephManager
                 LogError.AddExcFileTxt(ex, "frmNomina ~ txtFolioBusq_Enter");
             }
         }
-
+        #endregion
         #endregion
 
     }
