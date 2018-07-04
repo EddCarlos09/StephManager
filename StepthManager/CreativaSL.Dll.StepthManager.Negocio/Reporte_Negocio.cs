@@ -36,6 +36,14 @@ namespace CreativaSL.Dll.StephManager.Negocio
             }
         }
 
+        /// <summary>
+        /// Método para obtener el reporte de consumo de material
+        /// </summary>
+        /// <param name="Conexion">Cadena de conexión a la BD</param>
+        /// <param name="IDSucursal">Identificador de la sucursal a la que se generará el reporte</param>
+        /// <param name="FechaInicio">Fecha de inicio del período</param>
+        /// <param name="FechaFin">Fecha de término del período</param>
+        /// <returns>Retorna una lista con el detalle de consumo de material de la sucursal seleccionada.</returns>
         public List<ReporteConsumoMaterial> ObtenerReporteConsumoMaterial(string Conexion, string IDSucursal, DateTime FechaInicio, DateTime FechaFin)
         {
             try

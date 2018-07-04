@@ -91,6 +91,14 @@ namespace CreativaSL.Dll.StephManager.Datos
             }
         }
 
+        /// <summary>
+        /// Método para obtener el reporte de consumo de material
+        /// </summary>
+        /// <param name="Conexion">Cadena de conexión a la BD</param>
+        /// <param name="IDSucursal">Identificador de la sucursal a la que se generará el reporte</param>
+        /// <param name="FechaInicio">Fecha de inicio del período</param>
+        /// <param name="FechaFin">Fecha de término del período</param>
+        /// <returns>Retorna una lista con el detalle de consumo de material de la sucursal seleccionada.</returns>
         public List<ReporteConsumoMaterial> ObtenerReporteConsumoMaterial(string Conexion, string IDSucursal, DateTime FechaInicio, DateTime FechaFin)
         {
             try
@@ -101,7 +109,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                 SqlDataReader Dr = SqlHelper.ExecuteReader(Conexion, "Reportes.spCSLDB_get_ReporteConsumoMaterial", Parametros);
                 while (Dr.Read())
                 {
-                    Item = new ReporteConsumoMaterial();
+                    Item = new ReporteConsumoMaterial();                    
                     Item.Tipo = !Dr.IsDBNull(Dr.GetOrdinal("Tipo")) ? Dr.GetInt32(Dr.GetOrdinal("Tipo")) : 0;
                     Item.IDGeneral = !Dr.IsDBNull(Dr.GetOrdinal("IDGeneral")) ? Dr.GetString(Dr.GetOrdinal("IDGeneral")) : string.Empty;
                     Item.Nombre = !Dr.IsDBNull(Dr.GetOrdinal("Nombre")) ? Dr.GetString(Dr.GetOrdinal("Nombre")) : string.Empty;
@@ -111,7 +119,6 @@ namespace CreativaSL.Dll.StephManager.Datos
                     Item.Fecha = !Dr.IsDBNull(Dr.GetOrdinal("Fecha")) ? Dr.GetDateTime(Dr.GetOrdinal("Fecha")) : DateTime.MinValue;
                     Item.Produccion = !Dr.IsDBNull(Dr.GetOrdinal("Produccion")) ? Dr.GetBoolean(Dr.GetOrdinal("Produccion")) : false;
                     Item.CumpleMetrica = !Dr.IsDBNull(Dr.GetOrdinal("CumpleMetrica")) ? Dr.GetBoolean(Dr.GetOrdinal("CumpleMetrica")) : false;
-                    
                     Lista.Add(Item);
                 }
                 Dr.Close();
