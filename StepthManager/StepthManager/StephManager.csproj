@@ -58,34 +58,34 @@
   <ItemGroup>
     <Reference Include="CreativaSL.Dll.Validaciones, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\Documents\Visual Studio 2012\Projects\CreativaSL.Validaciones\CreativaSL.Dll.Validaciones\bin\Debug\CreativaSL.Dll.Validaciones.dll</HintPath>
+      <HintPath>..\..\..\..\..\Desktop\CreativaSL.Dll.Validaciones.dll</HintPath>
     </Reference>
     <Reference Include="CreativaSL.LibControls.WinForms">
-      <HintPath>..\..\..\CreativaSL.LibControls.WinForms.dll</HintPath>
+      <HintPath>..\..\..\..\..\Desktop\CreativaSL.LibControls.WinForms.dll</HintPath>
     </Reference>
     <Reference Include="DPFPDevNET, Version=1.6.1.0, Culture=neutral, PublicKeyToken=696774c42ee28c57, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\Desktop\ProyectoCafe\ProyectoCafe\bin\Debug\DPFPDevNET.dll</HintPath>
+      <HintPath>..\..\..\..\..\Desktop\DPFPDevNET.dll</HintPath>
     </Reference>
     <Reference Include="DPFPEngNET, Version=1.6.1.0, Culture=neutral, PublicKeyToken=7fe76e7adf19964b, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\Desktop\ProyectoCafe\ProyectoCafe\bin\Debug\DPFPEngNET.dll</HintPath>
+      <HintPath>..\..\..\..\..\Desktop\DPFPEngNET.dll</HintPath>
     </Reference>
     <Reference Include="DPFPGuiNet, Version=1.6.1.0, Culture=neutral, PublicKeyToken=d4f4a0bd9c559145, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\Desktop\ProyectoCafe\ProyectoCafe\bin\Debug\DPFPGuiNet.dll</HintPath>
+      <HintPath>..\..\..\..\..\Desktop\DPFPGuiNet.dll</HintPath>
     </Reference>
     <Reference Include="DPFPShrNET, Version=1.6.1.0, Culture=neutral, PublicKeyToken=d902fe275a8d6cf2, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\Desktop\ProyectoCafe\ProyectoCafe\bin\Debug\DPFPShrNET.dll</HintPath>
+      <HintPath>..\..\..\..\..\Desktop\DPFPShrNET.dll</HintPath>
     </Reference>
     <Reference Include="DPFPVerNET, Version=1.6.1.0, Culture=neutral, PublicKeyToken=4de0a9c4dcc83984, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\Desktop\ProyectoCafe\ProyectoCafe\bin\Debug\DPFPVerNET.dll</HintPath>
+      <HintPath>..\..\..\..\..\Desktop\DPFPVerNET.dll</HintPath>
     </Reference>
     <Reference Include="HtmlRichTextBox, Version=1.0.2165.30472, Culture=neutral">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\HtmlRichTextBox.dll</HintPath>
+      <HintPath>..\..\..\..\..\Desktop\HtmlRichTextBox.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Office.Interop.Excel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
       <EmbedInteropTypes>True</EmbedInteropTypes>
@@ -93,7 +93,7 @@
     <Reference Include="Microsoft.Office.Tools.Excel, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
-    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
