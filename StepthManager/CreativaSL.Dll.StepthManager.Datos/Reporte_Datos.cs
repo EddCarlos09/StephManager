@@ -91,6 +91,14 @@ namespace CreativaSL.Dll.StephManager.Datos
             }
         }
 
+        /// <summary>
+        /// Método para obtener el reporte de consumo de material
+        /// </summary>
+        /// <param name="Conexion">Cadena de conexión a la BD</param>
+        /// <param name="IDSucursal">Identificador de la sucursal a la que se generará el reporte</param>
+        /// <param name="FechaInicio">Fecha de inicio del período</param>
+        /// <param name="FechaFin">Fecha de término del período</param>
+        /// <returns>Retorna una lista con el detalle de consumo de material de la sucursal seleccionada.</returns>
         public List<ReporteConsumoMaterial> ObtenerReporteConsumoMaterial(string Conexion, string IDSucursal, DateTime FechaInicio, DateTime FechaFin)
         {
             try
@@ -101,7 +109,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                 SqlDataReader Dr = SqlHelper.ExecuteReader(Conexion, "Reportes.spCSLDB_get_ReporteConsumoMaterial", Parametros);
                 while (Dr.Read())
                 {
-                    Item = new ReporteConsumoMaterial();
+                    Item = new ReporteConsumoMaterial();                    
                     Item.Tipo = !Dr.IsDBNull(Dr.GetOrdinal("Tipo")) ? Dr.GetInt32(Dr.GetOrdinal("Tipo")) : 0;
                     Item.IDGeneral = !Dr.IsDBNull(Dr.GetOrdinal("IDGeneral")) ? Dr.GetString(Dr.GetOrdinal("IDGeneral")) : string.Empty;
                     Item.Nombre = !Dr.IsDBNull(Dr.GetOrdinal("Nombre")) ? Dr.GetString(Dr.GetOrdinal("Nombre")) : string.Empty;
@@ -111,7 +119,6 @@ namespace CreativaSL.Dll.StephManager.Datos
                     Item.Fecha = !Dr.IsDBNull(Dr.GetOrdinal("Fecha")) ? Dr.GetDateTime(Dr.GetOrdinal("Fecha")) : DateTime.MinValue;
                     Item.Produccion = !Dr.IsDBNull(Dr.GetOrdinal("Produccion")) ? Dr.GetBoolean(Dr.GetOrdinal("Produccion")) : false;
                     Item.CumpleMetrica = !Dr.IsDBNull(Dr.GetOrdinal("CumpleMetrica")) ? Dr.GetBoolean(Dr.GetOrdinal("CumpleMetrica")) : false;
-                    
                     Lista.Add(Item);
                 }
                 Dr.Close();
@@ -122,5 +129,98 @@ namespace CreativaSL.Dll.StephManager.Datos
                 throw ex;
             }
         }
+        
+
+
+        public int GenerarReporteProductosVendidos(string Conexion, DateTime FechaInicio, DateTime FechaFin, string IDUsuario)
+        {
+            try
+            {
+                int IDReporte = -1;
+                object[] Parametros = { FechaInicio, FechaFin, IDUsuario };
+                object Result = SqlHelper.ExecuteScalar(Conexion, "Reportes.spCSLDB_set_GenerarReporteProductosVendidos", Parametros);
+                if(Result != null)
+                {
+                    int.TryParse(Result.ToString(), out IDReporte);
+                }
+                return IDReporte;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public ReporteProductosVendidos ObtenerDetalleReporteProductosVendidos(string Conexion, int IDReporte)
+        {
+            try
+            {
+                ReporteProductosVendidos Resultado = new ReporteProductosVendidos();
+                DataSet Ds = SqlHelper.ExecuteDataset(Conexion, "Reportes.spCSLDB_get_ReporteProductosVendidosXID", IDReporte);
+                if(Ds != null)
+                {
+                    if(Ds.Tables.Count == 2)
+                    {
+                        DataTableReader Dr = Ds.Tables[0].CreateDataReader();
+                        while(Dr.Read())
+                        {
+                            Resultado.FechaInicio = !Dr.IsDBNull(Dr.GetOrdinal("FechaInicio")) ? Dr.GetDateTime(Dr.GetOrdinal("FechaInicio")) : DateTime.MinValue;
+                            Resultado.FechaFin = !Dr.IsDBNull(Dr.GetOrdinal("FechaFin")) ? Dr.GetDateTime(Dr.GetOrdinal("FechaFin")) : DateTime.MinValue;
+                            break;
+                        }
+                        Dr.Close();
+
+                        List<ReporteProductosVendidosDetalle> Lista = new List<ReporteProductosVendidosDetalle>();
+                        ReporteProductosVendidosDetalle Item;
+                        DataTableReader Dr2 = Ds.Tables[1].CreateDataReader();
+                        while(Dr2.Read())
+                        {
+                            Item = new ReporteProductosVendidosDetalle();
+                            Item.IDSucursal = !Dr2.IsDBNull(Dr2.GetOrdinal("IDSucursal")) ? Dr2.GetString(Dr2.GetOrdinal("IDSucursal")) : string.Empty;
+                            Item.Sucursal = !Dr2.IsDBNull(Dr2.GetOrdinal("Sucursal")) ? Dr2.GetString(Dr2.GetOrdinal("Sucursal")) : string.Empty;
+                            Item.IDProducto = !Dr2.IsDBNull(Dr2.GetOrdinal("IDProducto")) ? Dr2.GetString(Dr2.GetOrdinal("IDProducto")) : string.Empty;
+                            Item.Clave = !Dr2.IsDBNull(Dr2.GetOrdinal("Clave")) ? Dr2.GetString(Dr2.GetOrdinal("Clave")) : string.Empty;
+                            Item.Producto = !Dr2.IsDBNull(Dr2.GetOrdinal("Producto")) ? Dr2.GetString(Dr2.GetOrdinal("Producto")) : string.Empty;
+                            Item.Cantidad = !Dr2.IsDBNull(Dr2.GetOrdinal("Cantidad")) ? Dr2.GetDecimal(Dr2.GetOrdinal("Cantidad")) : 0;
+                            Lista.Add(Item);
+                        }
+                        Dr2.Close();
+
+                        Resultado.Detalle = Lista;
+                        Resultado.Completo = true;
+                    }
+                }
+                return Resultado;
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public List<ReporteProductosVendidos> ObtenerReportesProductosVendidos(string Conexion)
+        {
+            try
+            {
+                List<ReporteProductosVendidos> Lista = new List<ReporteProductosVendidos>();
+                ReporteProductosVendidos Item;
+                SqlDataReader Dr = SqlHelper.ExecuteReader(Conexion, "Reportes.spCSLDB_get_ReportesProductosVendidos");
+                while(Dr.Read())
+                {
+                    Item = new ReporteProductosVendidos();
+                    Item.IDReporte = !Dr.IsDBNull(Dr.GetOrdinal("IDReporte")) ? Dr.GetInt32(Dr.GetOrdinal("IDReporte")) : 0;
+                    Item.FechaInicio = !Dr.IsDBNull(Dr.GetOrdinal("FechaInicio")) ? Dr.GetDateTime(Dr.GetOrdinal("FechaInicio")) : DateTime.MinValue;
+                    Item.FechaFin = !Dr.IsDBNull(Dr.GetOrdinal("FechaFin")) ? Dr.GetDateTime(Dr.GetOrdinal("FechaFin")) : DateTime.MinValue;
+                    Lista.Add(Item);
+                }
+                Dr.Close();
+                return Lista;
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
+
     }
 }

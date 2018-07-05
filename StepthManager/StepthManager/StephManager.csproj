@@ -87,13 +87,13 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Debug\HtmlRichTextBox.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Office.Interop.Excel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
-      <EmbedInteropTypes>True</EmbedInteropTypes>
+    <Reference Include="Microsoft.ApplicationBlocks.Data">
+      <HintPath>..\..\..\..\..\Desktop\DRIVER HUELLA DIGITALES\Microsoft.ApplicationBlocks.Data.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Office.Tools.Excel, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
-    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -123,11 +123,29 @@
     <Compile Include="ClasesAux\LectorHuella.cs" />
     <Compile Include="ClasesAux\LogError.cs" />
     <Compile Include="ClasesAux\UtilFtp.cs" />
+    <Compile Include="frmNuevoReporteProductosVendidos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNuevoReporteProductosVendidos.Designer.cs">
+      <DependentUpon>frmNuevoReporteProductosVendidos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmReportesProductosVendidos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReportesProductosVendidos.Designer.cs">
+      <DependentUpon>frmReportesProductosVendidos.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmVerReporte.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmVerReporte.Designer.cs">
       <DependentUpon>frmVerReporte.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmVerReporteProductosVendidos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmVerReporteProductosVendidos.Designer.cs">
+      <DependentUpon>frmVerReporteProductosVendidos.cs</DependentUpon>
     </Compile>
     <Compile Include="frmVerRespuestaCheckList.cs">
       <SubType>Form</SubType>
@@ -1025,8 +1043,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmNuevoReporteProductosVendidos.resx">
+      <DependentUpon>frmNuevoReporteProductosVendidos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReportesProductosVendidos.resx">
+      <DependentUpon>frmReportesProductosVendidos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmVerReporte.resx">
       <DependentUpon>frmVerReporte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmVerReporteProductosVendidos.resx">
+      <DependentUpon>frmVerReporteProductosVendidos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmVerRespuestaCheckList.resx">
       <DependentUpon>frmVerRespuestaCheckList.cs</DependentUpon>
@@ -1734,7 +1761,35 @@
       <Name>CreativaSL.Dll.StephManager.Negocio</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>7</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Excel">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -36,6 +36,14 @@ namespace CreativaSL.Dll.StephManager.Negocio
             }
         }
 
+        /// <summary>
+        /// Método para obtener el reporte de consumo de material
+        /// </summary>
+        /// <param name="Conexion">Cadena de conexión a la BD</param>
+        /// <param name="IDSucursal">Identificador de la sucursal a la que se generará el reporte</param>
+        /// <param name="FechaInicio">Fecha de inicio del período</param>
+        /// <param name="FechaFin">Fecha de término del período</param>
+        /// <returns>Retorna una lista con el detalle de consumo de material de la sucursal seleccionada.</returns>
         public List<ReporteConsumoMaterial> ObtenerReporteConsumoMaterial(string Conexion, string IDSucursal, DateTime FechaInicio, DateTime FechaFin)
         {
             try
@@ -48,5 +56,49 @@ namespace CreativaSL.Dll.StephManager.Negocio
                 throw ex;
             }
         }
+
+
+
+
+
+        public int GenerarReporteProductosVendidos(string Conexion, DateTime FechaInicio, DateTime FechaFin, string IDUsuario)
+        {
+            try
+            {
+                Reporte_Datos Datos = new Reporte_Datos();
+                return Datos.GenerarReporteProductosVendidos(Conexion, FechaInicio, FechaFin, IDUsuario);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public ReporteProductosVendidos ObtenerDetalleReporteProductosVendidos(string Conexion, int IDReporte)
+        {
+            try
+            {
+                Reporte_Datos Datos = new Reporte_Datos();
+                return Datos.ObtenerDetalleReporteProductosVendidos(Conexion, IDReporte);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public List<ReporteProductosVendidos> ObtenerReportesProductosVendidos(string Conexion)
+        {
+            try
+            {
+                Reporte_Datos Datos = new Reporte_Datos();
+                return Datos.ObtenerReportesProductosVendidos(Conexion);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
     }
 }

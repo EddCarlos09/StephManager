@@ -926,7 +926,10 @@ namespace StephManager
         {
             try
             {
-                frmVerReporte Reporte = new frmVerReporte(3);
+                //frmVerReporte Reporte = new frmVerReporte(3);
+                //Reporte.ShowDialog();
+                //Reporte.Dispose();
+                frmReportesProductosVendidos Reporte = new frmReportesProductosVendidos();
                 Reporte.ShowDialog();
                 Reporte.Dispose();
             }

@@ -1,6 +1,6 @@
 ﻿namespace StephManager
 {
-    partial class frmVerListados
+    partial class frmVerReporteProductosVendidos
     {
         /// <summary>
         /// Variable del diseñador requerida.
@@ -31,20 +31,21 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.panel7 = new System.Windows.Forms.Panel();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.panel9 = new System.Windows.Forms.Panel();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.panel4 = new System.Windows.Forms.Panel();
             this.PanelMenu = new System.Windows.Forms.Panel();
-            this.btnSalir = new CreativaSL.LibControls.WinForms.Button_Creativa();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblTitulo = new System.Windows.Forms.Label();
-            this.panel8 = new System.Windows.Forms.Panel();
+            this.btnSalir = new CreativaSL.LibControls.WinForms.Button_Creativa();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
-            this.panel7.SuspendLayout();
+            this.panel8.SuspendLayout();
+            this.panel9.SuspendLayout();
             this.panel4.SuspendLayout();
             this.PanelMenu.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -77,7 +78,7 @@
             // panel5
             // 
             this.panel5.AutoScroll = true;
-            this.panel5.Controls.Add(this.panel7);
+            this.panel5.Controls.Add(this.panel8);
             this.panel5.Controls.Add(this.panel4);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(0, 0);
@@ -85,14 +86,23 @@
             this.panel5.Size = new System.Drawing.Size(1008, 608);
             this.panel5.TabIndex = 1;
             // 
-            // panel7
+            // panel8
             // 
-            this.panel7.Controls.Add(this.reportViewer1);
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel7.Location = new System.Drawing.Point(0, 0);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(1008, 532);
-            this.panel7.TabIndex = 1;
+            this.panel8.Controls.Add(this.panel9);
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel8.Location = new System.Drawing.Point(0, 0);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(1008, 532);
+            this.panel8.TabIndex = 2;
+            // 
+            // panel9
+            // 
+            this.panel9.Controls.Add(this.reportViewer1);
+            this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel9.Location = new System.Drawing.Point(0, 0);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(1008, 532);
+            this.panel9.TabIndex = 2;
             // 
             // reportViewer1
             // 
@@ -120,6 +130,38 @@
             this.PanelMenu.Name = "PanelMenu";
             this.PanelMenu.Size = new System.Drawing.Size(1008, 76);
             this.PanelMenu.TabIndex = 2;
+            // 
+            // panel2
+            // 
+            this.panel2.AutoScroll = true;
+            this.panel2.Controls.Add(this.panel6);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1008, 80);
+            this.panel2.TabIndex = 0;
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(205)))), ((int)(((byte)(215)))));
+            this.panel6.Controls.Add(this.pictureBox1);
+            this.panel6.Controls.Add(this.lblTitulo);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel6.Location = new System.Drawing.Point(0, 0);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(1008, 80);
+            this.panel6.TabIndex = 2;
+            // 
+            // lblTitulo
+            // 
+            this.lblTitulo.AutoSize = true;
+            this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo.ForeColor = System.Drawing.Color.White;
+            this.lblTitulo.Location = new System.Drawing.Point(21, 9);
+            this.lblTitulo.Name = "lblTitulo";
+            this.lblTitulo.Size = new System.Drawing.Size(203, 55);
+            this.lblTitulo.TabIndex = 24;
+            this.lblTitulo.Text = "Reporte";
             // 
             // btnSalir
             // 
@@ -155,28 +197,6 @@
             this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
-            // panel2
-            // 
-            this.panel2.AutoScroll = true;
-            this.panel2.Controls.Add(this.panel6);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1008, 80);
-            this.panel2.TabIndex = 0;
-            // 
-            // panel6
-            // 
-            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(205)))), ((int)(((byte)(215)))));
-            this.panel6.Controls.Add(this.panel8);
-            this.panel6.Controls.Add(this.pictureBox1);
-            this.panel6.Controls.Add(this.lblTitulo);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(0, 0);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(1008, 80);
-            this.panel6.TabIndex = 2;
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -188,26 +208,7 @@
             this.pictureBox1.TabIndex = 34;
             this.pictureBox1.TabStop = false;
             // 
-            // lblTitulo
-            // 
-            this.lblTitulo.AutoSize = true;
-            this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.ForeColor = System.Drawing.Color.White;
-            this.lblTitulo.Location = new System.Drawing.Point(21, 9);
-            this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(205, 55);
-            this.lblTitulo.TabIndex = 24;
-            this.lblTitulo.Text = "Clientes";
-            // 
-            // panel8
-            // 
-            this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel8.Location = new System.Drawing.Point(0, 0);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(1008, 80);
-            this.panel8.TabIndex = 35;
-            // 
-            // frmVerListados
+            // frmVerReporteProductosVendidos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
@@ -216,15 +217,16 @@
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Trebuchet MS", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MinimumSize = new System.Drawing.Size(1024, 726);
-            this.Name = "frmVerListados";
+            this.Name = "frmVerReporteProductosVendidos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Steph v1.0";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.frmVerReporte_Load);
+            this.Load += new System.EventHandler(this.frmVerReporteProductosVendidos_Load);
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
-            this.panel7.ResumeLayout(false);
+            this.panel8.ResumeLayout(false);
+            this.panel9.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.PanelMenu.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
@@ -243,13 +245,13 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Label lblTitulo;
-        private System.Windows.Forms.Panel panel7;
-        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel PanelMenu;
         private CreativaSL.LibControls.WinForms.Button_Creativa btnSalir;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Panel panel9;
+        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
     }
 }
 
