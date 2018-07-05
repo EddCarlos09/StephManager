@@ -129,11 +129,23 @@
     <Compile Include="frmNuevoReporteProductosVendidos.Designer.cs">
       <DependentUpon>frmNuevoReporteProductosVendidos.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmReportesProductosVendidos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReportesProductosVendidos.Designer.cs">
+      <DependentUpon>frmReportesProductosVendidos.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmVerReporte.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmVerReporte.Designer.cs">
       <DependentUpon>frmVerReporte.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmVerReporteProductosVendidos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmVerReporteProductosVendidos.Designer.cs">
+      <DependentUpon>frmVerReporteProductosVendidos.cs</DependentUpon>
     </Compile>
     <Compile Include="frmVerRespuestaCheckList.cs">
       <SubType>Form</SubType>
@@ -1034,8 +1046,14 @@
     <EmbeddedResource Include="frmNuevoReporteProductosVendidos.resx">
       <DependentUpon>frmNuevoReporteProductosVendidos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmReportesProductosVendidos.resx">
+      <DependentUpon>frmReportesProductosVendidos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmVerReporte.resx">
       <DependentUpon>frmVerReporte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmVerReporteProductosVendidos.resx">
+      <DependentUpon>frmVerReporteProductosVendidos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmVerRespuestaCheckList.resx">
       <DependentUpon>frmVerRespuestaCheckList.cs</DependentUpon>
