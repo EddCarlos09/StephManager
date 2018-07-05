@@ -123,6 +123,12 @@
     <Compile Include="ClasesAux\LectorHuella.cs" />
     <Compile Include="ClasesAux\LogError.cs" />
     <Compile Include="ClasesAux\UtilFtp.cs" />
+    <Compile Include="frmNuevoReporteProductosVendidos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNuevoReporteProductosVendidos.Designer.cs">
+      <DependentUpon>frmNuevoReporteProductosVendidos.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmVerReporte.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1025,6 +1031,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmNuevoReporteProductosVendidos.resx">
+      <DependentUpon>frmNuevoReporteProductosVendidos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmVerReporte.resx">
       <DependentUpon>frmVerReporte.cs</DependentUpon>
     </EmbeddedResource>
