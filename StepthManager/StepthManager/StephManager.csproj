@@ -1504,6 +1504,7 @@
     <EmbeddedResource Include="Informes\CheckListActividad.rdlc" />
     <EmbeddedResource Include="Informes\MaterialesProduccion.rdlc" />
     <EmbeddedResource Include="Informes\Reportes\ConsumoMaterial.rdlc" />
+    <EmbeddedResource Include="Informes\Reportes\ProductosVendidos.rdlc" />
     <EmbeddedResource Include="Informes\Reportes\ServiciosRealizados.rdlc" />
     <EmbeddedResource Include="Informes\ServiciosXClave.rdlc" />
     <EmbeddedResource Include="Informes\UsosClaves.rdlc" />
