@@ -34,20 +34,20 @@
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel12 = new System.Windows.Forms.Panel();
             this.dgvReportesProductosVendidos = new System.Windows.Forms.DataGridView();
+            this.IDReporte = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FechaInicio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FechaFin = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel7 = new System.Windows.Forms.Panel();
             this.PanelMenu = new System.Windows.Forms.Panel();
+            this.btnImpresion = new CreativaSL.LibControls.WinForms.Button_Creativa();
+            this.btnSalir = new CreativaSL.LibControls.WinForms.Button_Creativa();
+            this.btnNuevo = new CreativaSL.LibControls.WinForms.Button_Creativa();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.label42 = new System.Windows.Forms.Label();
-            this.IDReporte = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FechaInicio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FechaFin = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnImpresion = new CreativaSL.LibControls.WinForms.Button_Creativa();
-            this.btnSalir = new CreativaSL.LibControls.WinForms.Button_Creativa();
-            this.btnNuevo = new CreativaSL.LibControls.WinForms.Button_Creativa();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label42 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -135,78 +135,6 @@
             this.dgvReportesProductosVendidos.Size = new System.Drawing.Size(1008, 478);
             this.dgvReportesProductosVendidos.TabIndex = 1;
             // 
-            // panel7
-            // 
-            this.panel7.Controls.Add(this.PanelMenu);
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel7.Location = new System.Drawing.Point(0, 478);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(1008, 80);
-            this.panel7.TabIndex = 0;
-            // 
-            // PanelMenu
-            // 
-            this.PanelMenu.BackColor = System.Drawing.Color.Gray;
-            this.PanelMenu.Controls.Add(this.btnImpresion);
-            this.PanelMenu.Controls.Add(this.btnSalir);
-            this.PanelMenu.Controls.Add(this.btnNuevo);
-            this.PanelMenu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PanelMenu.Location = new System.Drawing.Point(0, 0);
-            this.PanelMenu.Name = "PanelMenu";
-            this.PanelMenu.Size = new System.Drawing.Size(1008, 80);
-            this.PanelMenu.TabIndex = 1;
-            // 
-            // panel4
-            // 
-            this.panel4.AutoScroll = true;
-            this.panel4.Controls.Add(this.panel10);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel4.Location = new System.Drawing.Point(0, 0);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1008, 50);
-            this.panel4.TabIndex = 0;
-            // 
-            // panel10
-            // 
-            this.panel10.BackColor = System.Drawing.Color.DarkGray;
-            this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel10.Location = new System.Drawing.Point(0, 0);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(1008, 50);
-            this.panel10.TabIndex = 2;
-            // 
-            // panel2
-            // 
-            this.panel2.AutoScroll = true;
-            this.panel2.Controls.Add(this.panel6);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1008, 80);
-            this.panel2.TabIndex = 0;
-            // 
-            // panel6
-            // 
-            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(205)))), ((int)(((byte)(215)))));
-            this.panel6.Controls.Add(this.pictureBox1);
-            this.panel6.Controls.Add(this.label42);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(0, 0);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(1008, 80);
-            this.panel6.TabIndex = 2;
-            // 
-            // label42
-            // 
-            this.label42.AutoSize = true;
-            this.label42.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label42.ForeColor = System.Drawing.Color.White;
-            this.label42.Location = new System.Drawing.Point(21, 9);
-            this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(473, 55);
-            this.label42.TabIndex = 24;
-            this.label42.Text = "Productos Vendidos";
-            // 
             // IDReporte
             // 
             this.IDReporte.DataPropertyName = "IDReporte";
@@ -230,6 +158,27 @@
             this.FechaFin.Name = "FechaFin";
             this.FechaFin.ReadOnly = true;
             this.FechaFin.Width = 200;
+            // 
+            // panel7
+            // 
+            this.panel7.Controls.Add(this.PanelMenu);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel7.Location = new System.Drawing.Point(0, 478);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(1008, 80);
+            this.panel7.TabIndex = 0;
+            // 
+            // PanelMenu
+            // 
+            this.PanelMenu.BackColor = System.Drawing.Color.Gray;
+            this.PanelMenu.Controls.Add(this.btnImpresion);
+            this.PanelMenu.Controls.Add(this.btnSalir);
+            this.PanelMenu.Controls.Add(this.btnNuevo);
+            this.PanelMenu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PanelMenu.Location = new System.Drawing.Point(0, 0);
+            this.PanelMenu.Name = "PanelMenu";
+            this.PanelMenu.Size = new System.Drawing.Size(1008, 80);
+            this.PanelMenu.TabIndex = 1;
             // 
             // btnImpresion
             // 
@@ -333,6 +282,46 @@
             this.btnNuevo.UseVisualStyleBackColor = false;
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
+            // panel4
+            // 
+            this.panel4.AutoScroll = true;
+            this.panel4.Controls.Add(this.panel10);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel4.Location = new System.Drawing.Point(0, 0);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(1008, 50);
+            this.panel4.TabIndex = 0;
+            // 
+            // panel10
+            // 
+            this.panel10.BackColor = System.Drawing.Color.DarkGray;
+            this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel10.Location = new System.Drawing.Point(0, 0);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(1008, 50);
+            this.panel10.TabIndex = 2;
+            // 
+            // panel2
+            // 
+            this.panel2.AutoScroll = true;
+            this.panel2.Controls.Add(this.panel6);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1008, 80);
+            this.panel2.TabIndex = 0;
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(205)))), ((int)(((byte)(215)))));
+            this.panel6.Controls.Add(this.pictureBox1);
+            this.panel6.Controls.Add(this.label42);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel6.Location = new System.Drawing.Point(0, 0);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(1008, 80);
+            this.panel6.TabIndex = 2;
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -343,6 +332,17 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 33;
             this.pictureBox1.TabStop = false;
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label42.ForeColor = System.Drawing.Color.White;
+            this.label42.Location = new System.Drawing.Point(21, 9);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(473, 55);
+            this.label42.TabIndex = 24;
+            this.label42.Text = "Productos Vendidos";
             // 
             // frmReportesProductosVendidos
             // 

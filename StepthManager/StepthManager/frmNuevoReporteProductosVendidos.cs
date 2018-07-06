@@ -137,9 +137,9 @@ namespace StephManager
                     if(IDReporte > 0)
                     {
                         //Generar el reporte
-                        frmVerReporteProductosVendidos VerReporte = new frmVerReporteProductosVendidos(IDReporte);
-                        VerReporte.ShowDialog();
-                        VerReporte.Dispose();
+                        //frmReporteTiempoServicios VerReporte = new frmReporteTiempoServicios(IDReporte);
+                        //VerReporte.ShowDialog();
+                        //VerReporte.Dispose();
                         this.DialogResult = DialogResult.OK;
                     }
                     else

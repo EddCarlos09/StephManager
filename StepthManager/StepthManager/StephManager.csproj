@@ -80,9 +80,6 @@
     <Reference Include="HtmlRichTextBox">
       <HintPath>..\..\..\..\..\Desktop\HtmlRichTextBox.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.ApplicationBlocks.Data">
-      <HintPath>..\..\..\..\..\Desktop\DRIVER HUELLA DIGITALES\Microsoft.ApplicationBlocks.Data.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.Office.Tools.Excel, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
@@ -139,6 +136,12 @@
     </Compile>
     <Compile Include="frmVerReporteProductosVendidos.Designer.cs">
       <DependentUpon>frmVerReporteProductosVendidos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmVerReporteTiempoServicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmVerReporteTiempoServicio.Designer.cs">
+      <DependentUpon>frmVerReporteTiempoServicio.cs</DependentUpon>
     </Compile>
     <Compile Include="frmVerRespuestaCheckList.cs">
       <SubType>Form</SubType>
@@ -1048,6 +1051,9 @@
     <EmbeddedResource Include="frmVerReporteProductosVendidos.resx">
       <DependentUpon>frmVerReporteProductosVendidos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmVerReporteTiempoServicio.resx">
+      <DependentUpon>frmVerReporteTiempoServicio.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmVerRespuestaCheckList.resx">
       <DependentUpon>frmVerRespuestaCheckList.cs</DependentUpon>
     </EmbeddedResource>
@@ -1504,6 +1510,7 @@
     <EmbeddedResource Include="Informes\CheckListActividad.rdlc" />
     <EmbeddedResource Include="Informes\MaterialesProduccion.rdlc" />
     <EmbeddedResource Include="Informes\Reportes\ConsumoMaterial.rdlc" />
+    <EmbeddedResource Include="Informes\Reportes\TiempoServicios.rdlc" />
     <EmbeddedResource Include="Informes\Reportes\ServiciosRealizados.rdlc" />
     <EmbeddedResource Include="Informes\ServiciosXClave.rdlc" />
     <EmbeddedResource Include="Informes\UsosClaves.rdlc" />
@@ -1524,6 +1531,7 @@
     <None Include="Properties\DataSources\CreativaSL.Dll.StephManager.Global.Mobiliario.datasource" />
     <None Include="Properties\DataSources\CreativaSL.Dll.StephManager.Global.Nomina.datasource" />
     <None Include="Properties\DataSources\CreativaSL.Dll.StephManager.Global.PedidoDetalle.datasource" />
+    <None Include="Properties\DataSources\CreativaSL.Dll.StephManager.Global.ReporteAVGTiempoServicios.datasource" />
     <None Include="Properties\DataSources\CreativaSL.Dll.StephManager.Global.ReporteConsumoMaterial.datasource" />
     <None Include="Properties\DataSources\CreativaSL.Dll.StephManager.Global.ReporteMaterialesProduccion.datasource" />
     <None Include="Properties\DataSources\CreativaSL.Dll.StephManager.Global.ReporteServiciosRealizados.datasource" />
