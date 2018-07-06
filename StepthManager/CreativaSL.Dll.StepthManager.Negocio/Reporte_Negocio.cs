@@ -99,6 +99,23 @@ namespace CreativaSL.Dll.StephManager.Negocio
                 throw ex;
             }
         }
+        /// <summary>
+        /// MIO   MIO   MIO   MIO   MIO
+        /// </summary>
+        /// <param name="Conexion"></param>
+        /// <returns></returns>
+        public List<ReporteTiempoServicios> ObtenerReporteTiempoServicio()
+        {
+            try
+            {
+                Reporte_Datos Datos1 = new Reporte_Datos();
+                return Datos1.ObtenerReporteTiempoServicio(Comun.Conexion);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
     }
 }

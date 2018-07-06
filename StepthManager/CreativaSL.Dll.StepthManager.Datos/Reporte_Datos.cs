@@ -222,5 +222,33 @@ namespace CreativaSL.Dll.StephManager.Datos
             }
         }
 
+        //MIO
+        public List<ReporteTiempoServicios> ObtenerReporteTiempoServicio(string Conexion)
+        {
+            try
+            {
+                List<ReporteTiempoServicios> Lista = new List<ReporteTiempoServicios>();
+                ReporteTiempoServicios Item;
+                SqlDataReader Dr = SqlHelper.ExecuteReader(Conexion, "Reportes.spCSLDB_get_ReporteAGVTiempoServicios");
+                while (Dr.Read())
+                {
+                    Item = new ReporteTiempoServicios();
+                    Item.IDEmpleado = !Dr.IsDBNull(Dr.GetOrdinal("IDEmpleado")) ? Dr.GetString(Dr.GetOrdinal("IDEmpleado")) : string.Empty;
+                    Item.Empleado = !Dr.IsDBNull(Dr.GetOrdinal("Empleado")) ? Dr.GetString(Dr.GetOrdinal("Empleado")) : string.Empty;
+                    Item.IDProducto = !Dr.IsDBNull(Dr.GetOrdinal("IDProducto")) ? Dr.GetString(Dr.GetOrdinal("IDProducto")) : string.Empty;
+                    Item.Servicio = !Dr.IsDBNull(Dr.GetOrdinal("Servicio")) ? Dr.GetString(Dr.GetOrdinal("Servicio")) : string.Empty;
+                    Item.TiempoAVG = !Dr.IsDBNull(Dr.GetOrdinal("TiempoAVG")) ? Dr.GetString(Dr.GetOrdinal("TiempoAVG")) : string.Empty;                                        
+                    Lista.Add(Item);
+                }
+                Dr.Close();
+                return Lista;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
     }
 }
