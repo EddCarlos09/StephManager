@@ -134,9 +134,9 @@ namespace StephManager
                 if(this.dgvReportesProductosVendidos.SelectedRows.Count == 1)
                 {
                     ReporteProductosVendidos Datos = this.ObtenerDatosReporte();
-                    frmVerReporteProductosVendidos VerReporte = new frmVerReporteProductosVendidos(Datos.IDReporte);
-                    VerReporte.ShowDialog();
-                    VerReporte.Dispose();
+                   //// frmReporteTiempoServicios VerReporte = new frmReporteTiempoServicios(Datos.IDReporte);
+                   // VerReporte.ShowDialog();
+                   // VerReporte.Dispose();
                 }
                 else
                 {

@@ -1970,7 +1970,7 @@ table td[class=template-img] img {
 
         public static string GenerarHtmlRegistoUsuario(string Usuario, string Password)
         {
-            string login = "www.stehp.com.mx/Login/Index";
+            //string login = "www.stehp.com.mx/Login/Index";
             string creativa = "http://creativasoftline.com";
             string html = @"<!DOCTYPE html>
 	        <html>
