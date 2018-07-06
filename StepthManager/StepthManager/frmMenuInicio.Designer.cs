@@ -29,24 +29,24 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle163 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle164 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle165 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle166 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle167 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle168 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle169 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle170 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle171 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle172 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle173 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle174 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle175 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle176 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle177 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle178 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle179 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle180 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMenuInicio));
             this.PanelMenu = new System.Windows.Forms.Panel();
             this.btnReporte = new CreativaSL.LibControls.WinForms.Button_Creativa();
@@ -130,6 +130,16 @@
             this.bgwVentas = new System.ComponentModel.BackgroundWorker();
             this.bgwNotificaciones = new System.ComponentModel.BackgroundWorker();
             this.TimerNotificaciones = new System.Windows.Forms.Timer(this.components);
+            this.MenuStripReportes = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolsm_TrabajosRealizados = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolsm_ConsumoMaterial = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolsm_Garantias = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolsm_Mobiliario = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolsm_Clientes = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolsm_ProductosVendidos = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolsm_TiempoServicios = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolsm_ComprasProveedor = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolsm_Faltas = new System.Windows.Forms.ToolStripMenuItem();
             this.PanelMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -147,6 +157,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.NotificacionMaxima)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NotificacionMinima)).BeginInit();
+            this.MenuStripReportes.SuspendLayout();
             this.SuspendLayout();
             // 
             // PanelMenu
@@ -1121,8 +1132,8 @@
             // h8
             // 
             this.h8.DataPropertyName = "H08";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.h8.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle163.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.h8.DefaultCellStyle = dataGridViewCellStyle163;
             this.h8.HeaderText = "08";
             this.h8.Name = "h8";
             this.h8.ReadOnly = true;
@@ -1131,8 +1142,8 @@
             // h9
             // 
             this.h9.DataPropertyName = "H09";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.h9.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle164.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.h9.DefaultCellStyle = dataGridViewCellStyle164;
             this.h9.HeaderText = "09";
             this.h9.Name = "h9";
             this.h9.ReadOnly = true;
@@ -1141,8 +1152,8 @@
             // h10
             // 
             this.h10.DataPropertyName = "H10";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.h10.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle165.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.h10.DefaultCellStyle = dataGridViewCellStyle165;
             this.h10.HeaderText = "10";
             this.h10.Name = "h10";
             this.h10.ReadOnly = true;
@@ -1151,8 +1162,8 @@
             // h11
             // 
             this.h11.DataPropertyName = "H11";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.h11.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle166.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.h11.DefaultCellStyle = dataGridViewCellStyle166;
             this.h11.HeaderText = "11";
             this.h11.Name = "h11";
             this.h11.ReadOnly = true;
@@ -1161,8 +1172,8 @@
             // h12
             // 
             this.h12.DataPropertyName = "H12";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.h12.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle167.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.h12.DefaultCellStyle = dataGridViewCellStyle167;
             this.h12.HeaderText = "12";
             this.h12.Name = "h12";
             this.h12.ReadOnly = true;
@@ -1171,8 +1182,8 @@
             // h13
             // 
             this.h13.DataPropertyName = "H13";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.h13.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle168.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.h13.DefaultCellStyle = dataGridViewCellStyle168;
             this.h13.HeaderText = "13";
             this.h13.Name = "h13";
             this.h13.ReadOnly = true;
@@ -1181,8 +1192,8 @@
             // h14
             // 
             this.h14.DataPropertyName = "H14";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.h14.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle169.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.h14.DefaultCellStyle = dataGridViewCellStyle169;
             this.h14.HeaderText = "14";
             this.h14.Name = "h14";
             this.h14.ReadOnly = true;
@@ -1191,8 +1202,8 @@
             // h15
             // 
             this.h15.DataPropertyName = "H15";
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.h15.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle170.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.h15.DefaultCellStyle = dataGridViewCellStyle170;
             this.h15.HeaderText = "15";
             this.h15.Name = "h15";
             this.h15.ReadOnly = true;
@@ -1201,8 +1212,8 @@
             // h16
             // 
             this.h16.DataPropertyName = "H16";
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.h16.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle171.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.h16.DefaultCellStyle = dataGridViewCellStyle171;
             this.h16.HeaderText = "16";
             this.h16.Name = "h16";
             this.h16.ReadOnly = true;
@@ -1211,8 +1222,8 @@
             // h17
             // 
             this.h17.DataPropertyName = "H17";
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.h17.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle172.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.h17.DefaultCellStyle = dataGridViewCellStyle172;
             this.h17.HeaderText = "17";
             this.h17.Name = "h17";
             this.h17.ReadOnly = true;
@@ -1221,8 +1232,8 @@
             // h18
             // 
             this.h18.DataPropertyName = "H18";
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.h18.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle173.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.h18.DefaultCellStyle = dataGridViewCellStyle173;
             this.h18.HeaderText = "18";
             this.h18.Name = "h18";
             this.h18.ReadOnly = true;
@@ -1231,8 +1242,8 @@
             // h19
             // 
             this.h19.DataPropertyName = "H19";
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.h19.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle174.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.h19.DefaultCellStyle = dataGridViewCellStyle174;
             this.h19.HeaderText = "19";
             this.h19.Name = "h19";
             this.h19.ReadOnly = true;
@@ -1241,8 +1252,8 @@
             // h20
             // 
             this.h20.DataPropertyName = "H20";
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.h20.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle175.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.h20.DefaultCellStyle = dataGridViewCellStyle175;
             this.h20.HeaderText = "20";
             this.h20.Name = "h20";
             this.h20.ReadOnly = true;
@@ -1251,8 +1262,8 @@
             // h21
             // 
             this.h21.DataPropertyName = "H21";
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.h21.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle176.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.h21.DefaultCellStyle = dataGridViewCellStyle176;
             this.h21.HeaderText = "21";
             this.h21.Name = "h21";
             this.h21.ReadOnly = true;
@@ -1261,9 +1272,9 @@
             // T
             // 
             this.T.DataPropertyName = "Monto";
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle15.Format = "c";
-            this.T.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle177.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle177.Format = "c";
+            this.T.DefaultCellStyle = dataGridViewCellStyle177;
             this.T.HeaderText = "Total";
             this.T.Name = "T";
             this.T.ReadOnly = true;
@@ -1329,9 +1340,9 @@
             // Monto
             // 
             this.Monto.DataPropertyName = "MontoVentas";
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle16.Format = "c";
-            this.Monto.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle178.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle178.Format = "c";
+            this.Monto.DefaultCellStyle = dataGridViewCellStyle178;
             this.Monto.HeaderText = "Monto";
             this.Monto.Name = "Monto";
             this.Monto.ReadOnly = true;
@@ -1392,9 +1403,9 @@
             // Producto
             // 
             this.Producto.DataPropertyName = "NombreProducto";
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Producto.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle179.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle179.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Producto.DefaultCellStyle = dataGridViewCellStyle179;
             this.Producto.HeaderText = "Producto / Servicio";
             this.Producto.Name = "Producto";
             this.Producto.ReadOnly = true;
@@ -1403,9 +1414,9 @@
             // CantidadProducto
             // 
             this.CantidadProducto.DataPropertyName = "Cantidad";
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.CantidadProducto.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle180.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle180.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.CantidadProducto.DefaultCellStyle = dataGridViewCellStyle180;
             this.CantidadProducto.HeaderText = "Cantidad";
             this.CantidadProducto.Name = "CantidadProducto";
             this.CantidadProducto.ReadOnly = true;
@@ -1587,6 +1598,92 @@
             this.TimerNotificaciones.Interval = 900000;
             this.TimerNotificaciones.Tick += new System.EventHandler(this.TimerNotificaciones_Tick);
             // 
+            // MenuStripReportes
+            // 
+            this.MenuStripReportes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(108)))), ((int)(((byte)(114)))));
+            this.MenuStripReportes.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.MenuStripReportes.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolsm_TrabajosRealizados,
+            this.toolsm_ConsumoMaterial,
+            this.toolsm_Garantias,
+            this.toolsm_Mobiliario,
+            this.toolsm_Clientes,
+            this.toolsm_ProductosVendidos,
+            this.toolsm_TiempoServicios,
+            this.toolsm_ComprasProveedor,
+            this.toolsm_Faltas});
+            this.MenuStripReportes.Name = "MenuStripCaja";
+            this.MenuStripReportes.Size = new System.Drawing.Size(244, 260);
+            // 
+            // toolsm_TrabajosRealizados
+            // 
+            this.toolsm_TrabajosRealizados.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(108)))), ((int)(((byte)(114)))));
+            this.toolsm_TrabajosRealizados.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolsm_TrabajosRealizados.Name = "toolsm_TrabajosRealizados";
+            this.toolsm_TrabajosRealizados.Size = new System.Drawing.Size(243, 26);
+            this.toolsm_TrabajosRealizados.Text = "Trabajos realizados";
+            this.toolsm_TrabajosRealizados.Click += new System.EventHandler(this.toolsm_TrabajosRealizados_Click);
+            // 
+            // toolsm_ConsumoMaterial
+            // 
+            this.toolsm_ConsumoMaterial.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(108)))), ((int)(((byte)(114)))));
+            this.toolsm_ConsumoMaterial.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolsm_ConsumoMaterial.Name = "toolsm_ConsumoMaterial";
+            this.toolsm_ConsumoMaterial.Size = new System.Drawing.Size(243, 26);
+            this.toolsm_ConsumoMaterial.Text = "Consumo de material";
+            this.toolsm_ConsumoMaterial.Click += new System.EventHandler(this.toolsm_ConsumoMaterial_Click);
+            // 
+            // toolsm_Garantias
+            // 
+            this.toolsm_Garantias.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(108)))), ((int)(((byte)(114)))));
+            this.toolsm_Garantias.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolsm_Garantias.Name = "toolsm_Garantias";
+            this.toolsm_Garantias.Size = new System.Drawing.Size(243, 26);
+            this.toolsm_Garantias.Text = "Garantías";
+            this.toolsm_Garantias.Click += new System.EventHandler(this.toolsm_Garantias_Click);
+            // 
+            // toolsm_Mobiliario
+            // 
+            this.toolsm_Mobiliario.Name = "toolsm_Mobiliario";
+            this.toolsm_Mobiliario.Size = new System.Drawing.Size(243, 26);
+            this.toolsm_Mobiliario.Text = "Mobiliario";
+            this.toolsm_Mobiliario.Click += new System.EventHandler(this.toolsm_Mobiliario_Click);
+            // 
+            // toolsm_Clientes
+            // 
+            this.toolsm_Clientes.Name = "toolsm_Clientes";
+            this.toolsm_Clientes.Size = new System.Drawing.Size(243, 26);
+            this.toolsm_Clientes.Text = "Clientes";
+            this.toolsm_Clientes.Click += new System.EventHandler(this.toolsm_Clientes_Click);
+            // 
+            // toolsm_ProductosVendidos
+            // 
+            this.toolsm_ProductosVendidos.Name = "toolsm_ProductosVendidos";
+            this.toolsm_ProductosVendidos.Size = new System.Drawing.Size(243, 26);
+            this.toolsm_ProductosVendidos.Text = "Productos";
+            this.toolsm_ProductosVendidos.Click += new System.EventHandler(this.toolsm_ProductosVendidos_Click);
+            // 
+            // toolsm_TiempoServicios
+            // 
+            this.toolsm_TiempoServicios.Name = "toolsm_TiempoServicios";
+            this.toolsm_TiempoServicios.Size = new System.Drawing.Size(243, 26);
+            this.toolsm_TiempoServicios.Text = "Tiempo servicios";
+            this.toolsm_TiempoServicios.Click += new System.EventHandler(this.toolsm_TiempoServicios_Click);
+            // 
+            // toolsm_ComprasProveedor
+            // 
+            this.toolsm_ComprasProveedor.Name = "toolsm_ComprasProveedor";
+            this.toolsm_ComprasProveedor.Size = new System.Drawing.Size(243, 26);
+            this.toolsm_ComprasProveedor.Text = "Proveedor";
+            this.toolsm_ComprasProveedor.Click += new System.EventHandler(this.toolsm_ComprasProveedor_Click);
+            // 
+            // toolsm_Faltas
+            // 
+            this.toolsm_Faltas.Name = "toolsm_Faltas";
+            this.toolsm_Faltas.Size = new System.Drawing.Size(243, 26);
+            this.toolsm_Faltas.Text = "Faltas";
+            this.toolsm_Faltas.Click += new System.EventHandler(this.toolsm_Faltas_Click);
+            // 
             // frmMenuInicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -1624,6 +1721,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.NotificacionMaxima)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NotificacionMinima)).EndInit();
+            this.MenuStripReportes.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1712,6 +1810,16 @@
         private System.Windows.Forms.Timer TimerNotificaciones;
         private CreativaSL.LibControls.WinForms.Button_Creativa btnCheckList;
         private CreativaSL.LibControls.WinForms.Button_Creativa btnReporte;
+        private System.Windows.Forms.ContextMenuStrip MenuStripReportes;
+        private System.Windows.Forms.ToolStripMenuItem toolsm_TrabajosRealizados;
+        private System.Windows.Forms.ToolStripMenuItem toolsm_ConsumoMaterial;
+        private System.Windows.Forms.ToolStripMenuItem toolsm_Garantias;
+        private System.Windows.Forms.ToolStripMenuItem toolsm_Mobiliario;
+        private System.Windows.Forms.ToolStripMenuItem toolsm_Clientes;
+        private System.Windows.Forms.ToolStripMenuItem toolsm_ProductosVendidos;
+        private System.Windows.Forms.ToolStripMenuItem toolsm_TiempoServicios;
+        private System.Windows.Forms.ToolStripMenuItem toolsm_ComprasProveedor;
+        private System.Windows.Forms.ToolStripMenuItem toolsm_Faltas;
     }
 }
 

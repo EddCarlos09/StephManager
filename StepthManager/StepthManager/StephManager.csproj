@@ -56,29 +56,37 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CreativaSL.Dll.Validaciones">
-      <HintPath>..\..\..\..\..\Desktop\CreativaSL.Dll.Validaciones.dll</HintPath>
+    <Reference Include="CreativaSL.Dll.Validaciones, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Documents\Stepth\CreativaSL.Dll.Validaciones.dll</HintPath>
     </Reference>
-    <Reference Include="CreativaSL.LibControls.WinForms">
-      <HintPath>..\..\..\..\..\Desktop\CreativaSL.LibControls.WinForms.dll</HintPath>
+    <Reference Include="CreativaSL.LibControls.WinForms, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Documents\Stepth\CreativaSL.LibControls.WinForms.dll</HintPath>
     </Reference>
-    <Reference Include="DPFPDevNET">
-      <HintPath>..\..\..\..\..\Desktop\DPFPDevNET.dll</HintPath>
+    <Reference Include="DPFPDevNET, Version=1.6.1.0, Culture=neutral, PublicKeyToken=696774c42ee28c57, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Documents\Stepth\DPFPDevNET.dll</HintPath>
     </Reference>
-    <Reference Include="DPFPEngNET">
-      <HintPath>..\..\..\..\..\Desktop\DPFPEngNET.dll</HintPath>
+    <Reference Include="DPFPEngNET, Version=1.6.1.0, Culture=neutral, PublicKeyToken=7fe76e7adf19964b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Documents\Stepth\DPFPEngNET.dll</HintPath>
     </Reference>
-    <Reference Include="DPFPGuiNet">
-      <HintPath>..\..\..\..\..\Desktop\DPFPGuiNet.dll</HintPath>
+    <Reference Include="DPFPGuiNet, Version=1.6.1.0, Culture=neutral, PublicKeyToken=d4f4a0bd9c559145, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Documents\Stepth\DPFPGuiNet.dll</HintPath>
     </Reference>
-    <Reference Include="DPFPShrNET">
-      <HintPath>..\..\..\..\..\Desktop\DPFPShrNET.dll</HintPath>
+    <Reference Include="DPFPShrNET, Version=1.6.1.0, Culture=neutral, PublicKeyToken=d902fe275a8d6cf2, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Documents\Stepth\DPFPShrNET.dll</HintPath>
     </Reference>
-    <Reference Include="DPFPVerNET">
-      <HintPath>..\..\..\..\..\Desktop\DPFPVerNET.dll</HintPath>
+    <Reference Include="DPFPVerNET, Version=1.6.1.0, Culture=neutral, PublicKeyToken=4de0a9c4dcc83984, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Documents\Stepth\DPFPVerNET.dll</HintPath>
     </Reference>
-    <Reference Include="HtmlRichTextBox">
-      <HintPath>..\..\..\..\..\Desktop\HtmlRichTextBox.dll</HintPath>
+    <Reference Include="HtmlRichTextBox, Version=1.0.2165.30472, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Documents\Stepth\HtmlRichTextBox.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Office.Tools.Excel, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <EmbedInteropTypes>True</EmbedInteropTypes>
@@ -1510,6 +1518,7 @@
     <EmbeddedResource Include="Informes\CheckListActividad.rdlc" />
     <EmbeddedResource Include="Informes\MaterialesProduccion.rdlc" />
     <EmbeddedResource Include="Informes\Reportes\ConsumoMaterial.rdlc" />
+    <EmbeddedResource Include="Informes\Reportes\ProductosVendidos.rdlc" />
     <EmbeddedResource Include="Informes\Reportes\TiempoServicios.rdlc" />
     <EmbeddedResource Include="Informes\Reportes\ServiciosRealizados.rdlc" />
     <EmbeddedResource Include="Informes\ServiciosXClave.rdlc" />
