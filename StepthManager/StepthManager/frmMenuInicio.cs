@@ -12,6 +12,7 @@ using CreativaSL.Dll.StephManager.Negocio;
 using StephManager.ClasesAux;
 using System.Configuration;
 using System.IO;
+using CreativaSL.LibControls.WinForms;
 
 namespace StephManager
 {
@@ -805,7 +806,6 @@ namespace StephManager
             }
         }
 
-        #endregion
 
         private void cmbSucursales_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -926,12 +926,12 @@ namespace StephManager
         {
             try
             {
-                //frmVerReporte Reporte = new frmVerReporte(3);
-                //Reporte.ShowDialog();
-                //Reporte.Dispose();
-                frmReportesProductosVendidos Reporte = new frmReportesProductosVendidos();
-                Reporte.ShowDialog();
-                Reporte.Dispose();
+                if (Comun.CajaAbierta)
+                {
+                    Button_Creativa btn = (Button_Creativa)sender;
+                    MenuStripReportes.Show(btn, btn.Width / 2, btn.Height);
+                    MenuStripReportes.Focus();
+                }
             }
             catch (Exception ex)
             {
@@ -939,5 +939,128 @@ namespace StephManager
                 LogError.AddExcFileTxt(ex, "frmMenuInicio ~ btnReporte_Click");
             }
         }
+
+        #endregion
+
+        #region Eventos Clic Reportes
+
+        private void toolsm_TrabajosRealizados_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(Comun.MensajeError, Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                LogError.AddExcFileTxt(ex, "frmMenuInicio ~ toolsm_TrabajosRealizados_Click");
+            }
+        }
+
+        private void toolsm_ConsumoMaterial_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(Comun.MensajeError, Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                LogError.AddExcFileTxt(ex, "frmMenuInicio ~ toolsm_ConsumoMaterial_Click");
+            }
+        }
+
+        private void toolsm_Garantias_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(Comun.MensajeError, Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                LogError.AddExcFileTxt(ex, "frmMenuInicio ~ toolsm_Garantias_Click");
+            }
+        }
+
+        private void toolsm_Mobiliario_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(Comun.MensajeError, Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                LogError.AddExcFileTxt(ex, "frmMenuInicio ~ toolsm_Mobiliario_Click");
+            }
+        }
+
+        private void toolsm_Clientes_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(Comun.MensajeError, Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                LogError.AddExcFileTxt(ex, "frmMenuInicio ~ toolsm_Clientes_Click");
+            }
+        }
+
+        private void toolsm_ProductosVendidos_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(Comun.MensajeError, Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                LogError.AddExcFileTxt(ex, "frmMenuInicio ~ toolsm_ProductosVendidos_Click");
+            }
+        }
+
+        private void toolsm_TiempoServicios_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(Comun.MensajeError, Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                LogError.AddExcFileTxt(ex, "frmMenuInicio ~ toolsm_TiempoServicios_Click");
+            }
+        }
+
+        private void toolsm_ComprasProveedor_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(Comun.MensajeError, Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                LogError.AddExcFileTxt(ex, "frmMenuInicio ~ toolsm_ComprasProveedor_Click");
+            }
+        }
+
+        private void toolsm_Faltas_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(Comun.MensajeError, Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                LogError.AddExcFileTxt(ex, "frmMenuInicio ~ toolsm_Faltas_Click");
+            }
+        }
+
+        #endregion
     }
 }
