@@ -40,6 +40,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label42 = new System.Windows.Forms.Label();
+            this.cbValidar = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -61,6 +62,7 @@
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.cbValidar);
             this.panel4.Controls.Add(this.txtDescripcion);
             this.panel4.Controls.Add(this.label12);
             this.panel4.Controls.Add(this.label13);
@@ -72,7 +74,7 @@
             // 
             // txtDescripcion
             // 
-            this.txtDescripcion.Location = new System.Drawing.Point(53, 58);
+            this.txtDescripcion.Location = new System.Drawing.Point(40, 56);
             this.txtDescripcion.MaxLength = 90;
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(379, 25);
@@ -81,7 +83,7 @@
             // 
             // label12
             // 
-            this.label12.Location = new System.Drawing.Point(60, 25);
+            this.label12.Location = new System.Drawing.Point(49, 25);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(119, 20);
             this.label12.TabIndex = 25;
@@ -227,6 +229,16 @@
             this.label42.TabIndex = 25;
             this.label42.Text = "Padecimiento";
             // 
+            // cbValidar
+            // 
+            this.cbValidar.AutoSize = true;
+            this.cbValidar.Location = new System.Drawing.Point(430, 56);
+            this.cbValidar.Name = "cbValidar";
+            this.cbValidar.Size = new System.Drawing.Size(73, 24);
+            this.cbValidar.TabIndex = 27;
+            this.cbValidar.Text = "Validar";
+            this.cbValidar.UseVisualStyleBackColor = true;
+            // 
             // frmNuevoPadecimiento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -266,6 +278,7 @@
         private System.Windows.Forms.TextBox txtDescripcion;
         private System.Windows.Forms.TextBox txtMensajeError;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.CheckBox cbValidar;
     }
 }
 

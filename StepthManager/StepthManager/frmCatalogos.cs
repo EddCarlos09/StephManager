@@ -189,7 +189,7 @@ namespace StephManager
                         this.LlenarGridPadecimiento();
                         this.btnAsignarGerente.Enabled = false;
                         break;
-                    case 5: this.IniciarGrid(this.dataGridView1, 2, this.ObtenerPropiedadesGridTagsInteres());
+                    case 5: this.IniciarGrid(this.dataGridView1, 3, this.ObtenerPropiedadesGridTagsInteres());
                         this.LlenarGridTagInteres();
                         this.btnAsignarGerente.Enabled = false;
                         break;
@@ -1748,6 +1748,10 @@ namespace StephManager
                     DataGridViewRow fila = this.dataGridView1.Rows[rowSelected];
                     DatosAux.IDPadecimiento = fila.Cells["IDPadecimiento"].Value.ToString();
                     DatosAux.Descripcion = fila.Cells["Descripcion"].Value.ToString();
+                    DatosAux.Validar = (bool)fila.Cells["Verificar"].Value ? 1:0;
+                   
+                      
+                    
                 }
                 return DatosAux;
             }
@@ -2626,6 +2630,7 @@ namespace StephManager
                     //Encabezado            //DataProperty          //Name                  //TipoCol   //Visibilidad   //Ancho     //Alignment                                     //Format    ReadOnly
                     {"IDPadecimiento",      "IDPadecimiento",       "IDPadecimiento",       1,          false,          125,        DataGridViewContentAlignment.MiddleCenter,      "",         true},
                     {"Padecimiento",        "Descripcion",          "Descripcion",          1,          true,           250,        DataGridViewContentAlignment.MiddleLeft,        "",         true},
+                    {"Verificado",          "Verificar",              "Verificar",          3,          true,           125,        DataGridViewContentAlignment.MiddleLeft,        "",         true},//agregue, zincri
                 };
                 return Propiedades;
             }
@@ -3124,6 +3129,25 @@ namespace StephManager
             }
         }
 
+        private void RecargarGridPadecimiento()
+        {
+            try
+            {
+                //Button_Creativa BtnClick = (Button_Creativa)sender;
+                //int AuxTipoCatalogo = 0;
+                //int.TryParse(BtnClick.Tag.ToString(), out AuxTipoCatalogo);
+                this.TipoCatalogo = 4;
+                this.CargarGridCatalogo();
+                this.txtBusqueda.Focus();
+
+            }
+            catch (Exception ex)
+            {
+                LogError.AddExcFileTxt(ex, "frmCatalogos ~ btnFamiliaProducto_Click");
+                MessageBox.Show(Comun.MensajeError, Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             try
@@ -3152,7 +3176,11 @@ namespace StephManager
             try
             {
                 if (this.dataGridView1.SelectedRows.Count == 1)
+                {
                     this.CargarFormModificar(this.ObtenerDatos());
+                    this.RecargarGridPadecimiento();
+                }
+                    
                 else
                 {
                     MessageBox.Show("Seleccione un registro.", Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -3169,7 +3197,9 @@ namespace StephManager
         {
             try
             {
+                //Buton nuevo de catalogos
                 this.CargarFormNuevo();
+                this.RecargarGridPadecimiento();
             }
             catch (Exception ex)
             {
