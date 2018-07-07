@@ -121,11 +121,23 @@
     <Compile Include="ClasesAux\LectorHuella.cs" />
     <Compile Include="ClasesAux\LogError.cs" />
     <Compile Include="ClasesAux\UtilFtp.cs" />
+    <Compile Include="frmNuevoReporteComprasPorProveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNuevoReporteComprasPorProveedor.Designer.cs">
+      <DependentUpon>frmNuevoReporteComprasPorProveedor.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmNuevoReporteProductosVendidos.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmNuevoReporteProductosVendidos.Designer.cs">
       <DependentUpon>frmNuevoReporteProductosVendidos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmReportesComprasPorProveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReportesComprasPorProveedor.Designer.cs">
+      <DependentUpon>frmReportesComprasPorProveedor.cs</DependentUpon>
     </Compile>
     <Compile Include="frmReportesProductosVendidos.cs">
       <SubType>Form</SubType>
@@ -138,6 +150,12 @@
     </Compile>
     <Compile Include="frmVerReporte.Designer.cs">
       <DependentUpon>frmVerReporte.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmVerReporteComprasPorProveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmVerReporteComprasPorProveedor.Designer.cs">
+      <DependentUpon>frmVerReporteComprasPorProveedor.cs</DependentUpon>
     </Compile>
     <Compile Include="frmVerReporteProductosVendidos.cs">
       <SubType>Form</SubType>
@@ -1047,14 +1065,23 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmNuevoReporteComprasPorProveedor.resx">
+      <DependentUpon>frmNuevoReporteComprasPorProveedor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmNuevoReporteProductosVendidos.resx">
       <DependentUpon>frmNuevoReporteProductosVendidos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReportesComprasPorProveedor.resx">
+      <DependentUpon>frmReportesComprasPorProveedor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmReportesProductosVendidos.resx">
       <DependentUpon>frmReportesProductosVendidos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmVerReporte.resx">
       <DependentUpon>frmVerReporte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmVerReporteComprasPorProveedor.resx">
+      <DependentUpon>frmVerReporteComprasPorProveedor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmVerReporteProductosVendidos.resx">
       <DependentUpon>frmVerReporteProductosVendidos.cs</DependentUpon>
@@ -1518,6 +1545,7 @@
     <EmbeddedResource Include="Informes\CheckListActividad.rdlc" />
     <EmbeddedResource Include="Informes\MaterialesProduccion.rdlc" />
     <EmbeddedResource Include="Informes\Reportes\ConsumoMaterial.rdlc" />
+    <EmbeddedResource Include="Informes\Reportes\ComprasPorProveedor.rdlc" />
     <EmbeddedResource Include="Informes\Reportes\ProductosVendidos.rdlc" />
     <EmbeddedResource Include="Informes\Reportes\TiempoServicios.rdlc" />
     <EmbeddedResource Include="Informes\Reportes\ServiciosRealizados.rdlc" />
@@ -1541,6 +1569,7 @@
     <None Include="Properties\DataSources\CreativaSL.Dll.StephManager.Global.Nomina.datasource" />
     <None Include="Properties\DataSources\CreativaSL.Dll.StephManager.Global.PedidoDetalle.datasource" />
     <None Include="Properties\DataSources\CreativaSL.Dll.StephManager.Global.ReporteAVGTiempoServicios.datasource" />
+    <None Include="Properties\DataSources\CreativaSL.Dll.StephManager.Global.ReporteComprasPorProveedorDetalle.datasource" />
     <None Include="Properties\DataSources\CreativaSL.Dll.StephManager.Global.ReporteConsumoMaterial.datasource" />
     <None Include="Properties\DataSources\CreativaSL.Dll.StephManager.Global.ReporteMaterialesProduccion.datasource" />
     <None Include="Properties\DataSources\CreativaSL.Dll.StephManager.Global.ReporteServiciosRealizados.datasource" />

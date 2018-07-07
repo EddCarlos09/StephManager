@@ -1039,6 +1039,10 @@ namespace StephManager
         {
             try
             {
+                //....
+                frmReportesComprasPorProveedor Reporte = new frmReportesComprasPorProveedor();
+                Reporte.ShowDialog();
+                Reporte.Dispose();
 
             }
             catch (Exception ex)
