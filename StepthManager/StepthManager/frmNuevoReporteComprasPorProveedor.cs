@@ -127,10 +127,12 @@ namespace StephManager
         {
             try
             {
+                
                 this.txtMensajeError.Visible = false;
                 List<Error> Errores = this.ValidarDatos();
                 if (Errores.Count == 0)
                 {
+                    this.Visible = false;
                     ReporteComprasPorProveedor Datos = this.ObtenerDatos();
                     ReporteComprasPorProveedor_Negocio Neg = new ReporteComprasPorProveedor_Negocio();
                     int IDReporte = Neg.GenerarReporteComprasPorProveedor(Comun.Conexion, Datos.FechaInicio, Datos.FechaFin, Comun.IDUsuario);
@@ -141,11 +143,13 @@ namespace StephManager
                         VerReporte.ShowDialog();
                         VerReporte.Dispose();
                         this.DialogResult = DialogResult.OK;
+                       
                     }
                     else
                     {
                         MessageBox.Show("Ocurrió un error al generar el reporte.", Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
+                    this.Visible = true;
                 }
                 else
                     this.MostrarMensajeError(Errores);

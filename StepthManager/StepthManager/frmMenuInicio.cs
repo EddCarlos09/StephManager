@@ -1045,10 +1045,11 @@ namespace StephManager
             try
             {
                 //....
+                this.Visible = false;
                 frmReportesComprasPorProveedor Reporte = new frmReportesComprasPorProveedor();
                 Reporte.ShowDialog();
                 Reporte.Dispose();
-
+                this.Visible = true;
             }
             catch (Exception ex)
             {

@@ -113,7 +113,7 @@ namespace StephManager
         {
             try
             {
-                
+                this.Visible = false;
                 frmNuevoReporteComprasPorProveedor GenerarReporte = new frmNuevoReporteComprasPorProveedor();
                 GenerarReporte.ShowDialog();
                 if(GenerarReporte.DialogResult == DialogResult.OK)
@@ -121,6 +121,7 @@ namespace StephManager
                     LlenarGrid();
                 }
                 GenerarReporte.Dispose();
+                this.Visible = true;
             }
             catch (Exception ex)
             {
@@ -149,12 +150,13 @@ namespace StephManager
             {
                 if(this.dgvComprasPorProveedor.SelectedRows.Count == 1)
                 {
+                    this.Visible = false;
                     ReporteComprasPorProveedor Datos = this.ObtenerDatosReporte();
-                    
                     frmVerReporteComprasPorProveedor VerReporte = new frmVerReporteComprasPorProveedor(Datos.IDReporte);
                     VerReporte.ShowDialog();
                     VerReporte.Dispose();
-                    this.DialogResult = DialogResult.OK;
+                    //this.DialogResult = DialogResult.OK;
+                    this.Visible = true;
                 }
                 else
                 {
