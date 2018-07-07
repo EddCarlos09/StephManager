@@ -88,6 +88,8 @@
     <Compile Include="ReporteProductosVendidosDetalle.cs" />
     <Compile Include="ReporteServiciosRealizados.cs" />
     <Compile Include="ReporteTiempoServicios.cs" />
+    <Compile Include="ReporteTrabajosRealizados.cs" />
+    <Compile Include="ReporteTrabajosRealizadosDetalle.cs" />
     <Compile Include="TipoChechkList.cs" />
     <Compile Include="Curso.cs" />
     <Compile Include="DatosIniciales.cs" />

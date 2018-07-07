@@ -19,20 +19,20 @@ namespace StephManager
     {
         public int IDReporte = -1;
 
-        public frmVerReporteTiempoServicio(int _IDReporte)
+        public frmVerReporteTiempoServicio(/*int _IDReporte*/)
         {
             try
             {
                 InitializeComponent();
-                IDReporte = _IDReporte;
+                //IDReporte = _IDReporte;
             }
             catch (Exception ex)
             {
-                LogError.AddExcFileTxt(ex, "frmVerReporteProductosVendidos ~ frmVerReporteProductosVendidos()");
+                LogError.AddExcFileTxt(ex, "frmVerReporteTiempoServicio ~ frmVerReporteTiempoServicio()");
             }
         }
 
-        private void frmVerReporteProductosVendidos_Load(object sender, EventArgs e)
+        private void frmVerReporteTiempoServicio_Load(object sender, EventArgs e)
         {
             try
             {
@@ -44,7 +44,7 @@ namespace StephManager
             }
             catch (Exception ex)
             {
-                LogError.AddExcFileTxt(ex, "frmVerReporteProductosVendidos ~ frmVerReporteProductosVendidos_Load");
+                LogError.AddExcFileTxt(ex, "frmVerReporteTiempoServicio ~ frmVerReporteTiempoServicio_Load");
             }
         }
 
@@ -64,7 +64,7 @@ namespace StephManager
         {
             try
             {
-                this.GenerarReporteTiempoServicios();
+                this.GenerarReporteTiempoServicio();
                 this.lblTitulo.Text = "REPORTE DE TIEMPO DE SERVICIOS";
             }
             catch (Exception ex)
@@ -73,7 +73,7 @@ namespace StephManager
             }
         }
 
-        private void GenerarReporteTiempoServicios()
+        private void GenerarReporteTiempoServicio()
         {
             try
             {
@@ -81,26 +81,26 @@ namespace StephManager
                 reportViewer1.ZoomMode = ZoomMode.Percent;
                 reportViewer1.ZoomPercent = 100;
                 reportViewer1.LocalReport.DataSources.Clear();
-                Reporte_Negocio Neg = new Reporte_Negocio();
-                ReporteProductosVendidos Datosreporte = Neg.ObtenerDetalleReporteProductosVendidos(Comun.Conexion, IDReporte);
-                
-                ////reportViewer1.LocalReport.EnableExternalImages = true;
-                //ReportParameter[] Parametros = new ReportParameter[5];
-                //Parametros[0] = new ReportParameter("Empresa", Comun.NombreComercial);
-                //Parametros[1] = new ReportParameter("Eslogan", Comun.Eslogan);
-                //Parametros[2] = new ReportParameter("Direccion", Comun.Direccion);
-                //Parametros[3] = new ReportParameter("TituloReporte", "REPORTE DE TIEMPO DE SERVICIOS");
-                //if (File.Exists(@"Resources\Documents\" + Comun.UrlLogo.ToLower()))
-                //{
-                //    string Aux = new Uri(Path.Combine(System.Windows.Forms.Application.StartupPath, @"Resources\Documents\" + Comun.UrlLogo.ToLower())).AbsoluteUri;
-                //    Parametros[4] = new ReportParameter("UrlLogo", new Uri(Path.Combine(System.Windows.Forms.Application.StartupPath, @"Resources\Documents\" + Comun.UrlLogo.ToLower())).AbsoluteUri);
-                //}
-                //else
-                //    Parametros[4] = new ReportParameter("UrlLogo", new Uri(Path.Combine(System.Windows.Forms.Application.StartupPath, @"Resources\Documents\Default.jpg")).AbsoluteUri);                
-                //this.reportViewer1.LocalReport.ReportEmbeddedResource = "StephManager.Informes.Reportes.TiempoServicios.rdlc";
-                //reportViewer1.LocalReport.SetParameters(Parametros);
-                //reportViewer1.LocalReport.DataSources.Add(new ReportDataSource("TiempoServicios", DatosReporte.Detalle));
-                //this.reportViewer1.RefreshReport();
+                Reporte_Negocio Negg = new Reporte_Negocio();
+                ReporteTiempoServicios Datosreporte = new ReporteTiempoServicios();
+                Datosreporte.Listado = Negg.ObtenerReporteTiempoServicio();
+                reportViewer1.LocalReport.EnableExternalImages = true;
+                ReportParameter[] Parametros = new ReportParameter[5];
+                Parametros[0] = new ReportParameter("Empresa", Comun.NombreComercial);
+                Parametros[1] = new ReportParameter("Eslogan", Comun.Eslogan);
+                Parametros[2] = new ReportParameter("Direccion", Comun.Direccion);
+                Parametros[3] = new ReportParameter("TituloReporte", "REPORTE DE TIEMPO DE SERVICIOS");
+                if (File.Exists(@"Resources\Documents\" + Comun.UrlLogo.ToLower()))
+                {
+                    string Aux = new Uri(Path.Combine(System.Windows.Forms.Application.StartupPath, @"Resources\Documents\" + Comun.UrlLogo.ToLower())).AbsoluteUri;
+                    Parametros[4] = new ReportParameter("UrlLogo", new Uri(Path.Combine(System.Windows.Forms.Application.StartupPath, @"Resources\Documents\" + Comun.UrlLogo.ToLower())).AbsoluteUri);
+                }
+                else
+                    Parametros[4] = new ReportParameter("UrlLogo", new Uri(Path.Combine(System.Windows.Forms.Application.StartupPath, @"Resources\Documents\Default.jpg")).AbsoluteUri);
+                this.reportViewer1.LocalReport.ReportEmbeddedResource = "StephManager.Informes.Reportes.TiempoServicios.rdlc";
+                reportViewer1.LocalReport.SetParameters(Parametros);
+                reportViewer1.LocalReport.DataSources.Add(new ReportDataSource("Listado", Datosreporte.Listado));
+                this.reportViewer1.RefreshReport();
             }
             catch (Exception ex)
             {
