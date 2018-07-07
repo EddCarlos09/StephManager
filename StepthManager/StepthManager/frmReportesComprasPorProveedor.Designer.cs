@@ -44,13 +44,13 @@
             this.btnNuevo = new CreativaSL.LibControls.WinForms.Button_Creativa();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.dtpFechaBuscar = new System.Windows.Forms.DateTimePicker();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label42 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -308,14 +308,26 @@
             this.panel10.Size = new System.Drawing.Size(1008, 50);
             this.panel10.TabIndex = 2;
             // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.Firebrick;
+            this.button2.Location = new System.Drawing.Point(854, 6);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(142, 36);
+            this.button2.TabIndex = 112;
+            this.button2.Text = "Quitar Busqueda";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // button1
             // 
+            this.button1.BackColor = System.Drawing.Color.DarkTurquoise;
             this.button1.Location = new System.Drawing.Point(707, 6);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(142, 36);
             this.button1.TabIndex = 111;
             this.button1.Text = "Buscar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // dtpFechaBuscar
@@ -369,16 +381,6 @@
             this.label42.TabIndex = 24;
             this.label42.Text = "Compras por Proveedor";
             this.label42.Click += new System.EventHandler(this.label42_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(854, 6);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(142, 36);
-            this.button2.TabIndex = 112;
-            this.button2.Text = "Quitar Busqueda";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // frmReportesComprasPorProveedor
             // 
