@@ -15,12 +15,12 @@ using System.Windows.Forms;
 
 namespace StephManager
 {
-    public partial class frmVerReporteComprasPorProveedor : Form
+    public partial class frmVerReporteFaltas : Form
     {
 
         public int IDReporte = -1;
 
-        public frmVerReporteComprasPorProveedor(int _IDReporte)
+        public frmVerReporteFaltas(int _IDReporte)
         {
             try
             {
@@ -29,11 +29,11 @@ namespace StephManager
             }
             catch (Exception ex)
             {
-                LogError.AddExcFileTxt(ex, "frmVerReporteComprasPorProveedor ~ frmVerReporteComprasPorProveedor()");
+                LogError.AddExcFileTxt(ex, "frmVerReporteFaltas ~ frmVerReporteFaltas()");
             }
         }
 
-        private void frmVerReporteComprasPorProveedor_Load(object sender, EventArgs e)
+        private void frmVerReporteFaltas_Load(object sender, EventArgs e)
         {
             try
             {
@@ -45,7 +45,7 @@ namespace StephManager
             }
             catch (Exception ex)
             {
-                LogError.AddExcFileTxt(ex, "frmVerReporteComprasPorProveedor ~ frmVerReporteComprasPorProveedor_Load");
+                LogError.AddExcFileTxt(ex, "frmVerReporteFaltas ~ frmVerReporteFaltas_Load");
             }
         }
         
@@ -65,8 +65,8 @@ namespace StephManager
         {
             try
             {                
-                this.GenerarReporteComprasPorProveedor();
-                this.lblTitulo.Text = "REPORTE DE COMPRAS POR PROVEEDOR";           
+                this.GenerarReporteFaltas();
+                this.lblTitulo.Text = "REPORTE FALTAS";           
             }
             catch (Exception ex)
             {
@@ -74,7 +74,7 @@ namespace StephManager
             }
         }
 
-        private void GenerarReporteComprasPorProveedor()
+        private void GenerarReporteFaltas()
         {
             try
             {
@@ -82,14 +82,14 @@ namespace StephManager
                 reportViewer1.ZoomMode = ZoomMode.Percent;
                 reportViewer1.ZoomPercent = 100;
                 reportViewer1.LocalReport.DataSources.Clear();
-                ReporteComprasPorProveedor_Negocio Neg = new ReporteComprasPorProveedor_Negocio();
-                ReporteComprasPorProveedor DatosReporte = Neg.ObtenerDetalleReporteComprasPorProveedor(Comun.Conexion, IDReporte);
+                ReporteFaltas_Negocio Neg = new ReporteFaltas_Negocio();
+                ReporteFaltas DatosReporte = Neg.ObtenerDetalleReporteFaltas(Comun.Conexion, IDReporte);
                 reportViewer1.LocalReport.EnableExternalImages = true;
                 ReportParameter[] Parametros = new ReportParameter[7];
                 Parametros[0] = new ReportParameter("Empresa", Comun.NombreComercial);
                 Parametros[1] = new ReportParameter("Eslogan", Comun.Eslogan);
                 Parametros[2] = new ReportParameter("Direccion", Comun.Direccion);
-                Parametros[3] = new ReportParameter("TituloReporte", "REPORTE DE COMPRAS POR PROVEEDOR");
+                Parametros[3] = new ReportParameter("TituloReporte", "REPORTE FALTAS");
                 if (File.Exists(@"Resources\Documents\" + Comun.UrlLogo.ToLower()))
                 {
                     string Aux = new Uri(Path.Combine(System.Windows.Forms.Application.StartupPath, @"Resources\Documents\" + Comun.UrlLogo.ToLower())).AbsoluteUri;
@@ -99,9 +99,9 @@ namespace StephManager
                     Parametros[4] = new ReportParameter("UrlLogo", new Uri(Path.Combine(System.Windows.Forms.Application.StartupPath, @"Resources\Documents\Default.jpg")).AbsoluteUri);
                 Parametros[5] = new ReportParameter("FechaInicio", DatosReporte.FechaInicio.ToShortDateString());
                 Parametros[6] = new ReportParameter("FechaFin", DatosReporte.FechaFin.ToShortDateString());
-                this.reportViewer1.LocalReport.ReportEmbeddedResource = "StephManager.Informes.Reportes.ComprasPorProveedor.rdlc";
+                this.reportViewer1.LocalReport.ReportEmbeddedResource = "StephManager.Informes.Reportes.Faltas.rdlc";
                 reportViewer1.LocalReport.SetParameters(Parametros);
-                reportViewer1.LocalReport.DataSources.Add(new ReportDataSource("ComprasPorProveedor", DatosReporte.Detalle));
+                reportViewer1.LocalReport.DataSources.Add(new ReportDataSource("Faltas", DatosReporte.Detalle));
                 this.reportViewer1.RefreshReport();
             }
             catch (Exception ex)
@@ -118,7 +118,7 @@ namespace StephManager
             }
             catch (Exception ex)
             {
-                LogError.AddExcFileTxt(ex, "frmVerReporteComprasPorProveedor ~ btnSalir_Click");
+                LogError.AddExcFileTxt(ex, "frmVerReporteFaltas ~ btnSalir_Click");
             }
         }
     }

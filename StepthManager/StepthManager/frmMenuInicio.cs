@@ -1062,7 +1062,12 @@ namespace StephManager
         {
             try
             {
-
+                //Aqui se abre el formulario de Faltas grid
+                this.Visible = false;
+                frmReportesFaltas Reporte = new frmReportesFaltas();
+                Reporte.ShowDialog();
+                Reporte.Dispose();
+                this.Visible = true;
             }
             catch (Exception ex)
             {

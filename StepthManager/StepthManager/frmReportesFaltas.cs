@@ -14,11 +14,11 @@ using System.Windows.Forms;
 
 namespace StephManager
 {
-    public partial class frmReportesComprasPorProveedor : Form
+    public partial class frmReportesFaltas : Form
     {
         #region Constructores
 
-        public frmReportesComprasPorProveedor()
+        public frmReportesFaltas()
         {
             try
             {
@@ -26,7 +26,7 @@ namespace StephManager
             }
             catch (Exception ex)
             {
-                LogError.AddExcFileTxt(ex, "frmReportesComprasPorProveedor ~ frmReportesComprasPorProveedor()");
+                LogError.AddExcFileTxt(ex, "frmReportesFaltas ~ frmReportesFaltas()");
             }
         }
 
@@ -54,10 +54,10 @@ namespace StephManager
         {
             try
             {
-                ReporteComprasPorProveedor_Negocio Neg = new ReporteComprasPorProveedor_Negocio();
-                List<ReporteComprasPorProveedor> Lista = Neg.ObtenerReportesComprasPorProveedor(Comun.Conexion);
-                this.dgvComprasPorProveedor.AutoGenerateColumns = false;
-                this.dgvComprasPorProveedor.DataSource = Lista;
+                ReporteFaltas_Negocio Neg = new ReporteFaltas_Negocio();
+                List<ReporteFaltas> Lista = Neg.ObtenerReportesFaltas(Comun.Conexion);
+                this.dgvFaltas.AutoGenerateColumns = false;
+                this.dgvFaltas.DataSource = Lista;
             }
             catch (Exception ex)
             {
@@ -69,10 +69,10 @@ namespace StephManager
         {
             try
             {
-                ReporteComprasPorProveedor_Negocio a = new ReporteComprasPorProveedor_Negocio();
-                List<ReporteComprasPorProveedor> Lista = a.ObtenerReporteComprasPorProveedorBusqueda(Comun.Conexion,fechaBuscar);
-                this.dgvComprasPorProveedor.AutoGenerateColumns = false;
-                this.dgvComprasPorProveedor.DataSource = Lista;
+                ReporteFaltas_Negocio a = new ReporteFaltas_Negocio();
+                List<ReporteFaltas> Lista = a.ObtenerReporteFaltasBusqueda(Comun.Conexion,fechaBuscar);
+                this.dgvFaltas.AutoGenerateColumns = false;
+                this.dgvFaltas.DataSource = Lista;
             }
             catch (Exception ex)
             {
@@ -80,26 +80,22 @@ namespace StephManager
             }
         }
 
-        private ReporteComprasPorProveedor ObtenerDatosReporte()
+        private ReporteFaltas ObtenerDatosReporte()
         {
             try
             {
-                ReporteComprasPorProveedor DatosAux = new ReporteComprasPorProveedor();
-                Int32 RowData = this.dgvComprasPorProveedor.Rows.GetFirstRow(DataGridViewElementStates.Selected);
+                ReporteFaltas DatosAux = new ReporteFaltas();
+                Int32 RowData = this.dgvFaltas.Rows.GetFirstRow(DataGridViewElementStates.Selected);
                 if (RowData > -1)
                 {
                     int ID = 0;
-                    DataGridViewRow FilaDatos = this.dgvComprasPorProveedor.Rows[RowData];
+                    DataGridViewRow FilaDatos = this.dgvFaltas.Rows[RowData];
                     int.TryParse(FilaDatos.Cells["IDReporte"].Value.ToString(), out ID);
                     DatosAux.IDReporte = ID;
-                    /* 
-                    DateTime FechaInicio = DateTime.MinValue;
-                    DateTime FechaFin = DateTime.MinValue;
-                    DateTime.TryParse(FilaDatos.Cells["FechaInicio"].Value.ToString(), out FechaInicio);
-                    DateTime.TryParse(FilaDatos.Cells["FechaFin"].Value.ToString(), out FechaFin);
-                    DatosAux.FechaInicio = FechaInicio;
-                    DatosAux.FechaFin = FechaFin;
-                    */
+                    //DateTime FechaInicio = DateTime.MinValue;
+                    //DateTime FechaFin = DateTime.MinValue;
+                    //DateTime.TryParse(FilaDatos.Cells["FechaInicio"].Value.ToString(), out FechaInicio);
+                    //DateTime.TryParse(FilaDatos.Cells["FechaFin"].Value.ToString(), out FechaFin);
                 }
                 return DatosAux;
             }
@@ -118,7 +114,7 @@ namespace StephManager
             try
             {
                 this.Visible = false;
-                frmNuevoReporteComprasPorProveedor GenerarReporte = new frmNuevoReporteComprasPorProveedor();
+                frmNuevoReporteFaltas GenerarReporte = new frmNuevoReporteFaltas();
                 GenerarReporte.ShowDialog();
                 if(GenerarReporte.DialogResult == DialogResult.OK)
                 {
@@ -129,7 +125,7 @@ namespace StephManager
             }
             catch (Exception ex)
             {
-                LogError.AddExcFileTxt(ex, "frmReportesComprasPorProveedor ~ btnNuevo_Click");
+                LogError.AddExcFileTxt(ex, "frmReportesFaltas ~ btnNuevo_Click");
                 MessageBox.Show(Comun.MensajeError, Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.Visible = true;
             }
@@ -143,7 +139,7 @@ namespace StephManager
             }
             catch (Exception ex)
             {
-                LogError.AddExcFileTxt(ex, "frmReportesComprasPorProveedor ~ btnSalir_Click");
+                LogError.AddExcFileTxt(ex, "frmReportesFaltas ~ btnSalir_Click");
                 MessageBox.Show(Comun.MensajeError, Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -152,11 +148,11 @@ namespace StephManager
         {
             try
             {
-                if(this.dgvComprasPorProveedor.SelectedRows.Count == 1)
+                if(this.dgvFaltas.SelectedRows.Count == 1)
                 {
                     this.Visible = false;
-                    ReporteComprasPorProveedor Datos = this.ObtenerDatosReporte();
-                    frmVerReporteComprasPorProveedor VerReporte = new frmVerReporteComprasPorProveedor(Datos.IDReporte);
+                    ReporteFaltas Datos = this.ObtenerDatosReporte();
+                    frmVerReporteFaltas VerReporte = new frmVerReporteFaltas(Datos.IDReporte);
                     VerReporte.ShowDialog();
                     VerReporte.Dispose();
                     //this.DialogResult = DialogResult.OK;
@@ -169,12 +165,12 @@ namespace StephManager
             }
             catch (Exception ex)
             {
-                LogError.AddExcFileTxt(ex, "frmReportesComprasPorProveedor ~ btnImpresion_Click");
+                LogError.AddExcFileTxt(ex, "frmReportesFaltas ~ btnImpresion_Click");
                 MessageBox.Show(Comun.MensajeError, Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void frmReportesComprasPorProveedor_Load(object sender, EventArgs e)
+        private void frmReportesFaltas_Load(object sender, EventArgs e)
         {
             try
             {
@@ -182,7 +178,7 @@ namespace StephManager
             }
             catch (Exception ex)
             {
-                LogError.AddExcFileTxt(ex, "frmReportesComprasPorProveedor ~ frmReportesComprasPorProveedor_Load");
+                LogError.AddExcFileTxt(ex, "frmReportesFaltas ~ frmReportesFaltas_Load");
                 MessageBox.Show(Comun.MensajeError, Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }

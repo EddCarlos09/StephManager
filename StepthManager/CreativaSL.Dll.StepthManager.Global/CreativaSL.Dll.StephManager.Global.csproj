@@ -83,6 +83,8 @@
     <Compile Include="ReporteComprasPorProveedor.cs" />
     <Compile Include="ReporteComprasPorProveedorDetalle.cs" />
     <Compile Include="ReporteConsumoMaterial.cs" />
+    <Compile Include="ReporteFaltas.cs" />
+    <Compile Include="ReporteFaltasDetalle.cs" />
     <Compile Include="ReporteMaterialesProduccion.cs" />
     <Compile Include="ReporteProductosVendidos.cs" />
     <Compile Include="ReporteProductosVendidosDetalle.cs" />
