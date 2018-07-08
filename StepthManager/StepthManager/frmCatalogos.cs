@@ -1549,7 +1549,7 @@ namespace StephManager
                 ////actual.AllowUserToResizeColumns = false;
                 actual.MultiSelect = false;
                 actual.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-                //actual.ReadOnly = true;
+                actual.ReadOnly = true;//Zincri descomento esta linea
             }
             catch (Exception ex)
             {
