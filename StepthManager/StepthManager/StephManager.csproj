@@ -119,6 +119,12 @@
     <Compile Include="ClasesAux\LectorHuella.cs" />
     <Compile Include="ClasesAux\LogError.cs" />
     <Compile Include="ClasesAux\UtilFtp.cs" />
+    <Compile Include="frmNuevoReporteComprasCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNuevoReporteComprasCliente.Designer.cs">
+      <DependentUpon>frmNuevoReporteComprasCliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmNuevoReporteFaltas.cs">
       <SubType>Form</SubType>
     </Compile>
