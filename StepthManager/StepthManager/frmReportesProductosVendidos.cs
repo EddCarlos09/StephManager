@@ -22,7 +22,7 @@ namespace StephManager
         {
             try
             {
-                InitializeComponent();
+                InitializeComponent();                
             }
             catch (Exception ex)
             {
@@ -134,9 +134,9 @@ namespace StephManager
                 if(this.dgvReportesProductosVendidos.SelectedRows.Count == 1)
                 {
                     ReporteProductosVendidos Datos = this.ObtenerDatosReporte();
-                    //frmReportesProductosVendidos VerReporte = new frmReportesProductosVendidos(Datos.IDReporte);
-                   //VerReporte.ShowDialog();
-                    //VerReporte.Dispose();
+                    frmVerReporteProductosVendidos VerReporte = new frmVerReporteProductosVendidos(Datos.IDReporte);
+                   VerReporte.ShowDialog();
+                    VerReporte.Dispose();
                 }
                 else
                 {

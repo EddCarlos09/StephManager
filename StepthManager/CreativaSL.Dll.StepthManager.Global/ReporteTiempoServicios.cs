@@ -38,7 +38,7 @@ namespace CreativaSL.Dll.StephManager.Global
         /// </summary>
         public string TiempoAVG { get; set; }
         /// <summary>
-        /// 
+        /// Lista que guarda todos los parámetros
         /// </summary>
         public List<ReporteTiempoServicios> Listado { get; set; }
     }

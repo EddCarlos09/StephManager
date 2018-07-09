@@ -1013,9 +1013,9 @@ namespace StephManager
         {
             try
             {
-                //frmReportesProductosVendidos GenerarReporte = new frmReportesProductosVendidos();
-                //GenerarReporte.ShowDialog();
-                //GenerarReporte.Dispose();
+                frmReportesProductosVendidos GenerarReporte = new frmReportesProductosVendidos();
+                GenerarReporte.ShowDialog();
+                GenerarReporte.Dispose();
 
             }
             catch (Exception ex)

@@ -25,7 +25,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Servicios</Value>
+                              <Value>SERVICIOS</Value>
                               <Style>
                                 <FontFamily>Arial Rounded MT Bold</FontFamily>
                               </Style>
@@ -61,7 +61,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Tiempo Promedio</Value>
+                              <Value>TIEMPO PROMEDIO</Value>
                               <Style>
                                 <FontFamily>Arial Rounded MT Bold</FontFamily>
                               </Style>
@@ -176,7 +176,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value EvaluationMode="Constant">Empleado</Value>
+                            <Value>EMPLEADO</Value>
                             <Style>
                               <FontWeight>Bold</FontWeight>
                             </Style>

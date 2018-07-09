@@ -19,12 +19,11 @@ namespace StephManager
     {
         public int IDReporte = -1;
 
-        public frmVerReporteTiempoServicio(/*int _IDReporte*/)
+        public frmVerReporteTiempoServicio()
         {
             try
             {
-                InitializeComponent();
-                //IDReporte = _IDReporte;
+                InitializeComponent();                
             }
             catch (Exception ex)
             {
