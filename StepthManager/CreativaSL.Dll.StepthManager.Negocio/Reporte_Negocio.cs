@@ -101,6 +101,23 @@ namespace CreativaSL.Dll.StephManager.Negocio
                 throw ex;
             }
         }
+        /// <summary>
+        /// Obtiene el reporte del promedio del tiempo de de los servicios
+        /// </summary>
+        /// <param name="Conexion"></param>
+        /// <returns></returns>
+        public List<ReporteTiempoServicios> ObtenerReporteTiempoServicio()
+        {
+            try
+            {
+                Reporte_Datos Datos1 = new Reporte_Datos();
+                return Datos1.ObtenerReporteTiempoServicio(Comun.Conexion);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
         //TrabajosRealizados
         public int GenerarReporteTrabajosRealizados(string Conexion, DateTime FechaInicio, DateTime FechaFin, string IDUsuario)

@@ -15,23 +15,25 @@ using System.Windows.Forms;
 
 namespace StephManager
 {
-    public partial class frmVerReporteTiempoServicio : Form
+    public partial class frmVerReporteFaltas : Form
     {
+
         public int IDReporte = -1;
 
-        public frmVerReporteTiempoServicio()
+        public frmVerReporteFaltas(int _IDReporte)
         {
             try
             {
-                InitializeComponent();                
+                InitializeComponent();
+                IDReporte = _IDReporte;
             }
             catch (Exception ex)
             {
-                LogError.AddExcFileTxt(ex, "frmVerReporteTiempoServicio ~ frmVerReporteTiempoServicio()");
+                LogError.AddExcFileTxt(ex, "frmVerReporteFaltas ~ frmVerReporteFaltas()");
             }
         }
 
-        private void frmVerReporteTiempoServicio_Load(object sender, EventArgs e)
+        private void frmVerReporteFaltas_Load(object sender, EventArgs e)
         {
             try
             {
@@ -43,10 +45,10 @@ namespace StephManager
             }
             catch (Exception ex)
             {
-                LogError.AddExcFileTxt(ex, "frmVerReporteTiempoServicio ~ frmVerReporteTiempoServicio_Load");
+                LogError.AddExcFileTxt(ex, "frmVerReporteFaltas ~ frmVerReporteFaltas_Load");
             }
         }
-
+        
         private void IniciarForm()
         {
             try
@@ -62,9 +64,9 @@ namespace StephManager
         private void CargarReporte()
         {
             try
-            {
-                this.GenerarReporteTiempoServicio();
-                this.lblTitulo.Text = "REPORTE DE TIEMPO DE SERVICIOS";
+            {                
+                this.GenerarReporteFaltas();
+                this.lblTitulo.Text = "REPORTE FALTAS";           
             }
             catch (Exception ex)
             {
@@ -72,7 +74,7 @@ namespace StephManager
             }
         }
 
-        private void GenerarReporteTiempoServicio()
+        private void GenerarReporteFaltas()
         {
             try
             {
@@ -80,15 +82,14 @@ namespace StephManager
                 reportViewer1.ZoomMode = ZoomMode.Percent;
                 reportViewer1.ZoomPercent = 100;
                 reportViewer1.LocalReport.DataSources.Clear();
-                Reporte_Negocio Negg = new Reporte_Negocio();
-                ReporteTiempoServicios Datosreporte = new ReporteTiempoServicios();
-                Datosreporte.Listado = Negg.ObtenerReporteTiempoServicio();
+                ReporteFaltas_Negocio Neg = new ReporteFaltas_Negocio();
+                ReporteFaltas DatosReporte = Neg.ObtenerDetalleReporteFaltas(Comun.Conexion, IDReporte);
                 reportViewer1.LocalReport.EnableExternalImages = true;
-                ReportParameter[] Parametros = new ReportParameter[5];
+                ReportParameter[] Parametros = new ReportParameter[7];
                 Parametros[0] = new ReportParameter("Empresa", Comun.NombreComercial);
                 Parametros[1] = new ReportParameter("Eslogan", Comun.Eslogan);
                 Parametros[2] = new ReportParameter("Direccion", Comun.Direccion);
-                Parametros[3] = new ReportParameter("TituloReporte", "REPORTE DE TIEMPO DE SERVICIOS");
+                Parametros[3] = new ReportParameter("TituloReporte", "REPORTE FALTAS");
                 if (File.Exists(@"Resources\Documents\" + Comun.UrlLogo.ToLower()))
                 {
                     string Aux = new Uri(Path.Combine(System.Windows.Forms.Application.StartupPath, @"Resources\Documents\" + Comun.UrlLogo.ToLower())).AbsoluteUri;
@@ -96,9 +97,11 @@ namespace StephManager
                 }
                 else
                     Parametros[4] = new ReportParameter("UrlLogo", new Uri(Path.Combine(System.Windows.Forms.Application.StartupPath, @"Resources\Documents\Default.jpg")).AbsoluteUri);
-                this.reportViewer1.LocalReport.ReportEmbeddedResource = "StephManager.Informes.Reportes.TiempoServicios.rdlc";
+                Parametros[5] = new ReportParameter("FechaInicio", DatosReporte.FechaInicio.ToShortDateString());
+                Parametros[6] = new ReportParameter("FechaFin", DatosReporte.FechaFin.ToShortDateString());
+                this.reportViewer1.LocalReport.ReportEmbeddedResource = "StephManager.Informes.Reportes.Faltas.rdlc";
                 reportViewer1.LocalReport.SetParameters(Parametros);
-                reportViewer1.LocalReport.DataSources.Add(new ReportDataSource("Listado", Datosreporte.Listado));
+                reportViewer1.LocalReport.DataSources.Add(new ReportDataSource("Faltas", DatosReporte.Detalle));
                 this.reportViewer1.RefreshReport();
             }
             catch (Exception ex)
@@ -115,7 +118,7 @@ namespace StephManager
             }
             catch (Exception ex)
             {
-                LogError.AddExcFileTxt(ex, "frmVerReporteTiempoServicios ~ btnSalir_Click");
+                LogError.AddExcFileTxt(ex, "frmVerReporteFaltas ~ btnSalir_Click");
             }
         }
     }

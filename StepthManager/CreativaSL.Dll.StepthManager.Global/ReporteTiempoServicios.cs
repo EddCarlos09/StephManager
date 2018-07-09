@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CreativaSL.Dll.StephManager.Global
 {
-    class ReporteTiempoServicios
+    public class ReporteTiempoServicios
     {
         public ReporteTiempoServicios()
         {
@@ -37,6 +37,9 @@ namespace CreativaSL.Dll.StephManager.Global
         /// Promedio del Tiempo del servicio
         /// </summary>
         public string TiempoAVG { get; set; }
+        /// <summary>
+        /// Lista que guarda todos los parámetros
+        /// </summary>
         public List<ReporteTiempoServicios> Listado { get; set; }
     }
 }
