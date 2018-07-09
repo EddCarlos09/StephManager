@@ -1,6 +1,6 @@
 ﻿namespace StephManager
 {
-    partial class frmNuevoPadecimiento
+    partial class frmNuevoReporteComprasPorProveedor
     {
         /// <summary>
         /// Variable del diseñador requerida.
@@ -29,104 +29,159 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.txtDescripcion = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.label42 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.txtMensajeError = new System.Windows.Forms.TextBox();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.dtpFechaInicio = new System.Windows.Forms.DateTimePicker();
+            this.dtpFechaFin = new System.Windows.Forms.DateTimePicker();
             this.btnGuardar = new CreativaSL.LibControls.WinForms.Button_Creativa();
             this.btnCancelar = new CreativaSL.LibControls.WinForms.Button_Creativa();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label42 = new System.Windows.Forms.Label();
-            this.cbValidar = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.Gainsboro;
-            this.panel1.Controls.Add(this.panel4);
-            this.panel1.Controls.Add(this.panel3);
-            this.panel1.Controls.Add(this.panel2);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.AutoScroll = true;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(205)))), ((int)(((byte)(215)))));
+            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Controls.Add(this.label42);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(503, 298);
+            this.panel1.Size = new System.Drawing.Size(589, 80);
             this.panel1.TabIndex = 0;
             // 
-            // panel4
+            // label42
             // 
-            this.panel4.Controls.Add(this.cbValidar);
-            this.panel4.Controls.Add(this.txtDescripcion);
-            this.panel4.Controls.Add(this.label12);
-            this.panel4.Controls.Add(this.label13);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(0, 80);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(503, 138);
-            this.panel4.TabIndex = 2;
+            this.label42.AutoSize = true;
+            this.label42.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label42.ForeColor = System.Drawing.Color.White;
+            this.label42.Location = new System.Drawing.Point(21, 9);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(401, 55);
+            this.label42.TabIndex = 24;
+            this.label42.Text = "Generar Reporte";
             // 
-            // txtDescripcion
+            // panel2
             // 
-            this.txtDescripcion.Location = new System.Drawing.Point(40, 56);
-            this.txtDescripcion.MaxLength = 90;
-            this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(379, 25);
-            this.txtDescripcion.TabIndex = 26;
-            this.txtDescripcion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDescripcion_KeyPress);
-            // 
-            // label12
-            // 
-            this.label12.Location = new System.Drawing.Point(49, 25);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(119, 20);
-            this.label12.TabIndex = 25;
-            this.label12.Text = "Descripción:";
-            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label13
-            // 
-            this.label13.Font = new System.Drawing.Font("Trebuchet MS", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.Red;
-            this.label13.Location = new System.Drawing.Point(35, 25);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(20, 20);
-            this.label13.TabIndex = 24;
-            this.label13.Text = "*";
-            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.Gray;
-            this.panel3.Controls.Add(this.txtMensajeError);
-            this.panel3.Controls.Add(this.btnGuardar);
-            this.panel3.Controls.Add(this.btnCancelar);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 218);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(503, 80);
-            this.panel3.TabIndex = 1;
+            this.panel2.AutoScroll = true;
+            this.panel2.BackColor = System.Drawing.Color.Gray;
+            this.panel2.Controls.Add(this.btnGuardar);
+            this.panel2.Controls.Add(this.btnCancelar);
+            this.panel2.Controls.Add(this.txtMensajeError);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel2.Location = new System.Drawing.Point(0, 279);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(589, 80);
+            this.panel2.TabIndex = 1;
             // 
             // txtMensajeError
             // 
             this.txtMensajeError.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.txtMensajeError.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtMensajeError.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMensajeError.Location = new System.Drawing.Point(14, 6);
+            this.txtMensajeError.Location = new System.Drawing.Point(12, 3);
             this.txtMensajeError.Multiline = true;
             this.txtMensajeError.Name = "txtMensajeError";
             this.txtMensajeError.ReadOnly = true;
             this.txtMensajeError.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtMensajeError.Size = new System.Drawing.Size(300, 69);
-            this.txtMensajeError.TabIndex = 31;
+            this.txtMensajeError.Size = new System.Drawing.Size(369, 69);
+            this.txtMensajeError.TabIndex = 63;
             this.txtMensajeError.Text = "Ocurrió un Error";
             this.txtMensajeError.Visible = false;
+            // 
+            // panel4
+            // 
+            this.panel4.AutoScroll = true;
+            this.panel4.Controls.Add(this.dtpFechaFin);
+            this.panel4.Controls.Add(this.dtpFechaInicio);
+            this.panel4.Controls.Add(this.label2);
+            this.panel4.Controls.Add(this.label4);
+            this.panel4.Controls.Add(this.label1);
+            this.panel4.Controls.Add(this.label3);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel4.Location = new System.Drawing.Point(0, 0);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(589, 199);
+            this.panel4.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.Location = new System.Drawing.Point(71, 22);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(132, 20);
+            this.label1.TabIndex = 106;
+            this.label1.Text = "Fecha de inicio";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label3
+            // 
+            this.label3.Font = new System.Drawing.Font("Trebuchet MS", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Red;
+            this.label3.Location = new System.Drawing.Point(45, 25);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(20, 20);
+            this.label3.TabIndex = 105;
+            this.label3.Text = "*";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel3
+            // 
+            this.panel3.AutoScroll = true;
+            this.panel3.BackColor = System.Drawing.Color.Silver;
+            this.panel3.Controls.Add(this.panel4);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(0, 80);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(589, 199);
+            this.panel3.TabIndex = 2;
+            // 
+            // label2
+            // 
+            this.label2.Location = new System.Drawing.Point(71, 103);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(132, 20);
+            this.label2.TabIndex = 108;
+            this.label2.Text = "Fecha de término";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label4
+            // 
+            this.label4.Font = new System.Drawing.Font("Trebuchet MS", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Red;
+            this.label4.Location = new System.Drawing.Point(45, 106);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(20, 20);
+            this.label4.TabIndex = 107;
+            this.label4.Text = "*";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // dtpFechaInicio
+            // 
+            this.dtpFechaInicio.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFechaInicio.Location = new System.Drawing.Point(75, 56);
+            this.dtpFechaInicio.Name = "dtpFechaInicio";
+            this.dtpFechaInicio.Size = new System.Drawing.Size(146, 25);
+            this.dtpFechaInicio.TabIndex = 109;
+            // 
+            // dtpFechaFin
+            // 
+            this.dtpFechaFin.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFechaFin.Location = new System.Drawing.Point(75, 133);
+            this.dtpFechaFin.Name = "dtpFechaFin";
+            this.dtpFechaFin.Size = new System.Drawing.Size(146, 25);
+            this.dtpFechaFin.TabIndex = 110;
             // 
             // btnGuardar
             // 
@@ -148,16 +203,16 @@
             this.btnGuardar.ImageNormal = global::StephManager.Properties.Resources._0000s_0000s_0003_guardar;
             this.btnGuardar.ImagePressed = null;
             this.btnGuardar.ImageSize = new System.Drawing.Size(44, 44);
-            this.btnGuardar.KeyButton = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
+            this.btnGuardar.KeyButton = System.Windows.Forms.Keys.None;
             this.btnGuardar.KeyButtonView = false;
-            this.btnGuardar.Location = new System.Drawing.Point(327, 6);
+            this.btnGuardar.Location = new System.Drawing.Point(417, 3);
             this.btnGuardar.ModeGradient = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
             this.btnGuardar.MouseOverColor = System.Drawing.Color.Red;
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.OffsetPressedContent = true;
             this.btnGuardar.Size = new System.Drawing.Size(80, 70);
-            this.btnGuardar.TabIndex = 2;
-            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.TabIndex = 14;
+            this.btnGuardar.Text = "Generar";
             this.btnGuardar.TextDropShadow = true;
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
@@ -182,83 +237,53 @@
             this.btnCancelar.ImageNormal = global::StephManager.Properties.Resources._0000s_0000s_0002_cancelar;
             this.btnCancelar.ImagePressed = null;
             this.btnCancelar.ImageSize = new System.Drawing.Size(44, 44);
-            this.btnCancelar.KeyButton = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
+            this.btnCancelar.KeyButton = System.Windows.Forms.Keys.None;
             this.btnCancelar.KeyButtonView = false;
-            this.btnCancelar.Location = new System.Drawing.Point(411, 6);
+            this.btnCancelar.Location = new System.Drawing.Point(503, 3);
             this.btnCancelar.ModeGradient = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
             this.btnCancelar.MouseOverColor = System.Drawing.Color.Red;
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.OffsetPressedContent = true;
             this.btnCancelar.Size = new System.Drawing.Size(80, 70);
-            this.btnCancelar.TabIndex = 1;
+            this.btnCancelar.TabIndex = 15;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.TextDropShadow = true;
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(205)))), ((int)(((byte)(215)))));
-            this.panel2.Controls.Add(this.pictureBox1);
-            this.panel2.Controls.Add(this.label42);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(503, 80);
-            this.panel2.TabIndex = 0;
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.ErrorImage = null;
-            this.pictureBox1.Location = new System.Drawing.Point(352, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(433, 12);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(139, 55);
+            this.pictureBox1.Size = new System.Drawing.Size(142, 55);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 34;
             this.pictureBox1.TabStop = false;
             // 
-            // label42
-            // 
-            this.label42.AutoSize = true;
-            this.label42.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label42.ForeColor = System.Drawing.Color.White;
-            this.label42.Location = new System.Drawing.Point(4, 15);
-            this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(275, 46);
-            this.label42.TabIndex = 25;
-            this.label42.Text = "Padecimiento";
-            // 
-            // cbValidar
-            // 
-            this.cbValidar.AutoSize = true;
-            this.cbValidar.Location = new System.Drawing.Point(430, 56);
-            this.cbValidar.Name = "cbValidar";
-            this.cbValidar.Size = new System.Drawing.Size(73, 24);
-            this.cbValidar.TabIndex = 27;
-            this.cbValidar.Text = "Validar";
-            this.cbValidar.UseVisualStyleBackColor = true;
-            // 
-            // frmNuevoPadecimiento
+            // frmNuevoReporteComprasPorProveedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(503, 298);
+            this.ClientSize = new System.Drawing.Size(589, 359);
             this.ControlBox = false;
+            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Trebuchet MS", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.MinimumSize = new System.Drawing.Size(500, 300);
-            this.Name = "frmNuevoPadecimiento";
+            this.MinimumSize = new System.Drawing.Size(520, 300);
+            this.Name = "frmNuevoReporteComprasPorProveedor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Load += new System.EventHandler(this.frmNuevoReporteComprasPorProveedor_Load);
             this.panel1.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
+            this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
@@ -267,18 +292,20 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label42;
+        private System.Windows.Forms.TextBox txtMensajeError;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel panel3;
         private CreativaSL.LibControls.WinForms.Button_Creativa btnGuardar;
         private CreativaSL.LibControls.WinForms.Button_Creativa btnCancelar;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox txtDescripcion;
-        private System.Windows.Forms.TextBox txtMensajeError;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.CheckBox cbValidar;
+        private System.Windows.Forms.DateTimePicker dtpFechaFin;
+        private System.Windows.Forms.DateTimePicker dtpFechaInicio;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label4;
     }
 }
 

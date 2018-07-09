@@ -42,7 +42,8 @@ namespace CreativaSL.Dll.StephManager.Datos
         {
             try
             {
-                object[] parametros = { Datos.Opcion, Datos.IDPadecimiento, Datos.Descripcion.ToUpper(), Datos.IDUsuario };
+                
+                object[] parametros = { Datos.Opcion, Datos.IDPadecimiento, Datos.Descripcion.ToUpper(), Datos.Validar , Datos.IDUsuario };
                 object Resultado = SqlHelper.ExecuteScalar(Datos.Conexion, "spCSLDB_abc_CatPadecimientos", parametros);
                 Datos.Completado = false;
                 if (Resultado != null)
