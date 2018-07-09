@@ -36,6 +36,8 @@ namespace CreativaSL.Dll.StephManager.Negocio
             }
         }
 
+
+
         /// <summary>
         /// Método para obtener el reporte de consumo de material
         /// </summary>
@@ -99,6 +101,64 @@ namespace CreativaSL.Dll.StephManager.Negocio
                 throw ex;
             }
         }
+        /// <summary>
+        /// MIO   MIO   MIO   MIO   MIO
+        /// </summary>
+        /// <param name="Conexion"></param>
+        /// <returns></returns>
+        public List<ReporteTiempoServicios> ObtenerReporteTiempoServicio()
+        {
+            try
+            {
+                Reporte_Datos Datos1 = new Reporte_Datos();
+                return Datos1.ObtenerReporteTiempoServicio(Comun.Conexion);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        //TrabajosRealizados
+        public int GenerarReporteTrabajosRealizados(string Conexion, DateTime FechaInicio, DateTime FechaFin, string IDUsuario)
+        {
+            try
+            {
+                Reporte_Datos Datos = new Reporte_Datos();
+                return Datos.GenerarReporteTrabajosRealizados(Conexion, FechaInicio, FechaFin, IDUsuario);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public ReporteTrabajosRealizados ObtenerDetalleReporteTrabajosRealizados(string Conexion, int IDReporte)
+        {
+            try
+            {
+                Reporte_Datos Datos = new Reporte_Datos();
+                return Datos.ObtenerDetalleReporteTrabajosRealizados(Conexion, IDReporte);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public List<ReporteTrabajosRealizados> ObtenerReportesTrabajosRealizados(string Conexion)
+        {
+            try
+            {
+                Reporte_Datos Datos = new Reporte_Datos();
+                return Datos.ObtenerReporteTrabajosRealizados(Conexion);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        //
 
     }
 }

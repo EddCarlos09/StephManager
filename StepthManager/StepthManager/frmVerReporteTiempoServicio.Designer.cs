@@ -1,6 +1,6 @@
 ﻿namespace StephManager
 {
-    partial class frmVerReporteProductosVendidos
+    partial class frmVerReporteTiempoServicio
     {
         /// <summary>
         /// Variable del diseñador requerida.
@@ -213,7 +213,7 @@
             this.lblTitulo.TabIndex = 24;
             this.lblTitulo.Text = "Reporte";
             // 
-            // frmVerReporteProductosVendidos
+            // frmVerReporteTiempoServicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
@@ -222,11 +222,11 @@
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Trebuchet MS", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MinimumSize = new System.Drawing.Size(1024, 726);
-            this.Name = "frmVerReporteProductosVendidos";
+            this.Name = "frmVerReporteTiempoServicio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Steph v1.0";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.frmVerReporteProductosVendidos_Load);
+            this.Load += new System.EventHandler(this.frmVerReporteTiempoServicio_Load);
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel5.ResumeLayout(false);

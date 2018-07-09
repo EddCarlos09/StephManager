@@ -130,6 +130,16 @@
             this.bgwVentas = new System.ComponentModel.BackgroundWorker();
             this.bgwNotificaciones = new System.ComponentModel.BackgroundWorker();
             this.TimerNotificaciones = new System.Windows.Forms.Timer(this.components);
+            this.MenuStripReportes = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolsm_TrabajosRealizados = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolsm_ConsumoMaterial = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolsm_Garantias = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolsm_Mobiliario = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolsm_Clientes = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolsm_ProductosVendidos = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolsm_TiempoServicios = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolsm_ComprasProveedor = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolsm_Faltas = new System.Windows.Forms.ToolStripMenuItem();
             this.PanelMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -147,6 +157,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.NotificacionMaxima)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NotificacionMinima)).BeginInit();
+            this.MenuStripReportes.SuspendLayout();
             this.SuspendLayout();
             // 
             // PanelMenu
@@ -1587,6 +1598,92 @@
             this.TimerNotificaciones.Interval = 900000;
             this.TimerNotificaciones.Tick += new System.EventHandler(this.TimerNotificaciones_Tick);
             // 
+            // MenuStripReportes
+            // 
+            this.MenuStripReportes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(108)))), ((int)(((byte)(114)))));
+            this.MenuStripReportes.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.MenuStripReportes.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolsm_TrabajosRealizados,
+            this.toolsm_ConsumoMaterial,
+            this.toolsm_Garantias,
+            this.toolsm_Mobiliario,
+            this.toolsm_Clientes,
+            this.toolsm_ProductosVendidos,
+            this.toolsm_TiempoServicios,
+            this.toolsm_ComprasProveedor,
+            this.toolsm_Faltas});
+            this.MenuStripReportes.Name = "MenuStripCaja";
+            this.MenuStripReportes.Size = new System.Drawing.Size(244, 260);
+            // 
+            // toolsm_TrabajosRealizados
+            // 
+            this.toolsm_TrabajosRealizados.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(108)))), ((int)(((byte)(114)))));
+            this.toolsm_TrabajosRealizados.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolsm_TrabajosRealizados.Name = "toolsm_TrabajosRealizados";
+            this.toolsm_TrabajosRealizados.Size = new System.Drawing.Size(243, 26);
+            this.toolsm_TrabajosRealizados.Text = "Trabajos realizados";
+            this.toolsm_TrabajosRealizados.Click += new System.EventHandler(this.toolsm_TrabajosRealizados_Click);
+            // 
+            // toolsm_ConsumoMaterial
+            // 
+            this.toolsm_ConsumoMaterial.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(108)))), ((int)(((byte)(114)))));
+            this.toolsm_ConsumoMaterial.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolsm_ConsumoMaterial.Name = "toolsm_ConsumoMaterial";
+            this.toolsm_ConsumoMaterial.Size = new System.Drawing.Size(243, 26);
+            this.toolsm_ConsumoMaterial.Text = "Consumo de material";
+            this.toolsm_ConsumoMaterial.Click += new System.EventHandler(this.toolsm_ConsumoMaterial_Click);
+            // 
+            // toolsm_Garantias
+            // 
+            this.toolsm_Garantias.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(108)))), ((int)(((byte)(114)))));
+            this.toolsm_Garantias.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolsm_Garantias.Name = "toolsm_Garantias";
+            this.toolsm_Garantias.Size = new System.Drawing.Size(243, 26);
+            this.toolsm_Garantias.Text = "Garantías";
+            this.toolsm_Garantias.Click += new System.EventHandler(this.toolsm_Garantias_Click);
+            // 
+            // toolsm_Mobiliario
+            // 
+            this.toolsm_Mobiliario.Name = "toolsm_Mobiliario";
+            this.toolsm_Mobiliario.Size = new System.Drawing.Size(243, 26);
+            this.toolsm_Mobiliario.Text = "Mobiliario";
+            this.toolsm_Mobiliario.Click += new System.EventHandler(this.toolsm_Mobiliario_Click);
+            // 
+            // toolsm_Clientes
+            // 
+            this.toolsm_Clientes.Name = "toolsm_Clientes";
+            this.toolsm_Clientes.Size = new System.Drawing.Size(243, 26);
+            this.toolsm_Clientes.Text = "Clientes";
+            this.toolsm_Clientes.Click += new System.EventHandler(this.toolsm_Clientes_Click);
+            // 
+            // toolsm_ProductosVendidos
+            // 
+            this.toolsm_ProductosVendidos.Name = "toolsm_ProductosVendidos";
+            this.toolsm_ProductosVendidos.Size = new System.Drawing.Size(243, 26);
+            this.toolsm_ProductosVendidos.Text = "Productos";
+            this.toolsm_ProductosVendidos.Click += new System.EventHandler(this.toolsm_ProductosVendidos_Click);
+            // 
+            // toolsm_TiempoServicios
+            // 
+            this.toolsm_TiempoServicios.Name = "toolsm_TiempoServicios";
+            this.toolsm_TiempoServicios.Size = new System.Drawing.Size(243, 26);
+            this.toolsm_TiempoServicios.Text = "Tiempo servicios";
+            this.toolsm_TiempoServicios.Click += new System.EventHandler(this.toolsm_TiempoServicios_Click);
+            // 
+            // toolsm_ComprasProveedor
+            // 
+            this.toolsm_ComprasProveedor.Name = "toolsm_ComprasProveedor";
+            this.toolsm_ComprasProveedor.Size = new System.Drawing.Size(243, 26);
+            this.toolsm_ComprasProveedor.Text = "Proveedor";
+            this.toolsm_ComprasProveedor.Click += new System.EventHandler(this.toolsm_ComprasProveedor_Click);
+            // 
+            // toolsm_Faltas
+            // 
+            this.toolsm_Faltas.Name = "toolsm_Faltas";
+            this.toolsm_Faltas.Size = new System.Drawing.Size(243, 26);
+            this.toolsm_Faltas.Text = "Faltas";
+            this.toolsm_Faltas.Click += new System.EventHandler(this.toolsm_Faltas_Click);
+            // 
             // frmMenuInicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -1624,6 +1721,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.NotificacionMaxima)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NotificacionMinima)).EndInit();
+            this.MenuStripReportes.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1712,6 +1810,16 @@
         private System.Windows.Forms.Timer TimerNotificaciones;
         private CreativaSL.LibControls.WinForms.Button_Creativa btnCheckList;
         private CreativaSL.LibControls.WinForms.Button_Creativa btnReporte;
+        private System.Windows.Forms.ContextMenuStrip MenuStripReportes;
+        private System.Windows.Forms.ToolStripMenuItem toolsm_TrabajosRealizados;
+        private System.Windows.Forms.ToolStripMenuItem toolsm_ConsumoMaterial;
+        private System.Windows.Forms.ToolStripMenuItem toolsm_Garantias;
+        private System.Windows.Forms.ToolStripMenuItem toolsm_Mobiliario;
+        private System.Windows.Forms.ToolStripMenuItem toolsm_Clientes;
+        private System.Windows.Forms.ToolStripMenuItem toolsm_ProductosVendidos;
+        private System.Windows.Forms.ToolStripMenuItem toolsm_TiempoServicios;
+        private System.Windows.Forms.ToolStripMenuItem toolsm_ComprasProveedor;
+        private System.Windows.Forms.ToolStripMenuItem toolsm_Faltas;
     }
 }
 

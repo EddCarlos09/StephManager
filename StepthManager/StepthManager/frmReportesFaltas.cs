@@ -14,11 +14,11 @@ using System.Windows.Forms;
 
 namespace StephManager
 {
-    public partial class frmReportesProductosVendidos : Form
+    public partial class frmReportesFaltas : Form
     {
         #region Constructores
 
-        public frmReportesProductosVendidos()
+        public frmReportesFaltas()
         {
             try
             {
@@ -26,7 +26,7 @@ namespace StephManager
             }
             catch (Exception ex)
             {
-                LogError.AddExcFileTxt(ex, "Form2 ~ Form2()");
+                LogError.AddExcFileTxt(ex, "frmReportesFaltas ~ frmReportesFaltas()");
             }
         }
 
@@ -54,10 +54,10 @@ namespace StephManager
         {
             try
             {
-                Reporte_Negocio Neg = new Reporte_Negocio();
-                List<ReporteProductosVendidos> Lista = Neg.ObtenerReportesProductosVendidos(Comun.Conexion);
-                this.dgvReportesProductosVendidos.AutoGenerateColumns = false;
-                this.dgvReportesProductosVendidos.DataSource = Lista;
+                ReporteFaltas_Negocio Neg = new ReporteFaltas_Negocio();
+                List<ReporteFaltas> Lista = Neg.ObtenerReportesFaltas(Comun.Conexion);
+                this.dgvFaltas.AutoGenerateColumns = false;
+                this.dgvFaltas.DataSource = Lista;
             }
             catch (Exception ex)
             {
@@ -65,16 +65,31 @@ namespace StephManager
             }
         }
 
-        private ReporteProductosVendidos ObtenerDatosReporte()
+        private void LlenarGridBusqueda(DateTime fechaBuscar)
         {
             try
             {
-                ReporteProductosVendidos DatosAux = new ReporteProductosVendidos();
-                Int32 RowData = this.dgvReportesProductosVendidos.Rows.GetFirstRow(DataGridViewElementStates.Selected);
+                ReporteFaltas_Negocio a = new ReporteFaltas_Negocio();
+                List<ReporteFaltas> Lista = a.ObtenerReporteFaltasBusqueda(Comun.Conexion,fechaBuscar);
+                this.dgvFaltas.AutoGenerateColumns = false;
+                this.dgvFaltas.DataSource = Lista;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        private ReporteFaltas ObtenerDatosReporte()
+        {
+            try
+            {
+                ReporteFaltas DatosAux = new ReporteFaltas();
+                Int32 RowData = this.dgvFaltas.Rows.GetFirstRow(DataGridViewElementStates.Selected);
                 if (RowData > -1)
                 {
                     int ID = 0;
-                    DataGridViewRow FilaDatos = this.dgvReportesProductosVendidos.Rows[RowData];
+                    DataGridViewRow FilaDatos = this.dgvFaltas.Rows[RowData];
                     int.TryParse(FilaDatos.Cells["IDReporte"].Value.ToString(), out ID);
                     DatosAux.IDReporte = ID;
                     //DateTime FechaInicio = DateTime.MinValue;
@@ -98,17 +113,19 @@ namespace StephManager
         {
             try
             {
-                frmNuevoReporteProductosVendidos GenerarReporte = new frmNuevoReporteProductosVendidos();
+                this.Visible = false;
+                frmNuevoReporteFaltas GenerarReporte = new frmNuevoReporteFaltas();
                 GenerarReporte.ShowDialog();
                 if(GenerarReporte.DialogResult == DialogResult.OK)
                 {
                     LlenarGrid();
                 }
                 GenerarReporte.Dispose();
+                this.Visible = true;
             }
             catch (Exception ex)
             {
-                LogError.AddExcFileTxt(ex, "frmReportesProductosVendidos ~ btnNuevo_Click");
+                LogError.AddExcFileTxt(ex, "frmReportesFaltas ~ btnNuevo_Click");
                 MessageBox.Show(Comun.MensajeError, Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.Visible = true;
             }
@@ -122,7 +139,7 @@ namespace StephManager
             }
             catch (Exception ex)
             {
-                LogError.AddExcFileTxt(ex, "frmReportesProductosVendidos ~ btnSalir_Click");
+                LogError.AddExcFileTxt(ex, "frmReportesFaltas ~ btnSalir_Click");
                 MessageBox.Show(Comun.MensajeError, Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -131,12 +148,15 @@ namespace StephManager
         {
             try
             {
-                if(this.dgvReportesProductosVendidos.SelectedRows.Count == 1)
+                if(this.dgvFaltas.SelectedRows.Count == 1)
                 {
-                    ReporteProductosVendidos Datos = this.ObtenerDatosReporte();
-                    //frmReportesProductosVendidos VerReporte = new frmReportesProductosVendidos(Datos.IDReporte);
-                   //VerReporte.ShowDialog();
-                    //VerReporte.Dispose();
+                    this.Visible = false;
+                    ReporteFaltas Datos = this.ObtenerDatosReporte();
+                    frmVerReporteFaltas VerReporte = new frmVerReporteFaltas(Datos.IDReporte);
+                    VerReporte.ShowDialog();
+                    VerReporte.Dispose();
+                    //this.DialogResult = DialogResult.OK;
+                    this.Visible = true;
                 }
                 else
                 {
@@ -145,12 +165,12 @@ namespace StephManager
             }
             catch (Exception ex)
             {
-                LogError.AddExcFileTxt(ex, "frmReportesProductosVendidos ~ btnImpresion_Click");
+                LogError.AddExcFileTxt(ex, "frmReportesFaltas ~ btnImpresion_Click");
                 MessageBox.Show(Comun.MensajeError, Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void frmReportesProductosVendidos_Load(object sender, EventArgs e)
+        private void frmReportesFaltas_Load(object sender, EventArgs e)
         {
             try
             {
@@ -158,12 +178,37 @@ namespace StephManager
             }
             catch (Exception ex)
             {
-                LogError.AddExcFileTxt(ex, "frmReportesProductosVendidos ~ frmReportesProductosVendidos_Load");
+                LogError.AddExcFileTxt(ex, "frmReportesFaltas ~ frmReportesFaltas_Load");
                 MessageBox.Show(Comun.MensajeError, Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         #endregion
 
+        private void label42_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //BOTON BUSCAR POR FECHA
+            DateTime fechaBuscar = dtpFechaBuscar.Value;
+            LlenarGridBusqueda(fechaBuscar);
+            if (File.Exists(Path.Combine(System.Windows.Forms.Application.StartupPath, @"Resources\Documents\" + Comun.UrlLogo)))
+            {
+                this.pictureBox1.Image = Image.FromFile(Path.Combine(System.Windows.Forms.Application.StartupPath, @"Resources\Documents\" + Comun.UrlLogo));
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            //BOTON QUITAR BUSQUEDA
+            this.LlenarGrid();
+            if (File.Exists(Path.Combine(System.Windows.Forms.Application.StartupPath, @"Resources\Documents\" + Comun.UrlLogo)))
+            {
+                this.pictureBox1.Image = Image.FromFile(Path.Combine(System.Windows.Forms.Application.StartupPath, @"Resources\Documents\" + Comun.UrlLogo));
+            }
+        }
     }
 }

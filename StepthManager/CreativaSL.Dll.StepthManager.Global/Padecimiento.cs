@@ -10,6 +10,7 @@ namespace CreativaSL.Dll.StephManager.Global
     public class Padecimiento
     {
         private bool _Completado;
+        private int _Validar;
         private string _Conexion;
         private string _Descripcion;
         private string _IDCliente;
@@ -20,6 +21,11 @@ namespace CreativaSL.Dll.StephManager.Global
         private bool _Seleccionado;
         private DataTable _TablaDatos;
 
+        public int Validar//agregue, zincri
+        {
+            get { return _Validar; }
+            set { _Validar = value; }
+        }
         public bool Completado
         {
             get { return _Completado; }

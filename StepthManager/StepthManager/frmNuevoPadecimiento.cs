@@ -69,6 +69,7 @@ namespace StephManager
             try
             {
                 this.txtDescripcion.Text = Datos.Descripcion;
+                this.cbValidar.Checked = Datos.Validar==1 ?true:false;
             }
             catch (Exception ex)
             {
@@ -119,6 +120,7 @@ namespace StephManager
                 Padecimiento DatosAux = new Padecimiento();
                 DatosAux.IDPadecimiento = TipoForm == 2 ? _DatosPadecimiento.IDPadecimiento : string.Empty;
                 DatosAux.Descripcion = this.txtDescripcion.Text.Trim();
+                DatosAux.Validar = cbValidar.Checked ? 1 : 0;  //agregue, zincri
                 DatosAux.Opcion = this.TipoForm;
                 DatosAux.Conexion = Comun.Conexion;                
                 DatosAux.IDUsuario = Comun.IDUsuario;
