@@ -80,6 +80,8 @@
     <Compile Include="ChechkList.cs" />
     <Compile Include="ActividadOpcionesCheckList.cs" />
     <Compile Include="ChechkListResultado.cs" />
+    <Compile Include="ReporteComprasCliente.cs" />
+    <Compile Include="ReporteComprasClienteDetalles.cs" />
     <Compile Include="ReporteConsumoMaterial.cs" />
     <Compile Include="ReporteMaterialesProduccion.cs" />
     <Compile Include="ReporteProductosVendidos.cs" />
