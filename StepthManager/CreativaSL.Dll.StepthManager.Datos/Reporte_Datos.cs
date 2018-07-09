@@ -313,9 +313,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                 throw ex;
             }
         }
-        //
-
-        //MIO
+        //Tiempo de Servicios        
         public List<ReporteTiempoServicios> ObtenerReporteTiempoServicio(string Conexion)
         {
             try

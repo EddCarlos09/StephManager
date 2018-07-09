@@ -102,7 +102,7 @@ namespace CreativaSL.Dll.StephManager.Negocio
             }
         }
         /// <summary>
-        /// MIO   MIO   MIO   MIO   MIO
+        /// Obtiene el reporte del promedio del tiempo de de los servicios
         /// </summary>
         /// <param name="Conexion"></param>
         /// <returns></returns>

@@ -82,6 +82,8 @@
     <Compile Include="ChechkListResultado.cs" />
     <Compile Include="ReporteComprasPorProveedor.cs" />
     <Compile Include="ReporteComprasPorProveedorDetalle.cs" />
+    <Compile Include="ReporteComprasCliente.cs" />
+    <Compile Include="ReporteComprasClienteDetalles.cs" />
     <Compile Include="ReporteConsumoMaterial.cs" />
     <Compile Include="ReporteFaltas.cs" />
     <Compile Include="ReporteFaltasDetalle.cs" />

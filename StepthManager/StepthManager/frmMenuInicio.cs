@@ -948,7 +948,10 @@ namespace StephManager
         {
             try
             {
-                
+                frmReporteTrabajosRealizados tr = new frmReporteTrabajosRealizados();
+                tr.ShowDialog();
+                tr.Dispose();
+
             }
             catch (Exception ex)
             {
@@ -1002,7 +1005,9 @@ namespace StephManager
         {
             try
             {
-
+                frmReporteComprasCliente VerReporte = new frmReporteComprasCliente();
+                VerReporte.ShowDialog();
+                VerReporte.Dispose();
             }
             catch (Exception ex)
             {
@@ -1015,9 +1020,9 @@ namespace StephManager
         {
             try
             {
-                //frmReportesProductosVendidos GenerarReporte = new frmReportesProductosVendidos();
-                //GenerarReporte.ShowDialog();
-                //GenerarReporte.Dispose();
+                frmReportesProductosVendidos GenerarReporte = new frmReportesProductosVendidos();
+                GenerarReporte.ShowDialog();
+                GenerarReporte.Dispose();
 
             }
             catch (Exception ex)
