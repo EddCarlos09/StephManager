@@ -341,5 +341,42 @@ namespace CreativaSL.Dll.StephManager.Datos
                 throw ex;
             }
         }
+
+        /// <summary>
+        /// Método para obtener el mobiliario por sucursal
+        /// </summary>
+        /// <param name="Conexion">Cadena de conexion a la BD</param>
+        /// <param name="IDSucursal">Identificador de la sucursal</param>
+        /// <returns>Retorna una lista de tipo ReporteMobiliarioXSucursal</returns>
+        public List<ReporteMobiliarioXSucursal> ObtenerReporteMobiliarioAsignadoPorSucursal(string  Conexion, string IDSucursal)
+        {
+            try
+            {
+                List<ReporteMobiliarioXSucursal> Lista = new List<ReporteMobiliarioXSucursal>();
+                ReporteMobiliarioXSucursal Item;
+                SqlDataReader Dr = SqlHelper.ExecuteReader(Conexion, "Reportes.spCSLDB_get_ReporteMobiliarioAsignadoPorSucursal", IDSucursal);
+                while (Dr.Read())
+                {
+                    Item = new ReporteMobiliarioXSucursal();
+                    Item.IDSucursal = !Dr.IsDBNull(Dr.GetOrdinal("IDSucursal")) ? Dr.GetString(Dr.GetOrdinal("IDSucursal")) : string.Empty;
+                    Item.NombreSucursal = !Dr.IsDBNull(Dr.GetOrdinal("NombreSucursal")) ? Dr.GetString(Dr.GetOrdinal("NombreSucursal")) : string.Empty;
+                    Item.IDMobiliario = !Dr.IsDBNull(Dr.GetOrdinal("IDMobiliario")) ? Dr.GetString(Dr.GetOrdinal("IDMobiliario")) : string.Empty;
+                    Item.Codigo = !Dr.IsDBNull(Dr.GetOrdinal("Codigo")) ? Dr.GetString(Dr.GetOrdinal("Codigo")) : string.Empty;
+                    Item.Mobiliario = !Dr.IsDBNull(Dr.GetOrdinal("MobiliarioDesc")) ? Dr.GetString(Dr.GetOrdinal("MobiliarioDesc")) : string.Empty;
+                    Item.Marca = !Dr.IsDBNull(Dr.GetOrdinal("Marca")) ? Dr.GetString(Dr.GetOrdinal("Marca")) : string.Empty;
+                    Item.Modelo = !Dr.IsDBNull(Dr.GetOrdinal("Modelo")) ? Dr.GetString(Dr.GetOrdinal("Modelo")) : string.Empty;
+                    Item.NumSerie = !Dr.IsDBNull(Dr.GetOrdinal("NumSerie")) ? Dr.GetString(Dr.GetOrdinal("NumSerie")) : string.Empty;
+                    Item.FechaAsigncion = !Dr.IsDBNull(Dr.GetOrdinal("FechaAsignacion")) ? Dr.GetDateTime(Dr.GetOrdinal("FechaAsignacion")) : DateTime.MinValue;
+                    Lista.Add(Item);
+                }
+                Dr.Close();
+                return Lista;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }

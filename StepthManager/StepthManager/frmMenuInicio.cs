@@ -987,7 +987,9 @@ namespace StephManager
         {
             try
             {
-
+                frmVerReporteMobiliarioXSucursal Reporte = new frmVerReporteMobiliarioXSucursal();
+                Reporte.ShowDialog();
+                Reporte.Dispose();
             }
             catch (Exception ex)
             {

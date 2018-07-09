@@ -86,6 +86,7 @@
     <Compile Include="ReporteFaltas.cs" />
     <Compile Include="ReporteFaltasDetalle.cs" />
     <Compile Include="ReporteMaterialesProduccion.cs" />
+    <Compile Include="ReporteMobiliarioXSucursal.cs" />
     <Compile Include="ReporteProductosVendidos.cs" />
     <Compile Include="ReporteProductosVendidosDetalle.cs" />
     <Compile Include="ReporteServiciosRealizados.cs" />
