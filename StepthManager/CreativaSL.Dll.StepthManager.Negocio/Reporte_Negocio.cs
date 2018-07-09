@@ -159,6 +159,18 @@ namespace CreativaSL.Dll.StephManager.Negocio
             }
         }
         //
+        public List<ReporteMobiliarioXSucursal> ObtenerReporteMobiliarioAsignadoPorSucursal(string Conexion, string IDSucursal)
+        {
+            try
+            {
+                Reporte_Datos Datos = new Reporte_Datos();
+                return Datos.ObtenerReporteMobiliarioAsignadoPorSucursal(Conexion, IDSucursal);
+            }
+            catch (Exception)
+            {
 
+                throw;
+            }
+        }
     }
 }
