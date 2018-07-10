@@ -44,6 +44,10 @@
             this.btnNuevo = new CreativaSL.LibControls.WinForms.Button_Creativa();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
+            this.btnQuitar = new CreativaSL.LibControls.WinForms.Button_Creativa();
+            this.btnBuscar = new CreativaSL.LibControls.WinForms.Button_Creativa();
+            this.lbl1 = new System.Windows.Forms.Label();
+            this.dtpFechaBuscar = new System.Windows.Forms.DateTimePicker();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -57,6 +61,7 @@
             this.panel7.SuspendLayout();
             this.PanelMenu.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.panel10.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -295,11 +300,108 @@
             // panel10
             // 
             this.panel10.BackColor = System.Drawing.Color.DarkGray;
+            this.panel10.Controls.Add(this.btnQuitar);
+            this.panel10.Controls.Add(this.btnBuscar);
+            this.panel10.Controls.Add(this.lbl1);
+            this.panel10.Controls.Add(this.dtpFechaBuscar);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel10.Location = new System.Drawing.Point(0, 0);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(1008, 50);
             this.panel10.TabIndex = 2;
+            // 
+            // btnQuitar
+            // 
+            this.btnQuitar.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btnQuitar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(108)))), ((int)(((byte)(114)))));
+            this.btnQuitar.BorderColor = System.Drawing.Color.Red;
+            this.btnQuitar.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(108)))), ((int)(((byte)(114)))));
+            this.btnQuitar.BorderMouseOverColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnQuitar.BorderNoFocusColor = System.Drawing.Color.Maroon;
+            this.btnQuitar.FocusRectangle = true;
+            this.btnQuitar.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnQuitar.ForeColor = System.Drawing.Color.Black;
+            this.btnQuitar.Image = null;
+            this.btnQuitar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnQuitar.ImageBorderColor = System.Drawing.Color.Red;
+            this.btnQuitar.ImageFocused = null;
+            this.btnQuitar.ImageInactive = null;
+            this.btnQuitar.ImageMouseOver = null;
+            this.btnQuitar.ImageNormal = null;
+            this.btnQuitar.ImagePressed = null;
+            this.btnQuitar.ImageSize = new System.Drawing.Size(44, 44);
+            this.btnQuitar.KeyButton = System.Windows.Forms.Keys.F1;
+            this.btnQuitar.KeyButtonView = false;
+            this.btnQuitar.Location = new System.Drawing.Point(879, 10);
+            this.btnQuitar.ModeGradient = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            this.btnQuitar.MouseOverColor = System.Drawing.Color.Red;
+            this.btnQuitar.Name = "btnQuitar";
+            this.btnQuitar.OffsetPressedContent = true;
+            this.btnQuitar.Size = new System.Drawing.Size(120, 28);
+            this.btnQuitar.TabIndex = 116;
+            this.btnQuitar.Text = "Quitar Busqueda";
+            this.btnQuitar.TextDropShadow = true;
+            this.btnQuitar.UseVisualStyleBackColor = false;
+            this.btnQuitar.Click += new System.EventHandler(this.button_Creativa1_Click);
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btnBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(108)))), ((int)(((byte)(114)))));
+            this.btnBuscar.BorderColor = System.Drawing.Color.Red;
+            this.btnBuscar.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(108)))), ((int)(((byte)(114)))));
+            this.btnBuscar.BorderMouseOverColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnBuscar.BorderNoFocusColor = System.Drawing.Color.Maroon;
+            this.btnBuscar.FocusRectangle = true;
+            this.btnBuscar.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscar.ForeColor = System.Drawing.Color.Black;
+            this.btnBuscar.Image = null;
+            this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnBuscar.ImageBorderColor = System.Drawing.Color.Red;
+            this.btnBuscar.ImageFocused = null;
+            this.btnBuscar.ImageInactive = null;
+            this.btnBuscar.ImageMouseOver = null;
+            this.btnBuscar.ImageNormal = null;
+            this.btnBuscar.ImagePressed = null;
+            this.btnBuscar.ImageSize = new System.Drawing.Size(44, 44);
+            this.btnBuscar.KeyButton = System.Windows.Forms.Keys.F1;
+            this.btnBuscar.KeyButtonView = false;
+            this.btnBuscar.Location = new System.Drawing.Point(762, 10);
+            this.btnBuscar.ModeGradient = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            this.btnBuscar.MouseOverColor = System.Drawing.Color.Red;
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.OffsetPressedContent = true;
+            this.btnBuscar.Size = new System.Drawing.Size(100, 28);
+            this.btnBuscar.TabIndex = 115;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.TextDropShadow = true;
+            this.btnBuscar.UseVisualStyleBackColor = false;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
+            // lbl1
+            // 
+            this.lbl1.AccessibleRole = System.Windows.Forms.AccessibleRole.WhiteSpace;
+            this.lbl1.AutoSize = true;
+            this.lbl1.BackColor = System.Drawing.Color.Transparent;
+            this.lbl1.Font = new System.Drawing.Font("Trebuchet MS", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lbl1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lbl1.Location = new System.Drawing.Point(356, 12);
+            this.lbl1.Name = "lbl1";
+            this.lbl1.Size = new System.Drawing.Size(215, 27);
+            this.lbl1.TabIndex = 114;
+            this.lbl1.Text = "Reportes Generados:";
+            this.lbl1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // dtpFechaBuscar
+            // 
+            this.dtpFechaBuscar.CalendarMonthBackground = System.Drawing.SystemColors.MenuHighlight;
+            this.dtpFechaBuscar.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFechaBuscar.Location = new System.Drawing.Point(577, 13);
+            this.dtpFechaBuscar.Name = "dtpFechaBuscar";
+            this.dtpFechaBuscar.Size = new System.Drawing.Size(163, 25);
+            this.dtpFechaBuscar.TabIndex = 111;
+            this.dtpFechaBuscar.ValueChanged += new System.EventHandler(this.dtpFechaBuscar_ValueChanged);
             // 
             // panel2
             // 
@@ -367,6 +469,8 @@
             this.panel7.ResumeLayout(false);
             this.PanelMenu.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
+            this.panel10.ResumeLayout(false);
+            this.panel10.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
@@ -397,6 +501,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn IDReporte;
         private System.Windows.Forms.DataGridViewTextBoxColumn FechaInicio;
         private System.Windows.Forms.DataGridViewTextBoxColumn FechaFin;
+        private System.Windows.Forms.DateTimePicker dtpFechaBuscar;
+        private System.Windows.Forms.Label lbl1;
+        private CreativaSL.LibControls.WinForms.Button_Creativa btnBuscar;
+        private CreativaSL.LibControls.WinForms.Button_Creativa btnQuitar;
     }
 }
 
