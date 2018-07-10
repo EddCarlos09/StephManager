@@ -350,16 +350,16 @@
             // 
             // dtpFechaBusqueda
             // 
-            this.dtpFechaBusqueda.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dtpFechaBusqueda.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.dtpFechaBusqueda.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaBusqueda.Location = new System.Drawing.Point(691, 12);
+            this.dtpFechaBusqueda.Location = new System.Drawing.Point(577, 12);
             this.dtpFechaBusqueda.Name = "dtpFechaBusqueda";
             this.dtpFechaBusqueda.Size = new System.Drawing.Size(165, 25);
             this.dtpFechaBusqueda.TabIndex = 68;
             // 
             // btnCancelarBusq
             // 
-            this.btnCancelarBusq.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnCancelarBusq.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.btnCancelarBusq.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(108)))), ((int)(((byte)(114)))));
             this.btnCancelarBusq.BorderColor = System.Drawing.Color.Red;
             this.btnCancelarBusq.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(108)))), ((int)(((byte)(114)))));
@@ -379,7 +379,7 @@
             this.btnCancelarBusq.ImageSize = new System.Drawing.Size(44, 44);
             this.btnCancelarBusq.KeyButton = System.Windows.Forms.Keys.F1;
             this.btnCancelarBusq.KeyButtonView = false;
-            this.btnCancelarBusq.Location = new System.Drawing.Point(968, 12);
+            this.btnCancelarBusq.Location = new System.Drawing.Point(852, 12);
             this.btnCancelarBusq.ModeGradient = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
             this.btnCancelarBusq.MouseOverColor = System.Drawing.Color.Red;
             this.btnCancelarBusq.Name = "btnCancelarBusq";
@@ -393,7 +393,7 @@
             // 
             // button_Creativa1
             // 
-            this.button_Creativa1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button_Creativa1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.button_Creativa1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(108)))), ((int)(((byte)(114)))));
             this.button_Creativa1.BorderColor = System.Drawing.Color.Red;
             this.button_Creativa1.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(108)))), ((int)(((byte)(114)))));
@@ -413,7 +413,7 @@
             this.button_Creativa1.ImageSize = new System.Drawing.Size(44, 44);
             this.button_Creativa1.KeyButton = System.Windows.Forms.Keys.F1;
             this.button_Creativa1.KeyButtonView = false;
-            this.button_Creativa1.Location = new System.Drawing.Point(862, 12);
+            this.button_Creativa1.Location = new System.Drawing.Point(748, 12);
             this.button_Creativa1.ModeGradient = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
             this.button_Creativa1.MouseOverColor = System.Drawing.Color.Red;
             this.button_Creativa1.Name = "button_Creativa1";
@@ -457,7 +457,6 @@
             this.btnCancBusqueda.Text = "X";
             this.btnCancBusqueda.TextDropShadow = true;
             this.btnCancBusqueda.UseVisualStyleBackColor = false;
-            //this.btnCancBusqueda.Click += new System.EventHandler(this.btnCancBusqueda_Click);
             // 
             // btnBuscar
             // 
@@ -491,7 +490,6 @@
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.TextDropShadow = true;
             this.btnBuscar.UseVisualStyleBackColor = false;
-            //this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // dtpFechaBuscar
             // 
