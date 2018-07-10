@@ -81,7 +81,6 @@ namespace CreativaSL.Dll.StephManager.Datos
                             Item.Servicios = !Dr2.IsDBNull(Dr2.GetOrdinal("Servicios")) ? Dr2.GetString(Dr2.GetOrdinal("Servicios")) : string.Empty;
                             Item.Total = !Dr2.IsDBNull(Dr2.GetOrdinal("Total")) ? Dr2.GetDecimal(Dr2.GetOrdinal("Total")) : 0;
                             Lista.Add(Item);
-                            break;
                         }
                         Dr2.Close();
 
@@ -102,13 +101,13 @@ namespace CreativaSL.Dll.StephManager.Datos
         /// </summary>
         /// <param name="Conexion">Cadena de conexión a la BD</param>
         /// <returns>Retorna una lista con el IDReporte, la fecha de Inicio y la fecha de termino</returns>
-        public List<ReporteComprasCliente> ObtenerReporteComprasCliente(string Conexion)
+        public List<ReporteComprasCliente> ObtenerReporteComprasCliente(string Conexion, DateTime Fecha)
         {
             try
             {
                 List<ReporteComprasCliente> Lista = new List<ReporteComprasCliente>();
                 ReporteComprasCliente Item;
-                SqlDataReader Dr = SqlHelper.ExecuteReader(Conexion, "Reportes.spCSLDB_get_ReporteComprasCliente");
+                SqlDataReader Dr = SqlHelper.ExecuteReader(Conexion, "Reportes.spCSLDB_get_ReporteComprasCliente", Fecha);
                 while (Dr.Read())
                 {
                     Item = new ReporteComprasCliente();

@@ -16,6 +16,7 @@ namespace StephManager
 {
     public partial class frmReporteComprasCliente : Form
     {
+        DateTime Fecha= DateTime.MinValue;
         #region Constructores
 
         public frmReporteComprasCliente()
@@ -56,7 +57,7 @@ namespace StephManager
             try
             {
                 Reporte_NegocioComprasCliente Neg = new Reporte_NegocioComprasCliente();
-                List<ReporteComprasCliente> Lista = Neg.ObtenerReporteComprasCliente(Comun.Conexion);
+                List<ReporteComprasCliente> Lista = Neg.ObtenerReporteComprasCliente(Comun.Conexion, this.Fecha);
                 this.dgvReporteComprasCliente.AutoGenerateColumns = false;
                 this.dgvReporteComprasCliente.DataSource = Lista;
             }
@@ -167,6 +168,20 @@ namespace StephManager
         }
 
         #endregion
+        
+        
+        private void button_Creativa1_Click(object sender, EventArgs e)
+        {
+            //BOTON BUSCAR POR FECHA
+            this.Fecha = dtpFechaBusqueda.Value;
+            LlenarGrid();
+        }
 
+        private void btnCancelarBusq_Click(object sender, EventArgs e)
+        {
+            //VER TOP 20 DE REGISTROS
+            this.Fecha = DateTime.MinValue;
+            LlenarGrid();
+        }
     }
 }

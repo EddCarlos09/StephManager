@@ -98,13 +98,13 @@ namespace CreativaSL.Dll.StephManager.Datos
         /// </summary>
         /// <param name="Conexion">Cadena de conexión a la BD</param>
         /// <returns>Retorna una lista con el IDReporte, la fecha de Inicio y la fecha de termino</returns>
-        public List<ReporteTrabajosRealizados> ObtenerReporteTrabajosRealizados(string Conexion)
+        public List<ReporteTrabajosRealizados> ObtenerReporteTrabajosRealizados(string Conexion, DateTime Fecha)
         {
             try
             {
                 List<ReporteTrabajosRealizados> Lista = new List<ReporteTrabajosRealizados>();
                 ReporteTrabajosRealizados Item;
-                SqlDataReader Dr = SqlHelper.ExecuteReader(Conexion, "Reportes.spCSLDB_get_ReporteTrabajosRealizados");
+                SqlDataReader Dr = SqlHelper.ExecuteReader(Conexion, "Reportes.spCSLDB_get_ReporteTrabajosRealizados", Fecha);
                 while (Dr.Read())
                 {
                     Item = new ReporteTrabajosRealizados();

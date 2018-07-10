@@ -55,12 +55,12 @@ namespace CreativaSL.Dll.StephManager.Negocio
         /// </summary>
         /// <param name="Conexion">Cadena de conexión a la BD</param>
         /// <returns>Retorna una lista con el IDReporte, la fecha de Inicio y la fecha de termino</returns>
-        public List<ReporteTrabajosRealizados> ObtenerReportesTrabajosRealizados(string Conexion)
+        public List<ReporteTrabajosRealizados> ObtenerReportesTrabajosRealizados(string Conexion, DateTime fecha)
         {
             try
             {
                 Reporte_DatosTrabajosRealizados Datos = new Reporte_DatosTrabajosRealizados();
-                return Datos.ObtenerReporteTrabajosRealizados(Conexion);
+                return Datos.ObtenerReporteTrabajosRealizados(Conexion, fecha);
             }
             catch (Exception ex)
             {
