@@ -948,7 +948,10 @@ namespace StephManager
         {
             try
             {
-                
+                frmReporteTrabajosRealizados tr = new frmReporteTrabajosRealizados();
+                tr.ShowDialog();
+                tr.Dispose();
+
             }
             catch (Exception ex)
             {
@@ -987,7 +990,9 @@ namespace StephManager
         {
             try
             {
-
+                frmVerReporteMobiliarioXSucursal Reporte = new frmVerReporteMobiliarioXSucursal();
+                Reporte.ShowDialog();
+                Reporte.Dispose();
             }
             catch (Exception ex)
             {
@@ -1000,7 +1005,9 @@ namespace StephManager
         {
             try
             {
-
+                frmReporteComprasCliente VerReporte = new frmReporteComprasCliente();
+                VerReporte.ShowDialog();
+                VerReporte.Dispose();
             }
             catch (Exception ex)
             {
