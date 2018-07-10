@@ -89,18 +89,19 @@ namespace CreativaSL.Dll.StephManager.Negocio
             }
         }
 
-        public List<ReporteProductosVendidos> ObtenerReportesProductosVendidos(string Conexion)
+        public List<ReporteProductosVendidos> ObtenerReportesProductosVendidos(string Conexion, DateTime Fecha)
         {
             try
             {
                 Reporte_Datos Datos = new Reporte_Datos();
-                return Datos.ObtenerReportesProductosVendidos(Conexion);
+                return Datos.ObtenerReportesProductosVendidos(Conexion, Fecha);
             }
             catch (Exception ex)
             {
                 throw ex;
             }
         }
+        
         /// <summary>
         /// Obtiene el reporte del promedio del tiempo de de los servicios
         /// </summary>

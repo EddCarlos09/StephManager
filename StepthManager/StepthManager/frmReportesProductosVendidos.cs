@@ -16,13 +16,14 @@ namespace StephManager
 {
     public partial class frmReportesProductosVendidos : Form
     {
+        DateTime Fecha = DateTime.MinValue;
         #region Constructores
 
         public frmReportesProductosVendidos()
         {
             try
             {
-                InitializeComponent();                
+                InitializeComponent();
             }
             catch (Exception ex)
             {
@@ -55,7 +56,7 @@ namespace StephManager
             try
             {
                 Reporte_Negocio Neg = new Reporte_Negocio();
-                List<ReporteProductosVendidos> Lista = Neg.ObtenerReportesProductosVendidos(Comun.Conexion);
+                List<ReporteProductosVendidos> Lista = Neg.ObtenerReportesProductosVendidos(Comun.Conexion, Fecha);
                 this.dgvReportesProductosVendidos.AutoGenerateColumns = false;
                 this.dgvReportesProductosVendidos.DataSource = Lista;
             }
@@ -64,6 +65,7 @@ namespace StephManager
                 throw ex;
             }
         }
+
 
         private ReporteProductosVendidos ObtenerDatosReporte()
         {
@@ -100,7 +102,7 @@ namespace StephManager
             {
                 frmNuevoReporteProductosVendidos GenerarReporte = new frmNuevoReporteProductosVendidos();
                 GenerarReporte.ShowDialog();
-                if(GenerarReporte.DialogResult == DialogResult.OK)
+                if (GenerarReporte.DialogResult == DialogResult.OK)
                 {
                     LlenarGrid();
                 }
@@ -126,16 +128,16 @@ namespace StephManager
                 MessageBox.Show(Comun.MensajeError, Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        
+
         private void btnImpresion_Click(object sender, EventArgs e)
         {
             try
             {
-                if(this.dgvReportesProductosVendidos.SelectedRows.Count == 1)
+                if (this.dgvReportesProductosVendidos.SelectedRows.Count == 1)
                 {
                     ReporteProductosVendidos Datos = this.ObtenerDatosReporte();
                     frmVerReporteProductosVendidos VerReporte = new frmVerReporteProductosVendidos(Datos.IDReporte);
-                   VerReporte.ShowDialog();
+                    VerReporte.ShowDialog();
                     VerReporte.Dispose();
                 }
                 else
@@ -162,8 +164,32 @@ namespace StephManager
                 MessageBox.Show(Comun.MensajeError, Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            //BtnBuscar
+            this.Fecha = dtpFechaBuscar.Value;
+            LlenarGrid();
+        }
+
+        private void button_Creativa1_Click(object sender, EventArgs e)
+        {
+            ////BOTON QUITAR BUSQUEDA
+            this.Fecha = DateTime.MinValue;
+            this.LlenarGrid();
+        }
 
         #endregion
 
+        private void dtpFechaBuscar_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }        
     }
 }

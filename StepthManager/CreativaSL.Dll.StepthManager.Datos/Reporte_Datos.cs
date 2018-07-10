@@ -198,13 +198,13 @@ namespace CreativaSL.Dll.StephManager.Datos
             }
         }
 
-        public List<ReporteProductosVendidos> ObtenerReportesProductosVendidos(string Conexion)
+        public List<ReporteProductosVendidos> ObtenerReportesProductosVendidos(string Conexion, DateTime Fecha)
         {
             try
             {
                 List<ReporteProductosVendidos> Lista = new List<ReporteProductosVendidos>();
                 ReporteProductosVendidos Item;
-                SqlDataReader Dr = SqlHelper.ExecuteReader(Conexion, "Reportes.spCSLDB_get_ReportesProductosVendidos");
+                SqlDataReader Dr = SqlHelper.ExecuteReader(Conexion, "Reportes.spCSLDB_get_ReportesProductosVendidos", Fecha);
                 while (Dr.Read())
                 {
                     Item = new ReporteProductosVendidos();
