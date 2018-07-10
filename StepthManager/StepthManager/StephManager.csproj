@@ -203,6 +203,12 @@
     <Compile Include="frmVerReporteComprasCliente.Designer.cs">
       <DependentUpon>frmVerReporteComprasCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmVerReporteMobiliarioXSucursal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmVerReporteMobiliarioXSucursal.Designer.cs">
+      <DependentUpon>frmVerReporteMobiliarioXSucursal.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmVerReporteProductosVendidos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1156,6 +1162,9 @@
     <EmbeddedResource Include="frmVerReporteComprasPorProveedor.resx">
       <DependentUpon>frmVerReporteComprasPorProveedor.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmVerReporteMobiliarioXSucursal.resx">
+      <DependentUpon>frmVerReporteMobiliarioXSucursal.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmVerReporteProductosVendidos.resx">
       <DependentUpon>frmVerReporteProductosVendidos.cs</DependentUpon>
     </EmbeddedResource>
@@ -1622,6 +1631,7 @@
     <EmbeddedResource Include="Informes\Reportes\ComprasCliente.rdlc" />
     <EmbeddedResource Include="Informes\Reportes\TrabajosRealizados.rdlc" />
     <EmbeddedResource Include="Informes\Reportes\ComprasPorProveedor.rdlc" />
+    <EmbeddedResource Include="Informes\Reportes\MobiliarioXSucursal.rdlc" />
     <EmbeddedResource Include="Informes\Reportes\ProductosVendidos.rdlc" />
     <EmbeddedResource Include="Informes\Reportes\TiempoServicios.rdlc" />
     <EmbeddedResource Include="Informes\Reportes\ServiciosRealizados.rdlc" />
@@ -1650,6 +1660,7 @@
     <None Include="Properties\DataSources\CreativaSL.Dll.StephManager.Global.ReporteConsumoMaterial.datasource" />
     <None Include="Properties\DataSources\CreativaSL.Dll.StephManager.Global.ReporteFaltasDetalle.datasource" />
     <None Include="Properties\DataSources\CreativaSL.Dll.StephManager.Global.ReporteMaterialesProduccion.datasource" />
+    <None Include="Properties\DataSources\CreativaSL.Dll.StephManager.Global.ReporteMobiliarioXSucursal.datasource" />
     <None Include="Properties\DataSources\CreativaSL.Dll.StephManager.Global.ReporteServiciosRealizados.datasource" />
     <None Include="Properties\DataSources\CreativaSL.Dll.StephManager.Global.ReporteTrabajosRealizadosDetalle.datasource" />
     <None Include="Properties\DataSources\CreativaSL.Dll.StepthManager.Global.Producto.datasource" />
