@@ -170,14 +170,12 @@ namespace StephManager
             this.Fecha = dtpFechaBuscar.Value;
             LlenarGrid();
         }
-
-        private void button_Creativa1_Click(object sender, EventArgs e)
+        private void btnCancelarBusq_Click(object sender, EventArgs e)
         {
             ////BOTON QUITAR BUSQUEDA
             this.Fecha = DateTime.MinValue;
             this.LlenarGrid();
         }
-
         #endregion
 
         private void dtpFechaBuscar_ValueChanged(object sender, EventArgs e)
