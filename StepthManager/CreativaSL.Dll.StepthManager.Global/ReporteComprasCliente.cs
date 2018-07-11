@@ -27,7 +27,7 @@ namespace CreativaSL.Dll.StephManager.Global
         /// </summary>
         public string IDCliente { get; set; }
         /// <summary>
-        /// Identificador del cliente del que se requiere reporte
+        /// Nombre del cliente
         /// </summary>
         public string Nombre { get; set; }
         /// <summary>

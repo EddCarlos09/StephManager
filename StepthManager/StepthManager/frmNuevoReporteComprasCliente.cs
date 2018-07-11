@@ -114,27 +114,6 @@ namespace StephManager
                         throw ex;
                     }
                 }
-
-        private bool ExisteItemEnCombo(string IDCliente)
-        {
-            try
-            {
-                bool Band = false;
-                foreach (Cliente Item in this.CmbClientes.Items)
-                {
-                    if (Item.IDCliente == IDCliente)
-                    {
-                        Band = true;
-                        break;
-                    }
-                }
-                return Band;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
       
         private void MostrarMensajeError(List<Error> Errores)
         {
@@ -175,57 +154,10 @@ namespace StephManager
                 throw ex;
             }
         }
-        private List<Error> ValidarDatos(ReporteComprasCliente DatosReporte)
-        {
-            try
-            {
-                List<Error> Errores = new List<Error>();
-                foreach (var a in DatosReporte.Detalle)
-                {
-                    if (a.NombreSucursal.Equals(""))
-                    {
-                        Errores.Add(new Error { Numero = 2, Descripcion = "El Cliente no cuenta con Registros de Venta" });
-                    }
-                    else {
-                        this.txtMensajeError.Visible = true;
-                        this.txtMensajeError.Text = a.NombreSucursal;
-                    }
-                }
-                return Errores;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
-
-
+        
         #endregion
 
         #region Eventos
-
-        private void CmbCliente_SelectedValueChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                this.IDCliente = string.Empty;
-                if (this.CmbClientes.SelectedIndex != -1)
-                {
-                    Cliente DatosAux = this.ObtenerClienteSeleccionado();
-                    if (!string.IsNullOrEmpty(DatosAux.IDCliente))
-                    {
-                        this.ObtenerDatosClientes(DatosAux);
-                        this.IDCliente = DatosAux.IDCliente;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                LogError.AddExcFileTxt(ex, "frmNuevaCompra ~ cmbProveedor_SelectedValueChanged");
-                MessageBox.Show(Comun.MensajeError, Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
@@ -239,7 +171,6 @@ namespace StephManager
                 MessageBox.Show(Comun.MensajeError, Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         
 
         private void btnGuardar_Click(object sender, EventArgs e)

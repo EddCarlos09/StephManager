@@ -17,8 +17,11 @@ namespace StephManager
 {
     public partial class frmVerReporteComprasCliente : Form
     {
+        #region Propiedades / Variables
         public int IDReporte = -1;
+        #endregion
 
+        #region Constructores
         public frmVerReporteComprasCliente(int _IDReporte)
         {
             try
@@ -31,23 +34,9 @@ namespace StephManager
                 LogError.AddExcFileTxt(ex, "frmVerReporteComprasCliente ~ frmVerReporteComprasCliente()");
             }
         }
+        #endregion
 
-        private void frmVerReporteComprasCliente_Load(object sender, EventArgs e)
-        {
-            try
-            {
-                if (File.Exists(Path.Combine(System.Windows.Forms.Application.StartupPath, @"Resources\Documents\" + Comun.UrlLogo)))
-                {
-                    this.pictureBox1.Image = Image.FromFile(Path.Combine(System.Windows.Forms.Application.StartupPath, @"Resources\Documents\" + Comun.UrlLogo));
-                }
-                this.IniciarForm();
-            }
-            catch (Exception ex)
-            {
-                LogError.AddExcFileTxt(ex, "frmVerReporteComprasCliente ~ frmVerReporteComprasCliente_Load");
-            }
-        }
-
+        #region Métodos
         private void IniciarForm()
         {
             try
@@ -72,9 +61,7 @@ namespace StephManager
                 throw ex;
             }
         }
-
-
-
+        
         private List<Error> ValidarDatos(ReporteComprasCliente DatosReporte)
         {
             try
@@ -136,6 +123,24 @@ namespace StephManager
                 throw ex;
             }
         }
+        #endregion
+
+        #region Eventos
+        private void frmVerReporteComprasCliente_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                if (File.Exists(Path.Combine(System.Windows.Forms.Application.StartupPath, @"Resources\Documents\" + Comun.UrlLogo)))
+                {
+                    this.pictureBox1.Image = Image.FromFile(Path.Combine(System.Windows.Forms.Application.StartupPath, @"Resources\Documents\" + Comun.UrlLogo));
+                }
+                this.IniciarForm();
+            }
+            catch (Exception ex)
+            {
+                LogError.AddExcFileTxt(ex, "frmVerReporteComprasCliente ~ frmVerReporteComprasCliente_Load");
+            }
+        }
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
@@ -148,5 +153,6 @@ namespace StephManager
                 LogError.AddExcFileTxt(ex, "frmVerReporteComprasCliente ~ btnSalir_Click");
             }
         }
+        #endregion
     }
 }

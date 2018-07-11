@@ -97,6 +97,7 @@ namespace CreativaSL.Dll.StephManager.Datos
         /// Método para obtener los trabajos realizados
         /// </summary>
         /// <param name="Conexion">Cadena de conexión a la BD</param>
+        /// <param name="Fecha">Filtro para buscar los reportes realizados entre dos fechas</param>
         /// <returns>Retorna una lista con el IDReporte, la fecha de Inicio y la fecha de termino</returns>
         public List<ReporteTrabajosRealizados> ObtenerReporteTrabajosRealizados(string Conexion, DateTime Fecha)
         {

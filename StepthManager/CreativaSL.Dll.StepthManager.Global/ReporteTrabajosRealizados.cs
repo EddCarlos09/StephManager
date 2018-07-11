@@ -16,9 +16,10 @@ namespace CreativaSL.Dll.StephManager.Global
             Completo = false;
             Detalle = new List<ReporteTrabajosRealizadosDetalle>();
         }
-
+        /// <summary>
+        /// IDReporte
+        /// </summary>
         public int IDReporte { get; set; }
-
         /// <summary>
         /// Fecha de Inicio del Reporte Solicitado
         /// </summary>
@@ -34,7 +35,6 @@ namespace CreativaSL.Dll.StephManager.Global
         /// <summary>
         /// Lista de los Trabajos Realizados
         /// </summary>
-
         public List<ReporteTrabajosRealizadosDetalle> Detalle { get; set; }
     }
 }
