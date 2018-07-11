@@ -16,7 +16,10 @@ namespace StephManager
 {
     public partial class frmReporteTrabajosRealizados : Form
     {
+        #region Propiedades / Variables
         DateTime Fecha = DateTime.MinValue;
+        #endregion
+
         #region Constructores
 
         public frmReporteTrabajosRealizados()
@@ -165,21 +168,35 @@ namespace StephManager
                 MessageBox.Show(Comun.MensajeError, Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        #endregion
         
         private void button_Creativa1_Click(object sender, EventArgs e)
         {
-            //BOTON BUSCAR POR FECHA
-            this.Fecha = dtpFechaBusqueda.Value;
-            LlenarGrid();
+            try
+            {
+                this.Fecha = dtpFechaBusqueda.Value;
+                LlenarGrid();
+            }
+            catch (Exception ex)
+            {
+                LogError.AddExcFileTxt(ex, "frmReporteTrabajosRealizados ~ button_Creativa1_Click");
+                MessageBox.Show(Comun.MensajeError, Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnCancelarBusq_Click(object sender, EventArgs e)
         {
-            //VER TOP 20 DE REGISTROS
-            this.Fecha = DateTime.MinValue;
-            LlenarGrid();
+            try
+            {
+                this.Fecha = DateTime.MinValue;
+                LlenarGrid();
+            }
+            catch (Exception ex)
+            {
+                LogError.AddExcFileTxt(ex, "frmReporteTrabajosRealizados ~ btnCancelarBusq_Click");
+                MessageBox.Show(Comun.MensajeError, Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
+        #endregion
     }
 }

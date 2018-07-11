@@ -135,7 +135,6 @@ namespace StephManager
                     int IDReporte = Neg.GenerarReporteTrabajosRealizados(Comun.Conexion, Datos.FechaInicio, Datos.FechaFin, Comun.IDUsuario);
                     if (IDReporte > 0)
                     {
-                        //Generar el reporte
                         frmVerReporteTrabajosRealizados VerReporte = new frmVerReporteTrabajosRealizados(IDReporte);
                         VerReporte.ShowDialog();
                         VerReporte.Dispose();

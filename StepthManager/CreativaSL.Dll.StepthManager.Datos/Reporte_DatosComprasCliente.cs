@@ -100,6 +100,7 @@ namespace CreativaSL.Dll.StephManager.Datos
         /// Método para obtener las compras echas por el cliente
         /// </summary>
         /// <param name="Conexion">Cadena de conexión a la BD</param>
+        /// <param name="Fecha">Filtro para buscar los reportes realizados entre dos fechas</param>
         /// <returns>Retorna una lista con el IDReporte, la fecha de Inicio y la fecha de termino</returns>
         public List<ReporteComprasCliente> ObtenerReporteComprasCliente(string Conexion, DateTime Fecha)
         {
