@@ -17,9 +17,10 @@ namespace StephManager
 {
     public partial class frmVerReporteProductosVendidos : Form
     {
-
+        #region PROPIEDADES/VARIABLES
         public int IDReporte = -1;
-
+        #endregion
+        #region CONSTRUCTORES
         public frmVerReporteProductosVendidos(int _IDReporte)
         {
             try
@@ -32,23 +33,8 @@ namespace StephManager
                 LogError.AddExcFileTxt(ex, "frmVerReporteProductosVendidos ~ frmVerReporteProductosVendidos()");
             }
         }
-
-        private void frmVerReporteProductosVendidos_Load(object sender, EventArgs e)
-        {
-            try
-            {
-                if (File.Exists(Path.Combine(System.Windows.Forms.Application.StartupPath, @"Resources\Documents\" + Comun.UrlLogo)))
-                {
-                    this.pictureBox1.Image = Image.FromFile(Path.Combine(System.Windows.Forms.Application.StartupPath, @"Resources\Documents\" + Comun.UrlLogo));
-                }
-                this.IniciarForm();
-            }
-            catch (Exception ex)
-            {
-                LogError.AddExcFileTxt(ex, "frmVerReporteProductosVendidos ~ frmVerReporteProductosVendidos_Load");
-            }
-        }
-        
+        #endregion
+        #region MÉTODOS                
         private void IniciarForm()
         {
             try
@@ -109,7 +95,23 @@ namespace StephManager
                 throw ex;
             }
         }
-
+        #endregion
+        #region EVENTOS
+        private void frmVerReporteProductosVendidos_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                if (File.Exists(Path.Combine(System.Windows.Forms.Application.StartupPath, @"Resources\Documents\" + Comun.UrlLogo)))
+                {
+                    this.pictureBox1.Image = Image.FromFile(Path.Combine(System.Windows.Forms.Application.StartupPath, @"Resources\Documents\" + Comun.UrlLogo));
+                }
+                this.IniciarForm();
+            }
+            catch (Exception ex)
+            {
+                LogError.AddExcFileTxt(ex, "frmVerReporteProductosVendidos ~ frmVerReporteProductosVendidos_Load");
+            }
+        }
         private void btnSalir_Click(object sender, EventArgs e)
         {
             try
@@ -121,5 +123,6 @@ namespace StephManager
                 LogError.AddExcFileTxt(ex, "frmVerReporteProductosVendidos ~ btnSalir_Click");
             }
         }
+        #endregion
     }
 }

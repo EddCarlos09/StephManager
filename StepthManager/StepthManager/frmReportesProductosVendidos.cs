@@ -16,7 +16,9 @@ namespace StephManager
 {
     public partial class frmReportesProductosVendidos : Form
     {
+        #region PROPIEDADES/VARIABLES
         DateTime Fecha = DateTime.MinValue;
+        #endregion
         #region Constructores
 
         public frmReportesProductosVendidos()
@@ -32,9 +34,7 @@ namespace StephManager
         }
 
         #endregion
-
         #region Métodos
-
         private void IniciarForm()
         {
             try
@@ -66,7 +66,6 @@ namespace StephManager
             }
         }
 
-
         private ReporteProductosVendidos ObtenerDatosReporte()
         {
             try
@@ -79,10 +78,10 @@ namespace StephManager
                     DataGridViewRow FilaDatos = this.dgvReportesProductosVendidos.Rows[RowData];
                     int.TryParse(FilaDatos.Cells["IDReporte"].Value.ToString(), out ID);
                     DatosAux.IDReporte = ID;
-                    //DateTime FechaInicio = DateTime.MinValue;
-                    //DateTime FechaFin = DateTime.MinValue;
-                    //DateTime.TryParse(FilaDatos.Cells["FechaInicio"].Value.ToString(), out FechaInicio);
-                    //DateTime.TryParse(FilaDatos.Cells["FechaFin"].Value.ToString(), out FechaFin);
+                    DateTime FechaInicio = DateTime.MinValue;
+                    DateTime FechaFin = DateTime.MinValue;
+                    DateTime.TryParse(FilaDatos.Cells["FechaInicio"].Value.ToString(), out FechaInicio);
+                    DateTime.TryParse(FilaDatos.Cells["FechaFin"].Value.ToString(), out FechaFin);
                 }
                 return DatosAux;
             }
@@ -93,7 +92,6 @@ namespace StephManager
         }
 
         #endregion
-
         #region Eventos
 
         private void btnNuevo_Click(object sender, EventArgs e)
@@ -166,28 +164,40 @@ namespace StephManager
         }
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            //BtnBuscar
-            this.Fecha = dtpFechaBuscar.Value;
-            LlenarGrid();
+            try
+            {
+                //BtnBuscar
+                this.Fecha = dtpFechaBuscar.Value;
+                LlenarGrid();
+            }
+            catch (Exception ex)
+            {
+                LogError.AddExcFileTxt(ex, "frmReportesProductosVendidos ~ btnBuscar_Click");
+                MessageBox.Show(Comun.MensajeError, Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         private void btnCancelarBusq_Click(object sender, EventArgs e)
         {
-            ////BOTON QUITAR BUSQUEDA
-            this.Fecha = DateTime.MinValue;
-            this.LlenarGrid();
-        }
-        #endregion
-
+            try
+            {
+                ////BOTON QUITAR BUSQUEDA
+                this.Fecha = DateTime.MinValue;
+                this.LlenarGrid();
+            }
+            catch (Exception ex)
+            {
+                LogError.AddExcFileTxt(ex, "frmReportesProductosVendidos ~ btnCancelarBusq_Click");
+                MessageBox.Show(Comun.MensajeError, Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }       
         private void dtpFechaBuscar_ValueChanged(object sender, EventArgs e)
         {
 
         }
-
-
-
         private void label1_Click(object sender, EventArgs e)
         {
 
-        }        
+        }
+        #endregion
     }
 }

@@ -150,7 +150,12 @@ namespace CreativaSL.Dll.StephManager.Datos
                 throw ex;
             }
         }
-
+        /// <summary>
+        /// Obtiene el detalle del reporte de productos vendidos por ID
+        /// </summary>
+        /// <param name="Conexion"></param>
+        /// <param name="IDReporte"></param>
+        /// <returns></returns>        
         public ReporteProductosVendidos ObtenerDetalleReporteProductosVendidos(string Conexion, int IDReporte)
         {
             try
@@ -197,7 +202,12 @@ namespace CreativaSL.Dll.StephManager.Datos
                 throw ex;
             }
         }
-
+        /// <summary>
+        /// Obtiene el reporte de productos vendidos
+        /// </summary>
+        /// <param name="Conexion"></param>
+        /// <param name="Fecha"></param>
+        /// <returns></returns>
         public List<ReporteProductosVendidos> ObtenerReportesProductosVendidos(string Conexion, DateTime Fecha)
         {
             try
@@ -313,7 +323,11 @@ namespace CreativaSL.Dll.StephManager.Datos
                 throw ex;
             }
         }
-        //Tiempo de Servicios        
+        /// <summary>
+        /// Método para obtener el reporte del tiempo de servicios
+        /// </summary>
+        /// <param name="Conexion"></param>
+        /// <returns></returns>
         public List<ReporteTiempoServicios> ObtenerReporteTiempoServicio(string Conexion)
         {
             try
@@ -339,7 +353,6 @@ namespace CreativaSL.Dll.StephManager.Datos
                 throw ex;
             }
         }
-
         /// <summary>
         /// Método para obtener el mobiliario por sucursal
         /// </summary>
