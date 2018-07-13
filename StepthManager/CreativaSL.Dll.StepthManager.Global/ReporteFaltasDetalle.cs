@@ -17,14 +17,29 @@ namespace CreativaSL.Dll.StephManager.Global
             this.Fecha = DateTime.MinValue;
         }
 
+        /// <summary>
+        /// identificador de la sucursal 
+        /// </summary>
         public string IDSucursal { get; set; }
-
+        
+        /// <summary>
+        /// Nombre de la sucursal
+        /// </summary>
         public string Sucursal { get; set; }
 
+        /// <summary>
+        /// identificador del empleado
+        /// </summary>
         public string IDEmpleado { get; set; }
 
+        /// <summary>
+        /// Nombre del empleado
+        /// </summary>
         public string Empleado { get; set; }
-
+        
+        /// <summary>
+        /// Fecha de la falta reportada
+        /// </summary>
         public DateTime Fecha { get; set; }
 
     }
