@@ -1,6 +1,5 @@
 ﻿using CreativaSL.Dll.StephManager.Global;
 using CreativaSL.Dll.StephManager.Negocio;
-using CreativaSL.Dll.Validaciones;
 using StephManager.ClasesAux;
 using System;
 using System.Collections.Generic;
@@ -15,14 +14,14 @@ using System.Windows.Forms;
 
 namespace StephManager
 {
-    public partial class frmNuevoReporteProductosVendidos : Form
+    public partial class frmNuevoReporteTrabajosRealizados : Form
     {
         #region Propiedades / Variables
         #endregion
 
         #region Constructor
 
-        public frmNuevoReporteProductosVendidos()
+        public frmNuevoReporteTrabajosRealizados()
         {
             try
             {
@@ -30,7 +29,7 @@ namespace StephManager
             }
             catch (Exception ex)
             {
-                LogError.AddExcFileTxt(ex, "frmNuevoReporteProductosVendidos ~ frmNuevoReporteProductosVendidos()");
+                LogError.AddExcFileTxt(ex, "frmNuevoReporteTrabajosRealizados ~ frmNuevoReporteReporteTrabajosRealizados()");
             }
         }
 
@@ -74,11 +73,11 @@ namespace StephManager
             }
         }
 
-        private ReporteProductosVendidos ObtenerDatos()
+        private ReporteTrabajosRealizados ObtenerDatos()
         {
             try
             {
-                ReporteProductosVendidos DatosAux = new ReporteProductosVendidos();
+                ReporteTrabajosRealizados DatosAux = new ReporteTrabajosRealizados();
                 DatosAux.FechaInicio = dtpFechaInicio.Value;
                 DatosAux.FechaFin = dtpFechaFin.Value;
                 return DatosAux;
@@ -94,7 +93,7 @@ namespace StephManager
             try
             {
                 List<Error> Errores = new List<Error>();
-                if(dtpFechaFin.Value < dtpFechaInicio.Value)
+                if (dtpFechaFin.Value < dtpFechaInicio.Value)
                 {
                     Errores.Add(new Error { Numero = 1, Descripcion = "Fecha de término debe ser mayor a la fecha de Inicio", ControlSender = dtpFechaFin });
                 }
@@ -118,7 +117,7 @@ namespace StephManager
             }
             catch (Exception ex)
             {
-                LogError.AddExcFileTxt(ex, "frmNuevoReporteProductosVendidos ~ btnCancelar_Click");
+                LogError.AddExcFileTxt(ex, "frmNuevoReporteTrabajosRealizados ~ btnCancelar_Click");
                 MessageBox.Show(Comun.MensajeError, Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -131,13 +130,12 @@ namespace StephManager
                 List<Error> Errores = this.ValidarDatos();
                 if (Errores.Count == 0)
                 {
-                    ReporteProductosVendidos Datos = this.ObtenerDatos();
-                    Reporte_Negocio Neg = new Reporte_Negocio();
-                    int IDReporte = Neg.GenerarReporteProductosVendidos(Comun.Conexion, Datos.FechaInicio, Datos.FechaFin, Comun.IDUsuario);
-                    if(IDReporte > 0)
+                    ReporteTrabajosRealizados Datos = this.ObtenerDatos();
+                    Reporte_NegocioTrabajosRealizados Neg = new Reporte_NegocioTrabajosRealizados();
+                    int IDReporte = Neg.GenerarReporteTrabajosRealizados(Comun.Conexion, Datos.FechaInicio, Datos.FechaFin, Comun.IDUsuario);
+                    if (IDReporte > 0)
                     {
-                        //Generar el reporte
-                        frmVerReporteProductosVendidos VerReporte = new frmVerReporteProductosVendidos(IDReporte);
+                        frmVerReporteTrabajosRealizados VerReporte = new frmVerReporteTrabajosRealizados(IDReporte);
                         VerReporte.ShowDialog();
                         VerReporte.Dispose();
                         this.DialogResult = DialogResult.OK;
@@ -152,12 +150,12 @@ namespace StephManager
             }
             catch (Exception ex)
             {
-                LogError.AddExcFileTxt(ex, "frmNuevoReporteProductosVendidos ~ btnGuardar_Click");
+                LogError.AddExcFileTxt(ex, "frmNuevoReporteTrabajosRealizados ~ btnGuardar_Click");
                 MessageBox.Show(Comun.MensajeError, Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void frmNuevoReporteProductosVendidos_Load(object sender, EventArgs e)
+        private void frmNuevoReporteTrabajosRealizados_Load(object sender, EventArgs e)
         {
             try
             {
@@ -165,7 +163,7 @@ namespace StephManager
             }
             catch (Exception ex)
             {
-                LogError.AddExcFileTxt(ex, "frmNuevoReporteProductosVendidos ~ frmNuevoReporteProductosVendidos_Load");
+                LogError.AddExcFileTxt(ex, "frmNuevoReporteTrabajosRealizados ~ frmNuevoReporteTrabajosRealizados_Load");
                 MessageBox.Show(Comun.MensajeError, Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }

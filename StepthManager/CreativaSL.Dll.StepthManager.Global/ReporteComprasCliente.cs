@@ -6,20 +6,30 @@ using System.Threading.Tasks;
 
 namespace CreativaSL.Dll.StephManager.Global
 {
-    public class ReporteTrabajosRealizados
+    public class ReporteComprasCliente
     {
-        public ReporteTrabajosRealizados()
+        public ReporteComprasCliente()
         {
             IDReporte = 0;
             FechaInicio = DateTime.MinValue;
             FechaFin = DateTime.MinValue;
+            IDCliente = string.Empty;
+            Nombre = string.Empty;
             Completo = false;
-            Detalle = new List<ReporteTrabajosRealizadosDetalle>();
+            Detalle = new List<ReporteComprasClienteDetalle>();
         }
         /// <summary>
-        /// IDReporte
+        /// Identificador del reporte
         /// </summary>
         public int IDReporte { get; set; }
+        /// <summary>
+        /// Identificador del cliente del que se requiere reporte
+        /// </summary>
+        public string IDCliente { get; set; }
+        /// <summary>
+        /// Nombre del cliente
+        /// </summary>
+        public string Nombre { get; set; }
         /// <summary>
         /// Fecha de Inicio del Reporte Solicitado
         /// </summary>
@@ -33,8 +43,8 @@ namespace CreativaSL.Dll.StephManager.Global
         /// </summary>
         public bool Completo { get; set; }
         /// <summary>
-        /// Lista de los Trabajos Realizados
+        /// Lista con los detalles del reporte
         /// </summary>
-        public List<ReporteTrabajosRealizadosDetalle> Detalle { get; set; }
+        public List<ReporteComprasClienteDetalle> Detalle { get; set; }
     }
 }

@@ -19,19 +19,28 @@ namespace CreativaSL.Dll.StephManager.Global
         }
 
         /// <summary>
-        /// 
+        /// Identificador de sucursal
         /// </summary>
         public string IDSucursal { get; set; }
         /// <summary>
-        /// 
+        /// Nombre de Sucursal
         /// </summary>
         public string Sucursal { get; set; }
         /// <summary>
-        /// 
+        /// Identificador de Producto
         /// </summary>
         public string IDProducto { get; set; }
+        /// <summary>
+        /// Clave
+        /// </summary>
         public string Clave { get; set; }
+        /// <summary>
+        /// Nombre de Producto
+        /// </summary>
         public string Producto { get; set; }
+        /// <summary>
+        /// Cantidad
+        /// </summary>
         public decimal Cantidad { get; set; }
     }
 }

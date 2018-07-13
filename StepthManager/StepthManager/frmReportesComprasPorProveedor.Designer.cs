@@ -337,6 +337,7 @@
             this.dtpFechaBuscar.Name = "dtpFechaBuscar";
             this.dtpFechaBuscar.Size = new System.Drawing.Size(163, 25);
             this.dtpFechaBuscar.TabIndex = 110;
+            this.dtpFechaBuscar.ValueChanged += new System.EventHandler(this.dtpFechaBuscar_ValueChanged);
             // 
             // panel2
             // 

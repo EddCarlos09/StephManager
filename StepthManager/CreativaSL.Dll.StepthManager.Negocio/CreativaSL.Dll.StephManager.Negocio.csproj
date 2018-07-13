@@ -65,6 +65,7 @@
     <Compile Include="Checador_Negocio.cs" />
     <Compile Include="Cita_Negocio.cs" />
     <Compile Include="Cliente_Negocio.cs" />
+    <Compile Include="Cliente_NegocioCompras.cs" />
     <Compile Include="Comision_Negocio.cs" />
     <Compile Include="Compra_Negocio.cs" />
     <Compile Include="Comun_Negocio.cs" />
@@ -94,6 +95,8 @@
     <Compile Include="ReporteComprasPorProveedor_Negocio.cs" />
     <Compile Include="ReporteFaltas_Negocio.cs" />
     <Compile Include="Reporte_Negocio.cs" />
+    <Compile Include="Reporte_NegocioComprasCliente.cs" />
+    <Compile Include="Reporte_NegocioTrabajosRealizados.cs" />
     <Compile Include="Servicio_Negocio.cs" />
     <Compile Include="Sucursal_Negocio.cs" />
     <Compile Include="TipoMobiliario_Negocio.cs" />

@@ -69,6 +69,7 @@
     <Compile Include="Checador_Datos.cs" />
     <Compile Include="Cita_Datos.cs" />
     <Compile Include="Cliente_Datos.cs" />
+    <Compile Include="Cliente_DatosCompras.cs" />
     <Compile Include="Comision_Datos.cs" />
     <Compile Include="Compra_Datos.cs" />
     <Compile Include="Configuracion_Datos.cs" />
@@ -97,6 +98,8 @@
     <Compile Include="ReporteComprasPorProveedor_Datos.cs" />
     <Compile Include="ReporteFaltas_Datos.cs" />
     <Compile Include="Reporte_Datos.cs" />
+    <Compile Include="Reporte_DatosComprasCliente.cs" />
+    <Compile Include="Reporte_DatosTrabajosRealizados.cs" />
     <Compile Include="Servicio_Datos.cs" />
     <Compile Include="Sucursal_Datos.cs" />
     <Compile Include="TipoMobiliario_Datos.cs" />

@@ -17,21 +17,24 @@ namespace CreativaSL.Dll.StephManager.Global
             Completo = false;
             Detalle = new List<ReporteProductosVendidosDetalle>();
         }
-
-        public int IDReporte { get; set; }
-
         /// <summary>
-        /// 
+        /// Identificador del Reporte
+        /// </summary>
+        public int IDReporte { get; set; }
+        /// <summary>
+        /// Fechade Inicio
         /// </summary>
         public DateTime FechaInicio { get; set; }
         /// <summary>
-        /// 
+        /// Fecha de termino
         /// </summary>
         public DateTime FechaFin { get; set; }
-
+        /// <summary>
+        /// Identificador de completado de llenado 
+        /// </summary>
         public bool Completo { get; set; }
         /// <summary>
-        /// 
+        /// Lista donde guarda todos los parametros recibidos
         /// </summary>
         public List<ReporteProductosVendidosDetalle> Detalle { get; set; }
     }

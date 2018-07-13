@@ -14,27 +14,31 @@ using System.Windows.Forms;
 
 namespace StephManager
 {
-    public partial class frmReportesProductosVendidos : Form
+    public partial class frmReporteTrabajosRealizados : Form
     {
-        #region PROPIEDADES/VARIABLES
+        #region Propiedades / Variables
         DateTime Fecha = DateTime.MinValue;
         #endregion
+
         #region Constructores
 
-        public frmReportesProductosVendidos()
+        public frmReporteTrabajosRealizados()
         {
             try
             {
                 InitializeComponent();
+                IniciarForm();
             }
             catch (Exception ex)
             {
-                LogError.AddExcFileTxt(ex, "Form2 ~ Form2()");
+                LogError.AddExcFileTxt(ex, "frmReporteTrabajosRealizados ~ frmReporteTrabajosRealizados()");
             }
         }
 
         #endregion
+        
         #region Métodos
+
         private void IniciarForm()
         {
             try
@@ -55,10 +59,10 @@ namespace StephManager
         {
             try
             {
-                Reporte_Negocio Neg = new Reporte_Negocio();
-                List<ReporteProductosVendidos> Lista = Neg.ObtenerReportesProductosVendidos(Comun.Conexion, Fecha);
-                this.dgvReportesProductosVendidos.AutoGenerateColumns = false;
-                this.dgvReportesProductosVendidos.DataSource = Lista;
+                Reporte_NegocioTrabajosRealizados Neg = new Reporte_NegocioTrabajosRealizados();
+                List<ReporteTrabajosRealizados> Lista = Neg.ObtenerReportesTrabajosRealizados(Comun.Conexion, this.Fecha);
+                this.dgvReportesTrabajosRealizados.AutoGenerateColumns = false;
+                this.dgvReportesTrabajosRealizados.DataSource = Lista;
             }
             catch (Exception ex)
             {
@@ -66,18 +70,19 @@ namespace StephManager
             }
         }
 
-        private ReporteProductosVendidos ObtenerDatosReporte()
+        private ReporteTrabajosRealizados ObtenerDatosReporte()
         {
             try
             {
-                ReporteProductosVendidos DatosAux = new ReporteProductosVendidos();
-                Int32 RowData = this.dgvReportesProductosVendidos.Rows.GetFirstRow(DataGridViewElementStates.Selected);
+                ReporteTrabajosRealizados DatosAux = new ReporteTrabajosRealizados();
+                Int32 RowData = this.dgvReportesTrabajosRealizados.Rows.GetFirstRow(DataGridViewElementStates.Selected);
                 if (RowData > -1)
                 {
                     int ID = 0;
-                    DataGridViewRow FilaDatos = this.dgvReportesProductosVendidos.Rows[RowData];
+                    DataGridViewRow FilaDatos = this.dgvReportesTrabajosRealizados.Rows[RowData];
                     int.TryParse(FilaDatos.Cells["IDReporte"].Value.ToString(), out ID);
                     DatosAux.IDReporte = ID;
+                   
                     DateTime FechaInicio = DateTime.MinValue;
                     DateTime FechaFin = DateTime.MinValue;
                     DateTime.TryParse(FilaDatos.Cells["FechaInicio"].Value.ToString(), out FechaInicio);
@@ -92,13 +97,14 @@ namespace StephManager
         }
 
         #endregion
+
         #region Eventos
 
-        private void btnNuevo_Click(object sender, EventArgs e)
+        private void btnNuevo_Click_1(object sender, EventArgs e)
         {
             try
             {
-                frmNuevoReporteProductosVendidos GenerarReporte = new frmNuevoReporteProductosVendidos();
+                frmNuevoReporteTrabajosRealizados GenerarReporte = new frmNuevoReporteTrabajosRealizados();
                 GenerarReporte.ShowDialog();
                 if (GenerarReporte.DialogResult == DialogResult.OK)
                 {
@@ -108,13 +114,13 @@ namespace StephManager
             }
             catch (Exception ex)
             {
-                LogError.AddExcFileTxt(ex, "frmReportesProductosVendidos ~ btnNuevo_Click");
+                LogError.AddExcFileTxt(ex, "frmReporteTrabajosRealizados ~ btnNuevo_Click");
                 MessageBox.Show(Comun.MensajeError, Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.Visible = true;
             }
         }
 
-        private void btnSalir_Click(object sender, EventArgs e)
+        private void btnSalir_Click_1(object sender, EventArgs e)
         {
             try
             {
@@ -122,19 +128,19 @@ namespace StephManager
             }
             catch (Exception ex)
             {
-                LogError.AddExcFileTxt(ex, "frmReportesProductosVendidos ~ btnSalir_Click");
+                LogError.AddExcFileTxt(ex, "frmReporteTrabajosRealizados ~ btnSalir_Click");
                 MessageBox.Show(Comun.MensajeError, Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void btnImpresion_Click(object sender, EventArgs e)
+        private void btnImpresion_Click_1(object sender, EventArgs e)
         {
             try
             {
-                if (this.dgvReportesProductosVendidos.SelectedRows.Count == 1)
+                if (this.dgvReportesTrabajosRealizados.SelectedRows.Count == 1)
                 {
-                    ReporteProductosVendidos Datos = this.ObtenerDatosReporte();
-                    frmVerReporteProductosVendidos VerReporte = new frmVerReporteProductosVendidos(Datos.IDReporte);
+                    ReporteTrabajosRealizados Datos = this.ObtenerDatosReporte();
+                    frmVerReporteTrabajosRealizados VerReporte = new frmVerReporteTrabajosRealizados(Datos.IDReporte);
                     VerReporte.ShowDialog();
                     VerReporte.Dispose();
                 }
@@ -145,12 +151,12 @@ namespace StephManager
             }
             catch (Exception ex)
             {
-                LogError.AddExcFileTxt(ex, "frmReportesProductosVendidos ~ btnImpresion_Click");
+                LogError.AddExcFileTxt(ex, "frmReporteTrabajosRealizados ~ btnImpresion_Click");
                 MessageBox.Show(Comun.MensajeError, Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void frmReportesProductosVendidos_Load(object sender, EventArgs e)
+        private void frmReporteTrabajosRealizados_Load(object sender, EventArgs e)
         {
             try
             {
@@ -158,46 +164,39 @@ namespace StephManager
             }
             catch (Exception ex)
             {
-                LogError.AddExcFileTxt(ex, "frmReportesProductosVendidos ~ frmReportesProductosVendidos_Load");
+                LogError.AddExcFileTxt(ex, "frmReporteTrabajosRealizados ~ frmReporteTrabajosRealizados_Load");
                 MessageBox.Show(Comun.MensajeError, Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        private void btnBuscar_Click(object sender, EventArgs e)
+        
+        private void button_Creativa1_Click(object sender, EventArgs e)
         {
             try
             {
-                //BtnBuscar
-                this.Fecha = dtpFechaBuscar.Value;
+                this.Fecha = dtpFechaBusqueda.Value;
                 LlenarGrid();
             }
             catch (Exception ex)
             {
-                LogError.AddExcFileTxt(ex, "frmReportesProductosVendidos ~ btnBuscar_Click");
+                LogError.AddExcFileTxt(ex, "frmReporteTrabajosRealizados ~ button_Creativa1_Click");
                 MessageBox.Show(Comun.MensajeError, Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
         private void btnCancelarBusq_Click(object sender, EventArgs e)
         {
             try
             {
-                ////BOTON QUITAR BUSQUEDA
                 this.Fecha = DateTime.MinValue;
-                this.LlenarGrid();
+                LlenarGrid();
             }
             catch (Exception ex)
             {
-                LogError.AddExcFileTxt(ex, "frmReportesProductosVendidos ~ btnCancelarBusq_Click");
+                LogError.AddExcFileTxt(ex, "frmReporteTrabajosRealizados ~ btnCancelarBusq_Click");
                 MessageBox.Show(Comun.MensajeError, Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }       
-        private void dtpFechaBuscar_ValueChanged(object sender, EventArgs e)
-        {
-
         }
-        private void label1_Click(object sender, EventArgs e)
-        {
 
-        }
         #endregion
     }
 }

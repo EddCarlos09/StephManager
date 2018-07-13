@@ -234,5 +234,10 @@ namespace StephManager
                 this.pictureBox1.Image = Image.FromFile(Path.Combine(System.Windows.Forms.Application.StartupPath, @"Resources\Documents\" + Comun.UrlLogo));
             }
         }
+
+        private void dtpFechaBuscar_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
