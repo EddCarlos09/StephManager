@@ -30,7 +30,7 @@ namespace CreativaSL.Dll.StephManager.Global
         /// </summary>
         public DateTime FechaFin { get; set; }
         /// <summary>
-        /// identificador de completado de llenado 
+        /// Identificador de completado de llenado 
         /// </summary>
         public bool Completo { get; set; }
         /// <summary>

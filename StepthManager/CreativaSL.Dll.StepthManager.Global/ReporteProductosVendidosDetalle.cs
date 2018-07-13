@@ -23,7 +23,7 @@ namespace CreativaSL.Dll.StephManager.Global
         /// </summary>
         public string IDSucursal { get; set; }
         /// <summary>
-        /// ombre de Sucursal
+        /// Nombre de Sucursal
         /// </summary>
         public string Sucursal { get; set; }
         /// <summary>

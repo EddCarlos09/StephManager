@@ -74,6 +74,10 @@ namespace StephManager
             }
         }
 
+        /// <summary>
+        /// obtiene los datos de la interfaz
+        /// </summary>
+        /// <returns></returns>
         private ReporteFaltas ObtenerDatos()
         {
             try
@@ -89,6 +93,10 @@ namespace StephManager
             }
         }
 
+        /// <summary>
+        /// Valida que la fecha inicio sea menor que la fecha final
+        /// </summary>
+        /// <returns></returns>
         private List<Error> ValidarDatos()
         {
             try
