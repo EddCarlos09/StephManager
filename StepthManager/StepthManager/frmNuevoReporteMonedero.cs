@@ -1,6 +1,5 @@
 ﻿using CreativaSL.Dll.StephManager.Global;
 using CreativaSL.Dll.StephManager.Negocio;
-using CreativaSL.Dll.Validaciones;
 using StephManager.ClasesAux;
 using System;
 using System.Collections.Generic;
@@ -15,14 +14,14 @@ using System.Windows.Forms;
 
 namespace StephManager
 {
-    public partial class frmNuevoReporteComprasPorProveedor : Form
+    public partial class frmNuevoReporteMonedero : Form
     {
         #region Propiedades / Variables
         #endregion
 
         #region Constructor
 
-        public frmNuevoReporteComprasPorProveedor()
+        public frmNuevoReporteMonedero()
         {
             try
             {
@@ -30,7 +29,7 @@ namespace StephManager
             }
             catch (Exception ex)
             {
-                LogError.AddExcFileTxt(ex, "frmNuevoReporteComprasPorProveedor ~ frmNuevoReporteComprasPorProveedor()");
+                LogError.AddExcFileTxt(ex, "frmNuevoReporteMonedero ~ frmNuevoReporteReporteMonedero()");
             }
         }
 
@@ -74,15 +73,11 @@ namespace StephManager
             }
         }
 
-        /// <summary>
-        /// obtiene los datos de la interfaz
-        /// </summary>
-        /// <returns></returns>
-        private ReporteComprasPorProveedor ObtenerDatos()
+        private ReporteMonedero ObtenerDatos()
         {
             try
             {
-                ReporteComprasPorProveedor DatosAux = new ReporteComprasPorProveedor();
+                ReporteMonedero DatosAux = new ReporteMonedero();
                 DatosAux.FechaInicio = dtpFechaInicio.Value;
                 DatosAux.FechaFin = dtpFechaFin.Value;
                 return DatosAux;
@@ -93,16 +88,12 @@ namespace StephManager
             }
         }
 
-        /// <summary>
-        /// Valida que la fecha inicio sea menor que la fecha final
-        /// </summary>
-        /// <returns></returns>
         private List<Error> ValidarDatos()
         {
             try
             {
                 List<Error> Errores = new List<Error>();
-                if(dtpFechaFin.Value < dtpFechaInicio.Value)
+                if (dtpFechaFin.Value < dtpFechaInicio.Value)
                 {
                     Errores.Add(new Error { Numero = 1, Descripcion = "Fecha de término debe ser mayor a la fecha de Inicio", ControlSender = dtpFechaFin });
                 }
@@ -126,7 +117,7 @@ namespace StephManager
             }
             catch (Exception ex)
             {
-                LogError.AddExcFileTxt(ex, "frmNuevoReporteComprasPorProveedor ~ btnCancelar_Click");
+                LogError.AddExcFileTxt(ex, "frmNuevoReporteMonedero ~ btnCancelar_Click");
                 MessageBox.Show(Comun.MensajeError, Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -135,41 +126,36 @@ namespace StephManager
         {
             try
             {
-                
                 this.txtMensajeError.Visible = false;
                 List<Error> Errores = this.ValidarDatos();
                 if (Errores.Count == 0)
                 {
-                    this.Visible = false;
-                    ReporteComprasPorProveedor Datos = this.ObtenerDatos();
-                    ReporteComprasPorProveedor_Negocio Neg = new ReporteComprasPorProveedor_Negocio();
-                    int IDReporte = Neg.GenerarReporteComprasPorProveedor(Comun.Conexion, Datos.FechaInicio, Datos.FechaFin, Comun.IDUsuario);
-                    if(IDReporte > 0)
+                    ReporteMonedero Datos = this.ObtenerDatos();
+                    Reporte_NegocioMonedero Neg = new Reporte_NegocioMonedero();
+                    int IDReporte = Neg.GenerarReporteMonedero(Comun.Conexion, Datos.FechaInicio, Datos.FechaFin, Comun.IDUsuario);
+                    if (IDReporte > 0)
                     {
-                        //Generar el reporte
-                        frmVerReporteComprasPorProveedor VerReporte = new frmVerReporteComprasPorProveedor(IDReporte);
+                        frmVerReporteMonedero VerReporte = new frmVerReporteMonedero(IDReporte);
                         VerReporte.ShowDialog();
                         VerReporte.Dispose();
                         this.DialogResult = DialogResult.OK;
-                       
                     }
                     else
                     {
                         MessageBox.Show("Ocurrió un error al generar el reporte.", Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-                    this.Visible = true;
                 }
                 else
                     this.MostrarMensajeError(Errores);
             }
             catch (Exception ex)
             {
-                LogError.AddExcFileTxt(ex, "frmNuevoReporteComprasPorProveedor ~ btnGuardar_Click");
+                LogError.AddExcFileTxt(ex, "frmNuevoReporteMonedero ~ btnGuardar_Click");
                 MessageBox.Show(Comun.MensajeError, Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void frmNuevoReporteComprasPorProveedor_Load(object sender, EventArgs e)
+        private void frmNuevoReporteMondero_Load(object sender, EventArgs e)
         {
             try
             {
@@ -177,7 +163,7 @@ namespace StephManager
             }
             catch (Exception ex)
             {
-                LogError.AddExcFileTxt(ex, "frmNuevoReporteComprasPorProveedor ~ frmNuevoReporteComprasPorProveedor_Load");
+                LogError.AddExcFileTxt(ex, "frmNuevoReporteMondero ~ frmNuevoReporteMonedero_Load");
                 MessageBox.Show(Comun.MensajeError, Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }

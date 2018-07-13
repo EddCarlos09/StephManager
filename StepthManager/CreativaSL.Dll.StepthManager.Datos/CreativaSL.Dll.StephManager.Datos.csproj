@@ -99,6 +99,7 @@
     <Compile Include="ReporteFaltas_Datos.cs" />
     <Compile Include="Reporte_Datos.cs" />
     <Compile Include="Reporte_DatosComprasCliente.cs" />
+    <Compile Include="Reporte_DatosMonedero.cs" />
     <Compile Include="Reporte_DatosTrabajosRealizados.cs" />
     <Compile Include="Servicio_Datos.cs" />
     <Compile Include="Sucursal_Datos.cs" />

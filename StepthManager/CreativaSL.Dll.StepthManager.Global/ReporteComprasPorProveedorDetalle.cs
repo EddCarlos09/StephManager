@@ -16,19 +16,19 @@ namespace CreativaSL.Dll.StephManager.Global
             Total = 0.0M;
             
         }
-
+        /// <summary>
+        /// identificador del provedor
+        /// </summary>
         public string IDProveedor { get; set; }
-
+        
         /// <summary>
-        /// 
+        /// Nombre del provedor
         /// </summary>
-
-
         public string Proveedor { get; set; }
+       
         /// <summary>
-        /// 
+        /// Total de las compras
         /// </summary>
-
         public decimal Total { get; set; }
     }
 }

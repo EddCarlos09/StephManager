@@ -96,6 +96,7 @@
     <Compile Include="ReporteFaltas_Negocio.cs" />
     <Compile Include="Reporte_Negocio.cs" />
     <Compile Include="Reporte_NegocioComprasCliente.cs" />
+    <Compile Include="Reporte_NegocioMonedero.cs" />
     <Compile Include="Reporte_NegocioTrabajosRealizados.cs" />
     <Compile Include="Servicio_Negocio.cs" />
     <Compile Include="Sucursal_Negocio.cs" />

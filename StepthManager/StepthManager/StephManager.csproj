@@ -134,11 +134,23 @@
     <Compile Include="frmNuevoReporteComprasPorProveedor.Designer.cs">
       <DependentUpon>frmNuevoReporteComprasPorProveedor.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmNuevoReporteMonedero.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNuevoReporteMonedero.Designer.cs">
+      <DependentUpon>frmNuevoReporteMonedero.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmNuevoReporteProductosVendidos.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmNuevoReporteProductosVendidos.Designer.cs">
       <DependentUpon>frmNuevoReporteProductosVendidos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmReporteMonedero.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReporteMonedero.Designer.cs">
+      <DependentUpon>frmReporteMonedero.cs</DependentUpon>
     </Compile>
     <Compile Include="frmReportesFaltas.cs">
       <SubType>Form</SubType>
@@ -205,6 +217,12 @@
     </Compile>
     <Compile Include="frmVerReporteMobiliarioXSucursal.Designer.cs">
       <DependentUpon>frmVerReporteMobiliarioXSucursal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmVerReporteMonedero.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmVerReporteMonedero.Designer.cs">
+      <DependentUpon>frmVerReporteMonedero.cs</DependentUpon>
     </Compile>
     <Compile Include="frmVerReporteProductosVendidos.cs">
       <SubType>Form</SubType>
@@ -1626,6 +1644,7 @@
     <EmbeddedResource Include="Informes\Reportes\Faltas.rdlc" />
     <EmbeddedResource Include="Informes\Reportes\ConsumoMaterial.rdlc" />
     <EmbeddedResource Include="Informes\Reportes\ComprasCliente.rdlc" />
+    <EmbeddedResource Include="Informes\Reportes\Monedero.rdlc" />
     <EmbeddedResource Include="Informes\Reportes\TrabajosRealizados.rdlc" />
     <EmbeddedResource Include="Informes\Reportes\ComprasPorProveedor.rdlc" />
     <EmbeddedResource Include="Informes\Reportes\MobiliarioXSucursal.rdlc" />
@@ -1658,6 +1677,7 @@
     <None Include="Properties\DataSources\CreativaSL.Dll.StephManager.Global.ReporteFaltasDetalle.datasource" />
     <None Include="Properties\DataSources\CreativaSL.Dll.StephManager.Global.ReporteMaterialesProduccion.datasource" />
     <None Include="Properties\DataSources\CreativaSL.Dll.StephManager.Global.ReporteMobiliarioXSucursal.datasource" />
+    <None Include="Properties\DataSources\CreativaSL.Dll.StephManager.Global.ReporteMonederoDetalle.datasource" />
     <None Include="Properties\DataSources\CreativaSL.Dll.StephManager.Global.ReporteServiciosRealizados.datasource" />
     <None Include="Properties\DataSources\CreativaSL.Dll.StephManager.Global.ReporteTrabajosRealizadosDetalle.datasource" />
     <None Include="Properties\DataSources\CreativaSL.Dll.StepthManager.Global.Producto.datasource" />
