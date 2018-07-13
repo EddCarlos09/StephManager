@@ -1083,6 +1083,22 @@ namespace StephManager
             }
         }
 
+        private void toolsm_Monedero_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                frmReporteMonedero tr = new frmReporteMonedero();
+                tr.ShowDialog();
+                tr.Dispose();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(Comun.MensajeError, Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                LogError.AddExcFileTxt(ex, "frmMenuInicio ~ toolsm_Monedero_Click");
+            }
+        }
         #endregion
+        
     }
 }
