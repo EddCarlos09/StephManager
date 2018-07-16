@@ -1709,6 +1709,7 @@
     <EmbeddedResource Include="Informes\Reportes\Faltas.rdlc" />
     <EmbeddedResource Include="Informes\Reportes\ConsumoMaterial.rdlc" />
     <EmbeddedResource Include="Informes\Reportes\ComprasCliente.rdlc" />
+    <EmbeddedResource Include="Informes\Reportes\Garantias.rdlc" />
     <EmbeddedResource Include="Informes\Reportes\Monedero.rdlc" />
     <EmbeddedResource Include="Informes\Reportes\TrabajosRealizados.rdlc" />
     <EmbeddedResource Include="Informes\Reportes\ComprasPorProveedor.rdlc" />
