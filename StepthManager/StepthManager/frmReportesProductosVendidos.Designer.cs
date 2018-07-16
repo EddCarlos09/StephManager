@@ -34,20 +34,23 @@
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel12 = new System.Windows.Forms.Panel();
             this.dgvReportesProductosVendidos = new System.Windows.Forms.DataGridView();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.PanelMenu = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.label42 = new System.Windows.Forms.Label();
             this.IDReporte = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FechaInicio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FechaFin = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.PanelMenu = new System.Windows.Forms.Panel();
             this.btnImpresion = new CreativaSL.LibControls.WinForms.Button_Creativa();
             this.btnSalir = new CreativaSL.LibControls.WinForms.Button_Creativa();
             this.btnNuevo = new CreativaSL.LibControls.WinForms.Button_Creativa();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.btnCancelarBusq = new CreativaSL.LibControls.WinForms.Button_Creativa();
+            this.btnBuscar = new CreativaSL.LibControls.WinForms.Button_Creativa();
+            this.dtpFechaBuscar = new System.Windows.Forms.DateTimePicker();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label42 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -57,6 +60,7 @@
             this.panel7.SuspendLayout();
             this.PanelMenu.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.panel10.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -135,78 +139,6 @@
             this.dgvReportesProductosVendidos.Size = new System.Drawing.Size(1008, 478);
             this.dgvReportesProductosVendidos.TabIndex = 1;
             // 
-            // panel7
-            // 
-            this.panel7.Controls.Add(this.PanelMenu);
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel7.Location = new System.Drawing.Point(0, 478);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(1008, 80);
-            this.panel7.TabIndex = 0;
-            // 
-            // PanelMenu
-            // 
-            this.PanelMenu.BackColor = System.Drawing.Color.Gray;
-            this.PanelMenu.Controls.Add(this.btnImpresion);
-            this.PanelMenu.Controls.Add(this.btnSalir);
-            this.PanelMenu.Controls.Add(this.btnNuevo);
-            this.PanelMenu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PanelMenu.Location = new System.Drawing.Point(0, 0);
-            this.PanelMenu.Name = "PanelMenu";
-            this.PanelMenu.Size = new System.Drawing.Size(1008, 80);
-            this.PanelMenu.TabIndex = 1;
-            // 
-            // panel4
-            // 
-            this.panel4.AutoScroll = true;
-            this.panel4.Controls.Add(this.panel10);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel4.Location = new System.Drawing.Point(0, 0);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1008, 50);
-            this.panel4.TabIndex = 0;
-            // 
-            // panel10
-            // 
-            this.panel10.BackColor = System.Drawing.Color.DarkGray;
-            this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel10.Location = new System.Drawing.Point(0, 0);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(1008, 50);
-            this.panel10.TabIndex = 2;
-            // 
-            // panel2
-            // 
-            this.panel2.AutoScroll = true;
-            this.panel2.Controls.Add(this.panel6);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1008, 80);
-            this.panel2.TabIndex = 0;
-            // 
-            // panel6
-            // 
-            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(205)))), ((int)(((byte)(215)))));
-            this.panel6.Controls.Add(this.pictureBox1);
-            this.panel6.Controls.Add(this.label42);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(0, 0);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(1008, 80);
-            this.panel6.TabIndex = 2;
-            // 
-            // label42
-            // 
-            this.label42.AutoSize = true;
-            this.label42.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label42.ForeColor = System.Drawing.Color.White;
-            this.label42.Location = new System.Drawing.Point(21, 9);
-            this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(473, 55);
-            this.label42.TabIndex = 24;
-            this.label42.Text = "Productos Vendidos";
-            // 
             // IDReporte
             // 
             this.IDReporte.DataPropertyName = "IDReporte";
@@ -230,6 +162,27 @@
             this.FechaFin.Name = "FechaFin";
             this.FechaFin.ReadOnly = true;
             this.FechaFin.Width = 200;
+            // 
+            // panel7
+            // 
+            this.panel7.Controls.Add(this.PanelMenu);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel7.Location = new System.Drawing.Point(0, 478);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(1008, 80);
+            this.panel7.TabIndex = 0;
+            // 
+            // PanelMenu
+            // 
+            this.PanelMenu.BackColor = System.Drawing.Color.Gray;
+            this.PanelMenu.Controls.Add(this.btnImpresion);
+            this.PanelMenu.Controls.Add(this.btnSalir);
+            this.PanelMenu.Controls.Add(this.btnNuevo);
+            this.PanelMenu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PanelMenu.Location = new System.Drawing.Point(0, 0);
+            this.PanelMenu.Name = "PanelMenu";
+            this.PanelMenu.Size = new System.Drawing.Size(1008, 80);
+            this.PanelMenu.TabIndex = 1;
             // 
             // btnImpresion
             // 
@@ -333,6 +286,127 @@
             this.btnNuevo.UseVisualStyleBackColor = false;
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
+            // panel4
+            // 
+            this.panel4.AutoScroll = true;
+            this.panel4.Controls.Add(this.panel10);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel4.Location = new System.Drawing.Point(0, 0);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(1008, 50);
+            this.panel4.TabIndex = 0;
+            // 
+            // panel10
+            // 
+            this.panel10.BackColor = System.Drawing.Color.DarkGray;
+            this.panel10.Controls.Add(this.btnCancelarBusq);
+            this.panel10.Controls.Add(this.btnBuscar);
+            this.panel10.Controls.Add(this.dtpFechaBuscar);
+            this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel10.Location = new System.Drawing.Point(0, 0);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(1008, 50);
+            this.panel10.TabIndex = 2;
+            // 
+            // btnCancelarBusq
+            // 
+            this.btnCancelarBusq.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btnCancelarBusq.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(108)))), ((int)(((byte)(114)))));
+            this.btnCancelarBusq.BorderColor = System.Drawing.Color.Red;
+            this.btnCancelarBusq.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(108)))), ((int)(((byte)(114)))));
+            this.btnCancelarBusq.BorderMouseOverColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnCancelarBusq.BorderNoFocusColor = System.Drawing.Color.Maroon;
+            this.btnCancelarBusq.FocusRectangle = true;
+            this.btnCancelarBusq.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelarBusq.ForeColor = System.Drawing.Color.Black;
+            this.btnCancelarBusq.Image = null;
+            this.btnCancelarBusq.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnCancelarBusq.ImageBorderColor = System.Drawing.Color.Red;
+            this.btnCancelarBusq.ImageFocused = null;
+            this.btnCancelarBusq.ImageInactive = null;
+            this.btnCancelarBusq.ImageMouseOver = null;
+            this.btnCancelarBusq.ImageNormal = null;
+            this.btnCancelarBusq.ImagePressed = null;
+            this.btnCancelarBusq.ImageSize = new System.Drawing.Size(44, 44);
+            this.btnCancelarBusq.KeyButton = System.Windows.Forms.Keys.F1;
+            this.btnCancelarBusq.KeyButtonView = false;
+            this.btnCancelarBusq.Location = new System.Drawing.Point(853, 12);
+            this.btnCancelarBusq.ModeGradient = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            this.btnCancelarBusq.MouseOverColor = System.Drawing.Color.Red;
+            this.btnCancelarBusq.Name = "btnCancelarBusq";
+            this.btnCancelarBusq.OffsetPressedContent = true;
+            this.btnCancelarBusq.Size = new System.Drawing.Size(23, 25);
+            this.btnCancelarBusq.TabIndex = 116;
+            this.btnCancelarBusq.Text = "X";
+            this.btnCancelarBusq.TextDropShadow = true;
+            this.btnCancelarBusq.UseVisualStyleBackColor = false;
+            this.btnCancelarBusq.Click += new System.EventHandler(this.btnCancelarBusq_Click);
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btnBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(108)))), ((int)(((byte)(114)))));
+            this.btnBuscar.BorderColor = System.Drawing.Color.Red;
+            this.btnBuscar.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(108)))), ((int)(((byte)(114)))));
+            this.btnBuscar.BorderMouseOverColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnBuscar.BorderNoFocusColor = System.Drawing.Color.Maroon;
+            this.btnBuscar.FocusRectangle = true;
+            this.btnBuscar.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscar.ForeColor = System.Drawing.Color.Black;
+            this.btnBuscar.Image = null;
+            this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnBuscar.ImageBorderColor = System.Drawing.Color.Red;
+            this.btnBuscar.ImageFocused = null;
+            this.btnBuscar.ImageInactive = null;
+            this.btnBuscar.ImageMouseOver = null;
+            this.btnBuscar.ImageNormal = null;
+            this.btnBuscar.ImagePressed = null;
+            this.btnBuscar.ImageSize = new System.Drawing.Size(44, 44);
+            this.btnBuscar.KeyButton = System.Windows.Forms.Keys.F1;
+            this.btnBuscar.KeyButtonView = false;
+            this.btnBuscar.Location = new System.Drawing.Point(747, 10);
+            this.btnBuscar.ModeGradient = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            this.btnBuscar.MouseOverColor = System.Drawing.Color.Red;
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.OffsetPressedContent = true;
+            this.btnBuscar.Size = new System.Drawing.Size(100, 28);
+            this.btnBuscar.TabIndex = 115;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.TextDropShadow = true;
+            this.btnBuscar.UseVisualStyleBackColor = false;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
+            // dtpFechaBuscar
+            // 
+            this.dtpFechaBuscar.CalendarMonthBackground = System.Drawing.SystemColors.MenuHighlight;
+            this.dtpFechaBuscar.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFechaBuscar.Location = new System.Drawing.Point(577, 13);
+            this.dtpFechaBuscar.Name = "dtpFechaBuscar";
+            this.dtpFechaBuscar.Size = new System.Drawing.Size(163, 25);
+            this.dtpFechaBuscar.TabIndex = 111;
+            this.dtpFechaBuscar.ValueChanged += new System.EventHandler(this.dtpFechaBuscar_ValueChanged);
+            // 
+            // panel2
+            // 
+            this.panel2.AutoScroll = true;
+            this.panel2.Controls.Add(this.panel6);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1008, 80);
+            this.panel2.TabIndex = 0;
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(205)))), ((int)(((byte)(215)))));
+            this.panel6.Controls.Add(this.pictureBox1);
+            this.panel6.Controls.Add(this.label42);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel6.Location = new System.Drawing.Point(0, 0);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(1008, 80);
+            this.panel6.TabIndex = 2;
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -343,6 +417,17 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 33;
             this.pictureBox1.TabStop = false;
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label42.ForeColor = System.Drawing.Color.White;
+            this.label42.Location = new System.Drawing.Point(21, 9);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(473, 55);
+            this.label42.TabIndex = 24;
+            this.label42.Text = "Productos Vendidos";
             // 
             // frmReportesProductosVendidos
             // 
@@ -367,6 +452,7 @@
             this.panel7.ResumeLayout(false);
             this.PanelMenu.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
+            this.panel10.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
@@ -397,6 +483,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn IDReporte;
         private System.Windows.Forms.DataGridViewTextBoxColumn FechaInicio;
         private System.Windows.Forms.DataGridViewTextBoxColumn FechaFin;
+        private System.Windows.Forms.DateTimePicker dtpFechaBuscar;
+        private CreativaSL.LibControls.WinForms.Button_Creativa btnBuscar;
+        private CreativaSL.LibControls.WinForms.Button_Creativa btnCancelarBusq;
     }
 }
 

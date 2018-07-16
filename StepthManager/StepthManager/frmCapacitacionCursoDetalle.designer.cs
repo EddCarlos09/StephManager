@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label42 = new System.Windows.Forms.Label();
@@ -38,13 +39,6 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
             this.dgvParticipantes = new System.Windows.Forms.DataGridView();
-            this.IDInscripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IDEmpleado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IDCurso = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IDCapacitacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NombreCompleto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Calificacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Vigente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -63,6 +57,14 @@
             this.txtLugarCurso = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.IDInscripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IDEmpleado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IDCurso = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IDCapacitacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NombreCompleto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Calificacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Vigente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Practicas = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -210,65 +212,14 @@
             this.IDCapacitacion,
             this.NombreCompleto,
             this.Calificacion,
-            this.Vigente});
+            this.Vigente,
+            this.Practicas});
             this.dgvParticipantes.GridColor = System.Drawing.Color.Gainsboro;
             this.dgvParticipantes.Location = new System.Drawing.Point(10, 9);
             this.dgvParticipantes.Name = "dgvParticipantes";
             this.dgvParticipantes.RowHeadersWidth = 21;
             this.dgvParticipantes.Size = new System.Drawing.Size(765, 234);
             this.dgvParticipantes.TabIndex = 0;
-            // 
-            // IDInscripcion
-            // 
-            this.IDInscripcion.DataPropertyName = "IDInscripcion";
-            this.IDInscripcion.HeaderText = "IDInscripcion";
-            this.IDInscripcion.Name = "IDInscripcion";
-            this.IDInscripcion.Visible = false;
-            // 
-            // IDEmpleado
-            // 
-            this.IDEmpleado.DataPropertyName = "IDEmpleado";
-            this.IDEmpleado.HeaderText = "IDEmpleado";
-            this.IDEmpleado.Name = "IDEmpleado";
-            this.IDEmpleado.Visible = false;
-            // 
-            // IDCurso
-            // 
-            this.IDCurso.DataPropertyName = "IDCurso";
-            this.IDCurso.HeaderText = "IDCurso";
-            this.IDCurso.Name = "IDCurso";
-            this.IDCurso.Visible = false;
-            // 
-            // IDCapacitacion
-            // 
-            this.IDCapacitacion.DataPropertyName = "IDCapacitacion";
-            this.IDCapacitacion.HeaderText = "IDCapacitacion";
-            this.IDCapacitacion.Name = "IDCapacitacion";
-            this.IDCapacitacion.Visible = false;
-            // 
-            // NombreCompleto
-            // 
-            this.NombreCompleto.DataPropertyName = "NombreCompleto";
-            this.NombreCompleto.HeaderText = "Nombre Empleado";
-            this.NombreCompleto.Name = "NombreCompleto";
-            this.NombreCompleto.ReadOnly = true;
-            this.NombreCompleto.Width = 300;
-            // 
-            // Calificacion
-            // 
-            this.Calificacion.DataPropertyName = "Calificacion";
-            this.Calificacion.HeaderText = "Calificacion";
-            this.Calificacion.Name = "Calificacion";
-            this.Calificacion.ReadOnly = true;
-            this.Calificacion.Width = 200;
-            // 
-            // Vigente
-            // 
-            this.Vigente.DataPropertyName = "Vigente";
-            this.Vigente.HeaderText = "Vigente";
-            this.Vigente.Name = "Vigente";
-            this.Vigente.ReadOnly = true;
-            this.Vigente.Visible = false;
             // 
             // panel8
             // 
@@ -469,6 +420,67 @@
             this.label7.Text = "*";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // IDInscripcion
+            // 
+            this.IDInscripcion.DataPropertyName = "IDInscripcion";
+            this.IDInscripcion.HeaderText = "IDInscripcion";
+            this.IDInscripcion.Name = "IDInscripcion";
+            this.IDInscripcion.Visible = false;
+            // 
+            // IDEmpleado
+            // 
+            this.IDEmpleado.DataPropertyName = "IDEmpleado";
+            this.IDEmpleado.HeaderText = "IDEmpleado";
+            this.IDEmpleado.Name = "IDEmpleado";
+            this.IDEmpleado.Visible = false;
+            // 
+            // IDCurso
+            // 
+            this.IDCurso.DataPropertyName = "IDCurso";
+            this.IDCurso.HeaderText = "IDCurso";
+            this.IDCurso.Name = "IDCurso";
+            this.IDCurso.Visible = false;
+            // 
+            // IDCapacitacion
+            // 
+            this.IDCapacitacion.DataPropertyName = "IDCapacitacion";
+            this.IDCapacitacion.HeaderText = "IDCapacitacion";
+            this.IDCapacitacion.Name = "IDCapacitacion";
+            this.IDCapacitacion.Visible = false;
+            // 
+            // NombreCompleto
+            // 
+            this.NombreCompleto.DataPropertyName = "NombreCompleto";
+            this.NombreCompleto.HeaderText = "Nombre Empleado";
+            this.NombreCompleto.Name = "NombreCompleto";
+            this.NombreCompleto.ReadOnly = true;
+            this.NombreCompleto.Width = 300;
+            // 
+            // Calificacion
+            // 
+            this.Calificacion.DataPropertyName = "Calificacion";
+            this.Calificacion.HeaderText = "Calificacion";
+            this.Calificacion.Name = "Calificacion";
+            this.Calificacion.ReadOnly = true;
+            this.Calificacion.Width = 200;
+            // 
+            // Vigente
+            // 
+            this.Vigente.DataPropertyName = "Vigente";
+            this.Vigente.HeaderText = "Vigente";
+            this.Vigente.Name = "Vigente";
+            this.Vigente.ReadOnly = true;
+            this.Vigente.Visible = false;
+            // 
+            // Practicas
+            // 
+            this.Practicas.DataPropertyName = "Practicas";
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Practicas.DefaultCellStyle = dataGridViewCellStyle1;
+            this.Practicas.HeaderText = "Prácticas";
+            this.Practicas.Name = "Practicas";
+            this.Practicas.ReadOnly = true;
+            // 
             // frmCapacitacionCursoDetalle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -538,6 +550,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn NombreCompleto;
         private System.Windows.Forms.DataGridViewTextBoxColumn Calificacion;
         private System.Windows.Forms.DataGridViewTextBoxColumn Vigente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Practicas;
     }
 }
 

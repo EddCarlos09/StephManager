@@ -948,6 +948,9 @@ namespace StephManager
         {
             try
             {
+                frmReporteTrabajosRealizados tr = new frmReporteTrabajosRealizados();
+                tr.ShowDialog();
+                tr.Dispose();
                 
             }
             catch (Exception ex)
@@ -992,7 +995,9 @@ namespace StephManager
         {
             try
             {
-
+                frmVerReporteMobiliarioXSucursal Reporte = new frmVerReporteMobiliarioXSucursal();
+                Reporte.ShowDialog();
+                Reporte.Dispose();
             }
             catch (Exception ex)
             {
@@ -1005,7 +1010,9 @@ namespace StephManager
         {
             try
             {
-
+                frmReporteComprasCliente VerReporte = new frmReporteComprasCliente();
+                VerReporte.ShowDialog();
+                VerReporte.Dispose();
             }
             catch (Exception ex)
             {
@@ -1018,6 +1025,9 @@ namespace StephManager
         {
             try
             {
+                frmReportesProductosVendidos GenerarReporte = new frmReportesProductosVendidos();
+                GenerarReporte.ShowDialog();
+                GenerarReporte.Dispose();
 
             }
             catch (Exception ex)
@@ -1031,7 +1041,9 @@ namespace StephManager
         {
             try
             {
-
+                frmVerReporteTiempoServicio GenerarReporte = new frmVerReporteTiempoServicio();
+                GenerarReporte.ShowDialog();
+                GenerarReporte.Dispose();
             }
             catch (Exception ex)
             {
@@ -1044,7 +1056,12 @@ namespace StephManager
         {
             try
             {
-
+                //....
+                this.Visible = false;
+                frmReportesComprasPorProveedor Reporte = new frmReportesComprasPorProveedor();
+                Reporte.ShowDialog();
+                Reporte.Dispose();
+                this.Visible = true;
             }
             catch (Exception ex)
             {
@@ -1057,7 +1074,12 @@ namespace StephManager
         {
             try
             {
-
+                //Aqui se abre el formulario de Faltas grid
+                this.Visible = false;
+                frmReportesFaltas Reporte = new frmReportesFaltas();
+                Reporte.ShowDialog();
+                Reporte.Dispose();
+                this.Visible = true;
             }
             catch (Exception ex)
             {
@@ -1066,6 +1088,22 @@ namespace StephManager
             }
         }
 
+        private void toolsm_Monedero_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                frmReporteMonedero tr = new frmReporteMonedero();
+                tr.ShowDialog();
+                tr.Dispose();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(Comun.MensajeError, Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                LogError.AddExcFileTxt(ex, "frmMenuInicio ~ toolsm_Monedero_Click");
+            }
+        }
         #endregion
+        
     }
 }

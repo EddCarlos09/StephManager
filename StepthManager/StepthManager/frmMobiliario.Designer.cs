@@ -52,16 +52,16 @@
             this.btnBuscar = new CreativaSL.LibControls.WinForms.Button_Creativa();
             this.panel7 = new System.Windows.Forms.Panel();
             this.PanelMenu = new System.Windows.Forms.Panel();
+            this.btnTranferencia = new CreativaSL.LibControls.WinForms.Button_Creativa();
             this.btnBajaMobiliario = new CreativaSL.LibControls.WinForms.Button_Creativa();
             this.btnResguardoMobiliario = new CreativaSL.LibControls.WinForms.Button_Creativa();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.label42 = new System.Windows.Forms.Label();
-            this.btnTranferencia = new CreativaSL.LibControls.WinForms.Button_Creativa();
             this.btnCompras = new CreativaSL.LibControls.WinForms.Button_Creativa();
             this.btnSalir = new CreativaSL.LibControls.WinForms.Button_Creativa();
             this.btnCancelar = new CreativaSL.LibControls.WinForms.Button_Creativa();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label42 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -337,6 +337,40 @@
             this.PanelMenu.Size = new System.Drawing.Size(1008, 80);
             this.PanelMenu.TabIndex = 1;
             // 
+            // btnTranferencia
+            // 
+            this.btnTranferencia.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnTranferencia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(108)))), ((int)(((byte)(114)))));
+            this.btnTranferencia.BorderColor = System.Drawing.Color.Red;
+            this.btnTranferencia.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(108)))), ((int)(((byte)(114)))));
+            this.btnTranferencia.BorderMouseOverColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnTranferencia.BorderNoFocusColor = System.Drawing.Color.Maroon;
+            this.btnTranferencia.FocusRectangle = true;
+            this.btnTranferencia.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTranferencia.ForeColor = System.Drawing.Color.White;
+            this.btnTranferencia.Image = null;
+            this.btnTranferencia.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnTranferencia.ImageBorderColor = System.Drawing.Color.Red;
+            this.btnTranferencia.ImageFocused = null;
+            this.btnTranferencia.ImageInactive = null;
+            this.btnTranferencia.ImageMouseOver = global::StephManager.Properties.Resources.icons_steph_negro___0007_transferencias;
+            this.btnTranferencia.ImageNormal = global::StephManager.Properties.Resources.icons_steph_negro___0007_transferencias_a;
+            this.btnTranferencia.ImagePressed = null;
+            this.btnTranferencia.ImageSize = new System.Drawing.Size(44, 44);
+            this.btnTranferencia.KeyButton = System.Windows.Forms.Keys.F1;
+            this.btnTranferencia.KeyButtonView = false;
+            this.btnTranferencia.Location = new System.Drawing.Point(478, 5);
+            this.btnTranferencia.ModeGradient = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            this.btnTranferencia.MouseOverColor = System.Drawing.Color.Red;
+            this.btnTranferencia.Name = "btnTranferencia";
+            this.btnTranferencia.OffsetPressedContent = true;
+            this.btnTranferencia.Size = new System.Drawing.Size(80, 70);
+            this.btnTranferencia.TabIndex = 24;
+            this.btnTranferencia.Text = "Transferir";
+            this.btnTranferencia.TextDropShadow = true;
+            this.btnTranferencia.UseVisualStyleBackColor = false;
+            this.btnTranferencia.Click += new System.EventHandler(this.btnTranferencia_Click);
+            // 
             // btnBajaMobiliario
             // 
             this.btnBajaMobiliario.Anchor = System.Windows.Forms.AnchorStyles.Right;
@@ -404,72 +438,6 @@
             this.btnResguardoMobiliario.TextDropShadow = true;
             this.btnResguardoMobiliario.UseVisualStyleBackColor = false;
             this.btnResguardoMobiliario.Click += new System.EventHandler(this.btnResguardoMobiliario_Click);
-            // 
-            // panel2
-            // 
-            this.panel2.AutoScroll = true;
-            this.panel2.Controls.Add(this.panel6);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1008, 80);
-            this.panel2.TabIndex = 0;
-            // 
-            // panel6
-            // 
-            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(205)))), ((int)(((byte)(215)))));
-            this.panel6.Controls.Add(this.pictureBox1);
-            this.panel6.Controls.Add(this.label42);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(0, 0);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(1008, 80);
-            this.panel6.TabIndex = 2;
-            // 
-            // label42
-            // 
-            this.label42.AutoSize = true;
-            this.label42.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label42.ForeColor = System.Drawing.Color.White;
-            this.label42.Location = new System.Drawing.Point(21, 9);
-            this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(238, 55);
-            this.label42.TabIndex = 24;
-            this.label42.Text = "Mobiliario";
-            // 
-            // btnTranferencia
-            // 
-            this.btnTranferencia.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnTranferencia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(108)))), ((int)(((byte)(114)))));
-            this.btnTranferencia.BorderColor = System.Drawing.Color.Red;
-            this.btnTranferencia.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(108)))), ((int)(((byte)(114)))));
-            this.btnTranferencia.BorderMouseOverColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnTranferencia.BorderNoFocusColor = System.Drawing.Color.Maroon;
-            this.btnTranferencia.FocusRectangle = true;
-            this.btnTranferencia.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTranferencia.ForeColor = System.Drawing.Color.White;
-            this.btnTranferencia.Image = null;
-            this.btnTranferencia.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnTranferencia.ImageBorderColor = System.Drawing.Color.Red;
-            this.btnTranferencia.ImageFocused = null;
-            this.btnTranferencia.ImageInactive = null;
-            this.btnTranferencia.ImageMouseOver = global::StephManager.Properties.Resources.icons_steph_negro___0007_transferencias;
-            this.btnTranferencia.ImageNormal = global::StephManager.Properties.Resources.icons_steph_negro___0007_transferencias_a;
-            this.btnTranferencia.ImagePressed = null;
-            this.btnTranferencia.ImageSize = new System.Drawing.Size(44, 44);
-            this.btnTranferencia.KeyButton = System.Windows.Forms.Keys.F1;
-            this.btnTranferencia.KeyButtonView = false;
-            this.btnTranferencia.Location = new System.Drawing.Point(478, 5);
-            this.btnTranferencia.ModeGradient = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
-            this.btnTranferencia.MouseOverColor = System.Drawing.Color.Red;
-            this.btnTranferencia.Name = "btnTranferencia";
-            this.btnTranferencia.OffsetPressedContent = true;
-            this.btnTranferencia.Size = new System.Drawing.Size(80, 70);
-            this.btnTranferencia.TabIndex = 24;
-            this.btnTranferencia.Text = "Transferir";
-            this.btnTranferencia.TextDropShadow = true;
-            this.btnTranferencia.UseVisualStyleBackColor = false;
-            this.btnTranferencia.Click += new System.EventHandler(this.btnTranferencia_Click);
             // 
             // btnCompras
             // 
@@ -573,6 +541,27 @@
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCatMobiliario_Click);
             // 
+            // panel2
+            // 
+            this.panel2.AutoScroll = true;
+            this.panel2.Controls.Add(this.panel6);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1008, 80);
+            this.panel2.TabIndex = 0;
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(205)))), ((int)(((byte)(215)))));
+            this.panel6.Controls.Add(this.pictureBox1);
+            this.panel6.Controls.Add(this.label42);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel6.Location = new System.Drawing.Point(0, 0);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(1008, 80);
+            this.panel6.TabIndex = 2;
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -583,6 +572,17 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 34;
             this.pictureBox1.TabStop = false;
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label42.ForeColor = System.Drawing.Color.White;
+            this.label42.Location = new System.Drawing.Point(21, 9);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(238, 55);
+            this.label42.TabIndex = 24;
+            this.label42.Text = "Mobiliario";
             // 
             // frmMobiliario
             // 

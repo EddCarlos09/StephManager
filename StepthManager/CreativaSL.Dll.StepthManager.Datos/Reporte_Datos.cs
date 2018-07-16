@@ -19,13 +19,13 @@ namespace CreativaSL.Dll.StephManager.Datos
                 List<ReporteMaterialesProduccion> Lista01 = new List<ReporteMaterialesProduccion>();
                 List<ReporteMaterialesProduccion> Lista02 = new List<ReporteMaterialesProduccion>();
                 DataSet ds = SqlHelper.ExecuteDataset(_datos.Conexion, "spCSLDB_get_ReporteMaterialesProduccion", _datos.IDSucursal);
-                if(ds != null)
+                if (ds != null)
                 {
-                    if(ds.Tables.Count == 2)
+                    if (ds.Tables.Count == 2)
                     {
                         DataTableReader dr = ds.Tables[0].CreateDataReader();                        
                         ReporteMaterialesProduccion Item01;
-                        while(dr.Read())
+                        while (dr.Read())
                         {
                             Item01 = new ReporteMaterialesProduccion();
                             Item01.IDSucursal = dr.GetString(dr.GetOrdinal("id_sucursal"));
@@ -56,7 +56,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                 object[] Resultado = { Lista01, Lista02 };
                 return Resultado;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw ex;
             }
@@ -70,7 +70,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                 List<ReporteServiciosRealizados> Lista = new List<ReporteServiciosRealizados>();
                 ReporteServiciosRealizados Item;
                 SqlDataReader Dr = SqlHelper.ExecuteReader(Conexion, "Reportes.spCSLDB_get_ReporteTrabajosRealizados", Parametros);
-                while(Dr.Read())
+                while (Dr.Read())
                 {
                     Item = new ReporteServiciosRealizados();
                     Item.IDSucursal = !Dr.IsDBNull(Dr.GetOrdinal("IDSucursal")) ? Dr.GetString(Dr.GetOrdinal("IDSucursal")) : string.Empty;
@@ -85,7 +85,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                 Dr.Close();
                 return Lista;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw ex;
             }
@@ -139,7 +139,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                 int IDReporte = -1;
                 object[] Parametros = { FechaInicio, FechaFin, IDUsuario };
                 object Result = SqlHelper.ExecuteScalar(Conexion, "Reportes.spCSLDB_set_GenerarReporteProductosVendidos", Parametros);
-                if(Result != null)
+                if (Result != null)
                 {
                     int.TryParse(Result.ToString(), out IDReporte);
                 }
@@ -150,19 +150,24 @@ namespace CreativaSL.Dll.StephManager.Datos
                 throw ex;
             }
         }
-
+        /// <summary>
+        /// Obtiene el detalle del reporte de productos vendidos por ID
+        /// </summary>
+        /// <param name="Conexion"></param>
+        /// <param name="IDReporte"></param>
+        /// <returns></returns>        
         public ReporteProductosVendidos ObtenerDetalleReporteProductosVendidos(string Conexion, int IDReporte)
         {
             try
             {
                 ReporteProductosVendidos Resultado = new ReporteProductosVendidos();
                 DataSet Ds = SqlHelper.ExecuteDataset(Conexion, "Reportes.spCSLDB_get_ReporteProductosVendidosXID", IDReporte);
-                if(Ds != null)
+                if (Ds != null)
                 {
-                    if(Ds.Tables.Count == 2)
+                    if (Ds.Tables.Count == 2)
                     {
                         DataTableReader Dr = Ds.Tables[0].CreateDataReader();
-                        while(Dr.Read())
+                        while (Dr.Read())
                         {
                             Resultado.FechaInicio = !Dr.IsDBNull(Dr.GetOrdinal("FechaInicio")) ? Dr.GetDateTime(Dr.GetOrdinal("FechaInicio")) : DateTime.MinValue;
                             Resultado.FechaFin = !Dr.IsDBNull(Dr.GetOrdinal("FechaFin")) ? Dr.GetDateTime(Dr.GetOrdinal("FechaFin")) : DateTime.MinValue;
@@ -173,7 +178,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                         List<ReporteProductosVendidosDetalle> Lista = new List<ReporteProductosVendidosDetalle>();
                         ReporteProductosVendidosDetalle Item;
                         DataTableReader Dr2 = Ds.Tables[1].CreateDataReader();
-                        while(Dr2.Read())
+                        while (Dr2.Read())
                         {
                             Item = new ReporteProductosVendidosDetalle();
                             Item.IDSucursal = !Dr2.IsDBNull(Dr2.GetOrdinal("IDSucursal")) ? Dr2.GetString(Dr2.GetOrdinal("IDSucursal")) : string.Empty;
@@ -192,20 +197,25 @@ namespace CreativaSL.Dll.StephManager.Datos
                 }
                 return Resultado;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw ex;
             }
         }
-
-        public List<ReporteProductosVendidos> ObtenerReportesProductosVendidos(string Conexion)
+        /// <summary>
+        /// Obtiene el reporte de productos vendidos
+        /// </summary>
+        /// <param name="Conexion"></param>
+        /// <param name="Fecha"></param>
+        /// <returns></returns>
+        public List<ReporteProductosVendidos> ObtenerReportesProductosVendidos(string Conexion, DateTime Fecha)
         {
             try
             {
                 List<ReporteProductosVendidos> Lista = new List<ReporteProductosVendidos>();
                 ReporteProductosVendidos Item;
-                SqlDataReader Dr = SqlHelper.ExecuteReader(Conexion, "Reportes.spCSLDB_get_ReportesProductosVendidos");
-                while(Dr.Read())
+                SqlDataReader Dr = SqlHelper.ExecuteReader(Conexion, "Reportes.spCSLDB_get_ReportesProductosVendidos", Fecha);
+                while (Dr.Read())
                 {
                     Item = new ReporteProductosVendidos();
                     Item.IDReporte = !Dr.IsDBNull(Dr.GetOrdinal("IDReporte")) ? Dr.GetInt32(Dr.GetOrdinal("IDReporte")) : 0;
@@ -216,11 +226,168 @@ namespace CreativaSL.Dll.StephManager.Datos
                 Dr.Close();
                 return Lista;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw ex;
             }
         }
 
+        //Trabajos Realizados
+        public int GenerarReporteTrabajosRealizados(string Conexion, DateTime FechaInicio, DateTime FechaFin, string IDUsuario)
+        {
+            try
+            {
+                int IDReporte = -1;
+                object[] Parametros = { FechaInicio, FechaFin, IDUsuario };
+                object Result = SqlHelper.ExecuteScalar(Conexion, "Reportes.spCSLDB_set_GenerarReporteTrabajosRealizados", Parametros);
+                if (Result != null)
+                {
+                    int.TryParse(Result.ToString(), out IDReporte);
+                }
+                return IDReporte;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public ReporteTrabajosRealizados ObtenerDetalleReporteTrabajosRealizados(string Conexion, int IDReporte)
+        {
+            try
+            {
+                ReporteTrabajosRealizados Resultado = new ReporteTrabajosRealizados();
+                DataSet Ds = SqlHelper.ExecuteDataset(Conexion, "Reportes.spCSLDB_get_ReporteTrabajosRealizadosXID", IDReporte);
+                if (Ds != null)
+                {
+                    if (Ds.Tables.Count == 2)
+                    {
+                        DataTableReader Dr = Ds.Tables[0].CreateDataReader();
+                        while (Dr.Read())
+                        {
+                            Resultado.FechaInicio = !Dr.IsDBNull(Dr.GetOrdinal("FechaInicio")) ? Dr.GetDateTime(Dr.GetOrdinal("FechaInicio")) : DateTime.MinValue;
+                            Resultado.FechaFin = !Dr.IsDBNull(Dr.GetOrdinal("FechaFin")) ? Dr.GetDateTime(Dr.GetOrdinal("FechaFin")) : DateTime.MinValue;
+                            break;
+                        }
+                        Dr.Close();
+
+                        List<ReporteTrabajosRealizadosDetalle> Lista = new List<ReporteTrabajosRealizadosDetalle>();
+                        ReporteTrabajosRealizadosDetalle Item;
+                        DataTableReader Dr2 = Ds.Tables[1].CreateDataReader();
+                        while (Dr2.Read())
+                        {
+                            Item = new ReporteTrabajosRealizadosDetalle();
+                            Item.IDSucursal = !Dr2.IsDBNull(Dr2.GetOrdinal("IDSucursal")) ? Dr2.GetString(Dr2.GetOrdinal("IDSucursal")) : string.Empty;
+                            Item.Sucursal = !Dr2.IsDBNull(Dr2.GetOrdinal("Sucursal")) ? Dr2.GetString(Dr2.GetOrdinal("Sucursal")) : string.Empty;
+                            Item.IDEmpleado = !Dr2.IsDBNull(Dr2.GetOrdinal("IDEmpleado")) ? Dr2.GetString(Dr2.GetOrdinal("IDEmpleado")) : string.Empty;
+                            Item.NombreEmpleado = !Dr2.IsDBNull(Dr2.GetOrdinal("NombreEmpleado")) ? Dr2.GetString(Dr2.GetOrdinal("NombreEmpleado")) : string.Empty;
+                            Item.IDServicio = !Dr2.IsDBNull(Dr2.GetOrdinal("IDServicio")) ? Dr2.GetString(Dr2.GetOrdinal("IDServicio")) : string.Empty;
+                            Item.NombreServicio = !Dr2.IsDBNull(Dr2.GetOrdinal("NombreServicio")) ? Dr2.GetString(Dr2.GetOrdinal("NombreServicio")) : string.Empty;
+                            Item.CantidadServicios = !Dr2.IsDBNull(Dr2.GetOrdinal("CantidadServicios")) ? Dr2.GetInt32(Dr2.GetOrdinal("CantidadServicios")) : 0;
+                            Lista.Add(Item);
+                        }
+                        Dr2.Close();
+
+                        Resultado.Detalle = Lista;
+                        Resultado.Completo = true;
+                    }
+                }
+                return Resultado;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public List<ReporteTrabajosRealizados> ObtenerReporteTrabajosRealizados(string Conexion)
+        {
+            try
+            {
+                List<ReporteTrabajosRealizados> Lista = new List<ReporteTrabajosRealizados>();
+                ReporteTrabajosRealizados Item;
+                SqlDataReader Dr = SqlHelper.ExecuteReader(Conexion, "Reportes.spCSLDB_get_ReportesTrabajosRealizados");
+                while (Dr.Read())
+                {
+                    Item = new ReporteTrabajosRealizados();
+                    Item.IDReporte = !Dr.IsDBNull(Dr.GetOrdinal("IDReporte")) ? Dr.GetInt32(Dr.GetOrdinal("IDReporte")) : 0;
+                    Item.FechaInicio = !Dr.IsDBNull(Dr.GetOrdinal("FechaInicio")) ? Dr.GetDateTime(Dr.GetOrdinal("FechaInicio")) : DateTime.MinValue;
+                    Item.FechaFin = !Dr.IsDBNull(Dr.GetOrdinal("FechaFin")) ? Dr.GetDateTime(Dr.GetOrdinal("FechaFin")) : DateTime.MinValue;
+                    Lista.Add(Item);
+                }
+                Dr.Close();
+                return Lista;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        /// <summary>
+        /// Método para obtener el reporte del tiempo de servicios
+        /// </summary>
+        /// <param name="Conexion"></param>
+        /// <returns></returns>
+        public List<ReporteTiempoServicios> ObtenerReporteTiempoServicio(string Conexion)
+        {
+            try
+            {
+                List<ReporteTiempoServicios> Lista = new List<ReporteTiempoServicios>();
+                ReporteTiempoServicios Item;
+                SqlDataReader Dr = SqlHelper.ExecuteReader(Conexion, "Reportes.spCSLDB_get_ReporteAGVTiempoServicios");
+                while (Dr.Read())
+                {
+                    Item = new ReporteTiempoServicios();
+                    Item.IDEmpleado = !Dr.IsDBNull(Dr.GetOrdinal("IDEmpleado")) ? Dr.GetString(Dr.GetOrdinal("IDEmpleado")) : string.Empty;
+                    Item.Empleado = !Dr.IsDBNull(Dr.GetOrdinal("Empleado")) ? Dr.GetString(Dr.GetOrdinal("Empleado")) : string.Empty;
+                    Item.IDProducto = !Dr.IsDBNull(Dr.GetOrdinal("IDProducto")) ? Dr.GetString(Dr.GetOrdinal("IDProducto")) : string.Empty;
+                    Item.Servicio = !Dr.IsDBNull(Dr.GetOrdinal("Servicio")) ? Dr.GetString(Dr.GetOrdinal("Servicio")) : string.Empty;
+                    Item.TiempoAVG = !Dr.IsDBNull(Dr.GetOrdinal("TiempoAVG")) ? Dr.GetString(Dr.GetOrdinal("TiempoAVG")) : string.Empty;
+                    Lista.Add(Item);
+                }
+                Dr.Close();
+                return Lista;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        /// <summary>
+        /// Método para obtener el mobiliario por sucursal
+        /// </summary>
+        /// <param name="Conexion">Cadena de conexion a la BD</param>
+        /// <param name="IDSucursal">Identificador de la sucursal</param>
+        /// <returns>Retorna una lista de tipo ReporteMobiliarioXSucursal</returns>
+        public List<ReporteMobiliarioXSucursal> ObtenerReporteMobiliarioAsignadoPorSucursal(string  Conexion, string IDSucursal)
+        {
+            try
+            {
+                List<ReporteMobiliarioXSucursal> Lista = new List<ReporteMobiliarioXSucursal>();
+                ReporteMobiliarioXSucursal Item;
+                SqlDataReader Dr = SqlHelper.ExecuteReader(Conexion, "Reportes.spCSLDB_get_ReporteMobiliarioAsignadoPorSucursal", IDSucursal);
+                while (Dr.Read())
+                {
+                    Item = new ReporteMobiliarioXSucursal();
+                    Item.IDSucursal = !Dr.IsDBNull(Dr.GetOrdinal("IDSucursal")) ? Dr.GetString(Dr.GetOrdinal("IDSucursal")) : string.Empty;
+                    Item.NombreSucursal = !Dr.IsDBNull(Dr.GetOrdinal("NombreSucursal")) ? Dr.GetString(Dr.GetOrdinal("NombreSucursal")) : string.Empty;
+                    Item.IDMobiliario = !Dr.IsDBNull(Dr.GetOrdinal("IDMobiliario")) ? Dr.GetString(Dr.GetOrdinal("IDMobiliario")) : string.Empty;
+                    Item.Codigo = !Dr.IsDBNull(Dr.GetOrdinal("Codigo")) ? Dr.GetString(Dr.GetOrdinal("Codigo")) : string.Empty;
+                    Item.Mobiliario = !Dr.IsDBNull(Dr.GetOrdinal("MobiliarioDesc")) ? Dr.GetString(Dr.GetOrdinal("MobiliarioDesc")) : string.Empty;
+                    Item.Marca = !Dr.IsDBNull(Dr.GetOrdinal("Marca")) ? Dr.GetString(Dr.GetOrdinal("Marca")) : string.Empty;
+                    Item.Modelo = !Dr.IsDBNull(Dr.GetOrdinal("Modelo")) ? Dr.GetString(Dr.GetOrdinal("Modelo")) : string.Empty;
+                    Item.NumSerie = !Dr.IsDBNull(Dr.GetOrdinal("NumSerie")) ? Dr.GetString(Dr.GetOrdinal("NumSerie")) : string.Empty;
+                    Item.FechaAsigncion = !Dr.IsDBNull(Dr.GetOrdinal("FechaAsignacion")) ? Dr.GetDateTime(Dr.GetOrdinal("FechaAsignacion")) : DateTime.MinValue;
+                    Lista.Add(Item);
+                }
+                Dr.Close();
+                return Lista;
+        }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }

@@ -56,37 +56,32 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CreativaSL.Dll.Validaciones, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\Documents\Stepth\CreativaSL.Dll.Validaciones.dll</HintPath>
+    <Reference Include="CreativaSL.Dll.Validaciones">
+      <HintPath>..\..\..\..\..\Desktop\dlll_stefh\CreativaSL.Dll.Validaciones.dll</HintPath>
     </Reference>
-    <Reference Include="CreativaSL.LibControls.WinForms, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\Documents\Stepth\CreativaSL.LibControls.WinForms.dll</HintPath>
+    <Reference Include="CreativaSL.LibControls.WinForms">
+      <HintPath>..\..\..\..\..\Desktop\dlll_stefh\CreativaSL.LibControls.WinForms.dll</HintPath>
     </Reference>
-    <Reference Include="DPFPDevNET, Version=1.6.1.0, Culture=neutral, PublicKeyToken=696774c42ee28c57, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\Documents\Stepth\DPFPDevNET.dll</HintPath>
+    <Reference Include="DPFPDevNET">
+      <HintPath>..\..\..\..\..\Desktop\dlll_stefh\DPFPDevNET.dll</HintPath>
     </Reference>
-    <Reference Include="DPFPEngNET, Version=1.6.1.0, Culture=neutral, PublicKeyToken=7fe76e7adf19964b, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\Documents\Stepth\DPFPEngNET.dll</HintPath>
+    <Reference Include="DPFPEngNET">
+      <HintPath>..\..\..\..\..\Desktop\dlll_stefh\DPFPEngNET.dll</HintPath>
     </Reference>
-    <Reference Include="DPFPGuiNet, Version=1.6.1.0, Culture=neutral, PublicKeyToken=d4f4a0bd9c559145, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\Documents\Stepth\DPFPGuiNet.dll</HintPath>
+    <Reference Include="DPFPGuiNet">
+      <HintPath>..\..\..\..\..\Desktop\dlll_stefh\DPFPGuiNet.dll</HintPath>
     </Reference>
-    <Reference Include="DPFPShrNET, Version=1.6.1.0, Culture=neutral, PublicKeyToken=d902fe275a8d6cf2, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\Documents\Stepth\DPFPShrNET.dll</HintPath>
+    <Reference Include="DPFPShrNET">
+      <HintPath>..\..\..\..\..\Desktop\dlll_stefh\DPFPShrNET.dll</HintPath>
     </Reference>
-    <Reference Include="DPFPVerNET, Version=1.6.1.0, Culture=neutral, PublicKeyToken=4de0a9c4dcc83984, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\Documents\Stepth\DPFPVerNET.dll</HintPath>
+    <Reference Include="DPFPVerNET">
+      <HintPath>..\..\..\..\..\Desktop\dlll_stefh\DPFPVerNET.dll</HintPath>
     </Reference>
-    <Reference Include="HtmlRichTextBox, Version=1.0.2165.30472, Culture=neutral">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\Documents\Stepth\HtmlRichTextBox.dll</HintPath>
+    <Reference Include="HtmlRichTextBox">
+      <HintPath>..\..\..\..\..\Desktop\dlll_stefh\HtmlRichTextBox.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationBlocks.Data">
+      <HintPath>..\..\..\..\..\Desktop\Microsoft.ApplicationBlocks.Data.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Office.Tools.Excel, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <EmbedInteropTypes>True</EmbedInteropTypes>
@@ -132,17 +127,29 @@
     <Compile Include="ClasesAux\LectorHuella.cs" />
     <Compile Include="ClasesAux\LogError.cs" />
     <Compile Include="ClasesAux\UtilFtp.cs" />
-    <Compile Include="frmNuevoReporteConsumoMaterial.cs">
+    <Compile Include="frmNuevoReporteComprasCliente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmNuevoReporteConsumoMaterial.Designer.cs">
-      <DependentUpon>frmNuevoReporteConsumoMaterial.cs</DependentUpon>
+    <Compile Include="frmNuevoReporteComprasCliente.Designer.cs">
+      <DependentUpon>frmNuevoReporteComprasCliente.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmNuevoReporteGarantias.cs">
+    <Compile Include="frmNuevoReporteFaltas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmNuevoReporteGarantias.Designer.cs">
-      <DependentUpon>frmNuevoReporteGarantias.cs</DependentUpon>
+    <Compile Include="frmNuevoReporteFaltas.Designer.cs">
+      <DependentUpon>frmNuevoReporteFaltas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmNuevoReporteComprasPorProveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNuevoReporteComprasPorProveedor.Designer.cs">
+      <DependentUpon>frmNuevoReporteComprasPorProveedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmNuevoReporteMonedero.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNuevoReporteMonedero.Designer.cs">
+      <DependentUpon>frmNuevoReporteMonedero.cs</DependentUpon>
     </Compile>
     <Compile Include="frmNuevoReporteProductosVendidos.cs">
       <SubType>Form</SubType>
@@ -150,17 +157,35 @@
     <Compile Include="frmNuevoReporteProductosVendidos.Designer.cs">
       <DependentUpon>frmNuevoReporteProductosVendidos.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmReportesConsumoMaterial.cs">
+    <Compile Include="frmReporteMonedero.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmReportesConsumoMaterial.Designer.cs">
-      <DependentUpon>frmReportesConsumoMaterial.cs</DependentUpon>
+    <Compile Include="frmReporteMonedero.Designer.cs">
+      <DependentUpon>frmReporteMonedero.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmReportesGarantias.cs">
+    <Compile Include="frmReportesFaltas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmReportesGarantias.Designer.cs">
-      <DependentUpon>frmReportesGarantias.cs</DependentUpon>
+    <Compile Include="frmReportesFaltas.Designer.cs">
+      <DependentUpon>frmReportesFaltas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmReportesComprasPorProveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReportesComprasPorProveedor.Designer.cs">
+      <DependentUpon>frmReportesComprasPorProveedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmNuevoReporteTrabajosRealizados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNuevoReporteTrabajosRealizados.Designer.cs">
+      <DependentUpon>frmNuevoReporteTrabajosRealizados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmReporteComprasCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReporteComprasCliente.Designer.cs">
+      <DependentUpon>frmReporteComprasCliente.cs</DependentUpon>
     </Compile>
     <Compile Include="frmReportesProductosVendidos.cs">
       <SubType>Form</SubType>
@@ -168,29 +193,65 @@
     <Compile Include="frmReportesProductosVendidos.Designer.cs">
       <DependentUpon>frmReportesProductosVendidos.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmReporteTrabajosRealizados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReporteTrabajosRealizados.Designer.cs">
+      <DependentUpon>frmReporteTrabajosRealizados.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmVerReporte.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmVerReporte.Designer.cs">
       <DependentUpon>frmVerReporte.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmVerReporteConsumoMaterial.cs">
+    <Compile Include="frmVerReporteFaltas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmVerReporteConsumoMaterial.Designer.cs">
-      <DependentUpon>frmVerReporteConsumoMaterial.cs</DependentUpon>
+    <Compile Include="frmVerReporteFaltas.Designer.cs">
+      <DependentUpon>frmVerReporteFaltas.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmVerReporteGarantias.cs">
+    <Compile Include="frmVerReporteComprasPorProveedor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmVerReporteGarantias.Designer.cs">
-      <DependentUpon>frmVerReporteGarantias.cs</DependentUpon>
+    <Compile Include="frmVerReporteComprasPorProveedor.Designer.cs">
+      <DependentUpon>frmVerReporteComprasPorProveedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmVerReporteComprasCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmVerReporteComprasCliente.Designer.cs">
+      <DependentUpon>frmVerReporteComprasCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmVerReporteMobiliarioXSucursal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmVerReporteMobiliarioXSucursal.Designer.cs">
+      <DependentUpon>frmVerReporteMobiliarioXSucursal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmVerReporteMonedero.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmVerReporteMonedero.Designer.cs">
+      <DependentUpon>frmVerReporteMonedero.cs</DependentUpon>
     </Compile>
     <Compile Include="frmVerReporteProductosVendidos.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmVerReporteProductosVendidos.Designer.cs">
       <DependentUpon>frmVerReporteProductosVendidos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmVerReporteTiempoServicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmVerReporteTiempoServicio.Designer.cs">
+      <DependentUpon>frmVerReporteTiempoServicio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmVerReporteTrabajosRealizados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmVerReporteTrabajosRealizados.Designer.cs">
+      <DependentUpon>frmVerReporteTrabajosRealizados.cs</DependentUpon>
     </Compile>
     <Compile Include="frmVerRespuestaCheckList.cs">
       <SubType>Form</SubType>
@@ -1088,35 +1149,53 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="frmNuevoReporteConsumoMaterial.resx">
-      <DependentUpon>frmNuevoReporteConsumoMaterial.cs</DependentUpon>
+    <EmbeddedResource Include="frmNuevoReporteFaltas.resx">
+      <DependentUpon>frmNuevoReporteFaltas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmNuevoReporteGarantias.resx">
-      <DependentUpon>frmNuevoReporteGarantias.cs</DependentUpon>
+    <EmbeddedResource Include="frmNuevoReporteComprasPorProveedor.resx">
+      <DependentUpon>frmNuevoReporteComprasPorProveedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNuevoReporteComprasCliente.resx">
+      <DependentUpon>frmNuevoReporteComprasCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmNuevoReporteProductosVendidos.resx">
       <DependentUpon>frmNuevoReporteProductosVendidos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmReportesConsumoMaterial.resx">
-      <DependentUpon>frmReportesConsumoMaterial.cs</DependentUpon>
+    <EmbeddedResource Include="frmReportesFaltas.resx">
+      <DependentUpon>frmReportesFaltas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmReportesGarantias.resx">
-      <DependentUpon>frmReportesGarantias.cs</DependentUpon>
+    <EmbeddedResource Include="frmReportesComprasPorProveedor.resx">
+      <DependentUpon>frmReportesComprasPorProveedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNuevoReporteTrabajosRealizados.resx">
+      <DependentUpon>frmNuevoReporteTrabajosRealizados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReporteComprasCliente.resx">
+      <DependentUpon>frmReporteComprasCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmReportesProductosVendidos.resx">
       <DependentUpon>frmReportesProductosVendidos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmReporteTrabajosRealizados.resx">
+      <DependentUpon>frmReporteTrabajosRealizados.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmVerReporte.resx">
       <DependentUpon>frmVerReporte.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmVerReporteConsumoMaterial.resx">
-      <DependentUpon>frmVerReporteConsumoMaterial.cs</DependentUpon>
+    <EmbeddedResource Include="frmVerReporteFaltas.resx">
+      <DependentUpon>frmVerReporteFaltas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmVerReporteGarantias.resx">
-      <DependentUpon>frmVerReporteGarantias.cs</DependentUpon>
+    <EmbeddedResource Include="frmVerReporteComprasPorProveedor.resx">
+      <DependentUpon>frmVerReporteComprasPorProveedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmVerReporteMobiliarioXSucursal.resx">
+      <DependentUpon>frmVerReporteMobiliarioXSucursal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmVerReporteProductosVendidos.resx">
       <DependentUpon>frmVerReporteProductosVendidos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmVerReporteTiempoServicio.resx">
+      <DependentUpon>frmVerReporteTiempoServicio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmVerRespuestaCheckList.resx">
       <DependentUpon>frmVerRespuestaCheckList.cs</DependentUpon>
@@ -1573,9 +1652,15 @@
     <EmbeddedResource Include="Informes\CheckListRespuesta.rdlc" />
     <EmbeddedResource Include="Informes\CheckListActividad.rdlc" />
     <EmbeddedResource Include="Informes\MaterialesProduccion.rdlc" />
+    <EmbeddedResource Include="Informes\Reportes\Faltas.rdlc" />
     <EmbeddedResource Include="Informes\Reportes\ConsumoMaterial.rdlc" />
-    <EmbeddedResource Include="Informes\Reportes\Garantias.rdlc" />
+    <EmbeddedResource Include="Informes\Reportes\ComprasCliente.rdlc" />
+    <EmbeddedResource Include="Informes\Reportes\Monedero.rdlc" />
+    <EmbeddedResource Include="Informes\Reportes\TrabajosRealizados.rdlc" />
+    <EmbeddedResource Include="Informes\Reportes\ComprasPorProveedor.rdlc" />
+    <EmbeddedResource Include="Informes\Reportes\MobiliarioXSucursal.rdlc" />
     <EmbeddedResource Include="Informes\Reportes\ProductosVendidos.rdlc" />
+    <EmbeddedResource Include="Informes\Reportes\TiempoServicios.rdlc" />
     <EmbeddedResource Include="Informes\Reportes\ServiciosRealizados.rdlc" />
     <EmbeddedResource Include="Informes\ServiciosXClave.rdlc" />
     <EmbeddedResource Include="Informes\UsosClaves.rdlc" />
@@ -1597,12 +1682,16 @@
     <None Include="Properties\DataSources\CreativaSL.Dll.StephManager.Global.Mobiliario.datasource" />
     <None Include="Properties\DataSources\CreativaSL.Dll.StephManager.Global.Nomina.datasource" />
     <None Include="Properties\DataSources\CreativaSL.Dll.StephManager.Global.PedidoDetalle.datasource" />
+    <None Include="Properties\DataSources\CreativaSL.Dll.StephManager.Global.ReporteAVGTiempoServicios.datasource" />
+    <None Include="Properties\DataSources\CreativaSL.Dll.StephManager.Global.ReporteComprasClienteDetalle.datasource" />
+    <None Include="Properties\DataSources\CreativaSL.Dll.StephManager.Global.ReporteComprasPorProveedorDetalle.datasource" />
     <None Include="Properties\DataSources\CreativaSL.Dll.StephManager.Global.ReporteConsumoMaterial.datasource" />
-    <None Include="Properties\DataSources\CreativaSL.Dll.StephManager.Global.ReporteGarantias.datasource" />
+    <None Include="Properties\DataSources\CreativaSL.Dll.StephManager.Global.ReporteFaltasDetalle.datasource" />
     <None Include="Properties\DataSources\CreativaSL.Dll.StephManager.Global.ReporteMaterialesProduccion.datasource" />
-    <None Include="Properties\DataSources\CreativaSL.Dll.StephManager.Global.ReporteProductosVendidos.datasource" />
-    <None Include="Properties\DataSources\CreativaSL.Dll.StephManager.Global.ReporteProductosVendidosDetalle1.datasource" />
+    <None Include="Properties\DataSources\CreativaSL.Dll.StephManager.Global.ReporteMobiliarioXSucursal.datasource" />
+    <None Include="Properties\DataSources\CreativaSL.Dll.StephManager.Global.ReporteMonederoDetalle.datasource" />
     <None Include="Properties\DataSources\CreativaSL.Dll.StephManager.Global.ReporteServiciosRealizados.datasource" />
+    <None Include="Properties\DataSources\CreativaSL.Dll.StephManager.Global.ReporteTrabajosRealizadosDetalle.datasource" />
     <None Include="Properties\DataSources\CreativaSL.Dll.StepthManager.Global.Producto.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

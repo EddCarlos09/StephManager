@@ -16,6 +16,9 @@ namespace StephManager
 {
     public partial class frmReportesProductosVendidos : Form
     {
+        #region PROPIEDADES/VARIABLES
+        DateTime Fecha = DateTime.MinValue;
+        #endregion
         #region Constructores
 
         public frmReportesProductosVendidos()
@@ -31,9 +34,7 @@ namespace StephManager
         }
 
         #endregion
-
         #region Métodos
-
         private void IniciarForm()
         {
             try
@@ -55,7 +56,7 @@ namespace StephManager
             try
             {
                 Reporte_Negocio Neg = new Reporte_Negocio();
-                List<ReporteProductosVendidos> Lista = Neg.ObtenerReportesProductosVendidos(Comun.Conexion);
+                List<ReporteProductosVendidos> Lista = Neg.ObtenerReportesProductosVendidos(Comun.Conexion, Fecha);
                 this.dgvReportesProductosVendidos.AutoGenerateColumns = false;
                 this.dgvReportesProductosVendidos.DataSource = Lista;
             }
@@ -77,10 +78,10 @@ namespace StephManager
                     DataGridViewRow FilaDatos = this.dgvReportesProductosVendidos.Rows[RowData];
                     int.TryParse(FilaDatos.Cells["IDReporte"].Value.ToString(), out ID);
                     DatosAux.IDReporte = ID;
-                    //DateTime FechaInicio = DateTime.MinValue;
-                    //DateTime FechaFin = DateTime.MinValue;
-                    //DateTime.TryParse(FilaDatos.Cells["FechaInicio"].Value.ToString(), out FechaInicio);
-                    //DateTime.TryParse(FilaDatos.Cells["FechaFin"].Value.ToString(), out FechaFin);
+                    DateTime FechaInicio = DateTime.MinValue;
+                    DateTime FechaFin = DateTime.MinValue;
+                    DateTime.TryParse(FilaDatos.Cells["FechaInicio"].Value.ToString(), out FechaInicio);
+                    DateTime.TryParse(FilaDatos.Cells["FechaFin"].Value.ToString(), out FechaFin);
                 }
                 return DatosAux;
             }
@@ -91,7 +92,6 @@ namespace StephManager
         }
 
         #endregion
-
         #region Eventos
 
         private void btnNuevo_Click(object sender, EventArgs e)
@@ -100,7 +100,7 @@ namespace StephManager
             {
                 frmNuevoReporteProductosVendidos GenerarReporte = new frmNuevoReporteProductosVendidos();
                 GenerarReporte.ShowDialog();
-                if(GenerarReporte.DialogResult == DialogResult.OK)
+                if (GenerarReporte.DialogResult == DialogResult.OK)
                 {
                     LlenarGrid();
                 }
@@ -126,12 +126,12 @@ namespace StephManager
                 MessageBox.Show(Comun.MensajeError, Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        
+
         private void btnImpresion_Click(object sender, EventArgs e)
         {
             try
             {
-                if(this.dgvReportesProductosVendidos.SelectedRows.Count == 1)
+                if (this.dgvReportesProductosVendidos.SelectedRows.Count == 1)
                 {
                     ReporteProductosVendidos Datos = this.ObtenerDatosReporte();
                     frmVerReporteProductosVendidos VerReporte = new frmVerReporteProductosVendidos(Datos.IDReporte);
@@ -162,8 +162,42 @@ namespace StephManager
                 MessageBox.Show(Comun.MensajeError, Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //BtnBuscar
+                this.Fecha = dtpFechaBuscar.Value;
+                LlenarGrid();
+            }
+            catch (Exception ex)
+            {
+                LogError.AddExcFileTxt(ex, "frmReportesProductosVendidos ~ btnBuscar_Click");
+                MessageBox.Show(Comun.MensajeError, Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void btnCancelarBusq_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ////BOTON QUITAR BUSQUEDA
+                this.Fecha = DateTime.MinValue;
+                this.LlenarGrid();
+            }
+            catch (Exception ex)
+            {
+                LogError.AddExcFileTxt(ex, "frmReportesProductosVendidos ~ btnCancelarBusq_Click");
+                MessageBox.Show(Comun.MensajeError, Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }       
+        private void dtpFechaBuscar_ValueChanged(object sender, EventArgs e)
+        {
 
+        }
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
         #endregion
-
     }
 }

@@ -35,7 +35,6 @@ namespace CreativaSL.Dll.StephManager.Negocio
                 throw ex;
             }
         }
-
         /// <summary>
         /// Método para obtener el reporte de consumo de material
         /// </summary>
@@ -56,11 +55,14 @@ namespace CreativaSL.Dll.StephManager.Negocio
                 throw ex;
             }
         }
-
-
-
-
-
+        /// <summary>
+        /// Genera el Reporte de Productos Vendidos
+        /// </summary>
+        /// <param name="Conexion"></param>
+        /// <param name="FechaInicio"></param>
+        /// <param name="FechaFin"></param>
+        /// <param name="IDUsuario"></param>
+        /// <returns></returns>
         public int GenerarReporteProductosVendidos(string Conexion, DateTime FechaInicio, DateTime FechaFin, string IDUsuario)
         {
             try
@@ -73,7 +75,12 @@ namespace CreativaSL.Dll.StephManager.Negocio
                 throw ex;
             }
         }
-
+        /// <summary>
+        /// Obtiene del datalle de Reporte Porductos Vendidos por IdReporte
+        /// </summary>
+        /// <param name="Conexion"></param>
+        /// <param name="IDReporte"></param>
+        /// <returns></returns>
         public ReporteProductosVendidos ObtenerDetalleReporteProductosVendidos(string Conexion, int IDReporte)
         {
             try
@@ -86,13 +93,36 @@ namespace CreativaSL.Dll.StephManager.Negocio
                 throw ex;
             }
         }
-
-        public List<ReporteProductosVendidos> ObtenerReportesProductosVendidos(string Conexion)
+        /// <summary>
+        /// Obtiene el reporte de Porductos Vendidos por Fecha
+        /// </summary>
+        /// <param name="Conexion"></param>
+        /// <param name="Fecha"></param>
+        /// <returns></returns>
+        public List<ReporteProductosVendidos> ObtenerReportesProductosVendidos(string Conexion, DateTime Fecha)
         {
             try
             {
                 Reporte_Datos Datos = new Reporte_Datos();
-                return Datos.ObtenerReportesProductosVendidos(Conexion);
+                return Datos.ObtenerReportesProductosVendidos(Conexion, Fecha);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        
+        /// <summary>
+        /// Obtiene el reporte del promedio del tiempo de los servicios
+        /// </summary>
+        /// <param name="Conexion"></param>
+        /// <returns></returns>
+        public List<ReporteTiempoServicios> ObtenerReporteTiempoServicio()
+        {
+            try
+            {
+                Reporte_Datos Datos1 = new Reporte_Datos();
+                return Datos1.ObtenerReporteTiempoServicio(Comun.Conexion);
             }
             catch (Exception ex)
             {
@@ -100,5 +130,58 @@ namespace CreativaSL.Dll.StephManager.Negocio
             }
         }
 
+        //TrabajosRealizados
+        public int GenerarReporteTrabajosRealizados(string Conexion, DateTime FechaInicio, DateTime FechaFin, string IDUsuario)
+        {
+            try
+            {
+                Reporte_Datos Datos = new Reporte_Datos();
+                return Datos.GenerarReporteTrabajosRealizados(Conexion, FechaInicio, FechaFin, IDUsuario);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public ReporteTrabajosRealizados ObtenerDetalleReporteTrabajosRealizados(string Conexion, int IDReporte)
+        {
+            try
+            {
+                Reporte_Datos Datos = new Reporte_Datos();
+                return Datos.ObtenerDetalleReporteTrabajosRealizados(Conexion, IDReporte);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public List<ReporteTrabajosRealizados> ObtenerReportesTrabajosRealizados(string Conexion)
+        {
+            try
+            {
+                Reporte_Datos Datos = new Reporte_Datos();
+                return Datos.ObtenerReporteTrabajosRealizados(Conexion);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        //
+        public List<ReporteMobiliarioXSucursal> ObtenerReporteMobiliarioAsignadoPorSucursal(string Conexion, string IDSucursal)
+        {
+            try
+            {
+                Reporte_Datos Datos = new Reporte_Datos();
+                return Datos.ObtenerReporteMobiliarioAsignadoPorSucursal(Conexion, IDSucursal);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }
