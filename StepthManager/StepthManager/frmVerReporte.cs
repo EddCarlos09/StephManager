@@ -261,11 +261,12 @@ namespace StephManager
                 DateTime FechaFin = dtpFechaFinal.Value;
                 Sucursal Datos = this.ObtenerElementoComboSuc();
                 Reporte_Negocio repNeg = new Reporte_Negocio();
-                List<ReporteConsumoMaterial> Lista = repNeg.ObtenerReporteConsumoMaterial(Conexion, Datos.IDSucursal, FechaInicio, FechaFin);
+                /*List<ReporteConsumoMaterial> Lista = repNeg.ObtenerReporteConsumoMaterial(Conexion, Datos.IDSucursal, FechaInicio, FechaFin);
                 foreach(ReporteConsumoMaterial Item in Lista)
                 {
                     Item.ImagenMetrica = Item.CumpleMetrica ? new Uri(Path.Combine(System.Windows.Forms.Application.StartupPath, @"Resources\Apply.png")).AbsoluteUri : new Uri(Path.Combine(System.Windows.Forms.Application.StartupPath, @"Resources\descarga.png")).AbsoluteUri;
-                }
+                }*/
+
                 reportViewer1.LocalReport.EnableExternalImages = true;
                 ReportParameter[] Parametros = new ReportParameter[8];
                 Parametros[0] = new ReportParameter("Empresa", Comun.NombreComercial);
@@ -284,7 +285,7 @@ namespace StephManager
                 Parametros[7] = new ReportParameter("Sucursal", Datos.NombreSucursal);
                 this.reportViewer1.LocalReport.ReportEmbeddedResource = "StephManager.Informes.Reportes.ConsumoMaterial.rdlc";
                 reportViewer1.LocalReport.SetParameters(Parametros);
-                reportViewer1.LocalReport.DataSources.Add(new ReportDataSource("ConsumoMaterial", Lista));
+                //reportViewer1.LocalReport.DataSources.Add(new ReportDataSource("ConsumoMaterial", Lista));
                 this.reportViewer1.RefreshReport();
             }
             catch (Exception ex)
