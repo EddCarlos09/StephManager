@@ -961,6 +961,9 @@ namespace StephManager
         {
             try
             {
+                frmReportesConsumoMaterial VerReporte = new frmReportesConsumoMaterial();
+                VerReporte.ShowDialog();
+                VerReporte.Dispose();
 
             }
             catch (Exception ex)
@@ -974,7 +977,9 @@ namespace StephManager
         {
             try
             {
-
+                frmReportesGarantias VerReporte = new frmReportesGarantias();
+                VerReporte.ShowDialog();
+                VerReporte.Dispose();
             }
             catch (Exception ex)
             {

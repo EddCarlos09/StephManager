@@ -6,20 +6,41 @@ using System.Threading.Tasks;
 
 namespace CreativaSL.Dll.StephManager.Global
 {
-    public class ReporteConsumoMaterial
+   public class ReporteConsumoMaterial
     {
-        public int Tipo { get; set; }
+        public ReporteConsumoMaterial()
+        {
+            IDReporte = 0;
+            FechaInicio = DateTime.MinValue;
+            FechaFin = DateTime.MinValue;
+            Completo = false;
+            Sucursal = "";
+            Detalle = new List<ReporteConsumoMaterialDetalle>();
+        }
+        public string id_sucursal { get; set; }
         /// <summary>
-        /// IDSucursal o IDEmpleado
+        /// Identificador del Reporte
         /// </summary>
-        public string IDGeneral { get; set; }
-        public string Nombre { get; set; }
-        public string IDProducto { get; set; }
-        public string NombreProducto { get; set; }
-        public string Clave { get; set; }
-        public DateTime Fecha { get; set; }
-        public bool Produccion { get; set; }
-        public bool CumpleMetrica { get; set; }
-        public string ImagenMetrica { get; set; }
+        public int IDReporte { get; set; }
+        /// <summary>
+        /// Sucursal de la cual el reporte fue generado
+        /// </summary>
+        public string Sucursal { get; set; }
+        /// <summary>
+        /// Fecha de inicio del reporte
+        /// </summary>
+        public DateTime FechaInicio { get; set; }
+        /// <summary>
+        /// Fecha de finalizacion del reporte
+        /// </summary>
+        public DateTime FechaFin { get; set; }
+        /// <summary>
+        /// Indica si las operaciones se completaron con exito
+        /// </summary>
+        public bool Completo { get; set; }
+        /// <summary>
+        /// Lista con la informacio del cuerpo del reporte
+        /// </summary>
+        public List<ReporteConsumoMaterialDetalle> Detalle { get; set; }
     }
 }
