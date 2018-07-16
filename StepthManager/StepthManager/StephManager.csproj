@@ -163,6 +163,12 @@
     <Compile Include="frmReporteMonedero.Designer.cs">
       <DependentUpon>frmReporteMonedero.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmTransferenciaMateriales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTransferenciaMateriales.Designer.cs">
+      <DependentUpon>frmTransferenciaMateriales.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmReportesFaltas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1160,6 +1166,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmNuevoReporteProductosVendidos.resx">
       <DependentUpon>frmNuevoReporteProductosVendidos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTransferenciaMateriales.resx">
+      <DependentUpon>frmTransferenciaMateriales.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmReportesFaltas.resx">
       <DependentUpon>frmReportesFaltas.cs</DependentUpon>
