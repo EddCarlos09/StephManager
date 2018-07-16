@@ -133,6 +133,12 @@
     <Compile Include="frmNuevoReporteComprasCliente.Designer.cs">
       <DependentUpon>frmNuevoReporteComprasCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmNuevoReporteConsumoMaterial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNuevoReporteConsumoMaterial.Designer.cs">
+      <DependentUpon>frmNuevoReporteConsumoMaterial.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmNuevoReporteFaltas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -144,6 +150,12 @@
     </Compile>
     <Compile Include="frmNuevoReporteComprasPorProveedor.Designer.cs">
       <DependentUpon>frmNuevoReporteComprasPorProveedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmNuevoReporteGarantias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNuevoReporteGarantias.Designer.cs">
+      <DependentUpon>frmNuevoReporteGarantias.cs</DependentUpon>
     </Compile>
     <Compile Include="frmNuevoReporteMonedero.cs">
       <SubType>Form</SubType>
@@ -162,6 +174,12 @@
     </Compile>
     <Compile Include="frmReporteMonedero.Designer.cs">
       <DependentUpon>frmReporteMonedero.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmReportesConsumoMaterial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReportesConsumoMaterial.Designer.cs">
+      <DependentUpon>frmReportesConsumoMaterial.cs</DependentUpon>
     </Compile>
     <Compile Include="frmReportesFaltas.cs">
       <SubType>Form</SubType>
@@ -187,6 +205,12 @@
     <Compile Include="frmReporteComprasCliente.Designer.cs">
       <DependentUpon>frmReporteComprasCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmReportesGarantias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReportesGarantias.Designer.cs">
+      <DependentUpon>frmReportesGarantias.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmReportesProductosVendidos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -205,6 +229,12 @@
     <Compile Include="frmVerReporte.Designer.cs">
       <DependentUpon>frmVerReporte.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmVerReporteConsumoMaterial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmVerReporteConsumoMaterial.Designer.cs">
+      <DependentUpon>frmVerReporteConsumoMaterial.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmVerReporteFaltas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -222,6 +252,12 @@
     </Compile>
     <Compile Include="frmVerReporteComprasCliente.Designer.cs">
       <DependentUpon>frmVerReporteComprasCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmVerReporteGarantias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmVerReporteGarantias.Designer.cs">
+      <DependentUpon>frmVerReporteGarantias.cs</DependentUpon>
     </Compile>
     <Compile Include="frmVerReporteMobiliarioXSucursal.cs">
       <SubType>Form</SubType>
@@ -1149,6 +1185,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmNuevoReporteConsumoMaterial.resx">
+      <DependentUpon>frmNuevoReporteConsumoMaterial.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmNuevoReporteFaltas.resx">
       <DependentUpon>frmNuevoReporteFaltas.cs</DependentUpon>
     </EmbeddedResource>
@@ -1158,8 +1197,14 @@
     <EmbeddedResource Include="frmNuevoReporteComprasCliente.resx">
       <DependentUpon>frmNuevoReporteComprasCliente.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmNuevoReporteGarantias.resx">
+      <DependentUpon>frmNuevoReporteGarantias.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmNuevoReporteProductosVendidos.resx">
       <DependentUpon>frmNuevoReporteProductosVendidos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReportesConsumoMaterial.resx">
+      <DependentUpon>frmReportesConsumoMaterial.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmReportesFaltas.resx">
       <DependentUpon>frmReportesFaltas.cs</DependentUpon>
@@ -1173,6 +1218,9 @@
     <EmbeddedResource Include="frmReporteComprasCliente.resx">
       <DependentUpon>frmReporteComprasCliente.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmReportesGarantias.resx">
+      <DependentUpon>frmReportesGarantias.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmReportesProductosVendidos.resx">
       <DependentUpon>frmReportesProductosVendidos.cs</DependentUpon>
     </EmbeddedResource>
@@ -1182,11 +1230,17 @@
     <EmbeddedResource Include="frmVerReporte.resx">
       <DependentUpon>frmVerReporte.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmVerReporteConsumoMaterial.resx">
+      <DependentUpon>frmVerReporteConsumoMaterial.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmVerReporteFaltas.resx">
       <DependentUpon>frmVerReporteFaltas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmVerReporteComprasPorProveedor.resx">
       <DependentUpon>frmVerReporteComprasPorProveedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmVerReporteGarantias.resx">
+      <DependentUpon>frmVerReporteGarantias.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmVerReporteMobiliarioXSucursal.resx">
       <DependentUpon>frmVerReporteMobiliarioXSucursal.cs</DependentUpon>
@@ -1655,6 +1709,7 @@
     <EmbeddedResource Include="Informes\Reportes\Faltas.rdlc" />
     <EmbeddedResource Include="Informes\Reportes\ConsumoMaterial.rdlc" />
     <EmbeddedResource Include="Informes\Reportes\ComprasCliente.rdlc" />
+    <EmbeddedResource Include="Informes\Reportes\Garantias.rdlc" />
     <EmbeddedResource Include="Informes\Reportes\Monedero.rdlc" />
     <EmbeddedResource Include="Informes\Reportes\TrabajosRealizados.rdlc" />
     <EmbeddedResource Include="Informes\Reportes\ComprasPorProveedor.rdlc" />
