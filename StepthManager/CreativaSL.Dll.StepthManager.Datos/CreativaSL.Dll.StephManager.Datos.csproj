@@ -97,6 +97,7 @@
     <Compile Include="Proveedor_Datos.cs" />
     <Compile Include="ReporteComprasPorProveedor_Datos.cs" />
     <Compile Include="ReporteFaltas_Datos.cs" />
+    <Compile Include="ReporteVentasXSucursal_Datos.cs" />
     <Compile Include="Reporte_Datos.cs" />
     <Compile Include="Reporte_DatosComprasCliente.cs" />
     <Compile Include="Reporte_DatosTrabajosRealizados.cs" />

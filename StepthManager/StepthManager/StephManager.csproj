@@ -143,6 +143,12 @@
     <Compile Include="frmNuevoReporteProductosVendidos.Designer.cs">
       <DependentUpon>frmNuevoReporteProductosVendidos.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmNuevoReporteVentasXSucursal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNuevoReporteVentasXSucursal.Designer.cs">
+      <DependentUpon>frmNuevoReporteVentasXSucursal.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmReportesFaltas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -178,6 +184,12 @@
     </Compile>
     <Compile Include="frmReporteTrabajosRealizados.Designer.cs">
       <DependentUpon>frmReporteTrabajosRealizados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmReporteVentasXSucursal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReporteVentasXSucursal.Designer.cs">
+      <DependentUpon>frmReporteVentasXSucursal.cs</DependentUpon>
     </Compile>
     <Compile Include="frmVerReporte.cs">
       <SubType>Form</SubType>
@@ -226,6 +238,12 @@
     </Compile>
     <Compile Include="frmVerReporteTrabajosRealizados.Designer.cs">
       <DependentUpon>frmVerReporteTrabajosRealizados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmVerReporteVentasXSucursal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmVerReporteVentasXSucursal.Designer.cs">
+      <DependentUpon>frmVerReporteVentasXSucursal.cs</DependentUpon>
     </Compile>
     <Compile Include="frmVerRespuestaCheckList.cs">
       <SubType>Form</SubType>
@@ -1135,6 +1153,9 @@
     <EmbeddedResource Include="frmNuevoReporteProductosVendidos.resx">
       <DependentUpon>frmNuevoReporteProductosVendidos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmNuevoReporteVentasXSucursal.resx">
+      <DependentUpon>frmNuevoReporteVentasXSucursal.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmReportesFaltas.resx">
       <DependentUpon>frmReportesFaltas.cs</DependentUpon>
     </EmbeddedResource>
@@ -1153,6 +1174,9 @@
     <EmbeddedResource Include="frmReporteTrabajosRealizados.resx">
       <DependentUpon>frmReporteTrabajosRealizados.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmReporteVentasXSucursal.resx">
+      <DependentUpon>frmReporteVentasXSucursal.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmVerReporte.resx">
       <DependentUpon>frmVerReporte.cs</DependentUpon>
     </EmbeddedResource>
@@ -1170,6 +1194,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmVerReporteTiempoServicio.resx">
       <DependentUpon>frmVerReporteTiempoServicio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmVerReporteVentasXSucursal.resx">
+      <DependentUpon>frmVerReporteVentasXSucursal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmVerRespuestaCheckList.resx">
       <DependentUpon>frmVerRespuestaCheckList.cs</DependentUpon>
@@ -1629,6 +1656,7 @@
     <EmbeddedResource Include="Informes\Reportes\Faltas.rdlc" />
     <EmbeddedResource Include="Informes\Reportes\ConsumoMaterial.rdlc" />
     <EmbeddedResource Include="Informes\Reportes\ComprasCliente.rdlc" />
+    <EmbeddedResource Include="Informes\Reportes\VentasXSucursal.rdlc" />
     <EmbeddedResource Include="Informes\Reportes\TrabajosRealizados.rdlc" />
     <EmbeddedResource Include="Informes\Reportes\ComprasPorProveedor.rdlc" />
     <EmbeddedResource Include="Informes\Reportes\MobiliarioXSucursal.rdlc" />
@@ -1654,7 +1682,6 @@
     <None Include="Properties\DataSources\CreativaSL.Dll.StephManager.Global.Mobiliario.datasource" />
     <None Include="Properties\DataSources\CreativaSL.Dll.StephManager.Global.Nomina.datasource" />
     <None Include="Properties\DataSources\CreativaSL.Dll.StephManager.Global.PedidoDetalle.datasource" />
-    <None Include="Properties\DataSources\CreativaSL.Dll.StephManager.Global.ReporteAVGTiempoServicios.datasource" />
     <None Include="Properties\DataSources\CreativaSL.Dll.StephManager.Global.ReporteComprasClienteDetalle.datasource" />
     <None Include="Properties\DataSources\CreativaSL.Dll.StephManager.Global.ReporteComprasPorProveedorDetalle.datasource" />
     <None Include="Properties\DataSources\CreativaSL.Dll.StephManager.Global.ReporteConsumoMaterial.datasource" />
@@ -1662,7 +1689,10 @@
     <None Include="Properties\DataSources\CreativaSL.Dll.StephManager.Global.ReporteMaterialesProduccion.datasource" />
     <None Include="Properties\DataSources\CreativaSL.Dll.StephManager.Global.ReporteMobiliarioXSucursal.datasource" />
     <None Include="Properties\DataSources\CreativaSL.Dll.StephManager.Global.ReporteServiciosRealizados.datasource" />
+    <None Include="Properties\DataSources\CreativaSL.Dll.StephManager.Global.ReportesVentaXSucursal.datasource" />
     <None Include="Properties\DataSources\CreativaSL.Dll.StephManager.Global.ReporteTrabajosRealizadosDetalle.datasource" />
+    <None Include="Properties\DataSources\CreativaSL.Dll.StephManager.Global.ReporteVentasXSucursalDetalleVentasXCaja.datasource" />
+    <None Include="Properties\DataSources\CreativaSL.Dll.StephManager.Global.ReporteVentasXSucursalDetalleXFormasPago.datasource" />
     <None Include="Properties\DataSources\CreativaSL.Dll.StepthManager.Global.Producto.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -140,6 +140,7 @@
             this.toolsm_TiempoServicios = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsm_ComprasProveedor = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsm_Faltas = new System.Windows.Forms.ToolStripMenuItem();
+            this.ventasPorSucursalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.PanelMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -1611,9 +1612,10 @@
             this.toolsm_ProductosVendidos,
             this.toolsm_TiempoServicios,
             this.toolsm_ComprasProveedor,
-            this.toolsm_Faltas});
+            this.toolsm_Faltas,
+            this.ventasPorSucursalToolStripMenuItem});
             this.MenuStripReportes.Name = "MenuStripCaja";
-            this.MenuStripReportes.Size = new System.Drawing.Size(244, 260);
+            this.MenuStripReportes.Size = new System.Drawing.Size(244, 286);
             // 
             // toolsm_TrabajosRealizados
             // 
@@ -1683,6 +1685,13 @@
             this.toolsm_Faltas.Size = new System.Drawing.Size(243, 26);
             this.toolsm_Faltas.Text = "Faltas";
             this.toolsm_Faltas.Click += new System.EventHandler(this.toolsm_Faltas_Click);
+            // 
+            // ventasPorSucursalToolStripMenuItem
+            // 
+            this.ventasPorSucursalToolStripMenuItem.Name = "ventasPorSucursalToolStripMenuItem";
+            this.ventasPorSucursalToolStripMenuItem.Size = new System.Drawing.Size(243, 26);
+            this.ventasPorSucursalToolStripMenuItem.Text = "Ventas Por Sucursal";
+            this.ventasPorSucursalToolStripMenuItem.Click += new System.EventHandler(this.ventasPorSucursalToolStripMenuItem_Click);
             // 
             // frmMenuInicio
             // 
@@ -1820,6 +1829,7 @@
         private System.Windows.Forms.ToolStripMenuItem toolsm_TiempoServicios;
         private System.Windows.Forms.ToolStripMenuItem toolsm_ComprasProveedor;
         private System.Windows.Forms.ToolStripMenuItem toolsm_Faltas;
+        private System.Windows.Forms.ToolStripMenuItem ventasPorSucursalToolStripMenuItem;
     }
 }
 
