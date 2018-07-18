@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace CreativaSL.Dll.StephManager.Negocio
 {
+    /// <summary>
+    /// Puentes para la capa de negocio
+    /// </summary>
     public class ReporteFaltas_Negocio
     {
         public int GenerarReporteFaltas(string Conexion, DateTime FechaInicio, DateTime FechaFin, string IDUsuario)

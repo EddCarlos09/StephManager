@@ -23,7 +23,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                 {
                     if (ds.Tables.Count == 2)
                     {
-                        DataTableReader dr = ds.Tables[0].CreateDataReader();
+                        DataTableReader dr = ds.Tables[0].CreateDataReader();                        
                         ReporteMaterialesProduccion Item01;
                         while (dr.Read())
                         {
@@ -37,7 +37,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                         }
 
                         DataTableReader dr2 = ds.Tables[1].CreateDataReader();
-
+                        
                         ReporteMaterialesProduccion Item02;
                         while (dr2.Read())
                         {
@@ -99,17 +99,17 @@ namespace CreativaSL.Dll.StephManager.Datos
         /// <param name="FechaInicio">Fecha de inicio del período</param>
         /// <param name="FechaFin">Fecha de término del período</param>
         /// <returns>Retorna una lista con el detalle de consumo de material de la sucursal seleccionada.</returns>
-        public List<ReporteConsumoMaterial> ObtenerReporteConsumoMaterial(string Conexion, string IDSucursal, DateTime FechaInicio, DateTime FechaFin)
+        public List<ReporteConsumoMaterialDetalle> ObtenerReporteConsumoMaterial(string Conexion, string IDSucursal, DateTime FechaInicio, DateTime FechaFin)
         {
             try
             {
                 object[] Parametros = { IDSucursal, FechaInicio, FechaFin };
-                List<ReporteConsumoMaterial> Lista = new List<ReporteConsumoMaterial>();
-                ReporteConsumoMaterial Item;
+                List<ReporteConsumoMaterialDetalle> Lista = new List<ReporteConsumoMaterialDetalle>();
+                ReporteConsumoMaterialDetalle Item;
                 SqlDataReader Dr = SqlHelper.ExecuteReader(Conexion, "Reportes.spCSLDB_get_ReporteConsumoMaterial", Parametros);
                 while (Dr.Read())
                 {
-                    Item = new ReporteConsumoMaterial();
+                    Item = new ReporteConsumoMaterialDetalle();                    
                     Item.Tipo = !Dr.IsDBNull(Dr.GetOrdinal("Tipo")) ? Dr.GetInt32(Dr.GetOrdinal("Tipo")) : 0;
                     Item.IDGeneral = !Dr.IsDBNull(Dr.GetOrdinal("IDGeneral")) ? Dr.GetString(Dr.GetOrdinal("IDGeneral")) : string.Empty;
                     Item.Nombre = !Dr.IsDBNull(Dr.GetOrdinal("Nombre")) ? Dr.GetString(Dr.GetOrdinal("Nombre")) : string.Empty;
@@ -129,7 +129,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                 throw ex;
             }
         }
-
+        
 
 
         public int GenerarReporteProductosVendidos(string Conexion, DateTime FechaInicio, DateTime FechaFin, string IDUsuario)
@@ -382,7 +382,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                 }
                 Dr.Close();
                 return Lista;
-            }
+        }
             catch (Exception ex)
             {
 

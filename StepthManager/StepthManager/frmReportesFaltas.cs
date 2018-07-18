@@ -50,6 +50,9 @@ namespace StephManager
             }
         }
 
+        /// <summary>
+        /// Metodo que llena el grid principal de los reportes generados
+        /// </summary>
         private void LlenarGrid()
         {
             try
@@ -65,6 +68,11 @@ namespace StephManager
             }
         }
 
+        /// <summary>
+        /// Este metodo llena el grid principal de los reportes de acuerdo a la fecha que se introduce
+        /// muestra los resultados que son iguales o si se encuentran en el rango del reporte.
+        /// </summary>
+        /// <param name="fechaBuscar"> Es el valor de la fecha que se eligio en la interfaz</param>
         private void LlenarGridBusqueda(DateTime fechaBuscar)
         {
             try
@@ -80,6 +88,10 @@ namespace StephManager
             }
         }
 
+        /// <summary>
+        /// Obtiene los datos del reporte
+        /// </summary>
+        /// <returns></returns>
         private ReporteFaltas ObtenerDatosReporte()
         {
             try
@@ -92,10 +104,7 @@ namespace StephManager
                     DataGridViewRow FilaDatos = this.dgvFaltas.Rows[RowData];
                     int.TryParse(FilaDatos.Cells["IDReporte"].Value.ToString(), out ID);
                     DatosAux.IDReporte = ID;
-                    //DateTime FechaInicio = DateTime.MinValue;
-                    //DateTime FechaFin = DateTime.MinValue;
-                    //DateTime.TryParse(FilaDatos.Cells["FechaInicio"].Value.ToString(), out FechaInicio);
-                    //DateTime.TryParse(FilaDatos.Cells["FechaFin"].Value.ToString(), out FechaFin);
+                    
                 }
                 return DatosAux;
             }
@@ -109,6 +118,11 @@ namespace StephManager
 
         #region Eventos
 
+        /// <summary>
+        /// Abre el frame para generar un nuevo reporte
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             try
@@ -190,6 +204,11 @@ namespace StephManager
 
         }
 
+        /// <summary>
+        /// Evento del clic cuando presiona buscar por fecha
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
             //BOTON BUSCAR POR FECHA
@@ -201,6 +220,11 @@ namespace StephManager
             }
         }
 
+        /// <summary>
+        /// Evento de click cuando preciona el boton "Quitar busqueda" solo manda a llamar el grid de llenado normal 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
         {
             //BOTON QUITAR BUSQUEDA

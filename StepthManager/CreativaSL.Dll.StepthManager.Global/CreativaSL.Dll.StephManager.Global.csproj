@@ -85,10 +85,14 @@
     <Compile Include="ReporteComprasCliente.cs" />
     <Compile Include="ReporteComprasClienteDetalles.cs" />
     <Compile Include="ReporteConsumoMaterial.cs" />
+    <Compile Include="ReporteConsumoMaterialDetalle.cs" />
     <Compile Include="ReporteFaltas.cs" />
     <Compile Include="ReporteFaltasDetalle.cs" />
+    <Compile Include="ReporteGarantias.cs" />
     <Compile Include="ReporteMaterialesProduccion.cs" />
     <Compile Include="ReporteMobiliarioXSucursal.cs" />
+    <Compile Include="ReporteMonedero.cs" />
+    <Compile Include="ReporteMonederoDetalle.cs" />
     <Compile Include="ReporteProductosVendidos.cs" />
     <Compile Include="ReporteProductosVendidosDetalle.cs" />
     <Compile Include="ReporteServiciosRealizados.cs" />

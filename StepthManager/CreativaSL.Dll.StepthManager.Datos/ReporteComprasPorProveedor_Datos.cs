@@ -12,6 +12,14 @@ namespace CreativaSL.Dll.StephManager.Datos
 {
     public class ReporteComprasPorProveedor_Datos
     {
+        /// <summary>
+        /// Realiza el reporte de compras por provedor y devuelve el id del reporte generado
+        /// </summary>
+        /// <param name="Conexion"> Conexcion a la base de datos</param>
+        /// <param name="FechaInicio"> Fecha inicio del reporte</param>
+        /// <param name="FechaFin"> Fecha fin del reporte</param>
+        /// <param name="IDUsuario">Identificador del usuario que esta haciendo la operacion</param>
+        /// <returns></returns>
         public int GenerarReporteComprasPorProveedor(string Conexion, DateTime FechaInicio, DateTime FechaFin, string IDUsuario)
         {
             try
@@ -30,6 +38,12 @@ namespace CreativaSL.Dll.StephManager.Datos
                 throw ex;
             }
         }
+        /// <summary>
+        /// Se obtiene El reporte completo por medio del identificador del reporte
+        /// </summary>
+        /// <param name="Conexion"> Conexion a la base de datos</param>
+        /// <param name="IDReporte"> Identificador del reporte</param>
+        /// <returns></returns>
         public ReporteComprasPorProveedor ObtenerDetalleReporteComprasPorProveedor(string Conexion, int IDReporte)
         {
             try
@@ -74,6 +88,11 @@ namespace CreativaSL.Dll.StephManager.Datos
             }
         }
 
+        /// <summary>
+        /// obtiene todos los reportes generados previamente
+        /// </summary>
+        /// <param name="Conexion"></param>
+        /// <returns></returns>
         public List<ReporteComprasPorProveedor> ObtenerReportesComprasPorProveedor(string Conexion)
         {
             try
@@ -98,6 +117,12 @@ namespace CreativaSL.Dll.StephManager.Datos
             }
         }// 
 
+        /// <summary>
+        /// obtiene todos los reportes generados previamente y que son filtrados por la busqueda
+        /// </summary>
+        /// <param name="Conexion"></param>
+        /// <param name="Fecha"></param>
+        /// <returns></returns>
         public List<ReporteComprasPorProveedor> ObtenerReporteComprasPorProveedorBusqueda(string Conexion, DateTime Fecha)
         {
             try

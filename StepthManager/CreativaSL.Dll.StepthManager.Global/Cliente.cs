@@ -9,6 +9,9 @@ namespace CreativaSL.Dll.StephManager.Global
 {
     public class Cliente
     {
+        /// <summary>
+        /// 
+        /// </summary>
         private string _ApellidoMat;
         private string _ApellidoPat;
         private bool _BuscarTodos;
@@ -292,6 +295,7 @@ namespace CreativaSL.Dll.StephManager.Global
             get { return _Password; }
             set { _Password = value; }
         }
+        
         
     }
 }
