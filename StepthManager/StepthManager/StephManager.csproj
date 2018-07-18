@@ -57,38 +57,35 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CreativaSL.Dll.Validaciones">
-      <HintPath>..\..\..\..\..\Desktop\dlll_stefh\CreativaSL.Dll.Validaciones.dll</HintPath>
+      <HintPath>..\..\..\..\StephManager\StepthManager\StepthManager\bin\Debug\CreativaSL.Dll.Validaciones.dll</HintPath>
     </Reference>
-    <Reference Include="CreativaSL.LibControls.WinForms">
-      <HintPath>..\..\..\..\..\Desktop\dlll_stefh\CreativaSL.LibControls.WinForms.dll</HintPath>
+    <Reference Include="CreativaSL.LibControls.WinForms, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Steph\StephSoft\StephSoft\bin\Debug\CreativaSL.LibControls.WinForms.dll</HintPath>
     </Reference>
     <Reference Include="DPFPDevNET">
-      <HintPath>..\..\..\..\..\Desktop\dlll_stefh\DPFPDevNET.dll</HintPath>
+      <HintPath>..\..\..\..\StephManager\StepthManager\StepthManager\bin\Debug\DPFPDevNET.dll</HintPath>
     </Reference>
     <Reference Include="DPFPEngNET">
-      <HintPath>..\..\..\..\..\Desktop\dlll_stefh\DPFPEngNET.dll</HintPath>
+      <HintPath>..\..\..\..\StephManager\StepthManager\StepthManager\bin\Debug\DPFPEngNET.dll</HintPath>
     </Reference>
     <Reference Include="DPFPGuiNet">
-      <HintPath>..\..\..\..\..\Desktop\dlll_stefh\DPFPGuiNet.dll</HintPath>
+      <HintPath>..\..\..\..\StephManager\StepthManager\StepthManager\bin\Debug\DPFPGuiNet.dll</HintPath>
     </Reference>
     <Reference Include="DPFPShrNET">
-      <HintPath>..\..\..\..\..\Desktop\dlll_stefh\DPFPShrNET.dll</HintPath>
+      <HintPath>..\..\..\..\StephManager\StepthManager\StepthManager\bin\Debug\DPFPShrNET.dll</HintPath>
     </Reference>
     <Reference Include="DPFPVerNET">
-      <HintPath>..\..\..\..\..\Desktop\dlll_stefh\DPFPVerNET.dll</HintPath>
+      <HintPath>..\..\..\..\StephManager\StepthManager\StepthManager\bin\Debug\DPFPVerNET.dll</HintPath>
     </Reference>
     <Reference Include="HtmlRichTextBox">
-      <HintPath>..\..\..\..\..\Desktop\dlll_stefh\HtmlRichTextBox.dll</HintPath>
+      <HintPath>..\..\..\..\StephManager\StepthManager\StepthManager\bin\Debug\HtmlRichTextBox.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.ApplicationBlocks.Data">
-      <HintPath>..\..\..\..\..\Desktop\Microsoft.ApplicationBlocks.Data.dll</HintPath>
+      <HintPath>..\..\..\..\StephManager\StepthManager\StepthManager\bin\Debug\Microsoft.ApplicationBlocks.Data.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Office.Tools.Excel, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <EmbedInteropTypes>True</EmbedInteropTypes>
-    </Reference>
-    <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\Windows\assembly\GAC_MSIL\Microsoft.ReportViewer.Common\12.0.0.0__89845dcd8080cc91\Microsoft.ReportViewer.Common.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -96,7 +93,7 @@
     </Reference>
     <Reference Include="Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\Windows\assembly\GAC_MSIL\Microsoft.ReportViewer.WinForms\12.0.0.0__89845dcd8080cc91\Microsoft.ReportViewer.WinForms.DLL</HintPath>
+      <HintPath>..\..\..\..\..\..\..\Windows\assembly\GAC_MSIL\Microsoft.ReportViewer.WinForms\11.0.0.0__89845dcd8080cc91\Microsoft.ReportViewer.WinForms.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />

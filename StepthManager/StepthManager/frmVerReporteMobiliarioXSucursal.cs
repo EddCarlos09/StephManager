@@ -18,8 +18,7 @@ namespace StephManager
     public partial class frmVerReporteMobiliarioXSucursal : Form
     {
         public frmVerReporteMobiliarioXSucursal()
-        {
-            
+        {   
             try
             {
                 InitializeComponent();

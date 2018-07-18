@@ -37,6 +37,7 @@
             this.txtMensajeError = new System.Windows.Forms.TextBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.CmbClientes = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.dtpFechaFin = new System.Windows.Forms.DateTimePicker();
@@ -46,7 +47,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.CmbClientes = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -213,6 +213,21 @@
             this.panel5.Size = new System.Drawing.Size(589, 58);
             this.panel5.TabIndex = 115;
             // 
+            // CmbClientes
+            // 
+            this.CmbClientes.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.CmbClientes.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.CmbClientes.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.CmbClientes.DropDownHeight = 100;
+            this.CmbClientes.FormattingEnabled = true;
+            this.CmbClientes.IntegralHeight = false;
+            this.CmbClientes.ItemHeight = 20;
+            this.CmbClientes.Location = new System.Drawing.Point(173, 15);
+            this.CmbClientes.MaxLength = 80;
+            this.CmbClientes.Name = "CmbClientes";
+            this.CmbClientes.Size = new System.Drawing.Size(260, 28);
+            this.CmbClientes.TabIndex = 115;
+            // 
             // label5
             // 
             this.label5.Location = new System.Drawing.Point(95, 21);
@@ -299,21 +314,6 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(589, 199);
             this.panel3.TabIndex = 2;
-            // 
-            // CmbClientes
-            // 
-            this.CmbClientes.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.CmbClientes.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.CmbClientes.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.CmbClientes.DropDownHeight = 100;
-            this.CmbClientes.FormattingEnabled = true;
-            this.CmbClientes.IntegralHeight = false;
-            this.CmbClientes.ItemHeight = 20;
-            this.CmbClientes.Location = new System.Drawing.Point(173, 15);
-            this.CmbClientes.MaxLength = 80;
-            this.CmbClientes.Name = "CmbClientes";
-            this.CmbClientes.Size = new System.Drawing.Size(260, 28);
-            this.CmbClientes.TabIndex = 115;
             // 
             // frmNuevoReporteComprasCliente
             // 
