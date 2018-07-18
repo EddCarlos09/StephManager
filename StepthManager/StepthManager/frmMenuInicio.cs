@@ -1104,6 +1104,23 @@ namespace StephManager
             }
         }
         #endregion
+
+        private void ventasPorSucursalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Visible = false;
+                frmReporteVentasXSucursal Reporte = new frmReporteVentasXSucursal();
+                Reporte.ShowDialog();
+                Reporte.Dispose();
+                this.Visible = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(Comun.MensajeError, Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                LogError.AddExcFileTxt(ex, "frmMenuInicio ~ ventasPorSucursalToolStripMenuItem_Click");
+            }
+        }
         
     }
 }

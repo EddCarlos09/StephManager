@@ -98,6 +98,7 @@
     <Compile Include="ReporteConsumoMaterial_Datos.cs" />
     <Compile Include="ReporteFaltas_Datos.cs" />
     <Compile Include="ReporteGarantias_Datos.cs" />
+    <Compile Include="ReporteVentasXSucursal_Datos.cs" />
     <Compile Include="Reporte_Datos.cs" />
     <Compile Include="Reporte_DatosComprasCliente.cs" />
     <Compile Include="Reporte_DatosMonedero.cs" />

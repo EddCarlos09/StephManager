@@ -14,7 +14,7 @@ using System.Windows.Forms;
 
 namespace StephManager
 {
-    public partial class frmReporteTrabajosRealizados : Form
+    public partial class frmReporteVentasXSucursal : Form
     {
         #region Propiedades / Variables
         DateTime Fecha = DateTime.MinValue;
@@ -22,7 +22,7 @@ namespace StephManager
 
         #region Constructores
 
-        public frmReporteTrabajosRealizados()
+        public frmReporteVentasXSucursal()
         {
             try
             {
@@ -31,12 +31,12 @@ namespace StephManager
             }
             catch (Exception ex)
             {
-                LogError.AddExcFileTxt(ex, "frmReporteTrabajosRealizados ~ frmReporteTrabajosRealizados()");
+                LogError.AddExcFileTxt(ex, "frmReporteVentasXSucursal ~ frmReporteVentasXSucursal()");
             }
         }
 
         #endregion
-        
+
         #region Métodos
 
         private void IniciarForm()
@@ -59,10 +59,10 @@ namespace StephManager
         {
             try
             {
-                Reporte_NegocioTrabajosRealizados Neg = new Reporte_NegocioTrabajosRealizados();
-                List<ReporteTrabajosRealizados> Lista = Neg.ObtenerReportesTrabajosRealizados(Comun.Conexion, this.Fecha);
-                this.dgvReportesTrabajosRealizados.AutoGenerateColumns = false;
-                this.dgvReportesTrabajosRealizados.DataSource = Lista;
+                ReporteVentasXSucursal_Negocio Neg = new ReporteVentasXSucursal_Negocio();
+                List<ReportesVentaXSucursal> Lista = Neg.ObtenerReporteVentasXSucursal(Comun.Conexion, this.Fecha);
+                this.dgvReporteVentasXSucursal.AutoGenerateColumns = false;
+                this.dgvReporteVentasXSucursal.DataSource = Lista;
             }
             catch (Exception ex)
             {
@@ -70,23 +70,24 @@ namespace StephManager
             }
         }
 
-        private ReporteTrabajosRealizados ObtenerDatosReporte()
+        private ReportesVentaXSucursal ObtenerDatosReporte()
         {
             try
             {
-                ReporteTrabajosRealizados DatosAux = new ReporteTrabajosRealizados();
-                Int32 RowData = this.dgvReportesTrabajosRealizados.Rows.GetFirstRow(DataGridViewElementStates.Selected);
+                ReportesVentaXSucursal DatosAux = new ReportesVentaXSucursal();
+                Int32 RowData = this.dgvReporteVentasXSucursal.Rows.GetFirstRow(DataGridViewElementStates.Selected);
                 if (RowData > -1)
                 {
                     int ID = 0;
-                    DataGridViewRow FilaDatos = this.dgvReportesTrabajosRealizados.Rows[RowData];
+                    DataGridViewRow FilaDatos = this.dgvReporteVentasXSucursal.Rows[RowData];
                     int.TryParse(FilaDatos.Cells["IDReporte"].Value.ToString(), out ID);
                     DatosAux.IDReporte = ID;
-                   
                     DateTime FechaInicio = DateTime.MinValue;
                     DateTime FechaFin = DateTime.MinValue;
+                    string IDSucursal = (FilaDatos.Cells["IDSucursal"].Value.ToString());
                     DateTime.TryParse(FilaDatos.Cells["FechaInicio"].Value.ToString(), out FechaInicio);
                     DateTime.TryParse(FilaDatos.Cells["FechaFin"].Value.ToString(), out FechaFin);
+
                 }
                 return DatosAux;
             }
@@ -100,11 +101,11 @@ namespace StephManager
 
         #region Eventos
 
-        private void btnNuevo_Click_1(object sender, EventArgs e)
+        private void btnNuevo_Click(object sender, EventArgs e)
         {
             try
             {
-                frmNuevoReporteTrabajosRealizados GenerarReporte = new frmNuevoReporteTrabajosRealizados();
+                frmNuevoReporteVentasXSucursal GenerarReporte = new frmNuevoReporteVentasXSucursal();
                 GenerarReporte.ShowDialog();
                 if (GenerarReporte.DialogResult == DialogResult.OK)
                 {
@@ -114,13 +115,13 @@ namespace StephManager
             }
             catch (Exception ex)
             {
-                LogError.AddExcFileTxt(ex, "frmReporteTrabajosRealizados ~ btnNuevo_Click");
+                LogError.AddExcFileTxt(ex, "frmReporteVentasXSucursal ~ btnNuevo_Click");
                 MessageBox.Show(Comun.MensajeError, Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.Visible = true;
             }
         }
 
-        private void btnSalir_Click_1(object sender, EventArgs e)
+        private void btnSalir_Click(object sender, EventArgs e)
         {
             try
             {
@@ -128,19 +129,19 @@ namespace StephManager
             }
             catch (Exception ex)
             {
-                LogError.AddExcFileTxt(ex, "frmReporteTrabajosRealizados ~ btnSalir_Click");
+                LogError.AddExcFileTxt(ex, "frmReporteVentasXSucursal ~ btnSalir_Click");
                 MessageBox.Show(Comun.MensajeError, Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void btnImpresion_Click_1(object sender, EventArgs e)
+        private void btnImpresion_Click(object sender, EventArgs e)
         {
             try
             {
-                if (this.dgvReportesTrabajosRealizados.SelectedRows.Count == 1)
+                if (this.dgvReporteVentasXSucursal.SelectedRows.Count == 1)
                 {
-                    ReporteTrabajosRealizados Datos = this.ObtenerDatosReporte();
-                    frmVerReporteTrabajosRealizados VerReporte = new frmVerReporteTrabajosRealizados(Datos.IDReporte);
+                    ReportesVentaXSucursal Datos = this.ObtenerDatosReporte();
+                    frmVerReporteVentasXSucursal VerReporte = new frmVerReporteVentasXSucursal(Datos.IDReporte);
                     VerReporte.ShowDialog();
                     VerReporte.Dispose();
                 }
@@ -151,12 +152,12 @@ namespace StephManager
             }
             catch (Exception ex)
             {
-                LogError.AddExcFileTxt(ex, "frmReporteTrabajosRealizados ~ btnImpresion_Click");
+                LogError.AddExcFileTxt(ex, "frmReporteVentasXSucursal ~ btnImpresion_Click");
                 MessageBox.Show(Comun.MensajeError, Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void frmReporteTrabajosRealizados_Load(object sender, EventArgs e)
+        private void frmReporteVentasXSucursal_Load(object sender, EventArgs e)
         {
             try
             {
@@ -164,11 +165,11 @@ namespace StephManager
             }
             catch (Exception ex)
             {
-                LogError.AddExcFileTxt(ex, "frmReporteTrabajosRealizados ~ frmReporteTrabajosRealizados_Load");
+                LogError.AddExcFileTxt(ex, "frmReporteVentasXSucursal ~ frmReporteVentasXSucursal_Load");
                 MessageBox.Show(Comun.MensajeError, Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        
+
         private void button_Creativa1_Click(object sender, EventArgs e)
         {
             try
@@ -178,7 +179,7 @@ namespace StephManager
             }
             catch (Exception ex)
             {
-                LogError.AddExcFileTxt(ex, "frmReporteTrabajosRealizados ~ button_Creativa1_Click");
+                LogError.AddExcFileTxt(ex, "frmReporteVentasXSucursal ~ button_Creativa1_Click");
                 MessageBox.Show(Comun.MensajeError, Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -192,11 +193,10 @@ namespace StephManager
             }
             catch (Exception ex)
             {
-                LogError.AddExcFileTxt(ex, "frmReporteTrabajosRealizados ~ btnCancelarBusq_Click");
+                LogError.AddExcFileTxt(ex, "frmReporteVentasXSucursal ~ btnCancelarBusq_Click");
                 MessageBox.Show(Comun.MensajeError, Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        #endregion       
+        #endregion
     }
 }

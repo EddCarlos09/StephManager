@@ -5,6 +5,6 @@
     Renaming the file extension or editing the content of this file may   
     cause the file to be unrecognizable by the program.
 -->
-<GenericObjectDataSource DisplayName="ReporteAVGTiempoServicios" Version="1.0" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
-   <TypeInfo>CreativaSL.Dll.StephManager.Global.ReporteAVGTiempoServicios, CreativaSL.Dll.StephManager.Global, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</TypeInfo>
+<GenericObjectDataSource DisplayName="ReporteVentasXSucursalDetalleVentasXCaja" Version="1.0" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+   <TypeInfo>CreativaSL.Dll.StephManager.Global.ReporteVentasXSucursalDetalleVentasXCaja, CreativaSL.Dll.StephManager.Global, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</TypeInfo>
 </GenericObjectDataSource>
