@@ -1,6 +1,6 @@
 ﻿namespace StephManager
 {
-    partial class frmNuevoReporteComprasCliente
+    partial class frmNuevoReporteVentasXSucursal
     {
         /// <summary>
         /// Variable del diseñador requerida.
@@ -37,7 +37,7 @@
             this.txtMensajeError = new System.Windows.Forms.TextBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.CmbClientes = new System.Windows.Forms.ComboBox();
+            this.cmbSucursal = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.dtpFechaFin = new System.Windows.Forms.DateTimePicker();
@@ -204,7 +204,7 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.DarkGray;
-            this.panel5.Controls.Add(this.CmbClientes);
+            this.panel5.Controls.Add(this.cmbSucursal);
             this.panel5.Controls.Add(this.label5);
             this.panel5.Controls.Add(this.label6);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
@@ -213,20 +213,20 @@
             this.panel5.Size = new System.Drawing.Size(589, 58);
             this.panel5.TabIndex = 115;
             // 
-            // CmbClientes
+            // cmbSucursal
             // 
-            this.CmbClientes.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.CmbClientes.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.CmbClientes.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.CmbClientes.DropDownHeight = 100;
-            this.CmbClientes.FormattingEnabled = true;
-            this.CmbClientes.IntegralHeight = false;
-            this.CmbClientes.ItemHeight = 20;
-            this.CmbClientes.Location = new System.Drawing.Point(173, 15);
-            this.CmbClientes.MaxLength = 80;
-            this.CmbClientes.Name = "CmbClientes";
-            this.CmbClientes.Size = new System.Drawing.Size(260, 28);
-            this.CmbClientes.TabIndex = 115;
+            this.cmbSucursal.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cmbSucursal.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbSucursal.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmbSucursal.DropDownHeight = 100;
+            this.cmbSucursal.FormattingEnabled = true;
+            this.cmbSucursal.IntegralHeight = false;
+            this.cmbSucursal.ItemHeight = 20;
+            this.cmbSucursal.Location = new System.Drawing.Point(173, 15);
+            this.cmbSucursal.MaxLength = 80;
+            this.cmbSucursal.Name = "cmbSucursal";
+            this.cmbSucursal.Size = new System.Drawing.Size(260, 28);
+            this.cmbSucursal.TabIndex = 115;
             // 
             // label5
             // 
@@ -234,7 +234,7 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(75, 20);
             this.label5.TabIndex = 114;
-            this.label5.Text = "Cliente";
+            this.label5.Text = "Sucursal";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label6
@@ -315,7 +315,7 @@
             this.panel3.Size = new System.Drawing.Size(589, 199);
             this.panel3.TabIndex = 2;
             // 
-            // frmNuevoReporteComprasCliente
+            // frmNuevoReporteVentasXSucursal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
@@ -328,9 +328,9 @@
             this.Font = new System.Drawing.Font("Trebuchet MS", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MinimumSize = new System.Drawing.Size(520, 300);
-            this.Name = "frmNuevoReporteComprasCliente";
+            this.Name = "frmNuevoReporteVentasXSucursal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Load += new System.EventHandler(this.frmNuevoReporteComprasCliente_Load);
+            this.Load += new System.EventHandler(this.frmNuevoReporteVentasXSucursal_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -363,7 +363,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.ComboBox CmbClientes;
+        private System.Windows.Forms.ComboBox cmbSucursal;
     }
 }
-

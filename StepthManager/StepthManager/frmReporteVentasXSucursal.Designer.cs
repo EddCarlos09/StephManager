@@ -1,6 +1,6 @@
 ﻿namespace StephManager
 {
-    partial class frmReporteTrabajosRealizados
+    partial class frmReporteVentasXSucursal
     {
         /// <summary>
         /// Variable del diseñador requerida.
@@ -33,10 +33,7 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel12 = new System.Windows.Forms.Panel();
-            this.dgvReportesTrabajosRealizados = new System.Windows.Forms.DataGridView();
-            this.IDReporte = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FechaInicio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FechaFin = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvReporteVentasXSucursal = new System.Windows.Forms.DataGridView();
             this.panel7 = new System.Windows.Forms.Panel();
             this.PanelMenu = new System.Windows.Forms.Panel();
             this.btnImpresion = new CreativaSL.LibControls.WinForms.Button_Creativa();
@@ -44,23 +41,33 @@
             this.btnNuevo = new CreativaSL.LibControls.WinForms.Button_Creativa();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
+            this.panel9 = new System.Windows.Forms.Panel();
             this.dtpFechaBusqueda = new System.Windows.Forms.DateTimePicker();
             this.btnCancelarBusq = new CreativaSL.LibControls.WinForms.Button_Creativa();
             this.button_Creativa1 = new CreativaSL.LibControls.WinForms.Button_Creativa();
+            this.btnCancBusqueda = new CreativaSL.LibControls.WinForms.Button_Creativa();
+            this.btnBuscar = new CreativaSL.LibControls.WinForms.Button_Creativa();
+            this.dtpFechaBuscar = new System.Windows.Forms.DateTimePicker();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label42 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.IDReporte = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FechaInicio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FechaFin = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IDSucursal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NombreSucursal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel12.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvReportesTrabajosRealizados)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvReporteVentasXSucursal)).BeginInit();
             this.panel7.SuspendLayout();
             this.PanelMenu.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel10.SuspendLayout();
+            this.panel9.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -112,56 +119,34 @@
             // panel12
             // 
             this.panel12.AutoScroll = true;
-            this.panel12.Controls.Add(this.dgvReportesTrabajosRealizados);
+            this.panel12.Controls.Add(this.dgvReporteVentasXSucursal);
             this.panel12.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel12.Location = new System.Drawing.Point(0, 0);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(1008, 478);
             this.panel12.TabIndex = 2;
             // 
-            // dgvReportesTrabajosRealizados
+            // dgvReporteVentasXSucursal
             // 
-            this.dgvReportesTrabajosRealizados.AllowUserToAddRows = false;
-            this.dgvReportesTrabajosRealizados.AllowUserToDeleteRows = false;
-            this.dgvReportesTrabajosRealizados.AllowUserToResizeRows = false;
-            this.dgvReportesTrabajosRealizados.BackgroundColor = System.Drawing.Color.Gainsboro;
-            this.dgvReportesTrabajosRealizados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvReportesTrabajosRealizados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvReporteVentasXSucursal.AllowUserToAddRows = false;
+            this.dgvReporteVentasXSucursal.AllowUserToDeleteRows = false;
+            this.dgvReporteVentasXSucursal.AllowUserToResizeRows = false;
+            this.dgvReporteVentasXSucursal.BackgroundColor = System.Drawing.Color.Gainsboro;
+            this.dgvReporteVentasXSucursal.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvReporteVentasXSucursal.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IDReporte,
             this.FechaInicio,
-            this.FechaFin});
-            this.dgvReportesTrabajosRealizados.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvReportesTrabajosRealizados.Location = new System.Drawing.Point(0, 0);
-            this.dgvReportesTrabajosRealizados.MultiSelect = false;
-            this.dgvReportesTrabajosRealizados.Name = "dgvReportesTrabajosRealizados";
-            this.dgvReportesTrabajosRealizados.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToFirstHeader;
-            this.dgvReportesTrabajosRealizados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvReportesTrabajosRealizados.Size = new System.Drawing.Size(1008, 478);
-            this.dgvReportesTrabajosRealizados.TabIndex = 1;
-            // 
-            // IDReporte
-            // 
-            this.IDReporte.DataPropertyName = "IDReporte";
-            this.IDReporte.HeaderText = "IDReporte";
-            this.IDReporte.Name = "IDReporte";
-            this.IDReporte.ReadOnly = true;
-            this.IDReporte.Visible = false;
-            // 
-            // FechaInicio
-            // 
-            this.FechaInicio.DataPropertyName = "FechaInicio";
-            this.FechaInicio.HeaderText = "Fecha de Inicio";
-            this.FechaInicio.Name = "FechaInicio";
-            this.FechaInicio.ReadOnly = true;
-            this.FechaInicio.Width = 200;
-            // 
-            // FechaFin
-            // 
-            this.FechaFin.DataPropertyName = "FechaFin";
-            this.FechaFin.HeaderText = "Fecha de término";
-            this.FechaFin.Name = "FechaFin";
-            this.FechaFin.ReadOnly = true;
-            this.FechaFin.Width = 200;
+            this.FechaFin,
+            this.IDSucursal,
+            this.NombreSucursal});
+            this.dgvReporteVentasXSucursal.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvReporteVentasXSucursal.Location = new System.Drawing.Point(0, 0);
+            this.dgvReporteVentasXSucursal.MultiSelect = false;
+            this.dgvReporteVentasXSucursal.Name = "dgvReporteVentasXSucursal";
+            this.dgvReporteVentasXSucursal.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToFirstHeader;
+            this.dgvReporteVentasXSucursal.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvReporteVentasXSucursal.Size = new System.Drawing.Size(1008, 478);
+            this.dgvReporteVentasXSucursal.TabIndex = 1;
             // 
             // panel7
             // 
@@ -200,8 +185,8 @@
             this.btnImpresion.ImageBorderColor = System.Drawing.Color.Red;
             this.btnImpresion.ImageFocused = null;
             this.btnImpresion.ImageInactive = null;
-            this.btnImpresion.ImageMouseOver = global::StephManager.Properties.Resources.icons_steph_negro___0009_imprimir;
-            this.btnImpresion.ImageNormal = global::StephManager.Properties.Resources.icons_steph_negro___0009_imprimir_a;
+            this.btnImpresion.ImageMouseOver = null;
+            this.btnImpresion.ImageNormal = null;
             this.btnImpresion.ImagePressed = null;
             this.btnImpresion.ImageSize = new System.Drawing.Size(44, 44);
             this.btnImpresion.KeyButton = System.Windows.Forms.Keys.F1;
@@ -216,7 +201,7 @@
             this.btnImpresion.Text = "Imprimir";
             this.btnImpresion.TextDropShadow = true;
             this.btnImpresion.UseVisualStyleBackColor = false;
-            this.btnImpresion.Click += new System.EventHandler(this.btnImpresion_Click_1);
+            this.btnImpresion.Click += new System.EventHandler(this.btnImpresion_Click);
             // 
             // btnSalir
             // 
@@ -234,8 +219,8 @@
             this.btnSalir.ImageBorderColor = System.Drawing.Color.Red;
             this.btnSalir.ImageFocused = null;
             this.btnSalir.ImageInactive = null;
-            this.btnSalir.ImageMouseOver = global::StephManager.Properties.Resources._0000s_0001s_0000_salir_a;
-            this.btnSalir.ImageNormal = global::StephManager.Properties.Resources._0000s_0001s_0000_salir;
+            this.btnSalir.ImageMouseOver = null;
+            this.btnSalir.ImageNormal = null;
             this.btnSalir.ImagePressed = null;
             this.btnSalir.ImageSize = new System.Drawing.Size(44, 44);
             this.btnSalir.KeyButton = System.Windows.Forms.Keys.F1;
@@ -250,7 +235,7 @@
             this.btnSalir.Text = "Salir";
             this.btnSalir.TextDropShadow = true;
             this.btnSalir.UseVisualStyleBackColor = false;
-            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click_1);
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // btnNuevo
             // 
@@ -268,8 +253,8 @@
             this.btnNuevo.ImageBorderColor = System.Drawing.Color.Red;
             this.btnNuevo.ImageFocused = null;
             this.btnNuevo.ImageInactive = null;
-            this.btnNuevo.ImageMouseOver = global::StephManager.Properties.Resources._0000s_0000s_0001_agregar_a;
-            this.btnNuevo.ImageNormal = global::StephManager.Properties.Resources._0000s_0000s_0001_agregar;
+            this.btnNuevo.ImageMouseOver = null;
+            this.btnNuevo.ImageNormal = null;
             this.btnNuevo.ImagePressed = null;
             this.btnNuevo.ImageSize = new System.Drawing.Size(44, 44);
             this.btnNuevo.KeyButton = System.Windows.Forms.Keys.F1;
@@ -284,7 +269,7 @@
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.TextDropShadow = true;
             this.btnNuevo.UseVisualStyleBackColor = false;
-            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click_1);
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // panel4
             // 
@@ -299,14 +284,27 @@
             // panel10
             // 
             this.panel10.BackColor = System.Drawing.Color.DarkGray;
-            this.panel10.Controls.Add(this.dtpFechaBusqueda);
-            this.panel10.Controls.Add(this.btnCancelarBusq);
-            this.panel10.Controls.Add(this.button_Creativa1);
+            this.panel10.Controls.Add(this.panel9);
+            this.panel10.Controls.Add(this.btnCancBusqueda);
+            this.panel10.Controls.Add(this.btnBuscar);
+            this.panel10.Controls.Add(this.dtpFechaBuscar);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel10.Location = new System.Drawing.Point(0, 0);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(1008, 50);
             this.panel10.TabIndex = 2;
+            // 
+            // panel9
+            // 
+            this.panel9.BackColor = System.Drawing.Color.DarkGray;
+            this.panel9.Controls.Add(this.dtpFechaBusqueda);
+            this.panel9.Controls.Add(this.btnCancelarBusq);
+            this.panel9.Controls.Add(this.button_Creativa1);
+            this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel9.Location = new System.Drawing.Point(0, 0);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(1008, 50);
+            this.panel9.TabIndex = 118;
             // 
             // dtpFechaBusqueda
             // 
@@ -315,7 +313,7 @@
             this.dtpFechaBusqueda.Location = new System.Drawing.Point(577, 12);
             this.dtpFechaBusqueda.Name = "dtpFechaBusqueda";
             this.dtpFechaBusqueda.Size = new System.Drawing.Size(165, 25);
-            this.dtpFechaBusqueda.TabIndex = 71;
+            this.dtpFechaBusqueda.TabIndex = 68;
             // 
             // btnCancelarBusq
             // 
@@ -345,7 +343,7 @@
             this.btnCancelarBusq.Name = "btnCancelarBusq";
             this.btnCancelarBusq.OffsetPressedContent = true;
             this.btnCancelarBusq.Size = new System.Drawing.Size(23, 25);
-            this.btnCancelarBusq.TabIndex = 70;
+            this.btnCancelarBusq.TabIndex = 67;
             this.btnCancelarBusq.Text = "X";
             this.btnCancelarBusq.TextDropShadow = true;
             this.btnCancelarBusq.UseVisualStyleBackColor = false;
@@ -379,11 +377,85 @@
             this.button_Creativa1.Name = "button_Creativa1";
             this.button_Creativa1.OffsetPressedContent = true;
             this.button_Creativa1.Size = new System.Drawing.Size(100, 25);
-            this.button_Creativa1.TabIndex = 69;
+            this.button_Creativa1.TabIndex = 66;
             this.button_Creativa1.Text = "Buscar";
             this.button_Creativa1.TextDropShadow = true;
             this.button_Creativa1.UseVisualStyleBackColor = false;
             this.button_Creativa1.Click += new System.EventHandler(this.button_Creativa1_Click);
+            // 
+            // btnCancBusqueda
+            // 
+            this.btnCancBusqueda.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnCancBusqueda.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(108)))), ((int)(((byte)(114)))));
+            this.btnCancBusqueda.BorderColor = System.Drawing.Color.Red;
+            this.btnCancBusqueda.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(108)))), ((int)(((byte)(114)))));
+            this.btnCancBusqueda.BorderMouseOverColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnCancBusqueda.BorderNoFocusColor = System.Drawing.Color.Maroon;
+            this.btnCancBusqueda.FocusRectangle = true;
+            this.btnCancBusqueda.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancBusqueda.ForeColor = System.Drawing.Color.Black;
+            this.btnCancBusqueda.Image = null;
+            this.btnCancBusqueda.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnCancBusqueda.ImageBorderColor = System.Drawing.Color.Red;
+            this.btnCancBusqueda.ImageFocused = null;
+            this.btnCancBusqueda.ImageInactive = null;
+            this.btnCancBusqueda.ImageMouseOver = null;
+            this.btnCancBusqueda.ImageNormal = null;
+            this.btnCancBusqueda.ImagePressed = null;
+            this.btnCancBusqueda.ImageSize = new System.Drawing.Size(44, 44);
+            this.btnCancBusqueda.KeyButton = System.Windows.Forms.Keys.F1;
+            this.btnCancBusqueda.KeyButtonView = false;
+            this.btnCancBusqueda.Location = new System.Drawing.Point(658, 15);
+            this.btnCancBusqueda.ModeGradient = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            this.btnCancBusqueda.MouseOverColor = System.Drawing.Color.Red;
+            this.btnCancBusqueda.Name = "btnCancBusqueda";
+            this.btnCancBusqueda.OffsetPressedContent = true;
+            this.btnCancBusqueda.Size = new System.Drawing.Size(25, 25);
+            this.btnCancBusqueda.TabIndex = 117;
+            this.btnCancBusqueda.Text = "X";
+            this.btnCancBusqueda.TextDropShadow = true;
+            this.btnCancBusqueda.UseVisualStyleBackColor = false;
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(108)))), ((int)(((byte)(114)))));
+            this.btnBuscar.BorderColor = System.Drawing.Color.Red;
+            this.btnBuscar.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(108)))), ((int)(((byte)(114)))));
+            this.btnBuscar.BorderMouseOverColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnBuscar.BorderNoFocusColor = System.Drawing.Color.Maroon;
+            this.btnBuscar.FocusRectangle = true;
+            this.btnBuscar.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscar.ForeColor = System.Drawing.Color.Black;
+            this.btnBuscar.Image = null;
+            this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnBuscar.ImageBorderColor = System.Drawing.Color.Red;
+            this.btnBuscar.ImageFocused = null;
+            this.btnBuscar.ImageInactive = null;
+            this.btnBuscar.ImageMouseOver = null;
+            this.btnBuscar.ImageNormal = null;
+            this.btnBuscar.ImagePressed = null;
+            this.btnBuscar.ImageSize = new System.Drawing.Size(44, 44);
+            this.btnBuscar.KeyButton = System.Windows.Forms.Keys.F1;
+            this.btnBuscar.KeyButtonView = false;
+            this.btnBuscar.Location = new System.Drawing.Point(559, 15);
+            this.btnBuscar.ModeGradient = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            this.btnBuscar.MouseOverColor = System.Drawing.Color.Red;
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.OffsetPressedContent = true;
+            this.btnBuscar.Size = new System.Drawing.Size(100, 25);
+            this.btnBuscar.TabIndex = 116;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.TextDropShadow = true;
+            this.btnBuscar.UseVisualStyleBackColor = false;
+            // 
+            // dtpFechaBuscar
+            // 
+            this.dtpFechaBuscar.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFechaBuscar.Location = new System.Drawing.Point(323, 15);
+            this.dtpFechaBuscar.Name = "dtpFechaBuscar";
+            this.dtpFechaBuscar.Size = new System.Drawing.Size(230, 25);
+            this.dtpFechaBuscar.TabIndex = 113;
             // 
             // panel2
             // 
@@ -406,6 +478,18 @@
             this.panel6.Size = new System.Drawing.Size(1008, 80);
             this.panel6.TabIndex = 2;
             // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label42.ForeColor = System.Drawing.Color.White;
+            this.label42.Location = new System.Drawing.Point(21, 9);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(481, 55);
+            this.label42.TabIndex = 24;
+            this.label42.Text = "Ventas Por Sucursal";
+            this.label42.UseWaitCursor = true;
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -417,18 +501,49 @@
             this.pictureBox1.TabIndex = 33;
             this.pictureBox1.TabStop = false;
             // 
-            // label42
+            // IDReporte
             // 
-            this.label42.AutoSize = true;
-            this.label42.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label42.ForeColor = System.Drawing.Color.White;
-            this.label42.Location = new System.Drawing.Point(21, 9);
-            this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(481, 55);
-            this.label42.TabIndex = 24;
-            this.label42.Text = "Trabajos Realizados";
+            this.IDReporte.DataPropertyName = "IDReporte";
+            this.IDReporte.HeaderText = "IDReporte";
+            this.IDReporte.Name = "IDReporte";
+            this.IDReporte.ReadOnly = true;
+            this.IDReporte.Visible = false;
+            this.IDReporte.Width = 120;
             // 
-            // frmReporteTrabajosRealizados
+            // FechaInicio
+            // 
+            this.FechaInicio.DataPropertyName = "FechaInicio";
+            this.FechaInicio.HeaderText = "Fecha de Inicio";
+            this.FechaInicio.Name = "FechaInicio";
+            this.FechaInicio.ReadOnly = true;
+            this.FechaInicio.Width = 200;
+            // 
+            // FechaFin
+            // 
+            this.FechaFin.DataPropertyName = "FechaFin";
+            this.FechaFin.HeaderText = "Fecha de término";
+            this.FechaFin.Name = "FechaFin";
+            this.FechaFin.ReadOnly = true;
+            this.FechaFin.Width = 200;
+            // 
+            // IDSucursal
+            // 
+            this.IDSucursal.DataPropertyName = "IDSucursal";
+            this.IDSucursal.HeaderText = "Sucursal";
+            this.IDSucursal.Name = "IDSucursal";
+            this.IDSucursal.ReadOnly = true;
+            this.IDSucursal.Visible = false;
+            this.IDSucursal.Width = 300;
+            // 
+            // NombreSucursal
+            // 
+            this.NombreSucursal.DataPropertyName = "NombreSucursal";
+            this.NombreSucursal.HeaderText = "Nombre Sucursal";
+            this.NombreSucursal.Name = "NombreSucursal";
+            this.NombreSucursal.ReadOnly = true;
+            this.NombreSucursal.Width = 300;
+            // 
+            // frmReporteVentasXSucursal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
@@ -437,21 +552,21 @@
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Trebuchet MS", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MinimumSize = new System.Drawing.Size(1024, 726);
-            this.Name = "frmReporteTrabajosRealizados";
+            this.Name = "frmReporteVentasXSucursal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Steph v1.0";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.frmReporteTrabajosRealizados_Load);
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
             this.panel12.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvReportesTrabajosRealizados)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvReporteVentasXSucursal)).EndInit();
             this.panel7.ResumeLayout(false);
             this.PanelMenu.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel10.ResumeLayout(false);
+            this.panel9.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
@@ -478,13 +593,20 @@
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.PictureBox pictureBox1;
         private CreativaSL.LibControls.WinForms.Button_Creativa btnImpresion;
-        private System.Windows.Forms.DataGridView dgvReportesTrabajosRealizados;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IDReporte;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FechaInicio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FechaFin;
+        private System.Windows.Forms.DateTimePicker dtpFechaBuscar;
+        private CreativaSL.LibControls.WinForms.Button_Creativa btnCancBusqueda;
+        private CreativaSL.LibControls.WinForms.Button_Creativa btnBuscar;
+        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.DataGridView dgvReporteVentasXSucursal;
         private System.Windows.Forms.DateTimePicker dtpFechaBusqueda;
         private CreativaSL.LibControls.WinForms.Button_Creativa btnCancelarBusq;
         private CreativaSL.LibControls.WinForms.Button_Creativa button_Creativa1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IDReporte;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FechaInicio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FechaFin;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IDSucursal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NombreSucursal;
     }
 }
+
 
