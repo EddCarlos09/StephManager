@@ -149,6 +149,9 @@
     <Compile Include="TipoUso.cs" />
     <Compile Include="TipoVales.cs" />
     <Compile Include="Transferencia.cs" />
+    <Compile Include="TransferenciaMateriales.cs" />
+    <Compile Include="TransferenciaMaterialesDetalle.cs" />
+    <Compile Include="TransferenciaMaterialesGeneral.cs" />
     <Compile Include="UnidadMedida.cs" />
     <Compile Include="Usuario.cs" />
     <Compile Include="Vales.cs" />

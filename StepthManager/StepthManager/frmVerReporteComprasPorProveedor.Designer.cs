@@ -109,9 +109,9 @@
             // reportViewer1
             // 
             this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            reportDataSource1.Name = "TiempoServicios";
+            reportDataSource1.Name = "ComprasPorProveedor";
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "StephManager.Informes.Reportes.TiempoServicios.rdlc";
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "StephManager.Informes.Reportes.ComprasPorProveedor.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(0, 0);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.Size = new System.Drawing.Size(1008, 532);

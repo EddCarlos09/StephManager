@@ -139,6 +139,12 @@
     <Compile Include="frmNuevoReporteConsumoMaterial.Designer.cs">
       <DependentUpon>frmNuevoReporteConsumoMaterial.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmNuevaTransferenciaMateriales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNuevaTransferenciaMateriales.Designer.cs">
+      <DependentUpon>frmNuevaTransferenciaMateriales.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmNuevoReporteFaltas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -180,6 +186,12 @@
     </Compile>
     <Compile Include="frmReportesConsumoMaterial.Designer.cs">
       <DependentUpon>frmReportesConsumoMaterial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTransferenciaMateriales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTransferenciaMateriales.Designer.cs">
+      <DependentUpon>frmTransferenciaMateriales.cs</DependentUpon>
     </Compile>
     <Compile Include="frmReportesFaltas.cs">
       <SubType>Form</SubType>
@@ -234,6 +246,12 @@
     </Compile>
     <Compile Include="frmVerReporteConsumoMaterial.Designer.cs">
       <DependentUpon>frmVerReporteConsumoMaterial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmVerReporteTransferenciaMateriales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmVerReporteTransferenciaMateriales.Designer.cs">
+      <DependentUpon>frmVerReporteTransferenciaMateriales.cs</DependentUpon>
     </Compile>
     <Compile Include="frmVerReporteFaltas.cs">
       <SubType>Form</SubType>
@@ -1188,6 +1206,9 @@
     <EmbeddedResource Include="frmNuevoReporteConsumoMaterial.resx">
       <DependentUpon>frmNuevoReporteConsumoMaterial.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmNuevaTransferenciaMateriales.resx">
+      <DependentUpon>frmNuevaTransferenciaMateriales.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmNuevoReporteFaltas.resx">
       <DependentUpon>frmNuevoReporteFaltas.cs</DependentUpon>
     </EmbeddedResource>
@@ -1205,6 +1226,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmReportesConsumoMaterial.resx">
       <DependentUpon>frmReportesConsumoMaterial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTransferenciaMateriales.resx">
+      <DependentUpon>frmTransferenciaMateriales.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmReportesFaltas.resx">
       <DependentUpon>frmReportesFaltas.cs</DependentUpon>
@@ -1232,6 +1256,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmVerReporteConsumoMaterial.resx">
       <DependentUpon>frmVerReporteConsumoMaterial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmVerReporteTransferenciaMateriales.resx">
+      <DependentUpon>frmVerReporteTransferenciaMateriales.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmVerReporteFaltas.resx">
       <DependentUpon>frmVerReporteFaltas.cs</DependentUpon>
@@ -1706,6 +1733,7 @@
     <EmbeddedResource Include="Informes\CheckListRespuesta.rdlc" />
     <EmbeddedResource Include="Informes\CheckListActividad.rdlc" />
     <EmbeddedResource Include="Informes\MaterialesProduccion.rdlc" />
+    <EmbeddedResource Include="Informes\Reportes\TransferenciaMateriales.rdlc" />
     <EmbeddedResource Include="Informes\Reportes\Faltas.rdlc" />
     <EmbeddedResource Include="Informes\Reportes\ConsumoMaterial.rdlc" />
     <EmbeddedResource Include="Informes\Reportes\ComprasCliente.rdlc" />
@@ -1747,6 +1775,7 @@
     <None Include="Properties\DataSources\CreativaSL.Dll.StephManager.Global.ReporteMonederoDetalle.datasource" />
     <None Include="Properties\DataSources\CreativaSL.Dll.StephManager.Global.ReporteServiciosRealizados.datasource" />
     <None Include="Properties\DataSources\CreativaSL.Dll.StephManager.Global.ReporteTrabajosRealizadosDetalle.datasource" />
+    <None Include="Properties\DataSources\CreativaSL.Dll.StephManager.Global.TransferenciaMaterialesDetalle.datasource" />
     <None Include="Properties\DataSources\CreativaSL.Dll.StepthManager.Global.Producto.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

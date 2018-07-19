@@ -141,6 +141,7 @@
             this.toolsm_ComprasProveedor = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsm_Faltas = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsm_Monedero = new System.Windows.Forms.ToolStripMenuItem();
+            this.transferenciaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.PanelMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -1613,9 +1614,10 @@
             this.toolsm_TiempoServicios,
             this.toolsm_ComprasProveedor,
             this.toolsm_Faltas,
-            this.toolsm_Monedero});
+            this.toolsm_Monedero,
+            this.transferenciaToolStripMenuItem});
             this.MenuStripReportes.Name = "MenuStripCaja";
-            this.MenuStripReportes.Size = new System.Drawing.Size(244, 286);
+            this.MenuStripReportes.Size = new System.Drawing.Size(244, 312);
             // 
             // toolsm_TrabajosRealizados
             // 
@@ -1692,6 +1694,13 @@
             this.toolsm_Monedero.Size = new System.Drawing.Size(243, 26);
             this.toolsm_Monedero.Text = "Monedero";
             this.toolsm_Monedero.Click += new System.EventHandler(this.toolsm_Monedero_Click);
+            // 
+            // transferenciaToolStripMenuItem
+            // 
+            this.transferenciaToolStripMenuItem.Name = "transferenciaToolStripMenuItem";
+            this.transferenciaToolStripMenuItem.Size = new System.Drawing.Size(243, 26);
+            this.transferenciaToolStripMenuItem.Text = "Transferencia";
+            this.transferenciaToolStripMenuItem.Click += new System.EventHandler(this.transferenciaToolStripMenuItem_Click);
             // 
             // frmMenuInicio
             // 
@@ -1830,6 +1839,7 @@
         private System.Windows.Forms.ToolStripMenuItem toolsm_ComprasProveedor;
         private System.Windows.Forms.ToolStripMenuItem toolsm_Faltas;
         private System.Windows.Forms.ToolStripMenuItem toolsm_Monedero;
+        private System.Windows.Forms.ToolStripMenuItem transferenciaToolStripMenuItem;
     }
 }
 

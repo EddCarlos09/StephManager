@@ -14,11 +14,11 @@ using System.Windows.Forms;
 
 namespace StephManager
 {
-    public partial class frmReportesComprasPorProveedor : Form
+    public partial class frmTransferenciaMateriales : Form
     {
         #region Constructores
 
-        public frmReportesComprasPorProveedor()
+        public frmTransferenciaMateriales()
         {
             try
             {
@@ -26,7 +26,7 @@ namespace StephManager
             }
             catch (Exception ex)
             {
-                LogError.AddExcFileTxt(ex, "frmReportesComprasPorProveedor ~ frmReportesComprasPorProveedor()");
+                LogError.AddExcFileTxt(ex, "frmTransferenciaMateriales ~ frmTransferenciaMateriales()");
             }
         }
 
@@ -57,10 +57,10 @@ namespace StephManager
         {
             try
             {
-                ReporteComprasPorProveedor_Negocio Neg = new ReporteComprasPorProveedor_Negocio();
-                List<ReporteComprasPorProveedor> Lista = Neg.ObtenerReportesComprasPorProveedor(Comun.Conexion);
-                this.dgvComprasPorProveedor.AutoGenerateColumns = false;
-                this.dgvComprasPorProveedor.DataSource = Lista;
+                TransferenciaMateriales_Negocio Neg = new TransferenciaMateriales_Negocio();
+                List<TransferenciaMateriales> Lista = Neg.ObtenerTransferenciaMateriales(Comun.Conexion);
+                this.dgvTransferencia.AutoGenerateColumns = false;
+                this.dgvTransferencia.DataSource = Lista;
             }
             catch (Exception ex)
             {
@@ -69,18 +69,23 @@ namespace StephManager
         }
 
         /// <summary>
-        /// Este metodo llena el grid principal de los reportes de acuerdo a la fecha que se introduce
-        /// muestra los resultados que son iguales o si se encuentran en el rango del reporte.
+        /// Este metodo llena el grid principal de los reportes de acuerdo a el filtro de busqueda
+        /// muestra los resultados que son iguales.
         /// </summary>
         /// <param name="fechaBuscar"> Es el valor de la fecha que se eligio en la interfaz</param>
         private void LlenarGridBusqueda(DateTime fechaBuscar)
         {
             try
             {
-                ReporteComprasPorProveedor_Negocio a = new ReporteComprasPorProveedor_Negocio();
-                List<ReporteComprasPorProveedor> Lista = a.ObtenerReporteComprasPorProveedorBusqueda(Comun.Conexion,fechaBuscar);
-                this.dgvComprasPorProveedor.AutoGenerateColumns = false;
-                this.dgvComprasPorProveedor.DataSource = Lista;
+
+                DateTime fecha = DateTime.MinValue;
+                fecha=fecha.AddDays((double)fechaBuscar.Day-1);
+                fecha=fecha.AddMonths(fechaBuscar.Month-1);
+                fecha=fecha.AddYears(fechaBuscar.Year-1);
+                TransferenciaMateriales_Negocio a = new TransferenciaMateriales_Negocio();
+                List<TransferenciaMateriales> Lista = a.ObtenerTransferenciaMaterialesBusqueda(Comun.Conexion,fecha);
+                this.dgvTransferencia.AutoGenerateColumns = false;
+                this.dgvTransferencia.DataSource = Lista;
             }
             catch (Exception ex)
             {
@@ -92,19 +97,19 @@ namespace StephManager
         /// Obtiene los datos del reporte
         /// </summary>
         /// <returns></returns>
-        private ReporteComprasPorProveedor ObtenerDatosReporte()
+        private TransferenciaMaterialesGeneral ObtenerDatosReporte()
         {
             try
             {
-                ReporteComprasPorProveedor DatosAux = new ReporteComprasPorProveedor();
-                Int32 RowData = this.dgvComprasPorProveedor.Rows.GetFirstRow(DataGridViewElementStates.Selected);
+                TransferenciaMaterialesGeneral DatosAux = new TransferenciaMaterialesGeneral();
+                Int32 RowData = this.dgvTransferencia.Rows.GetFirstRow(DataGridViewElementStates.Selected);
                 if (RowData > -1)
                 {
                     int ID = 0;
-                    DataGridViewRow FilaDatos = this.dgvComprasPorProveedor.Rows[RowData];
-                    int.TryParse(FilaDatos.Cells["IDReporte"].Value.ToString(), out ID);
-                    DatosAux.IDReporte = ID;
-                    
+                    DataGridViewRow FilaDatos = this.dgvTransferencia.Rows[RowData];
+                    int.TryParse(FilaDatos.Cells["IDTransferencia"].Value.ToString(), out ID);
+
+                    DatosAux.IDTransferencia = ID;
                 }
                 return DatosAux;
             }
@@ -128,18 +133,20 @@ namespace StephManager
             try
             {
                 this.Visible = false;
-                frmNuevoReporteComprasPorProveedor GenerarReporte = new frmNuevoReporteComprasPorProveedor();
+                frmNuevaTransferenciaMateriales GenerarReporte = new frmNuevaTransferenciaMateriales();
                 GenerarReporte.ShowDialog();
+                
                 if(GenerarReporte.DialogResult == DialogResult.OK)
                 {
                     LlenarGrid();
                 }
                 GenerarReporte.Dispose();
                 this.Visible = true;
+
             }
             catch (Exception ex)
             {
-                LogError.AddExcFileTxt(ex, "frmReportesComprasPorProveedor ~ btnNuevo_Click");
+                LogError.AddExcFileTxt(ex, "frmTransferenciaMateriales ~ btnNuevo_Click");
                 MessageBox.Show(Comun.MensajeError, Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.Visible = true;
             }
@@ -153,7 +160,7 @@ namespace StephManager
             }
             catch (Exception ex)
             {
-                LogError.AddExcFileTxt(ex, "frmReportesComprasPorProveedor ~ btnSalir_Click");
+                LogError.AddExcFileTxt(ex, "frmTransferenciaMateriales ~ btnSalir_Click");
                 MessageBox.Show(Comun.MensajeError, Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -162,14 +169,14 @@ namespace StephManager
         {
             try
             {
-                if(this.dgvComprasPorProveedor.SelectedRows.Count == 1)
+                if(this.dgvTransferencia.SelectedRows.Count == 1)
                 {
                     this.Visible = false;
-                    ReporteComprasPorProveedor Datos = this.ObtenerDatosReporte();
-                    frmVerReporteComprasPorProveedor VerReporte = new frmVerReporteComprasPorProveedor(Datos.IDReporte);
+                    TransferenciaMaterialesGeneral Datos = this.ObtenerDatosReporte();
+                    frmVerReporteTransferenciaMateriales VerReporte = new frmVerReporteTransferenciaMateriales(Datos.IDTransferencia);
                     VerReporte.ShowDialog();
                     VerReporte.Dispose();
-                    //this.DialogResult = DialogResult.OK;
+                    
                     this.Visible = true;
                 }
                 else
@@ -179,12 +186,12 @@ namespace StephManager
             }
             catch (Exception ex)
             {
-                LogError.AddExcFileTxt(ex, "frmReportesComprasPorProveedor ~ btnImpresion_Click");
+                LogError.AddExcFileTxt(ex, "frmTransferenciaMateriales ~ btnImpresion_Click");
                 MessageBox.Show(Comun.MensajeError, Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void frmReportesComprasPorProveedor_Load(object sender, EventArgs e)
+        private void frmTransferenciaMateriales_Load(object sender, EventArgs e)
         {
             try
             {
@@ -192,7 +199,7 @@ namespace StephManager
             }
             catch (Exception ex)
             {
-                LogError.AddExcFileTxt(ex, "frmReportesComprasPorProveedor ~ frmReportesComprasPorProveedor_Load");
+                LogError.AddExcFileTxt(ex, "frmTransferenciaMateriales ~ frmTransferenciaMateriales_Load");
                 MessageBox.Show(Comun.MensajeError, Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -203,9 +210,12 @@ namespace StephManager
         {
 
         }
+
         
+
         
-        private void dtpFechaBuscar_ValueChanged(object sender, EventArgs e)
+
+        private void dgvTransferencia_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
@@ -240,7 +250,5 @@ namespace StephManager
                 this.pictureBox1.Image = Image.FromFile(Path.Combine(System.Windows.Forms.Application.StartupPath, @"Resources\Documents\" + Comun.UrlLogo));
             }
         }
-
-        
     }
 }

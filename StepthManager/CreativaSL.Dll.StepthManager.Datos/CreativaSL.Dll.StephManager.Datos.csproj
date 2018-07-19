@@ -107,6 +107,7 @@
     <Compile Include="Sucursal_Datos.cs" />
     <Compile Include="TipoMobiliario_Datos.cs" />
     <Compile Include="TipoUsuario_Datos.cs" />
+    <Compile Include="TransferenciaMateriales_Datos.cs" />
     <Compile Include="Usuario_Datos.cs" />
     <Compile Include="Vales_Datos.cs" />
   </ItemGroup>

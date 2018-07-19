@@ -104,6 +104,7 @@
     <Compile Include="Sucursal_Negocio.cs" />
     <Compile Include="TipoMobiliario_Negocio.cs" />
     <Compile Include="TipoUsuario_Negocio.cs" />
+    <Compile Include="TransferenciaMateriales_Negocio.cs" />
     <Compile Include="Usuario_Negocio.cs" />
     <Compile Include="Vales_Negocio.cs" />
   </ItemGroup>

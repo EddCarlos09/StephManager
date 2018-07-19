@@ -204,12 +204,16 @@ namespace StephManager
 
         }
 
+        
+
+        
+
         /// <summary>
         /// Evento del clic cuando presiona buscar por fecha
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void button1_Click(object sender, EventArgs e)
+        private void button_Creativa1_Click(object sender, EventArgs e)
         {
             //BOTON BUSCAR POR FECHA
             DateTime fechaBuscar = dtpFechaBuscar.Value;
@@ -225,7 +229,7 @@ namespace StephManager
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void button2_Click(object sender, EventArgs e)
+        private void btnCancelarBusq_Click(object sender, EventArgs e)
         {
             //BOTON QUITAR BUSQUEDA
             this.LlenarGrid();

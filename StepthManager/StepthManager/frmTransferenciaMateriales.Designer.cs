@@ -1,6 +1,6 @@
 ﻿namespace StephManager
 {
-    partial class frmReportesFaltas
+    partial class frmTransferenciaMateriales
     {
         /// <summary>
         /// Variable del diseñador requerida.
@@ -28,15 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel12 = new System.Windows.Forms.Panel();
-            this.dgvFaltas = new System.Windows.Forms.DataGridView();
-            this.IDReporte = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FechaInicio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FechaFin = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvTransferencia = new System.Windows.Forms.DataGridView();
+            this.IDTransferencia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EmpleadoDestino = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Empleado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel7 = new System.Windows.Forms.Panel();
             this.PanelMenu = new System.Windows.Forms.Panel();
             this.btnImpresion = new CreativaSL.LibControls.WinForms.Button_Creativa();
@@ -56,7 +58,7 @@
             this.panel5.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel12.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvFaltas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTransferencia)).BeginInit();
             this.panel7.SuspendLayout();
             this.PanelMenu.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -112,56 +114,67 @@
             // panel12
             // 
             this.panel12.AutoScroll = true;
-            this.panel12.Controls.Add(this.dgvFaltas);
+            this.panel12.Controls.Add(this.dgvTransferencia);
             this.panel12.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel12.Location = new System.Drawing.Point(0, 0);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(1008, 478);
             this.panel12.TabIndex = 2;
             // 
-            // dgvFaltas
+            // dgvTransferencia
             // 
-            this.dgvFaltas.AllowUserToAddRows = false;
-            this.dgvFaltas.AllowUserToDeleteRows = false;
-            this.dgvFaltas.AllowUserToResizeRows = false;
-            this.dgvFaltas.BackgroundColor = System.Drawing.Color.Gainsboro;
-            this.dgvFaltas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvFaltas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.IDReporte,
-            this.FechaInicio,
-            this.FechaFin});
-            this.dgvFaltas.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvFaltas.Location = new System.Drawing.Point(0, 0);
-            this.dgvFaltas.MultiSelect = false;
-            this.dgvFaltas.Name = "dgvFaltas";
-            this.dgvFaltas.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToFirstHeader;
-            this.dgvFaltas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvFaltas.Size = new System.Drawing.Size(1008, 478);
-            this.dgvFaltas.TabIndex = 1;
+            this.dgvTransferencia.AllowUserToAddRows = false;
+            this.dgvTransferencia.AllowUserToDeleteRows = false;
+            this.dgvTransferencia.AllowUserToResizeRows = false;
+            this.dgvTransferencia.BackgroundColor = System.Drawing.Color.Gainsboro;
+            this.dgvTransferencia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTransferencia.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.IDTransferencia,
+            this.EmpleadoDestino,
+            this.Empleado,
+            this.Fecha});
+            this.dgvTransferencia.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvTransferencia.Location = new System.Drawing.Point(0, 0);
+            this.dgvTransferencia.MultiSelect = false;
+            this.dgvTransferencia.Name = "dgvTransferencia";
+            this.dgvTransferencia.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToFirstHeader;
+            this.dgvTransferencia.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvTransferencia.Size = new System.Drawing.Size(1008, 478);
+            this.dgvTransferencia.TabIndex = 1;
+            this.dgvTransferencia.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTransferencia_CellContentClick);
             // 
-            // IDReporte
+            // IDTransferencia
             // 
-            this.IDReporte.DataPropertyName = "IDReporte";
-            this.IDReporte.HeaderText = "IDReporte";
-            this.IDReporte.Name = "IDReporte";
-            this.IDReporte.ReadOnly = true;
-            this.IDReporte.Visible = false;
+            this.IDTransferencia.DataPropertyName = "IDTransferencia";
+            this.IDTransferencia.HeaderText = "IDTransferencia";
+            this.IDTransferencia.Name = "IDTransferencia";
+            this.IDTransferencia.ReadOnly = true;
+            this.IDTransferencia.Visible = false;
             // 
-            // FechaInicio
+            // EmpleadoDestino
             // 
-            this.FechaInicio.DataPropertyName = "FechaInicio";
-            this.FechaInicio.HeaderText = "Fecha de Inicio";
-            this.FechaInicio.Name = "FechaInicio";
-            this.FechaInicio.ReadOnly = true;
-            this.FechaInicio.Width = 200;
+            this.EmpleadoDestino.DataPropertyName = "EmpleadoDestino";
+            this.EmpleadoDestino.HeaderText = "Nombre de destino";
+            this.EmpleadoDestino.Name = "EmpleadoDestino";
+            this.EmpleadoDestino.ReadOnly = true;
+            this.EmpleadoDestino.Width = 200;
             // 
-            // FechaFin
+            // Empleado
             // 
-            this.FechaFin.DataPropertyName = "FechaFin";
-            this.FechaFin.HeaderText = "Fecha de término";
-            this.FechaFin.Name = "FechaFin";
-            this.FechaFin.ReadOnly = true;
-            this.FechaFin.Width = 200;
+            this.Empleado.DataPropertyName = "Empleado";
+            this.Empleado.HeaderText = "Nombre de origen";
+            this.Empleado.Name = "Empleado";
+            this.Empleado.ReadOnly = true;
+            this.Empleado.Width = 200;
+            // 
+            // Fecha
+            // 
+            this.Fecha.DataPropertyName = "Fecha";
+            dataGridViewCellStyle1.Format = "d";
+            dataGridViewCellStyle1.NullValue = null;
+            this.Fecha.DefaultCellStyle = dataGridViewCellStyle1;
+            this.Fecha.HeaderText = "Fecha";
+            this.Fecha.Name = "Fecha";
             // 
             // panel7
             // 
@@ -355,9 +368,9 @@
             this.label42.ForeColor = System.Drawing.Color.White;
             this.label42.Location = new System.Drawing.Point(21, 9);
             this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(378, 55);
+            this.label42.Size = new System.Drawing.Size(646, 55);
             this.label42.TabIndex = 24;
-            this.label42.Text = "Reportes Faltas";
+            this.label42.Text = "Transferencia de Materiales";
             this.label42.Click += new System.EventHandler(this.label42_Click);
             // 
             // btnCancelarBusq
@@ -388,7 +401,7 @@
             this.btnCancelarBusq.Name = "btnCancelarBusq";
             this.btnCancelarBusq.OffsetPressedContent = true;
             this.btnCancelarBusq.Size = new System.Drawing.Size(23, 25);
-            this.btnCancelarBusq.TabIndex = 112;
+            this.btnCancelarBusq.TabIndex = 114;
             this.btnCancelarBusq.Text = "X";
             this.btnCancelarBusq.TextDropShadow = true;
             this.btnCancelarBusq.UseVisualStyleBackColor = false;
@@ -422,13 +435,13 @@
             this.button_Creativa1.Name = "button_Creativa1";
             this.button_Creativa1.OffsetPressedContent = true;
             this.button_Creativa1.Size = new System.Drawing.Size(100, 25);
-            this.button_Creativa1.TabIndex = 111;
+            this.button_Creativa1.TabIndex = 113;
             this.button_Creativa1.Text = "Buscar";
             this.button_Creativa1.TextDropShadow = true;
             this.button_Creativa1.UseVisualStyleBackColor = false;
             this.button_Creativa1.Click += new System.EventHandler(this.button_Creativa1_Click);
             // 
-            // frmReportesFaltas
+            // frmTransferenciaMateriales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
@@ -437,17 +450,17 @@
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Trebuchet MS", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MinimumSize = new System.Drawing.Size(1024, 726);
-            this.Name = "frmReportesFaltas";
+            this.Name = "frmTransferenciaMateriales";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Steph v1.0";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.frmReportesFaltas_Load);
+            this.Load += new System.EventHandler(this.frmTransferenciaMateriales_Load);
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
             this.panel12.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvFaltas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTransferencia)).EndInit();
             this.panel7.ResumeLayout(false);
             this.PanelMenu.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
@@ -476,13 +489,14 @@
         private CreativaSL.LibControls.WinForms.Button_Creativa btnSalir;
         private CreativaSL.LibControls.WinForms.Button_Creativa btnNuevo;
         private System.Windows.Forms.Panel panel12;
-        private System.Windows.Forms.DataGridView dgvFaltas;
+        private System.Windows.Forms.DataGridView dgvTransferencia;
         private System.Windows.Forms.PictureBox pictureBox1;
         private CreativaSL.LibControls.WinForms.Button_Creativa btnImpresion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IDReporte;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FechaInicio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FechaFin;
         private System.Windows.Forms.DateTimePicker dtpFechaBuscar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IDTransferencia;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EmpleadoDestino;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Empleado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Fecha;
         private CreativaSL.LibControls.WinForms.Button_Creativa btnCancelarBusq;
         private CreativaSL.LibControls.WinForms.Button_Creativa button_Creativa1;
     }

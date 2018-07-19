@@ -1104,6 +1104,23 @@ namespace StephManager
             }
         }
         #endregion
-        
+
+        private void transferenciaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //Aqui se abre el formulario de Transferencia
+                this.Visible = false;
+                frmTransferenciaMateriales TM = new frmTransferenciaMateriales();
+                TM.ShowDialog();
+                TM.Dispose();
+                this.Visible = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(Comun.MensajeError, Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                LogError.AddExcFileTxt(ex, "frmMenuInicio ~ transferenciaToolStripMenuItem_Click");
+            }
+        }
     }
 }
