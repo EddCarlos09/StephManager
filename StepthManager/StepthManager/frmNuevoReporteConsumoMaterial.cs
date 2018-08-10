@@ -98,7 +98,8 @@ namespace StephManager
             try
             {
                 ReporteConsumoMaterial_Negocio PN = new ReporteConsumoMaterial_Negocio();
-
+                this.dtpFechaInicio.Value = DateTime.Today;
+                this.dtpFechaFin.Value = DateTime.Today;
                 this.cmbTipoMobiliario.DataSource = PN.ObtenerSucursales(Comun.Conexion);
                 this.cmbTipoMobiliario.DisplayMember = "Sucursal";
                 this.cmbTipoMobiliario.ValueMember = "id_sucursal";

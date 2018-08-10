@@ -52,7 +52,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                 DataSet Ds = SqlHelper.ExecuteDataset(Conexion, "Reportes.spCSLDB_get_ReporteComprasProveedorXID", IDReporte);
                 if (Ds != null)
                 {
-                    if (Ds.Tables.Count == 2)
+                    if (Ds.Tables.Count == 3)
                     {
                         DataTableReader Dr = Ds.Tables[0].CreateDataReader();
                         while (Dr.Read())
@@ -76,7 +76,21 @@ namespace CreativaSL.Dll.StephManager.Datos
                         }
                         Dr2.Close();
 
+                        List<ReporteComprasPorProveedorDetalle> ListaMob = new List<ReporteComprasPorProveedorDetalle>();
+                        ReporteComprasPorProveedorDetalle ItemMob;
+                        DataTableReader Dr3 = Ds.Tables[2].CreateDataReader();
+                        while (Dr3.Read())
+                        {
+                            ItemMob = new ReporteComprasPorProveedorDetalle();
+                            ItemMob.IDProveedor = !Dr3.IsDBNull(Dr3.GetOrdinal("IDProveedor")) ? Dr3.GetString(Dr3.GetOrdinal("IDProveedor")) : string.Empty;
+                            ItemMob.Proveedor = !Dr3.IsDBNull(Dr3.GetOrdinal("Proveedor")) ? Dr3.GetString(Dr3.GetOrdinal("Proveedor")) : string.Empty;
+                            ItemMob.Total = !Dr3.IsDBNull(Dr3.GetOrdinal("Total")) ? Dr3.GetDecimal(Dr3.GetOrdinal("Total")) : 0;
+                            ListaMob.Add(ItemMob);
+                        }
+                        Dr3.Close();
+
                         Resultado.Detalle = Lista;
+                        Resultado.DetalleMob = ListaMob;
                         Resultado.Completo = true;
                     }
                 }

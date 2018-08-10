@@ -41,6 +41,8 @@ namespace StephManager
         {
             try
             {
+                this.dtpFechaInicio.Value = DateTime.Today;
+                this.dtpFechaFin.Value = DateTime.Today;
                 this.ActiveControl = this.dtpFechaInicio;
                 this.dtpFechaInicio.Focus();
                 if (File.Exists(Path.Combine(System.Windows.Forms.Application.StartupPath, @"Resources\Documents\" + Comun.UrlLogo)))

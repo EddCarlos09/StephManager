@@ -21,7 +21,7 @@ namespace CreativaSL.Dll.StephManager.Global
         /// identificador de la sucursal 
         /// </summary>
         public string IDSucursal { get; set; }
-        
+
         /// <summary>
         /// Nombre de la sucursal
         /// </summary>
@@ -36,11 +36,20 @@ namespace CreativaSL.Dll.StephManager.Global
         /// Nombre del empleado
         /// </summary>
         public string Empleado { get; set; }
-        
+
         /// <summary>
         /// Fecha de la falta reportada
         /// </summary>
         public DateTime Fecha { get; set; }
 
+        /// <summary>
+        /// Estatus del registro de entrada
+        /// </summary>
+        public string EstatusEntrada { get; set; }
+
+        /// <summary>
+        /// Estatus del registro de salida
+        /// </summary>
+        public string EstatusSalida { get; set; }
     }
 }

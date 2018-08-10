@@ -42,6 +42,8 @@ namespace StephManager
         {
             try
             {
+                this.dtpFechaInicio.Value = DateTime.Today;
+                this.dtpFechaFin.Value = DateTime.Today;
                 this.ActiveControl = this.dtpFechaInicio;
                 this.dtpFechaInicio.Focus();
                 this.CmbClientes.Focus();

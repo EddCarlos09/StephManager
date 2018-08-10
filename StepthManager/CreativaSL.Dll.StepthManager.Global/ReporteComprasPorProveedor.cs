@@ -16,6 +16,7 @@ namespace CreativaSL.Dll.StephManager.Global
             FechaFin = DateTime.MinValue;
             Completo = false;
             Detalle = new List<ReporteComprasPorProveedorDetalle>();
+            DetalleMob = new List<ReporteComprasPorProveedorDetalle>();
         }
         /// <summary>
         /// identificador del reporte
@@ -40,6 +41,11 @@ namespace CreativaSL.Dll.StephManager.Global
         /// Lista de Las compras por provedor con sus atributos detalle
         /// </summary>
         public List<ReporteComprasPorProveedorDetalle> Detalle { get; set; }
-      
+
+        /// <summary>
+        /// Lista de Las compras por provedor de mobiliario con sus atributos detalle
+        /// </summary>
+        public List<ReporteComprasPorProveedorDetalle> DetalleMob { get; set; }
+
     }
 }

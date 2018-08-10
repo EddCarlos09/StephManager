@@ -1049,6 +1049,8 @@
             // cmbProveedor
             // 
             this.cmbProveedor.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cmbProveedor.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbProveedor.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbProveedor.FormattingEnabled = true;
             this.cmbProveedor.Items.AddRange(new object[] {
             "Por Cantidad Uso",

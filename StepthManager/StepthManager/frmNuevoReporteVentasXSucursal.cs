@@ -42,6 +42,8 @@ namespace StephManager
         {
             try
             {
+                this.dtpFechaInicio.Value = DateTime.Today;
+                this.dtpFechaFin.Value = DateTime.Today;
                 this.ActiveControl = this.dtpFechaInicio;
                 this.dtpFechaInicio.Focus();
                 this.cmbSucursal.Focus();
@@ -198,7 +200,7 @@ namespace StephManager
                     ReporteVentasXSucursal_Negocio Neg = new ReporteVentasXSucursal_Negocio();
                     
                     int IDReporte = Neg.GenerarReporteVentasXSucursal(Comun.Conexion, Datos.FechaInicio, Datos.FechaFin, Comun.IDUsuario, Datos.IDSucursal);
-                    IDReporte = Neg.GenerarReporteVentasXSucursalXFormasPago (Comun.Conexion, Datos.FechaInicio, Datos.FechaFin, IDReporte , Datos.IDSucursal);
+                    //IDReporte = Neg.GenerarReporteVentasXSucursalXFormasPago (Comun.Conexion, Datos.FechaInicio, Datos.FechaFin, IDReporte , Datos.IDSucursal);
 
                     if (IDReporte > 0)
                     {

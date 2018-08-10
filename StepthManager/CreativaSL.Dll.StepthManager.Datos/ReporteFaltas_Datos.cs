@@ -76,6 +76,8 @@ namespace CreativaSL.Dll.StephManager.Datos
                             Item.IDEmpleado = !Dr2.IsDBNull(Dr2.GetOrdinal("id_empleado")) ? Dr2.GetString(Dr2.GetOrdinal("id_empleado")) : string.Empty;
                             Item.Empleado = !Dr2.IsDBNull(Dr2.GetOrdinal("nombreCompleto")) ? Dr2.GetString(Dr2.GetOrdinal("nombreCompleto")) : string.Empty;
                             Item.Fecha = !Dr2.IsDBNull(Dr2.GetOrdinal("fecha")) ? Dr2.GetDateTime(Dr2.GetOrdinal("fecha")) : DateTime.MinValue;
+                            Item.EstatusEntrada = !Dr2.IsDBNull(Dr2.GetOrdinal("estatusEntrada")) ? Dr2.GetString(Dr2.GetOrdinal("estatusEntrada")) : string.Empty;
+                            Item.EstatusSalida = !Dr2.IsDBNull(Dr2.GetOrdinal("estatusSalida")) ? Dr2.GetString(Dr2.GetOrdinal("estatusSalida")) : string.Empty;
                             Lista.Add(Item);
                         }
                         Dr2.Close();

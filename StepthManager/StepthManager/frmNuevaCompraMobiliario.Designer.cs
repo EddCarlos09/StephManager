@@ -48,6 +48,18 @@
             this.panel9 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
             this.dgvMobiliario = new System.Windows.Forms.DataGridView();
+            this.IDMobiliario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PrecioUnitario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Subtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DescuentoUnitario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Descuento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IvaUnitario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IVA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PrecioUSD = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel11 = new System.Windows.Forms.Panel();
             this.btnElegir = new CreativaSL.LibControls.WinForms.Button_Creativa();
             this.txtMobiliario = new System.Windows.Forms.TextBox();
@@ -101,18 +113,6 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.IDMobiliario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PrecioUnitario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Subtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DescuentoUnitario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Descuento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IvaUnitario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IVA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PrecioUSD = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -351,6 +351,125 @@
             this.dgvMobiliario.Size = new System.Drawing.Size(1008, 139);
             this.dgvMobiliario.TabIndex = 15;
             this.dgvMobiliario.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductos_CellDoubleClick);
+            // 
+            // IDMobiliario
+            // 
+            this.IDMobiliario.DataPropertyName = "IDMobiliario";
+            this.IDMobiliario.HeaderText = "IDMobiliario";
+            this.IDMobiliario.Name = "IDMobiliario";
+            this.IDMobiliario.ReadOnly = true;
+            this.IDMobiliario.Visible = false;
+            // 
+            // Codigo
+            // 
+            this.Codigo.DataPropertyName = "Codigo";
+            this.Codigo.HeaderText = "Código";
+            this.Codigo.Name = "Codigo";
+            this.Codigo.ReadOnly = true;
+            this.Codigo.Width = 130;
+            // 
+            // Descripcion
+            // 
+            this.Descripcion.DataPropertyName = "Descripcion";
+            this.Descripcion.HeaderText = "Descripción";
+            this.Descripcion.Name = "Descripcion";
+            this.Descripcion.ReadOnly = true;
+            this.Descripcion.Width = 350;
+            // 
+            // Cantidad
+            // 
+            this.Cantidad.DataPropertyName = "Cantidad";
+            this.Cantidad.HeaderText = "Cantidad";
+            this.Cantidad.Name = "Cantidad";
+            this.Cantidad.ReadOnly = true;
+            this.Cantidad.Width = 80;
+            // 
+            // PrecioUnitario
+            // 
+            this.PrecioUnitario.DataPropertyName = "Precio";
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle1.Format = "c";
+            dataGridViewCellStyle1.NullValue = "0";
+            this.PrecioUnitario.DefaultCellStyle = dataGridViewCellStyle1;
+            this.PrecioUnitario.HeaderText = "P/U";
+            this.PrecioUnitario.Name = "PrecioUnitario";
+            this.PrecioUnitario.ReadOnly = true;
+            this.PrecioUnitario.Width = 85;
+            // 
+            // Subtotal
+            // 
+            this.Subtotal.DataPropertyName = "Subtotal";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle2.Format = "c";
+            dataGridViewCellStyle2.NullValue = "0";
+            this.Subtotal.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Subtotal.HeaderText = "Subtotal";
+            this.Subtotal.Name = "Subtotal";
+            this.Subtotal.ReadOnly = true;
+            this.Subtotal.Width = 95;
+            // 
+            // DescuentoUnitario
+            // 
+            this.DescuentoUnitario.DataPropertyName = "DescuentoUnitario";
+            this.DescuentoUnitario.HeaderText = "DescuentoUnitario";
+            this.DescuentoUnitario.Name = "DescuentoUnitario";
+            this.DescuentoUnitario.ReadOnly = true;
+            this.DescuentoUnitario.Visible = false;
+            this.DescuentoUnitario.Width = 90;
+            // 
+            // Descuento
+            // 
+            this.Descuento.DataPropertyName = "Descuento";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle3.Format = "c";
+            dataGridViewCellStyle3.NullValue = "0";
+            this.Descuento.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Descuento.HeaderText = "Descuento";
+            this.Descuento.Name = "Descuento";
+            this.Descuento.ReadOnly = true;
+            this.Descuento.Visible = false;
+            this.Descuento.Width = 80;
+            // 
+            // IvaUnitario
+            // 
+            this.IvaUnitario.DataPropertyName = "IvaUnitario";
+            this.IvaUnitario.HeaderText = "IvaUnitario";
+            this.IvaUnitario.Name = "IvaUnitario";
+            this.IvaUnitario.ReadOnly = true;
+            this.IvaUnitario.Visible = false;
+            this.IvaUnitario.Width = 90;
+            // 
+            // IVA
+            // 
+            this.IVA.DataPropertyName = "Iva";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle4.Format = "c";
+            dataGridViewCellStyle4.NullValue = "0";
+            this.IVA.DefaultCellStyle = dataGridViewCellStyle4;
+            this.IVA.HeaderText = "IVA";
+            this.IVA.Name = "IVA";
+            this.IVA.ReadOnly = true;
+            this.IVA.Width = 80;
+            // 
+            // Total
+            // 
+            this.Total.DataPropertyName = "Total";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle5.Format = "c";
+            dataGridViewCellStyle5.NullValue = "0";
+            this.Total.DefaultCellStyle = dataGridViewCellStyle5;
+            this.Total.HeaderText = "Total";
+            this.Total.Name = "Total";
+            this.Total.ReadOnly = true;
+            this.Total.Width = 120;
+            // 
+            // PrecioUSD
+            // 
+            this.PrecioUSD.DataPropertyName = "PrecioUSD";
+            this.PrecioUSD.HeaderText = "PrecioUSD";
+            this.PrecioUSD.Name = "PrecioUSD";
+            this.PrecioUSD.ReadOnly = true;
+            this.PrecioUSD.Visible = false;
             // 
             // panel11
             // 
@@ -887,6 +1006,8 @@
             // cmbProveedor
             // 
             this.cmbProveedor.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cmbProveedor.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbProveedor.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbProveedor.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbProveedor.FormattingEnabled = true;
             this.cmbProveedor.Items.AddRange(new object[] {
@@ -951,125 +1072,6 @@
             this.label13.TabIndex = 79;
             this.label13.Text = "*";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // IDMobiliario
-            // 
-            this.IDMobiliario.DataPropertyName = "IDMobiliario";
-            this.IDMobiliario.HeaderText = "IDMobiliario";
-            this.IDMobiliario.Name = "IDMobiliario";
-            this.IDMobiliario.ReadOnly = true;
-            this.IDMobiliario.Visible = false;
-            // 
-            // Codigo
-            // 
-            this.Codigo.DataPropertyName = "Codigo";
-            this.Codigo.HeaderText = "Código";
-            this.Codigo.Name = "Codigo";
-            this.Codigo.ReadOnly = true;
-            this.Codigo.Width = 130;
-            // 
-            // Descripcion
-            // 
-            this.Descripcion.DataPropertyName = "Descripcion";
-            this.Descripcion.HeaderText = "Descripción";
-            this.Descripcion.Name = "Descripcion";
-            this.Descripcion.ReadOnly = true;
-            this.Descripcion.Width = 350;
-            // 
-            // Cantidad
-            // 
-            this.Cantidad.DataPropertyName = "Cantidad";
-            this.Cantidad.HeaderText = "Cantidad";
-            this.Cantidad.Name = "Cantidad";
-            this.Cantidad.ReadOnly = true;
-            this.Cantidad.Width = 80;
-            // 
-            // PrecioUnitario
-            // 
-            this.PrecioUnitario.DataPropertyName = "Precio";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle1.Format = "c";
-            dataGridViewCellStyle1.NullValue = "0";
-            this.PrecioUnitario.DefaultCellStyle = dataGridViewCellStyle1;
-            this.PrecioUnitario.HeaderText = "P/U";
-            this.PrecioUnitario.Name = "PrecioUnitario";
-            this.PrecioUnitario.ReadOnly = true;
-            this.PrecioUnitario.Width = 85;
-            // 
-            // Subtotal
-            // 
-            this.Subtotal.DataPropertyName = "Subtotal";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle2.Format = "c";
-            dataGridViewCellStyle2.NullValue = "0";
-            this.Subtotal.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Subtotal.HeaderText = "Subtotal";
-            this.Subtotal.Name = "Subtotal";
-            this.Subtotal.ReadOnly = true;
-            this.Subtotal.Width = 95;
-            // 
-            // DescuentoUnitario
-            // 
-            this.DescuentoUnitario.DataPropertyName = "DescuentoUnitario";
-            this.DescuentoUnitario.HeaderText = "DescuentoUnitario";
-            this.DescuentoUnitario.Name = "DescuentoUnitario";
-            this.DescuentoUnitario.ReadOnly = true;
-            this.DescuentoUnitario.Visible = false;
-            this.DescuentoUnitario.Width = 90;
-            // 
-            // Descuento
-            // 
-            this.Descuento.DataPropertyName = "Descuento";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle3.Format = "c";
-            dataGridViewCellStyle3.NullValue = "0";
-            this.Descuento.DefaultCellStyle = dataGridViewCellStyle3;
-            this.Descuento.HeaderText = "Descuento";
-            this.Descuento.Name = "Descuento";
-            this.Descuento.ReadOnly = true;
-            this.Descuento.Visible = false;
-            this.Descuento.Width = 80;
-            // 
-            // IvaUnitario
-            // 
-            this.IvaUnitario.DataPropertyName = "IvaUnitario";
-            this.IvaUnitario.HeaderText = "IvaUnitario";
-            this.IvaUnitario.Name = "IvaUnitario";
-            this.IvaUnitario.ReadOnly = true;
-            this.IvaUnitario.Visible = false;
-            this.IvaUnitario.Width = 90;
-            // 
-            // IVA
-            // 
-            this.IVA.DataPropertyName = "Iva";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle4.Format = "c";
-            dataGridViewCellStyle4.NullValue = "0";
-            this.IVA.DefaultCellStyle = dataGridViewCellStyle4;
-            this.IVA.HeaderText = "IVA";
-            this.IVA.Name = "IVA";
-            this.IVA.ReadOnly = true;
-            this.IVA.Width = 80;
-            // 
-            // Total
-            // 
-            this.Total.DataPropertyName = "Total";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle5.Format = "c";
-            dataGridViewCellStyle5.NullValue = "0";
-            this.Total.DefaultCellStyle = dataGridViewCellStyle5;
-            this.Total.HeaderText = "Total";
-            this.Total.Name = "Total";
-            this.Total.ReadOnly = true;
-            this.Total.Width = 120;
-            // 
-            // PrecioUSD
-            // 
-            this.PrecioUSD.DataPropertyName = "PrecioUSD";
-            this.PrecioUSD.HeaderText = "PrecioUSD";
-            this.PrecioUSD.Name = "PrecioUSD";
-            this.PrecioUSD.ReadOnly = true;
-            this.PrecioUSD.Visible = false;
             // 
             // frmNuevaCompraMobiliario
             // 

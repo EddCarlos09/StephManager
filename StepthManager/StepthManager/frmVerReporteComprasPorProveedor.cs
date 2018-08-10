@@ -102,6 +102,7 @@ namespace StephManager
                 this.reportViewer1.LocalReport.ReportEmbeddedResource = "StephManager.Informes.Reportes.ComprasPorProveedor.rdlc";
                 reportViewer1.LocalReport.SetParameters(Parametros);
                 reportViewer1.LocalReport.DataSources.Add(new ReportDataSource("ComprasPorProveedor", DatosReporte.Detalle));
+                reportViewer1.LocalReport.DataSources.Add(new ReportDataSource("ComprasPorProveedorMobiliario", DatosReporte.DetalleMob));
                 this.reportViewer1.RefreshReport();
             }
             catch (Exception ex)

@@ -648,12 +648,12 @@ namespace StephManager
                             }
                             else
                             {
-                                MessageBox.Show("El estatus del vale no permite su activación.", Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                MessageBox.Show("Este vale ya ha sido activado previamente.", Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             }
                         }
                         else
                         {
-                            MessageBox.Show("El vales no es publico general no permite su activación.", Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            MessageBox.Show("Este vale no requiere activación. Es restringido.", Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
                     }
                 }
