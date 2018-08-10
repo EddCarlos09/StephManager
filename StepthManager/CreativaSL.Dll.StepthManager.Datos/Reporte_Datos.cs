@@ -35,7 +35,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                             Item01.Cantidad = dr.GetInt32(dr.GetOrdinal("Cantidad"));
                             Lista01.Add(Item01);
                         }
-
+                        dr.Close();
                         DataTableReader dr2 = ds.Tables[1].CreateDataReader();
                         
                         ReporteMaterialesProduccion Item02;
@@ -51,10 +51,12 @@ namespace CreativaSL.Dll.StephManager.Datos
                             Item02.Cantidad = dr2.GetInt32(dr2.GetOrdinal("Cantidad"));
                             Lista02.Add(Item02);
                         }
+                        dr2.Close();
                     }
                 }
                 object[] Resultado = { Lista01, Lista02 };
                 return Resultado;
+                
             }
             catch (Exception ex)
             {

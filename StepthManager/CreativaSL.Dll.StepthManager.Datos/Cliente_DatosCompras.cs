@@ -27,6 +27,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                     Item.Nombre = !dr.IsDBNull(dr.GetOrdinal("Nombre")) ? dr.GetString(dr.GetOrdinal("Nombre")).ToUpper() : string.Empty;
                     Lista.Add(Item);
                 }
+                dr.Close();
                 return Lista;
             }
             catch (Exception ex)

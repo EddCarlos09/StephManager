@@ -39,6 +39,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                         Item.BufferImagen = (byte[])Dr["ImagenMin"];
                     Lista.Add(Item);
                 }
+                Dr.Close();
                 return Lista;
             }
             catch (Exception ex)
@@ -75,6 +76,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                         Item.BufferImagen = (byte[])Dr["ImagenMin"];
                     Lista.Add(Item);
                 }
+                Dr.Close();
                 return Lista;
             }
             catch (Exception ex)

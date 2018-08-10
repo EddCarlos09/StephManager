@@ -26,6 +26,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                     Item.Descripcion = !Dr.IsDBNull(Dr.GetOrdinal("TipoMobiliario")) ? Dr.GetString(Dr.GetOrdinal("TipoMobiliario")) : string.Empty;
                     Lista.Add(Item);
                 }
+                Dr.Close();
                 return Lista;
             }
             catch (Exception ex)

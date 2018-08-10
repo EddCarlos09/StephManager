@@ -187,6 +187,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                         Datos.IDVale = Dr.IsDBNull(Dr.GetOrdinal("IDVale")) ? string.Empty : Dr.GetString(Dr.GetOrdinal("IDVale"));
                     }
                 }
+                Dr.Close();
             }
             catch (Exception ex)
             {
@@ -333,6 +334,8 @@ namespace CreativaSL.Dll.StephManager.Datos
                             Lista.Add(Item);
                         }
                         Resultado.ListaProductos = Lista;
+                        Dr.Close();
+                        Dr2.Close();
                     }
 
                 }
@@ -362,6 +365,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                     Item.NxM = Dr.IsDBNull(Dr.GetOrdinal("NxM")) ? false : Dr.GetBoolean(Dr.GetOrdinal("NxM"));
                     Lista.Add(Item);
                 }
+                Dr.Close();
                 return Lista;
             }
             catch (Exception ex)
@@ -384,6 +388,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                     Item.NombreProducto = Dr.IsDBNull(Dr.GetOrdinal("Nombre")) ? string.Empty : Dr.GetString(Dr.GetOrdinal("Nombre"));
                     Lista.Add(Item);
                 }
+                Dr.Close();
                 return Lista;
             }
             catch (Exception ex)
@@ -407,6 +412,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                     item.AsusntoVales = dr["NombreVale"].ToString();
                     lista.Add(item);
                 }
+                dr.Close();
                 return lista;
             }
             catch (Exception ex)
@@ -646,6 +652,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                                     break;
                             }
                         }
+                        Dr.Close();
                         DataTable TablaAUx = Ds.Tables[1];
                         DataTableReader Dr2 = Ds.Tables[1].CreateDataReader();
                         List<Producto> Lista = new List<Producto>();
@@ -664,6 +671,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                             Lista.Add(Item);
                         }
                         Resultado.ListaProductos = Lista;
+                        Dr2.Close();
                     }
                 }
                 return Resultado;

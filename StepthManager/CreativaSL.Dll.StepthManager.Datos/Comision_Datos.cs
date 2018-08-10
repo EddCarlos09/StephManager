@@ -35,6 +35,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                     Item.IDPuesto = Dr.GetInt32(Dr.GetOrdinal("IDPuesto"));
                     Lista.Add(Item);
                 }
+                Dr.Close();
                 return Lista;
             }
             catch (Exception ex)
@@ -68,6 +69,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                     Item.IDPuesto = Dr.GetInt32(Dr.GetOrdinal("IDPuesto"));
                     Lista.Add(Item);
                 }
+                Dr.Close();
                 return Lista;
             }
             catch (Exception ex)
@@ -90,6 +92,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                     Item.TipoComisionDesc = Dr.GetString(Dr.GetOrdinal("TipoComisionDesc"));                    
                     Lista.Add(Item);
                 }
+                Dr.Close();
                 return Lista;
             }
             catch (Exception ex)
@@ -238,6 +241,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                             Datos.FechaInicio = Dr.GetDateTime(Dr.GetOrdinal("FechaInicio"));
                             Datos.FechaFin = Dr.GetDateTime(Dr.GetOrdinal("FechaFin"));
                         }
+                        Dr.Close();
 
                         List<Comision> Lista01 = new List<Comision>();
                         Comision Item01;
@@ -251,6 +255,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                             Item01.Monto = Dr2.GetDecimal(Dr2.GetOrdinal("Total"));
                             Lista01.Add(Item01);
                         }
+                        Dr2.Close();
                         Datos.ListaComisiones = Lista01;
 
                         List<Comision> Lista02 = new List<Comision>();
@@ -264,7 +269,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                             Lista02.Add(Item02);
                         }
                         Datos.ListaTiposComision = Lista02;
-
+                        Dr3.Close();
                         Datos.Completado = true;
                     }
                 }

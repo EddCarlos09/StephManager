@@ -47,6 +47,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                     Item.Descripcion = Dr.GetString(Dr.GetOrdinal("Descripcion"));
                     Lista.Add(Item);
                 }
+                Dr.Close();
                 return Lista;
             }
             catch (Exception ex)
@@ -69,6 +70,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                     Item.Descripcion = Dr.GetString(Dr.GetOrdinal("Descripcion"));
                     Lista.Add(Item);
                 }
+                Dr.Close();
                 return Lista;
             }
             catch (Exception ex)

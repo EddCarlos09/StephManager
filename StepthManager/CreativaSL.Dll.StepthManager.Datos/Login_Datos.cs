@@ -98,6 +98,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                                     }
                                 }
                             }
+                            Dr.Close();
                         }
                     }
                 }

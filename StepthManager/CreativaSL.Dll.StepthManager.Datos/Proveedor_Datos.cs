@@ -26,6 +26,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                     Item.NombreComercial = !Dr.IsDBNull(Dr.GetOrdinal("NombreComercial")) ? Dr.GetString(Dr.GetOrdinal("NombreComercial")) : string.Empty;
                     Lista.Add(Item);
                 }
+                Dr.Close();
                 return Lista;
             }
             catch (Exception ex)
@@ -48,6 +49,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                     Item.NombreComercial = !Dr.IsDBNull(Dr.GetOrdinal("NombreComercial")) ? Dr.GetString(Dr.GetOrdinal("NombreComercial")) : string.Empty;
                     Lista.Add(Item);
                 }
+                Dr.Close();
                 return Lista;
             }
             catch (Exception ex)
@@ -73,6 +75,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                         break;
                     }
                 }
+                Dr.Close();
             }
             catch (Exception ex)
             {

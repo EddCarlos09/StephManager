@@ -22,6 +22,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                 {
                     Resultado.Existencia = !Dr.IsDBNull(Dr.GetOrdinal("Existencia")) ? Dr.GetInt32(Dr.GetOrdinal("Existencia")) : 0;
                 }
+                Dr.Close();
                 return Resultado;
             }
             catch (Exception ex)
@@ -59,6 +60,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                     }
                     break;
                 }
+                Dr.Close();
             }
             catch (Exception ex)
             {
@@ -125,6 +127,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                     Item.Cantidad = Dr.GetInt32(Dr.GetOrdinal("Cantidad"));
                     Lista.Add(Item);
                 }
+                Dr.Close();
                 return Lista;
             }
             catch (Exception ex)
@@ -153,6 +156,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                                 DatosGuardados.IDSucursal = !Dr.IsDBNull(Dr.GetOrdinal("IDSucursal")) ? Dr.GetString(Dr.GetOrdinal("IDSucursal")) : string.Empty;
                                 DatosGuardados.IDStatusMobiliario = (int)(!Dr.IsDBNull(Dr.GetOrdinal("Estatus")) ? Dr.GetInt32(Dr.GetOrdinal("Estatus")) : 0);
                             }
+                            Dr.Close();
                         }
                         if (Ds.Tables[1] != null)
                         {
@@ -172,6 +176,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                                 Lista.Add(Item);
                             }
                             DatosGuardados.ListaMobiliarioDetalle = Lista;
+                            Dr.Close();
                         }
                         DatosGuardados.Completado = true;
                     }
@@ -207,6 +212,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                     }
                     break;
                 }
+                Ds.Close();
             }
             catch (Exception ex)
             {
@@ -246,6 +252,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                     Item.Cantidad = Dr.GetInt32(Dr.GetOrdinal("Cantidad"));
                     Lista.Add(Item);
                 }
+                Dr.Close();
                 return Lista;
             }
             catch (Exception ex)

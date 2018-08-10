@@ -45,6 +45,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                     }
                     break;
                 }
+                dr.Close();
             }
             catch (Exception ex)
             {
@@ -140,6 +141,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                     Item.CostoUltimo = Dr.IsDBNull(Dr.GetOrdinal("UltimoCosto")) ? 0 : Dr.GetDecimal(Dr.GetOrdinal("UltimoCosto"));
                     Lista.Add(Item);
                 }
+                Dr.Close();
                 return Lista;
             }
             catch (Exception ex)
@@ -162,6 +164,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                     Item.RazonSocial = Dr.IsDBNull(Dr.GetOrdinal("RazonSocial")) ? string.Empty : Dr.GetString(Dr.GetOrdinal("RazonSocial"));
                     Lista.Add(Item);
                 }
+                Dr.Close();
                 return Lista;
             }
             catch (Exception ex)

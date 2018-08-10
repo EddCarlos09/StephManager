@@ -74,6 +74,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                     }
                     break;
                 }
+                dr.Close();
             }
             catch (Exception ex)
             {
@@ -170,6 +171,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                     DatosResultado.UrlImagen = Dr.IsDBNull(Dr.GetOrdinal("UrlImagen")) ? string.Empty : Dr.GetString(Dr.GetOrdinal("UrlImagen"));
                     break;
                 }
+                Dr.Close();
                 return DatosResultado;
             }
             catch (Exception ex)
@@ -192,6 +194,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                     Item.RazonSocial = Dr.IsDBNull(Dr.GetOrdinal("RazonSocial")) ? string.Empty : Dr.GetString(Dr.GetOrdinal("RazonSocial"));
                     Lista.Add(Item);
                 }
+                Dr.Close();
                 return Lista;
             }
             catch (Exception ex)
@@ -216,6 +219,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                     Item.CostoUltimo = Dr.IsDBNull(Dr.GetOrdinal("UltimoCosto")) ? 0: Dr.GetDecimal(Dr.GetOrdinal("UltimoCosto"));
                     Lista.Add(Item);
                 }
+                Dr.Close();
                 return Lista;
             }
             catch (Exception ex)
@@ -252,6 +256,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                     Datos.UnidadMedidaDesc = Dr.IsDBNull(Dr.GetOrdinal("UnidadMedida")) ? string.Empty : Dr.GetString(Dr.GetOrdinal("UnidadMedida"));
                     Datos.UltimoCosto = Dr.IsDBNull(Dr.GetOrdinal("UltimoCosto")) ? 0 : Dr.GetDecimal(Dr.GetOrdinal("UltimoCosto"));
                 }
+                Dr.Close();
             }
             catch (Exception ex)
             {
@@ -314,6 +319,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                     }
                     break;
                 }
+                Dr.Close();
             }
             catch (Exception ex)
             {
@@ -436,6 +442,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                 if (ds != null)
                     if (ds.Tables.Count == 1)
                         Datos.TablaDatos = ds.Tables[0];
+                
             }
             catch (Exception ex)
             {

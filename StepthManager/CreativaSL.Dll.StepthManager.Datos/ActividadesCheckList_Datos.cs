@@ -24,6 +24,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                 if (ds != null)
                     if (ds.Tables.Count == 1)
                         Datos.TablaDatos = ds.Tables[0];
+                
             }
             catch (Exception ex)
             {

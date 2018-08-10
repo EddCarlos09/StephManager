@@ -52,6 +52,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                     }
                     break;
                 }
+                dr.Close();
             }
             catch (Exception ex)
             {
@@ -143,6 +144,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                     Item.Seleccionado = !dr.IsDBNull(dr.GetOrdinal("Seleccionado")) ? dr.GetBoolean(dr.GetOrdinal("Seleccionado")) : false;
                     Lista.Add(Item);
                 }
+                dr.Close();
                 return Lista;
             }
             catch (Exception ex)
@@ -167,6 +169,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                     Item.TipoMonederoDesc = !dr.IsDBNull(dr.GetOrdinal("TipoMonedero")) ? dr.GetString(dr.GetOrdinal("TipoMonedero")) : string.Empty;
                     Lista.Add(Item);
                 }
+                dr.Close();
                 return Lista;
             }
             catch (Exception ex)
@@ -191,6 +194,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                     Item.Seleccionado = !dr.IsDBNull(dr.GetOrdinal("Seleccionado")) ? dr.GetBoolean(dr.GetOrdinal("Seleccionado")) : false;
                     Lista.Add(Item);
                 }
+                dr.Close();
                 return Lista;
             }
             catch (Exception ex)
@@ -213,6 +217,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                     Item.Nombre = !dr.IsDBNull(dr.GetOrdinal("Nombre")) ? dr.GetString(dr.GetOrdinal("Nombre")) : string.Empty;
                     Lista.Add(Item);
                 }
+                dr.Close();
                 return Lista;
             }
             catch (Exception ex)
@@ -333,6 +338,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                                 Lista.Add(Item);
                             }
                             DatosGuardados.ListaHistClientes = Lista;
+                            Dr.Close();
                         }
                         DatosGuardados.Completado = true;
                     }

@@ -26,6 +26,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                     Item.NombreSucursal = Dr.IsDBNull(Dr.GetOrdinal("NombreSucursal")) ? string.Empty : Dr.GetString(Dr.GetOrdinal("NombreSucursal"));
                     Lista.Add(Item);
                 }
+                Dr.Close();
                 return Lista;
             }
             catch (Exception ex)
@@ -48,6 +49,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                     Item.NombreSucursal = Dr.IsDBNull(Dr.GetOrdinal("NombreSucursal")) ? string.Empty : Dr.GetString(Dr.GetOrdinal("NombreSucursal"));
                     Lista.Add(Item);
                 }
+                Dr.Close();
                 return Lista;
             }
             catch (Exception ex)

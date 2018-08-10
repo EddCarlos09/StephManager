@@ -28,6 +28,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                     Item.Empleado = Dr.IsDBNull(Dr.GetOrdinal("NombreEmpleado")) ? string.Empty : Dr.GetString(Dr.GetOrdinal("NombreEmpleado"));
                     Lista.Add(Item);
                 }
+                Dr.Close();
                 return Lista;
             }
             catch (Exception ex)

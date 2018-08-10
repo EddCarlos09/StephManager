@@ -67,6 +67,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                     }
                     break;
                 }
+                dr.Close();
             }
             catch (Exception ex)
             {
@@ -160,6 +161,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                     DatosResultado.UrlImagen = Dr.IsDBNull(Dr.GetOrdinal("UrlImagen")) ? string.Empty : Dr.GetString(Dr.GetOrdinal("UrlImagen"));
                     break;
                 }
+                Dr.Close();
                 return DatosResultado;
             }
             catch (Exception ex)
@@ -182,6 +184,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                     Item.NombreProducto = Dr.IsDBNull(Dr.GetOrdinal("NombreProducto")) ? string.Empty : Dr.GetString(Dr.GetOrdinal("NombreProducto"));
                     Lista.Add(Item);
                 }
+                Dr.Close();
                 return Lista;
             }
             catch (Exception ex)
@@ -206,6 +209,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                     Item.Cantidad = Dr.IsDBNull(Dr.GetOrdinal("Cantidad")) ? 0 : Dr.GetInt32(Dr.GetOrdinal("Cantidad"));
                     Lista.Add(Item);
                 }
+                Dr.Close();
                 return Lista;
             }
             catch (Exception ex)
@@ -231,6 +235,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                     Item.TiempoMinutos = Dr.IsDBNull(Dr.GetOrdinal("TiempoMinutos")) ? 0 : Dr.GetInt32(Dr.GetOrdinal("TiempoMinutos"));
                     Lista.Add(Item);
                 }
+                Dr.Close();
                 return Lista;
             }
             catch (Exception ex)

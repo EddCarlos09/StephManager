@@ -50,6 +50,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                     }
                     break;
                 }
+                dr.Close();
             }
             catch (Exception ex)
             {
@@ -92,6 +93,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                     Item.RequierePeriodo = Dr.IsDBNull(Dr.GetOrdinal("RequierePeriodo")) ? false : Dr.GetBoolean(Dr.GetOrdinal("RequierePeriodo"));
                     Lista.Add(Item);
                 }
+                Dr.Close();
                 return Lista;
             }
             catch (Exception ex)
@@ -115,6 +117,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                     Item.OpcionMultiple = Dr.IsDBNull(Dr.GetOrdinal("OpcionMultiple")) ? false : Dr.GetBoolean(Dr.GetOrdinal("OpcionMultiple"));
                     Lista.Add(Item);
                 }
+                Dr.Close();
                 return Lista;
             }
             catch (Exception ex)
@@ -249,6 +252,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                             ListaPreguntas.Add(Item);
                         }
                         DatosResultado.ListaPreguntas = ListaPreguntas;
+                        Dr.Close();
                     }
                 }
                 return DatosResultado;

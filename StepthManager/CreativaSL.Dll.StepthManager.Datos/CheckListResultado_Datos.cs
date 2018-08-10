@@ -59,6 +59,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                     Item.Opcion = (int)Aux;
                     Lista.Add(Item);
                 }
+                Dr.Close();
                 return Lista;
             }
             catch (Exception ex)
@@ -92,6 +93,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                     Item.Opcion = (int)Aux;
                     Lista.Add(Item);
                 }
+                Dr.Close();
                 return Lista;
             }
             catch (Exception ex)

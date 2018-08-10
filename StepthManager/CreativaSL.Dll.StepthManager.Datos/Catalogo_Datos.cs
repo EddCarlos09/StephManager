@@ -116,6 +116,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                         Datos.IDSucursal = Resultado.ToString();
                     }
                 }
+                Resultado.Close();
             }
             catch (Exception ex)
             {
@@ -151,6 +152,7 @@ namespace CreativaSL.Dll.StephManager.Datos
 
                     break;
                 }
+                dr.Close();
             }
             catch (Exception ex)
             {
@@ -181,6 +183,7 @@ namespace CreativaSL.Dll.StephManager.Datos
 
                     break;
                 }
+                dr.Close();
             }
             catch (Exception ex)
             {
@@ -213,6 +216,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                     }
                     break;
                 }
+                dr.Close();
             }
             catch (Exception ex)
             {
@@ -641,6 +645,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                     Item.HoraSalida = Dr.IsDBNull(Dr.GetOrdinal("HoraSalida")) ? DateTime.Today.TimeOfDay : Dr.GetTimeSpan(Dr.GetOrdinal("HoraSalida"));
                     Lista.Add(Item);
                 }
+                Dr.Close();
                 return Lista;
             }
             catch (Exception ex)
@@ -945,6 +950,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                     Item.Descripcion = Dr.IsDBNull(Dr.GetOrdinal("Descripcion")) ? string.Empty : Dr.GetString(Dr.GetOrdinal("Descripcion"));
                     Lista.Add(Item);
                 }
+                Dr.Close();
                 return Lista;
             }
             catch (Exception ex)
@@ -1080,6 +1086,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                     Item.SueldoBase = Dr.IsDBNull(Dr.GetOrdinal("SueldoBase")) ? 0 : Dr.GetDecimal(Dr.GetOrdinal("SueldoBase"));
                     Lista.Add(Item);
                 }
+                Dr.Close();
                 return Lista;
             }
             catch (Exception ex)
@@ -1102,6 +1109,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                     Item.Descripcion = Dr.IsDBNull(Dr.GetOrdinal("Descripcion")) ? string.Empty : Dr.GetString(Dr.GetOrdinal("Descripcion"));
                     Lista.Add(Item);
                 }
+                Dr.Close();
                 return Lista;
             }
             catch (Exception ex)
@@ -1124,6 +1132,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                     Item.NombreServicio = Dr.IsDBNull(Dr.GetOrdinal("NombreServicio")) ? string.Empty : Dr.GetString(Dr.GetOrdinal("NombreServicio"));
                     Lista.Add(Item);
                 }
+                Dr.Close();
                 return Lista;
             }
             catch (Exception ex)
@@ -1168,6 +1177,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                     Item.PracticasSugeridas = Dr.IsDBNull(Dr.GetOrdinal("PracticaSugeridas")) ? 0 : Dr.GetInt32(Dr.GetOrdinal("PracticaSugeridas"));
                     Lista.Add(Item);
                 }
+                Dr.Close();
                 return Lista;
             }
             catch (Exception ex)
@@ -1191,6 +1201,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                     Item.Seleccionado = Dr.IsDBNull(Dr.GetOrdinal("Seleccionado")) ? false : Dr.GetBoolean(Dr.GetOrdinal("Seleccionado"));
                     Lista.Add(Item);
                 }
+                Dr.Close();
                 return Lista;
             }
             catch (Exception ex)
@@ -1215,6 +1226,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                     Item.Descripcion = Dr.IsDBNull(Dr.GetOrdinal("Descripcion")) ? string.Empty : Dr.GetString(Dr.GetOrdinal("Descripcion"));
                     Lista.Add(Item);
                 }
+                Dr.Close();
                 return Lista;
             }
             catch (Exception ex)
@@ -1239,6 +1251,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                     Item.SueldoBase = Dr.IsDBNull(Dr.GetOrdinal("SueldoBase")) ? 0 : Dr.GetDecimal(Dr.GetOrdinal("SueldoBase"));
                     Lista.Add(Item);
                 }
+                Dr.Close();
                 return Lista;
             }
             catch (Exception ex)
@@ -1289,6 +1302,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                     Item.Nombre = Dr.IsDBNull(Dr.GetOrdinal("NombreEmpleado")) ? string.Empty : Dr.GetString(Dr.GetOrdinal("NombreEmpleado"));
                     Lista.Add(Item);
                 }
+                Dr.Close();
                 return Lista;
             }
             catch (Exception ex)
@@ -1350,6 +1364,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                     Item.Descripcion = Dr.IsDBNull(Dr.GetOrdinal("Descripcion")) ? string.Empty : Dr.GetString(Dr.GetOrdinal("Descripcion"));
                     Lista.Add(Item);
                 }
+                Dr.Close();
                 return Lista;
             }
             catch (Exception ex)

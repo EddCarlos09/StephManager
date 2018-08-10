@@ -43,6 +43,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                         Datos.IDEmpleado = Resultado.ToString();
                     }
                 }
+                Resultado.Close();
             }
             catch (Exception ex)
             {
@@ -191,6 +192,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                     Item.NombreSucursal = Dr.IsDBNull(Dr.GetOrdinal("NombreSucursal")) ? string.Empty : Dr.GetString(Dr.GetOrdinal("NombreSucursal"));
                     Lista.Add(Item);
                 }
+                Dr.Close();
                 return Lista;
             }
             catch (Exception ex)
@@ -213,6 +215,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                     Item.NombreSucursal = Dr.IsDBNull(Dr.GetOrdinal("NombreSucursal")) ? string.Empty : Dr.GetString(Dr.GetOrdinal("NombreSucursal"));
                     Lista.Add(Item);
                 }
+                Dr.Close();
                 return Lista;
             }
             catch (Exception ex)
@@ -258,6 +261,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                     Item.Nombre = Dr.IsDBNull(Dr.GetOrdinal("NombreEmpleado")) ? string.Empty : Dr.GetString(Dr.GetOrdinal("NombreEmpleado"));
                     Lista.Add(Item);
                 }
+                Dr.Close();
                 return Lista;
             }
             catch (Exception ex)
@@ -281,6 +285,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                     Item.Nombre = Dr.IsDBNull(Dr.GetOrdinal("NombreEmpleado")) ? string.Empty : Dr.GetString(Dr.GetOrdinal("NombreEmpleado"));
                     Lista.Add(Item);
                 }
+                Dr.Close();
                 return Lista;
             }
             catch (Exception ex)
@@ -304,6 +309,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                     Item.Descripcion = Dr.IsDBNull(Dr.GetOrdinal("Motivo")) ? string.Empty : Dr.GetString(Dr.GetOrdinal("Motivo"));
                     Lista.Add(Item);
                 }
+                Dr.Close();
                 return Lista;
             }
             catch (Exception ex)
@@ -327,6 +333,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                     Item.Descripcion = Dr.IsDBNull(Dr.GetOrdinal("TipoNomina")) ? string.Empty : Dr.GetString(Dr.GetOrdinal("TipoNomina"));
                     Lista.Add(Item);
                 }
+                Dr.Close();
                 return Lista;
             }
             catch (Exception ex)

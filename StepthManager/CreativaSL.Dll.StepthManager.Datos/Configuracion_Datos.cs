@@ -42,6 +42,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                     Datos.TextoTicket = Dr.IsDBNull(Dr.GetOrdinal("TextoTicket")) ? string.Empty : Dr.GetString(Dr.GetOrdinal("TextoTicket"));
                     Datos.PagoDiasDomingo = Dr.IsDBNull(Dr.GetOrdinal("PagoDiasDomingo")) ? 0 : Dr.GetDecimal(Dr.GetOrdinal("PagoDiasDomingo"));
                 }
+                Dr.Close();
                 return Datos;
             }
             catch (Exception ex)

@@ -106,6 +106,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                     Item.ConceptoNomina = Dr.GetString(Dr.GetOrdinal("Concepto"));
                     Lista.Add(Item);
                 }
+                Dr.Close();
                 return Lista;
             }
             catch (Exception ex)
@@ -226,6 +227,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                             Datos.TipoNomina = Dr.GetString(Dr.GetOrdinal("TipoNomina"));
                             Datos.PeriodoFechas = "Del " + Datos.FechaInicio.ToShortDateString() + " al " + Datos.FechaFin.ToShortDateString();
                         }
+                        Dr.Close();
 
                         DataTableReader Dr2 = Ds.Tables[1].CreateDataReader();
                         List<Nomina> Lista = new List<Nomina>();
@@ -239,6 +241,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                             Item.Total = Dr2.GetDecimal(Dr2.GetOrdinal("Total"));
                             Lista.Add(Item);
                         }
+                        Dr2.Close();
                         Datos.ListaNomina = Lista;
 
                         DataTableReader Dr3 = Ds.Tables[2].CreateDataReader();
@@ -256,7 +259,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                             Lista02.Add(Item02);
                         }
                         Datos.ListaConceptos = Lista02;
-
+                        Dr3.Close();
                         Datos.Completado = true;
                     }
                 }
@@ -289,7 +292,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                             Datos.TipoNomina = Dr.GetString(Dr.GetOrdinal("TipoNomina"));
                             Datos.PeriodoFechas = "Del " + Datos.FechaInicio.ToShortDateString() + " al " + Datos.FechaFin.ToShortDateString();
                         }
-
+                        Dr.Close();
                         DataTableReader Dr2 = Ds.Tables[1].CreateDataReader();
                         List<Nomina> Lista = new List<Nomina>();
                         Nomina Item;
@@ -311,7 +314,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                             Lista.Add(Item);
                         }
                         Datos.ListaNomina = Lista;
-
+                        Dr2.Close();
                         Datos.Completado = true;
                     }
                 }

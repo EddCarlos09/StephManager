@@ -27,6 +27,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                     Item.ClaveProduccion = Dr.GetString(Dr.GetOrdinal("Clave"));
                     Lista.Add(Item);
                 }
+                Dr.Close();
                 return Lista;
             }
             catch (Exception ex)
@@ -146,6 +147,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                     Item.CantidadASurtir = Item.CantidadPendiente;
                     Lista.Add(Item);
                 }
+                Dr.Close();
                 return Lista;
             }
             catch (Exception ex)

@@ -160,7 +160,9 @@ namespace CreativaSL.Dll.StephManager.Datos
                                 DatosGuardados.Total = !Dr.IsDBNull(Dr.GetOrdinal("Total")) ? Dr.GetDecimal(Dr.GetOrdinal("Total")) : 0;
                                 DatosGuardados.TotalLetras = !Dr.IsDBNull(Dr.GetOrdinal("TotalLetras")) ? Dr.GetString(Dr.GetOrdinal("TotalLetras")) : string.Empty;
                             }
+                            Dr.Close();
                         }
+                        
                         if (Ds.Tables[1] != null)
                         {
                             List<Producto> Lista = new List<Producto>();
@@ -185,10 +187,12 @@ namespace CreativaSL.Dll.StephManager.Datos
                                 Lista.Add(Item);
                             }
                             DatosGuardados.ListaProductos = Lista;
+                            Dr.Close();
                         }
                         DatosGuardados.Completado = true;
                     }
                 }
+                
                 return DatosGuardados;
             }
             catch (Exception ex)
@@ -232,6 +236,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                                 DatosGuardados.Total = !Dr.IsDBNull(Dr.GetOrdinal("Total")) ? Dr.GetDecimal(Dr.GetOrdinal("Total")) : 0;
                                 DatosGuardados.TotalLetras = !Dr.IsDBNull(Dr.GetOrdinal("TotalLetras")) ? Dr.GetString(Dr.GetOrdinal("TotalLetras")) : string.Empty;
                             }
+                            Dr.Close();
                         }
                         if (Ds.Tables[1] != null)
                         {
@@ -291,6 +296,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                         Datos.MensajeError = !Dr.IsDBNull(Dr.GetOrdinal("MensajeError")) ? Dr.GetString(Dr.GetOrdinal("MensajeError")) : string.Empty;
                     }
                 }
+                Dr.Close();
             }
             catch (Exception ex)
             {
@@ -368,6 +374,7 @@ namespace CreativaSL.Dll.StephManager.Datos
 
                     break;
                 }
+                dr.Close();
             }
             catch (Exception ex)
             {
