@@ -78,6 +78,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                     Item.CajaCat = Dr.IsDBNull(Dr.GetOrdinal("CajaCat")) ? string.Empty : Dr.GetString(Dr.GetOrdinal("CajaCat"));
                     Lista.Add(Item);
                 }
+                Dr.Close();
                 return Lista;
             }
             catch (Exception ex)
