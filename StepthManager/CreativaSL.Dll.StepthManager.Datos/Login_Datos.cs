@@ -50,7 +50,7 @@ namespace CreativaSL.Dll.StephManager.Datos
             try
             {
                 object[] Parametros = { Datos.CuentaUsuario, Datos.Password, Comun.MACAddress, Comun.IDProyecto };
-                DataSet Ds = SqlHelper.ExecuteDataset(Datos.Conexion, "spCSLDB_Login", Parametros);
+                DataSet Ds = SqlHelper.ExecuteDataset(Datos.Conexion, "Usuarios.spCSLDB_Login", Parametros);
                 Datos.Completado = false;
                 if (Ds != null)
                 {

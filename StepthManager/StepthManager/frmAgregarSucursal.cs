@@ -1,4 +1,8 @@
-﻿using System;
+﻿using CreativaSL.Dll.StephManager.Global;
+using CreativaSL.Dll.StephManager.Negocio;
+using CreativaSL.Dll.Validaciones;
+using StephManager.ClasesAux;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,37 +11,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using CreativaSL.Dll.StephManager.Global;
-using CreativaSL.Dll.StephManager.Negocio;
-using CreativaSL.LibControls.WinForms;
-using StephManager.ClasesAux;
-using CreativaSL.Dll.Validaciones;
-using System.IO;
 
 namespace StephManager
 {
-    public partial class frmNuevaSucursal : Form
+    public partial class frmAgregarSucursal : Form
     {
         #region Propiedades / Variables
-        private int TipoForm = 0;
-        private Sucursal _DatosSucursal;
-        public Sucursal DatosSucursal
-        {
-            get { return _DatosSucursal; }
-            set { _DatosSucursal = value; }
-        }
-        private List<Sucursal> HorarioSucursal = new List<Sucursal>();
+
         #endregion
 
         #region Constructor
 
-        public frmNuevaSucursal()
+        public frmAgregarSucursal()
         {
             try
             {
                 InitializeComponent();
-                this.TipoForm = 1;
-                //this.CargarCombos();
             }
             catch (Exception ex)
             {
@@ -45,14 +34,11 @@ namespace StephManager
             }
         }
 
-        public frmNuevaSucursal(Sucursal Datos)
+        public frmAgregarSucursal(string IDSucursal)
         {
             try
             {
                 InitializeComponent();
-                this._DatosSucursal = Datos;
-                this.TipoForm = 2;
-               // this.CargarCombos();
             }
             catch (Exception ex)
             {
@@ -97,8 +83,6 @@ namespace StephManager
                 this.cmbPais.DataSource = pais.TablaDatos;
                 this.cmbPais.DisplayMember = "descripcion";
                 this.cmbPais.ValueMember = "id_pais";
-
-
             }
             catch (Exception ex)
             {
@@ -168,15 +152,14 @@ namespace StephManager
                 this.txtRFC.Text = Datos.rfc;
                 this.txtRepresentante.Text = Datos.Representante;
                 this.txtDireccion.Text = Datos.Direccion;
-                this.txtRegimenFiscal.Text = Datos.RegimenFiscal;
                 if (ExisteItemEnComboPais(Datos.IDPais))
                     this.cmbPais.SelectedValue = Datos.IDPais;
                 if (ExisteItemEnComboEstado(Datos.IDEstado))
                     this.cmbEstado.SelectedValue = Datos.IDEstado;
-                if(ExisteItemEnComboMunicipio(Datos.IDMunicipio))
+                if (ExisteItemEnComboMunicipio(Datos.IDMunicipio))
                     this.cmbMunicipio.SelectedValue = Datos.IDMunicipio;
-                this.LlenarHorario(this._DatosSucursal.IDSucursal);
-                this.ListaSucursalHorario(this._DatosSucursal.IDSucursal);
+                //this.LlenarHorario(this._DatosSucursal.IDSucursal);
+                //this.ListaSucursalHorario(this._DatosSucursal.IDSucursal);
             }
             catch (Exception ex)
             {
@@ -188,49 +171,49 @@ namespace StephManager
         {
             try
             {
-                foreach (Sucursal ItemAux in this.HorarioSucursal)
-                {
-                    switch (ItemAux.Dia)
-                    {
-                        case 1:
-                            this.chkAplicaLunes.Checked = true;
-                            this.dtpHoraInicioLunes.Value = Convert.ToDateTime(ItemAux.HoraEntrada.ToString());
-                            this.dtpHoraFinLunes.Value = Convert.ToDateTime(ItemAux.HoraSalida.ToString());
-                            break;
-                        case 2:
-                            this.chkAplicaMartes.Checked = true;
-                            this.dtpHoraInicioMartes.Value = Convert.ToDateTime(ItemAux.HoraEntrada.ToString());
-                            this.dtpHoraFinMartes.Value = Convert.ToDateTime(ItemAux.HoraSalida.ToString());
-                            break;
-                        case 3:
-                            this.chkAplicaMiercoles.Checked = true;
-                            this.dtpHoraInicioMiercoles.Value = Convert.ToDateTime(ItemAux.HoraEntrada.ToString());
-                            this.dtpHoraFinMiercoles.Value = Convert.ToDateTime(ItemAux.HoraSalida.ToString());
-                            break;
-                        case 4:
-                            this.chkAplicaJueves.Checked = true;
-                            this.dtpHoraInicioJueves.Value = Convert.ToDateTime(ItemAux.HoraEntrada.ToString());
-                            this.dtpHoraFinJueves.Value = Convert.ToDateTime(ItemAux.HoraSalida.ToString());
-                            break;
-                        case 5:
-                            this.chkAplicaViernes.Checked = true;
-                            this.dtpHoraInicioViernes.Value = Convert.ToDateTime(ItemAux.HoraEntrada.ToString());
-                            this.dtpHoraFinViernes.Value = Convert.ToDateTime(ItemAux.HoraSalida.ToString());
-                            break;
-                        case 6:
-                            this.chkAplicaSabado.Checked = true;
-                            this.dtpHoraInicioSabado.Value = Convert.ToDateTime(ItemAux.HoraEntrada.ToString());
-                            this.dtpHoraFinSabado.Value = Convert.ToDateTime(ItemAux.HoraSalida.ToString());
-                            break;
-                        case 7:
-                            this.chkAplicaDomingo.Checked = true;
-                            this.dtpHoraInicioDomingo.Value = Convert.ToDateTime(ItemAux.HoraEntrada.ToString());
-                            this.dtpHoraFinDomingo.Value = Convert.ToDateTime(ItemAux.HoraSalida.ToString());
-                            break;
-                        default:
-                            break;
-                    }
-                }
+                //foreach (Sucursal ItemAux in this.HorarioSucursal)
+                //{
+                //    switch (ItemAux.Dia)
+                //    {
+                //        case 1:
+                //            this.chkAplicaLunes.Checked = true;
+                //            this.dtpHoraInicioLunes.Value = Convert.ToDateTime(ItemAux.HoraEntrada.ToString());
+                //            this.dtpHoraFinLunes.Value = Convert.ToDateTime(ItemAux.HoraSalida.ToString());
+                //            break;
+                //        case 2:
+                //            this.chkAplicaMartes.Checked = true;
+                //            this.dtpHoraInicioMartes.Value = Convert.ToDateTime(ItemAux.HoraEntrada.ToString());
+                //            this.dtpHoraFinMartes.Value = Convert.ToDateTime(ItemAux.HoraSalida.ToString());
+                //            break;
+                //        case 3:
+                //            this.chkAplicaMiercoles.Checked = true;
+                //            this.dtpHoraInicioMiercoles.Value = Convert.ToDateTime(ItemAux.HoraEntrada.ToString());
+                //            this.dtpHoraFinMiercoles.Value = Convert.ToDateTime(ItemAux.HoraSalida.ToString());
+                //            break;
+                //        case 4:
+                //            this.chkAplicaJueves.Checked = true;
+                //            this.dtpHoraInicioJueves.Value = Convert.ToDateTime(ItemAux.HoraEntrada.ToString());
+                //            this.dtpHoraFinJueves.Value = Convert.ToDateTime(ItemAux.HoraSalida.ToString());
+                //            break;
+                //        case 5:
+                //            this.chkAplicaViernes.Checked = true;
+                //            this.dtpHoraInicioViernes.Value = Convert.ToDateTime(ItemAux.HoraEntrada.ToString());
+                //            this.dtpHoraFinViernes.Value = Convert.ToDateTime(ItemAux.HoraSalida.ToString());
+                //            break;
+                //        case 6:
+                //            this.chkAplicaSabado.Checked = true;
+                //            this.dtpHoraInicioSabado.Value = Convert.ToDateTime(ItemAux.HoraEntrada.ToString());
+                //            this.dtpHoraFinSabado.Value = Convert.ToDateTime(ItemAux.HoraSalida.ToString());
+                //            break;
+                //        case 7:
+                //            this.chkAplicaDomingo.Checked = true;
+                //            this.dtpHoraInicioDomingo.Value = Convert.ToDateTime(ItemAux.HoraEntrada.ToString());
+                //            this.dtpHoraFinDomingo.Value = Convert.ToDateTime(ItemAux.HoraSalida.ToString());
+                //            break;
+                //        default:
+                //            break;
+                //    }
+                //}
             }
             catch (Exception ex)
             {
@@ -242,9 +225,9 @@ namespace StephManager
         {
             try
             {
-                Sucursal DatosAux = new Sucursal { Conexion = Comun.Conexion, IDSucursal = IDSucursal };
-                Catalogo_Negocio CatlogoNeg = new Catalogo_Negocio();
-                this.HorarioSucursal = CatlogoNeg.ObtenerSucursalHorarioXIDSucursal(DatosAux);
+                //Sucursal DatosAux = new Sucursal { Conexion = Comun.Conexion, IDSucursal = IDSucursal };
+                //Catalogo_Negocio CatlogoNeg = new Catalogo_Negocio();
+                //this.HorarioSucursal = CatlogoNeg.ObtenerSucursalHorarioXIDSucursal(DatosAux);
             }
             catch (Exception ex)
             {
@@ -270,7 +253,6 @@ namespace StephManager
                 throw ex;
             }
         }
-
         private bool ExisteItemEnComboTipoSucursal(int ID)
         {
             try
@@ -289,7 +271,6 @@ namespace StephManager
                 throw ex;
             }
         }
-
         private bool ExisteItemEnComboPais(int ID)
         {
             try
@@ -308,7 +289,6 @@ namespace StephManager
                 throw ex;
             }
         }
-
         private bool ExisteItemEnComboEstado(int ID)
         {
             try
@@ -327,7 +307,6 @@ namespace StephManager
                 throw ex;
             }
         }
-
         private bool ExisteItemEnComboMunicipio(int ID)
         {
             try
@@ -373,17 +352,17 @@ namespace StephManager
 
             try
             {
-                this.CargarCombos();
-                if (TipoForm == 1)
-                    this.InicializarCampos();
-                else
-                    this.CargarDatosAModificar(_DatosSucursal);
-                this.ActiveControl = this.txtNombreSucursal;
-                this.txtNombreSucursal.Focus();
-                if (File.Exists(Path.Combine(System.Windows.Forms.Application.StartupPath, @"Resources\Documents\" + Comun.UrlLogo)))
-                {
-                    this.pictureBox1.Image = Image.FromFile(Path.Combine(System.Windows.Forms.Application.StartupPath, @"Resources\Documents\" + Comun.UrlLogo));
-                }
+                //this.CargarCombos();
+                //if (TipoForm == 1)
+                //    this.InicializarCampos();
+                //else
+                //    this.CargarDatosAModificar(_DatosSucursal);
+                //this.ActiveControl = this.txtNombreSucursal;
+                //this.txtNombreSucursal.Focus();
+                //if (File.Exists(Path.Combine(System.Windows.Forms.Application.StartupPath, @"Resources\Documents\" + Comun.UrlLogo)))
+                //{
+                //    this.pictureBox1.Image = Image.FromFile(Path.Combine(System.Windows.Forms.Application.StartupPath, @"Resources\Documents\" + Comun.UrlLogo));
+                //}
             }
             catch (Exception ex)
             {
@@ -435,7 +414,7 @@ namespace StephManager
             {
                 Sucursal DatosAux = new Sucursal();
                 TipoSucursal TipoAux = this.ObtenerTipoSucursalSeleccionado();
-                DatosAux.IDSucursal = TipoForm == 2 ? this._DatosSucursal.IDSucursal : string.Empty;
+                //DatosAux.IDSucursal = TipoForm == 2 ? this._DatosSucursal.IDSucursal : string.Empty;
                 DatosAux.IDEmpresa = Convert.ToInt32(this.cmbEmpresa.SelectedValue);
                 DatosAux.IDTipoSucursal = Convert.ToInt32(this.cmbTipoSucursal.SelectedValue);
                 DatosAux.IDEstado = Convert.ToInt32(this.cmbEstado.SelectedValue);
@@ -444,15 +423,11 @@ namespace StephManager
                 DatosAux.NombreTipoSucursal = TipoAux.Descripcion;
                 DatosAux.NombreSucursal = this.txtNombreSucursal.Text.Trim();
                 DatosAux.CodigoPostal = this.txtCodigoPostal.Text.Trim();
-
                 DatosAux.rfc = this.txtRFC.Text.Trim();
                 DatosAux.Representante = this.txtRepresentante.Text.Trim();
-                DatosAux.RegimenFiscal = this.txtRegimenFiscal.Text.Trim();
-
                 //DatosAux.PorcentajeMonedero = float.Parse(this.txtPrcentajeMonedero.Text.Trim());
                 DatosAux.Telefono = this.txtTelefono.Text.Trim();
                 DatosAux.Direccion = this.txtDireccion.Text.Trim();
-
                 //TimeSpan Aux = DateTime.Now.TimeOfDay;
                 //MessageBox.Show(Aux.ToString());
                 DataTable TablaDiasSemanas = new DataTable();
@@ -488,7 +463,7 @@ namespace StephManager
                     TablaDiasSemanas.Rows.Add(7, dtpHoraInicioDomingo.Value.TimeOfDay, dtpHoraFinDomingo.Value.TimeOfDay);
                 }
                 DatosAux.TablaSucursalesHorario = TablaDiasSemanas;
-                DatosAux.Opcion = this.TipoForm;
+                //DatosAux.Opcion = this.TipoForm;
                 DatosAux.Conexion = Comun.Conexion;
                 DatosAux.IDUsuario = Comun.IDUsuario;
                 return DatosAux;
@@ -509,8 +484,8 @@ namespace StephManager
                     Errores.Add(new Error { Numero = (Aux += 1), Descripcion = "Ingrese el nombre de la sucursal.", ControlSender = this.txtNombreSucursal });
                 else
                 {
-                    if(!Validar.IsValidDescripcion(this.txtNombreSucursal.Text.Trim()))
-                        Errores.Add(new Error { Numero = (Aux += 1), Descripcion = "Ingrese un nombre de sucursal válido.", ControlSender = this.txtNombreSucursal });
+                    //if (!Validar.IsValidDescripcion(this.txtNombreSucursal.Text.Trim()))
+                      //  Errores.Add(new Error { Numero = (Aux += 1), Descripcion = "Ingrese un nombre de sucursal válido.", ControlSender = this.txtNombreSucursal });
                 }
                 if (this.cmbEmpresa.SelectedIndex == -1)
                     Errores.Add(new Error { Numero = (Aux += 1), Descripcion = "Debe seleccionar la empresa de la lista.", ControlSender = this.cmbEmpresa });
@@ -558,48 +533,35 @@ namespace StephManager
                         Errores.Add(new Error { Numero = (Aux += 1), Descripcion = "Debe seleccionar un municipio de la lista.", ControlSender = this.cmbMunicipio });
                 }
                 if (!string.IsNullOrEmpty(this.txtCodigoPostal.Text.Trim()))
+                    //Errores.Add(new Error { Numero = (Aux += 1), Descripcion = "Ingrese el Código Postal.", ControlSender = this.txtCodigoPostal });
+                    //else
+                    //{
                     if (!Validar.IsValidZipCode(this.txtCodigoPostal.Text.Trim()))
                         Errores.Add(new Error { Numero = (Aux += 1), Descripcion = "Ingrese un código postal válido.", ControlSender = this.txtCodigoPostal });
-                
+                //}
+                if (string.IsNullOrEmpty(this.txtRFC.Text.Trim()))
+                    if (!Validar.IsValidRFC(this.txtRFC.Text.Trim()))
+                        Errores.Add(new Error { Numero = (Aux += 1), Descripcion = "Ingrese un RFC válido.", ControlSender = this.txtNombreSucursal });
                 if (!string.IsNullOrEmpty(this.txtTelefono.Text.Trim()))
+                    //    Errores.Add(new Error { Numero = (Aux += 1), Descripcion = "Ingrese el Número de Telefono", ControlSender = this.txtTelefono });
+                    //else
+                    //{
                     if (!Validar.IsValidPhoneNumber(this.txtTelefono.Text.Trim()))
                         Errores.Add(new Error { Numero = (Aux += 1), Descripcion = "Ingrese un número telefónico válido.", ControlSender = this.txtTelefono });
+                //}
                 if (!string.IsNullOrEmpty(this.txtDireccion.Text.Trim()))
+                    //    Errores.Add(new Error { Numero = (Aux += 1), Descripcion = "Ingrese la Dirección", ControlSender = this.txtDireccion });
+                    //else
+                    //{
                     if (!Validar.IsValidDescripcion(this.txtDireccion.Text.Trim()))
                         Errores.Add(new Error { Numero = (Aux += 1), Descripcion = "Ingrese una dirección válida.", ControlSender = this.txtDireccion });
+                //}
 
-                if(!ValidarHorario())
+                if (!ValidarHorario())
                     Errores.Add(new Error { Numero = (Aux += 1), Descripcion = "Seleccione al menos un horario.", ControlSender = this.txtDireccion });
-
-
-                if (string.IsNullOrEmpty(this.txtRFC.Text.Trim()))
-                {
-                    Errores.Add(new Error { Numero = (Aux += 1), Descripcion = "Ingrese el RFC.", ControlSender = this.txtRFC });
-                }
-                else
-                {
-                    if (!Validar.IsValidRFC(this.txtRFC.Text.Trim()))
-                        Errores.Add(new Error { Numero = (Aux += 1), Descripcion = "Ingrese un RFC válido.", ControlSender = this.txtRFC });
-                }
                 if (string.IsNullOrEmpty(this.txtRepresentante.Text.Trim()))
-                {
-                    Errores.Add(new Error { Numero = (Aux += 1), Descripcion = "Ingrese el nombre del representante.", ControlSender = this.txtRepresentante });
-                }
-                else
-                {
                     if (!Validar.IsValidName(this.txtRepresentante.Text.Trim()))
-                        Errores.Add(new Error { Numero = (Aux += 1), Descripcion = "Ingrese un nombre de representate válido.", ControlSender = this.txtRepresentante });
-                }
-
-                if (string.IsNullOrEmpty(this.txtRegimenFiscal.Text.Trim()))
-                {
-                    Errores.Add(new Error { Numero = (Aux += 1), Descripcion = "Ingrese el régimen fiscal.", ControlSender = this.txtRegimenFiscal });
-                }
-                else
-                {
-                    if (!Validar.IsValidName(this.txtRegimenFiscal.Text.Trim()))
-                        Errores.Add(new Error { Numero = (Aux += 1), Descripcion = "Ingrese un régimen fiscal válido.", ControlSender = this.txtRegimenFiscal });
-                }
+                        Errores.Add(new Error { Numero = (Aux += 1), Descripcion = "Ingrese un nombre de representate válido.", ControlSender = this.txtNombreSucursal });
 
                 return Errores;
             }
@@ -656,7 +618,7 @@ namespace StephManager
         {
             try
             {
-             
+
 
                 this.txtMensajeError.Visible = false;
                 List<Error> Errores = this.ValidarDatos();
@@ -668,7 +630,7 @@ namespace StephManager
                     if (Datos.Completado)
                     {
                         MessageBox.Show("Datos guardados correctamente.", Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        this._DatosSucursal = Datos;
+                        //this._DatosSucursal = Datos;
                         this.DialogResult = DialogResult.OK;
                     }
                     else
@@ -680,7 +642,7 @@ namespace StephManager
                     this.MostrarMensajeError(Errores);
 
 
-                
+
             }
             catch (Exception ex)
             {

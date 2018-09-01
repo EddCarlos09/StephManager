@@ -178,6 +178,14 @@ namespace CreativaSL.Dll.StephManager.Global
             get { return _ListaServiciosXClave; }
             set { _ListaServiciosXClave = value; }
         }
-        
+
+        private string _FolioPedido;
+
+        public string FolioPedido
+        {
+            get { return _FolioPedido; }
+            set { _FolioPedido = value; }
+        }
+
     }
 }

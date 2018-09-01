@@ -3,7 +3,7 @@ namespace StephManager
 {
 
     class customDataGridView : DataGridView
-    {
+    {      
         protected override bool ProcessDialogKey(Keys keyData)
         {
             if (keyData == Keys.Enter)
@@ -17,6 +17,11 @@ namespace StephManager
                 return true;
             }
             return base.ProcessDialogKey(keyData);
+        }
+
+        protected override void OnScroll(ScrollEventArgs e)
+        {
+            base.OnScroll(e);
         }
 
         protected override void OnKeyDown(KeyEventArgs e)

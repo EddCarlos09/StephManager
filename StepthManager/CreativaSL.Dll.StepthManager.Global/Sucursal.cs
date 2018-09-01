@@ -168,6 +168,14 @@ namespace CreativaSL.Dll.StephManager.Global
             get { return _Representante; }
             set { _Representante = value; }
         }
-        
+
+        private string _RegimenFiscal;
+
+        public string RegimenFiscal
+        {
+            get { return _RegimenFiscal; }
+            set { _RegimenFiscal = value; }
+        }
+
     }
 }

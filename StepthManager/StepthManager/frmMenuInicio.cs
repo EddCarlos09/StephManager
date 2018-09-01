@@ -41,15 +41,12 @@ namespace StephManager
         {
             try
             {
-                this.Visible = false;
-                frmCatProductos producto = new frmCatProductos();
-                producto.ShowDialog();
-                producto.Dispose();
-                this.Visible = true;
+                Button_Creativa btn = (Button_Creativa)sender;
+                MenuStripProductos.Show(btn, btn.Width / 2, btn.Height);
+                MenuStripProductos.Focus();
             }
             catch (Exception ex)
             {
-                this.Visible = true;
                 MessageBox.Show(Comun.MensajeError, Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 LogError.AddExcFileTxt(ex, "frmMenuInicio ~ btnProductos_Click");
             }
@@ -95,15 +92,12 @@ namespace StephManager
         {
             try
             {
-                this.Visible = false;
-                frmCatEmpleado Empleado = new frmCatEmpleado();
-                Empleado.ShowDialog();
-                Empleado.Dispose();
-                this.Visible = true;
+                Button_Creativa btn = (Button_Creativa)sender;
+                MenuStripPersonal.Show(btn, btn.Width / 2, btn.Height);
+                MenuStripPersonal.Focus();
             }
             catch (Exception ex)
             {
-                this.Visible = true;
                 MessageBox.Show(Comun.MensajeError, Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 LogError.AddExcFileTxt(ex, "frmMenuInicio ~ btnEmpleados_Click");
             }
@@ -1140,5 +1134,158 @@ namespace StephManager
                 LogError.AddExcFileTxt(ex, "frmMenuInicio ~ transferenciaToolStripMenuItem_Click");
             }
         }
+
+
+        #region Menú Productos
+
+        private void toolsmProductos_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Visible = false;
+                frmCatProductos producto = new frmCatProductos();
+                producto.ShowDialog();
+                producto.Dispose();
+                this.Visible = true;
+            }
+            catch (Exception ex)
+            {
+                this.Visible = true;
+                MessageBox.Show(Comun.MensajeError, Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                LogError.AddExcFileTxt(ex, "frmMenuInicio ~ toolsmProductos_Click");
+            }
+        }
+
+        private void toolsmServicios_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Visible = false;
+                frmCatServicios Servicio = new frmCatServicios();
+                Servicio.ShowDialog();
+                Servicio.Dispose();
+                this.Visible = true;
+            }
+            catch (Exception ex)
+            {
+                this.Visible = true;
+                MessageBox.Show(Comun.MensajeError, Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                LogError.AddExcFileTxt(ex, "frmMenuInicio ~ toolsmServicios_Click");
+            }
+        }
+
+        private void toolsmTarjetasRegalo_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                frmCatTarjetas Tarjetas = new frmCatTarjetas();
+                this.Visible = false;
+                Tarjetas.ShowDialog();
+                this.Visible = true;
+                Tarjetas.Dispose();
+            }
+            catch (Exception ex)
+            {
+                this.Visible = true;
+                MessageBox.Show(Comun.MensajeError, Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                LogError.AddExcFileTxt(ex, "frmMenuInicio ~ toolsmTarjetasRegalo_Click");
+            }
+        }
+
+        private void toolsmPromociones_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //frmCatTarjetas Tarjetas = new frmCatTarjetas();
+                //this.Visible = false;
+                //Tarjetas.ShowDialog();
+                //this.Visible = true;
+                //Tarjetas.Dispose();
+            }
+            catch (Exception ex)
+            {
+                this.Visible = true;
+                MessageBox.Show(Comun.MensajeError, Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                LogError.AddExcFileTxt(ex, "frmMenuInicio ~ toolsmPromociones_Click");
+            }
+        }
+
+        #endregion
+
+        #region Menú Personal
+
+        private void toolsmEmpleados_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Visible = false;
+                frmCatEmpleado Empleado = new frmCatEmpleado();
+                Empleado.ShowDialog();
+                Empleado.Dispose();
+                this.Visible = true;
+            }
+            catch (Exception ex)
+            {
+                this.Visible = true;
+                MessageBox.Show(Comun.MensajeError, Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                LogError.AddExcFileTxt(ex, "frmMenuInicio ~ toolsmEmpleados_Click");
+            }
+        }
+
+        private void toolsmChecador_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Visible = false;
+                frmChecador Checador = new frmChecador();
+                Checador.ShowDialog();
+                Checador.Dispose();
+                this.Visible = true;
+            }
+            catch (Exception ex)
+            {
+                this.Visible = true;
+                MessageBox.Show(Comun.MensajeError, Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                LogError.AddExcFileTxt(ex, "frmMenuInicio ~ toolsmChecador_Click");
+            }
+        }
+
+        private void toolsmComisiones_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                frmComisiones Comisiones = new frmComisiones();
+                this.Visible = false;
+                Comisiones.ShowDialog();
+                Comisiones.Dispose();
+                this.Visible = true;
+            }
+            catch (Exception ex)
+            {
+                this.Visible = true;
+                MessageBox.Show(Comun.MensajeError, Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                LogError.AddExcFileTxt(ex, "frmMenuInicio ~ toolsmComisiones_Click");
+            }
+        }
+
+        private void toolsmCapacitacion_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Visible = false;
+                frmCapacitacionesCursos CapacitacionesCurso = new frmCapacitacionesCursos();
+                CapacitacionesCurso.ShowDialog();
+                CapacitacionesCurso.Dispose();
+                this.Visible = true;
+            }
+            catch (Exception ex)
+            {
+                this.Visible = true;
+                MessageBox.Show(Comun.MensajeError, Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                LogError.AddExcFileTxt(ex, "frmMenuInicio ~ toolsmCapacitacion_Click");
+            }
+        }
+
+        #endregion
     }
 }

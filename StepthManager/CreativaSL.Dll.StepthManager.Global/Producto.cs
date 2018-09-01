@@ -538,5 +538,7 @@ namespace CreativaSL.Dll.StephManager.Global
             get { return _ClaveN; }
             set { _ClaveN = value; }
         }
+
+
     }
 }

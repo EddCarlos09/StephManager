@@ -58,6 +58,7 @@
             this.Empleado1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel7 = new System.Windows.Forms.Panel();
             this.PanelMenu = new System.Windows.Forms.Panel();
+            this.btnFinalizarPedido = new CreativaSL.LibControls.WinForms.Button_Creativa();
             this.btnDetallePedido = new CreativaSL.LibControls.WinForms.Button_Creativa();
             this.btnSurtir = new CreativaSL.LibControls.WinForms.Button_Creativa();
             this.btnSalir = new CreativaSL.LibControls.WinForms.Button_Creativa();
@@ -370,6 +371,7 @@
             // PanelMenu
             // 
             this.PanelMenu.BackColor = System.Drawing.Color.Gray;
+            this.PanelMenu.Controls.Add(this.btnFinalizarPedido);
             this.PanelMenu.Controls.Add(this.btnDetallePedido);
             this.PanelMenu.Controls.Add(this.btnSurtir);
             this.PanelMenu.Controls.Add(this.btnSalir);
@@ -378,6 +380,40 @@
             this.PanelMenu.Name = "PanelMenu";
             this.PanelMenu.Size = new System.Drawing.Size(1008, 80);
             this.PanelMenu.TabIndex = 1;
+            // 
+            // btnFinalizarPedido
+            // 
+            this.btnFinalizarPedido.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnFinalizarPedido.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(108)))), ((int)(((byte)(114)))));
+            this.btnFinalizarPedido.BorderColor = System.Drawing.Color.Red;
+            this.btnFinalizarPedido.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(108)))), ((int)(((byte)(114)))));
+            this.btnFinalizarPedido.BorderMouseOverColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnFinalizarPedido.BorderNoFocusColor = System.Drawing.Color.Maroon;
+            this.btnFinalizarPedido.FocusRectangle = true;
+            this.btnFinalizarPedido.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFinalizarPedido.ForeColor = System.Drawing.Color.White;
+            this.btnFinalizarPedido.Image = null;
+            this.btnFinalizarPedido.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnFinalizarPedido.ImageBorderColor = System.Drawing.Color.Red;
+            this.btnFinalizarPedido.ImageFocused = null;
+            this.btnFinalizarPedido.ImageInactive = null;
+            this.btnFinalizarPedido.ImageMouseOver = global::StephManager.Properties.Resources._0000s_0000s_0002_cancelar_a;
+            this.btnFinalizarPedido.ImageNormal = global::StephManager.Properties.Resources._0000s_0000s_0002_cancelar;
+            this.btnFinalizarPedido.ImagePressed = null;
+            this.btnFinalizarPedido.ImageSize = new System.Drawing.Size(44, 44);
+            this.btnFinalizarPedido.KeyButton = System.Windows.Forms.Keys.F1;
+            this.btnFinalizarPedido.KeyButtonView = false;
+            this.btnFinalizarPedido.Location = new System.Drawing.Point(650, 5);
+            this.btnFinalizarPedido.ModeGradient = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            this.btnFinalizarPedido.MouseOverColor = System.Drawing.Color.Red;
+            this.btnFinalizarPedido.Name = "btnFinalizarPedido";
+            this.btnFinalizarPedido.OffsetPressedContent = true;
+            this.btnFinalizarPedido.Size = new System.Drawing.Size(80, 70);
+            this.btnFinalizarPedido.TabIndex = 23;
+            this.btnFinalizarPedido.Text = "Finalizar Inc.";
+            this.btnFinalizarPedido.TextDropShadow = true;
+            this.btnFinalizarPedido.UseVisualStyleBackColor = false;
+            this.btnFinalizarPedido.Click += new System.EventHandler(this.btnFinalizarPedido_Click);
             // 
             // btnDetallePedido
             // 
@@ -717,6 +753,7 @@
         private System.Windows.Forms.TextBox txtBusqueda;
         private System.Windows.Forms.CheckBox chkTodosLosRegistros;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private CreativaSL.LibControls.WinForms.Button_Creativa btnFinalizarPedido;
     }
 }
 

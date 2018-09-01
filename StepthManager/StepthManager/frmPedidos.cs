@@ -290,9 +290,9 @@ namespace StephManager
                 {
                     int Row = DGV.Rows.GetFirstRow(DataGridViewElementStates.Selected);
                     Pedido DatosAux = this.ObtenerDatosGrid(Row);
-                    if (!DatosAux.Completo)
+                    if (DatosAux.IDEstatus >=2 && DatosAux.IDEstatus <= 5)
                     {
-                        frmPedidoSurtir Detalle = new frmPedidoSurtir(DatosAux);
+                        frmSurtirPedido Detalle = new frmSurtirPedido(DatosAux);
                         this.Visible = false;
                         Detalle.ShowDialog();
                         Detalle.Dispose();
@@ -307,6 +307,10 @@ namespace StephManager
                                 this.CargarPedidosTab(Tab);
                         }
                     }
+                    else
+                    {
+                        MessageBox.Show("El pedido ya está concluido.", Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
                 }
                 else
                     MessageBox.Show("Seleccione un registro.", Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -315,6 +319,48 @@ namespace StephManager
             {
                 this.Visible = true;
                 LogError.AddExcFileTxt(ex, "frmPedidos ~ btnSurtir_Click");
+                MessageBox.Show(Comun.MensajeError, Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnFinalizarPedido_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int Tab = this.tabControl1.SelectedIndex;
+                DataGridView DGV = this.ObtenerDGVXTab(Tab);
+                if (DGV.SelectedRows.Count == 1)
+                {
+                    int Row = DGV.Rows.GetFirstRow(DataGridViewElementStates.Selected);
+                    Pedido DatosAux = this.ObtenerDatosGrid(Row);
+                    if (DatosAux.IDEstatus == 2 || DatosAux.IDEstatus == 3)
+                    {
+                        if (MessageBox.Show("¿Está seguro de finalizar el pedido? Este proceso no es reversible.", Comun.Sistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        {
+                            DatosAux.IDUsuario = Comun.IDUsuario;
+                            DatosAux.Conexion = Comun.Conexion;
+                            Pedido_Negocio PedNeg = new Pedido_Negocio();
+                            PedNeg.FinalizarPedido(DatosAux);
+                            if (DatosAux.Completado)
+                            {
+                                Tab01 = false;
+                                Tab02 = false;
+                                if (Busqueda)
+                                    this.BusquedaPedidos(Tab);
+                                else
+                                    this.CargarPedidosTab(Tab);
+                            }
+                        }
+                    }
+                    else
+                        MessageBox.Show("El pedido ya está concluido.", Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                    MessageBox.Show("Seleccione un registro.", Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            catch (Exception ex)
+            {
+                LogError.AddExcFileTxt(ex, "frmPedidos ~ btnFinalizarPedido_Click");
                 MessageBox.Show(Comun.MensajeError, Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }

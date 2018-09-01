@@ -123,7 +123,14 @@
     <Compile Include="ClasesAux\ImpresionReporte.cs" />
     <Compile Include="ClasesAux\LectorHuella.cs" />
     <Compile Include="ClasesAux\LogError.cs" />
+    <Compile Include="ClasesAux\MyDGV.cs" />
     <Compile Include="ClasesAux\UtilFtp.cs" />
+    <Compile Include="frmAgregarSucursal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAgregarSucursal.Designer.cs">
+      <DependentUpon>frmAgregarSucursal.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmNuevoReporteComprasCliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -172,6 +179,24 @@
     <Compile Include="frmNuevoReporteProductosVendidos.Designer.cs">
       <DependentUpon>frmNuevoReporteProductosVendidos.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmPedidoAgregarProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPedidoAgregarProducto.Designer.cs">
+      <DependentUpon>frmPedidoAgregarProducto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPedidoDetalleClaves.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPedidoDetalleClaves.Designer.cs">
+      <DependentUpon>frmPedidoDetalleClaves.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPreciosProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPreciosProductos.Designer.cs">
+      <DependentUpon>frmPreciosProductos.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmReporteMonedero.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -189,6 +214,12 @@
     </Compile>
     <Compile Include="frmNuevoReporteVentasXSucursal.Designer.cs">
       <DependentUpon>frmNuevoReporteVentasXSucursal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSurtirPedido.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSurtirPedido.Designer.cs">
+      <DependentUpon>frmSurtirPedido.cs</DependentUpon>
     </Compile>
     <Compile Include="frmTransferenciaMateriales.cs">
       <SubType>Form</SubType>
@@ -1239,8 +1270,20 @@
     <EmbeddedResource Include="frmNuevoReporteProductosVendidos.resx">
       <DependentUpon>frmNuevoReporteProductosVendidos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmPedidoAgregarProducto.resx">
+      <DependentUpon>frmPedidoAgregarProducto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPedidoDetalleClaves.resx">
+      <DependentUpon>frmPedidoDetalleClaves.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPreciosProductos.resx">
+      <DependentUpon>frmPreciosProductos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmReportesConsumoMaterial.resx">
       <DependentUpon>frmReportesConsumoMaterial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSurtirPedido.resx">
+      <DependentUpon>frmSurtirPedido.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmTransferenciaMateriales.resx">
       <DependentUpon>frmTransferenciaMateriales.cs</DependentUpon>

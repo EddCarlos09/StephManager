@@ -1,6 +1,6 @@
 ﻿namespace StephManager
 {
-    partial class frmNuevaSucursal
+    partial class frmAgregarSucursal
     {
         /// <summary>
         /// Variable del diseñador requerida.
@@ -38,9 +38,6 @@
             this.txtMensajeError = new System.Windows.Forms.TextBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.panel4 = new System.Windows.Forms.Panel();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.txtRepresentante = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.txtRFC = new System.Windows.Forms.TextBox();
@@ -95,9 +92,9 @@
             this.label21 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
-            this.txtRegimenFiscal = new System.Windows.Forms.TextBox();
+            this.txtRepresentante = new System.Windows.Forms.TextBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -241,9 +238,6 @@
             // panel4
             // 
             this.panel4.AutoScroll = true;
-            this.panel4.Controls.Add(this.label24);
-            this.panel4.Controls.Add(this.label25);
-            this.panel4.Controls.Add(this.txtRegimenFiscal);
             this.panel4.Controls.Add(this.label23);
             this.panel4.Controls.Add(this.label22);
             this.panel4.Controls.Add(this.txtRepresentante);
@@ -280,38 +274,11 @@
             this.panel4.Size = new System.Drawing.Size(528, 488);
             this.panel4.TabIndex = 0;
             // 
-            // label23
-            // 
-            this.label23.Font = new System.Drawing.Font("Trebuchet MS", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.ForeColor = System.Drawing.Color.Red;
-            this.label23.Location = new System.Drawing.Point(69, 298);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(20, 19);
-            this.label23.TabIndex = 130;
-            this.label23.Text = "*";
-            this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label22
-            // 
-            this.label22.Location = new System.Drawing.Point(89, 299);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(184, 20);
-            this.label22.TabIndex = 129;
-            this.label22.Text = "Nombre Representante";
-            // 
-            // txtRepresentante
-            // 
-            this.txtRepresentante.Location = new System.Drawing.Point(66, 322);
-            this.txtRepresentante.MaxLength = 300;
-            this.txtRepresentante.Name = "txtRepresentante";
-            this.txtRepresentante.Size = new System.Drawing.Size(410, 25);
-            this.txtRepresentante.TabIndex = 10;
-            // 
             // label20
             // 
             this.label20.Font = new System.Drawing.Font("Trebuchet MS", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label20.ForeColor = System.Drawing.Color.Red;
-            this.label20.Location = new System.Drawing.Point(68, 241);
+            this.label20.Location = new System.Drawing.Point(68, 283);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(20, 26);
             this.label20.TabIndex = 127;
@@ -320,7 +287,7 @@
             // 
             // label19
             // 
-            this.label19.Location = new System.Drawing.Point(87, 240);
+            this.label19.Location = new System.Drawing.Point(87, 282);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(75, 27);
             this.label19.TabIndex = 126;
@@ -329,7 +296,7 @@
             // 
             // txtRFC
             // 
-            this.txtRFC.Location = new System.Drawing.Point(66, 270);
+            this.txtRFC.Location = new System.Drawing.Point(66, 312);
             this.txtRFC.MaxLength = 20;
             this.txtRFC.Name = "txtRFC";
             this.txtRFC.Size = new System.Drawing.Size(201, 25);
@@ -341,14 +308,14 @@
             this.cmbMunicipio.Items.AddRange(new object[] {
             "Por Cantidad Uso",
             "Por Tiempo Vida"});
-            this.cmbMunicipio.Location = new System.Drawing.Point(66, 213);
+            this.cmbMunicipio.Location = new System.Drawing.Point(66, 243);
             this.cmbMunicipio.Name = "cmbMunicipio";
-            this.cmbMunicipio.Size = new System.Drawing.Size(201, 28);
+            this.cmbMunicipio.Size = new System.Drawing.Size(245, 28);
             this.cmbMunicipio.TabIndex = 6;
             // 
             // label15
             // 
-            this.label15.Location = new System.Drawing.Point(85, 183);
+            this.label15.Location = new System.Drawing.Point(85, 213);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(77, 29);
             this.label15.TabIndex = 124;
@@ -359,7 +326,7 @@
             // 
             this.label16.Font = new System.Drawing.Font("Trebuchet MS", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.ForeColor = System.Drawing.Color.Red;
-            this.label16.Location = new System.Drawing.Point(68, 183);
+            this.label16.Location = new System.Drawing.Point(68, 213);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(20, 15);
             this.label16.TabIndex = 123;
@@ -372,7 +339,7 @@
             this.cmbEstado.Items.AddRange(new object[] {
             "Por Cantidad Uso",
             "Por Tiempo Vida"});
-            this.cmbEstado.Location = new System.Drawing.Point(275, 150);
+            this.cmbEstado.Location = new System.Drawing.Point(275, 172);
             this.cmbEstado.Name = "cmbEstado";
             this.cmbEstado.Size = new System.Drawing.Size(201, 28);
             this.cmbEstado.TabIndex = 5;
@@ -380,7 +347,7 @@
             // 
             // label8
             // 
-            this.label8.Location = new System.Drawing.Point(300, 120);
+            this.label8.Location = new System.Drawing.Point(300, 142);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(156, 29);
             this.label8.TabIndex = 121;
@@ -391,7 +358,7 @@
             // 
             this.label10.Font = new System.Drawing.Font("Trebuchet MS", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.Red;
-            this.label10.Location = new System.Drawing.Point(282, 127);
+            this.label10.Location = new System.Drawing.Point(282, 149);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(18, 14);
             this.label10.TabIndex = 120;
@@ -404,7 +371,7 @@
             this.cmbPais.Items.AddRange(new object[] {
             "Por Cantidad Uso",
             "Por Tiempo Vida"});
-            this.cmbPais.Location = new System.Drawing.Point(66, 150);
+            this.cmbPais.Location = new System.Drawing.Point(66, 172);
             this.cmbPais.Name = "cmbPais";
             this.cmbPais.Size = new System.Drawing.Size(201, 28);
             this.cmbPais.TabIndex = 4;
@@ -412,7 +379,7 @@
             // 
             // label11
             // 
-            this.label11.Location = new System.Drawing.Point(89, 124);
+            this.label11.Location = new System.Drawing.Point(89, 146);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(55, 20);
             this.label11.TabIndex = 118;
@@ -423,7 +390,7 @@
             // 
             this.label13.Font = new System.Drawing.Font("Trebuchet MS", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.Red;
-            this.label13.Location = new System.Drawing.Point(69, 124);
+            this.label13.Location = new System.Drawing.Point(69, 146);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(20, 20);
             this.label13.TabIndex = 117;
@@ -436,16 +403,16 @@
             this.cmbTipoSucursal.Items.AddRange(new object[] {
             "Por Cantidad Uso",
             "Por Tiempo Vida"});
-            this.cmbTipoSucursal.Location = new System.Drawing.Point(275, 88);
+            this.cmbTipoSucursal.Location = new System.Drawing.Point(275, 105);
             this.cmbTipoSucursal.Name = "cmbTipoSucursal";
             this.cmbTipoSucursal.Size = new System.Drawing.Size(201, 28);
             this.cmbTipoSucursal.TabIndex = 3;
             // 
             // label6
             // 
-            this.label6.Location = new System.Drawing.Point(300, 62);
+            this.label6.Location = new System.Drawing.Point(300, 75);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(125, 26);
+            this.label6.Size = new System.Drawing.Size(125, 29);
             this.label6.TabIndex = 115;
             this.label6.Text = "Tipo de sucursal";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -454,7 +421,7 @@
             // 
             this.label7.Font = new System.Drawing.Font("Trebuchet MS", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Red;
-            this.label7.Location = new System.Drawing.Point(283, 63);
+            this.label7.Location = new System.Drawing.Point(283, 80);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(20, 20);
             this.label7.TabIndex = 114;
@@ -467,14 +434,14 @@
             this.cmbEmpresa.Items.AddRange(new object[] {
             "Por Cantidad Uso",
             "Por Tiempo Vida"});
-            this.cmbEmpresa.Location = new System.Drawing.Point(66, 88);
+            this.cmbEmpresa.Location = new System.Drawing.Point(66, 105);
             this.cmbEmpresa.Name = "cmbEmpresa";
             this.cmbEmpresa.Size = new System.Drawing.Size(201, 28);
             this.cmbEmpresa.TabIndex = 2;
             // 
             // txtDireccion
             // 
-            this.txtDireccion.Location = new System.Drawing.Point(66, 430);
+            this.txtDireccion.Location = new System.Drawing.Point(66, 432);
             this.txtDireccion.MaxLength = 200;
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(410, 25);
@@ -482,7 +449,7 @@
             // 
             // label5
             // 
-            this.label5.Location = new System.Drawing.Point(76, 410);
+            this.label5.Location = new System.Drawing.Point(76, 412);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(132, 20);
             this.label5.TabIndex = 112;
@@ -490,7 +457,7 @@
             // 
             // label2
             // 
-            this.label2.Location = new System.Drawing.Point(89, 63);
+            this.label2.Location = new System.Drawing.Point(89, 80);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(86, 20);
             this.label2.TabIndex = 109;
@@ -501,7 +468,7 @@
             // 
             this.label4.Font = new System.Drawing.Font("Trebuchet MS", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Red;
-            this.label4.Location = new System.Drawing.Point(68, 62);
+            this.label4.Location = new System.Drawing.Point(68, 79);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(20, 20);
             this.label4.TabIndex = 108;
@@ -510,7 +477,7 @@
             // 
             // txtNombreSucursal
             // 
-            this.txtNombreSucursal.Location = new System.Drawing.Point(66, 31);
+            this.txtNombreSucursal.Location = new System.Drawing.Point(66, 40);
             this.txtNombreSucursal.MaxLength = 150;
             this.txtNombreSucursal.Name = "txtNombreSucursal";
             this.txtNombreSucursal.Size = new System.Drawing.Size(410, 25);
@@ -518,7 +485,7 @@
             // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(87, 8);
+            this.label1.Location = new System.Drawing.Point(87, 17);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(175, 20);
             this.label1.TabIndex = 106;
@@ -529,7 +496,7 @@
             // 
             this.label3.Font = new System.Drawing.Font("Trebuchet MS", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Red;
-            this.label3.Location = new System.Drawing.Point(69, 11);
+            this.label3.Location = new System.Drawing.Point(69, 20);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(20, 20);
             this.label3.TabIndex = 105;
@@ -538,15 +505,15 @@
             // 
             // txtTelefono
             // 
-            this.txtTelefono.Location = new System.Drawing.Point(275, 270);
+            this.txtTelefono.Location = new System.Drawing.Point(280, 312);
             this.txtTelefono.MaxLength = 10;
             this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(201, 25);
+            this.txtTelefono.Size = new System.Drawing.Size(196, 25);
             this.txtTelefono.TabIndex = 9;
             // 
             // label14
             // 
-            this.label14.Location = new System.Drawing.Point(283, 247);
+            this.label14.Location = new System.Drawing.Point(283, 289);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(112, 20);
             this.label14.TabIndex = 90;
@@ -554,15 +521,15 @@
             // 
             // txtCodigoPostal
             // 
-            this.txtCodigoPostal.Location = new System.Drawing.Point(275, 216);
+            this.txtCodigoPostal.Location = new System.Drawing.Point(321, 246);
             this.txtCodigoPostal.MaxLength = 6;
             this.txtCodigoPostal.Name = "txtCodigoPostal";
-            this.txtCodigoPostal.Size = new System.Drawing.Size(201, 25);
+            this.txtCodigoPostal.Size = new System.Drawing.Size(155, 25);
             this.txtCodigoPostal.TabIndex = 7;
             // 
             // label12
             // 
-            this.label12.Location = new System.Drawing.Point(300, 183);
+            this.label12.Location = new System.Drawing.Point(331, 219);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(110, 27);
             this.label12.TabIndex = 77;
@@ -870,32 +837,32 @@
             this.label9.Text = "Establecer horario de la sucursal";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label24
+            // txtRepresentante
             // 
-            this.label24.Font = new System.Drawing.Font("Trebuchet MS", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.ForeColor = System.Drawing.Color.Red;
-            this.label24.Location = new System.Drawing.Point(69, 354);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(20, 19);
-            this.label24.TabIndex = 133;
-            this.label24.Text = "*";
-            this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.txtRepresentante.Location = new System.Drawing.Point(66, 372);
+            this.txtRepresentante.MaxLength = 300;
+            this.txtRepresentante.Name = "txtRepresentante";
+            this.txtRepresentante.Size = new System.Drawing.Size(410, 25);
+            this.txtRepresentante.TabIndex = 10;
             // 
-            // label25
+            // label22
             // 
-            this.label25.Location = new System.Drawing.Point(89, 355);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(184, 20);
-            this.label25.TabIndex = 132;
-            this.label25.Text = "Régimen Fiscal";
+            this.label22.Location = new System.Drawing.Point(89, 349);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(184, 20);
+            this.label22.TabIndex = 129;
+            this.label22.Text = "Nombre Representante";
             // 
-            // txtRegimenFiscal
+            // label23
             // 
-            this.txtRegimenFiscal.Location = new System.Drawing.Point(66, 378);
-            this.txtRegimenFiscal.MaxLength = 300;
-            this.txtRegimenFiscal.Name = "txtRegimenFiscal";
-            this.txtRegimenFiscal.Size = new System.Drawing.Size(410, 25);
-            this.txtRegimenFiscal.TabIndex = 131;
+            this.label23.Font = new System.Drawing.Font("Trebuchet MS", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.ForeColor = System.Drawing.Color.Red;
+            this.label23.Location = new System.Drawing.Point(69, 348);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(20, 19);
+            this.label23.TabIndex = 130;
+            this.label23.Text = "*";
+            this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // frmNuevaSucursal
             // 
@@ -996,9 +963,6 @@
         private System.Windows.Forms.TextBox txtRepresentante;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.TextBox txtRegimenFiscal;
     }
 }
 

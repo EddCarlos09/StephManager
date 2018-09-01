@@ -201,7 +201,7 @@ namespace StephManager
                         this.LlenarGridProveedor();
                         this.btnAsignarGerente.Enabled = false;
                         break;
-                    case 8: this.IniciarGrid(this.dataGridView1, 14, this.ObtenerPropiedadesGridSucursales());
+                    case 8: this.IniciarGrid(this.dataGridView1, 15, this.ObtenerPropiedadesGridSucursales());
                         this.LlenarGridSucursales();
                         this.btnAsignarGerente.Enabled = true;
                         break;
@@ -1837,6 +1837,7 @@ namespace StephManager
                     DatosAux.PorcentajeMonedero = Convert.ToSingle(fila.Cells["PorcentajeMonedero"].Value.ToString());
                     DatosAux.rfc = fila.Cells["RFC"].Value.ToString();
                     DatosAux.Representante = fila.Cells["Representante"].Value.ToString();
+                    DatosAux.RegimenFiscal = fila.Cells["RegimenFiscal"].Value.ToString();
                 }
                 return DatosAux;
             }
@@ -2687,11 +2688,12 @@ namespace StephManager
                     {"IDPais",              "IDPais",               "IDPais",               1,          false,          125,        DataGridViewContentAlignment.MiddleCenter,      "",         true},
                     {"Nombre Sucursal",     "NombreSucursal",       "NombreSucursal",       1,          true,           250,        DataGridViewContentAlignment.MiddleLeft,        "",         true},
                     {"Tipo Usuario",        "TipoUsuario",          "TipoUsuario",          1,          true,           200,        DataGridViewContentAlignment.MiddleLeft,        "",         true},
-                    {"RFC",        "RFC",          "RFC",          1,          true,           200,        DataGridViewContentAlignment.MiddleLeft,        "",         true},
+                    {"RFC",                 "RFC",                  "RFC",                  1,          true,           200,        DataGridViewContentAlignment.MiddleLeft,        "",         true},
                     {"Direccion",           "Direccion",            "Direccion",            1,          true,           250,        DataGridViewContentAlignment.MiddleLeft,        "",         true},
                     {"Telefono",            "Telefono",             "Telefono",             1,          true,           125,        DataGridViewContentAlignment.MiddleLeft,        "",         true},
                     {"Codigo Postal",      "CodigoPostal",          "CodigoPostal",         1,          true,           125,        DataGridViewContentAlignment.MiddleLeft,        "",         true},
-                    {"Nombre Representante",        "Representante",          "Representante",          1,          true,           250,        DataGridViewContentAlignment.MiddleLeft,        "",         true},
+                    {"Nombre Representante","Representante",        "Representante",        1,          true,           250,        DataGridViewContentAlignment.MiddleLeft,        "",         true},
+                    {"Régimen Fiscal",      "RegimenFiscal",        "RegimenFiscal",        1,          true,           250,        DataGridViewContentAlignment.MiddleLeft,        "",         true},
                     {"Porcentaje Monedero","PorcentajeMonedero",    "PorcentajeMonedero",   1,          false,          125,        DataGridViewContentAlignment.MiddleLeft,        "C2",       true},
                 };
                 return Propiedades;
@@ -3178,9 +3180,9 @@ namespace StephManager
                 if (this.dataGridView1.SelectedRows.Count == 1)
                 {
                     this.CargarFormModificar(this.ObtenerDatos());
-                    this.RecargarGridPadecimiento();
+                    this.CargarGridCatalogo();
+                    //this.RecargarGridPadecimiento();
                 }
-                    
                 else
                 {
                     MessageBox.Show("Seleccione un registro.", Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);

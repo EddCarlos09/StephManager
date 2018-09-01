@@ -18,7 +18,7 @@ namespace CreativaSL.Dll.StephManager.Datos
             {
                 Datos.Completado = false;
                 int Resultado = 0;
-                SqlDataReader dr = SqlHelper.ExecuteReader(Datos.Conexion, CommandType.StoredProcedure, "spCSLDB_abc_CatServicio",
+                SqlDataReader dr = SqlHelper.ExecuteReader(Datos.Conexion, CommandType.StoredProcedure, "Produccion.spCSLDB_abc_CatServicio",
                      new SqlParameter("@Opcion", Datos.Opcion),
                      new SqlParameter("@IDProducto", Datos.IDServicio),
                      new SqlParameter("@IDFamilia", Datos.IDFamilia),

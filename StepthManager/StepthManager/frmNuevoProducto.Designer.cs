@@ -166,6 +166,11 @@
             this.cmbFamilia = new System.Windows.Forms.ComboBox();
             this.label27 = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.chkRequiereStock = new System.Windows.Forms.CheckBox();
+            this.txtStockMaximo = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.txtStockMinimo = new System.Windows.Forms.TextBox();
+            this.label22 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -181,6 +186,7 @@
             this.panel04_01.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProveedor)).BeginInit();
             this.panel05.SuspendLayout();
+            this.panel15.SuspendLayout();
             this.panel05_01.SuspendLayout();
             this.panel06.SuspendLayout();
             this.panel17.SuspendLayout();
@@ -677,10 +683,15 @@
             // 
             // panel15
             // 
+            this.panel15.Controls.Add(this.chkRequiereStock);
+            this.panel15.Controls.Add(this.txtStockMaximo);
+            this.panel15.Controls.Add(this.label20);
+            this.panel15.Controls.Add(this.txtStockMinimo);
+            this.panel15.Controls.Add(this.label22);
             this.panel15.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel15.Location = new System.Drawing.Point(756, 0);
+            this.panel15.Location = new System.Drawing.Point(504, 0);
             this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(252, 72);
+            this.panel15.Size = new System.Drawing.Size(504, 72);
             this.panel15.TabIndex = 1;
             // 
             // panel05_01
@@ -690,18 +701,18 @@
             this.panel05_01.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel05_01.Location = new System.Drawing.Point(0, 0);
             this.panel05_01.Name = "panel05_01";
-            this.panel05_01.Size = new System.Drawing.Size(756, 72);
+            this.panel05_01.Size = new System.Drawing.Size(504, 72);
             this.panel05_01.TabIndex = 0;
             // 
             // txtDescripcion
             // 
             this.txtDescripcion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtDescripcion.Location = new System.Drawing.Point(40, 21);
+            this.txtDescripcion.Location = new System.Drawing.Point(40, 19);
             this.txtDescripcion.MaxLength = 300;
             this.txtDescripcion.Multiline = true;
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtDescripcion.Size = new System.Drawing.Size(433, 49);
+            this.txtDescripcion.Size = new System.Drawing.Size(437, 49);
             this.txtDescripcion.TabIndex = 153;
             // 
             // label11
@@ -1757,6 +1768,53 @@
             this.label27.Text = "*";
             this.label27.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // chkRequiereStock
+            // 
+            this.chkRequiereStock.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.chkRequiereStock.Location = new System.Drawing.Point(11, 5);
+            this.chkRequiereStock.Name = "chkRequiereStock";
+            this.chkRequiereStock.Size = new System.Drawing.Size(156, 32);
+            this.chkRequiereStock.TabIndex = 34;
+            this.chkRequiereStock.Text = "¿Requiere Stock?";
+            this.chkRequiereStock.UseVisualStyleBackColor = true;
+            this.chkRequiereStock.CheckedChanged += new System.EventHandler(this.chkRequiereStock_CheckedChanged);
+            // 
+            // txtStockMaximo
+            // 
+            this.txtStockMaximo.Location = new System.Drawing.Point(325, 43);
+            this.txtStockMaximo.MaxLength = 15;
+            this.txtStockMaximo.Name = "txtStockMaximo";
+            this.txtStockMaximo.ReadOnly = true;
+            this.txtStockMaximo.Size = new System.Drawing.Size(169, 25);
+            this.txtStockMaximo.TabIndex = 36;
+            // 
+            // label20
+            // 
+            this.label20.Location = new System.Drawing.Point(186, 43);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(119, 20);
+            this.label20.TabIndex = 38;
+            this.label20.Text = "Stock Máximo";
+            this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // txtStockMinimo
+            // 
+            this.txtStockMinimo.Location = new System.Drawing.Point(325, 12);
+            this.txtStockMinimo.MaxLength = 15;
+            this.txtStockMinimo.Name = "txtStockMinimo";
+            this.txtStockMinimo.ReadOnly = true;
+            this.txtStockMinimo.Size = new System.Drawing.Size(169, 25);
+            this.txtStockMinimo.TabIndex = 35;
+            // 
+            // label22
+            // 
+            this.label22.Location = new System.Drawing.Point(186, 12);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(119, 20);
+            this.label22.TabIndex = 37;
+            this.label22.Text = "Stock Mínimo";
+            this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // frmNuevoProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -1791,6 +1849,8 @@
             this.panel04_01.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProveedor)).EndInit();
             this.panel05.ResumeLayout(false);
+            this.panel15.ResumeLayout(false);
+            this.panel15.PerformLayout();
             this.panel05_01.ResumeLayout(false);
             this.panel05_01.PerformLayout();
             this.panel06.ResumeLayout(false);
@@ -1974,6 +2034,11 @@
         private System.Windows.Forms.TextBox txtDescripcion;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.CheckBox chkRequiereStock;
+        private System.Windows.Forms.TextBox txtStockMaximo;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.TextBox txtStockMinimo;
+        private System.Windows.Forms.Label label22;
     }
 }
 

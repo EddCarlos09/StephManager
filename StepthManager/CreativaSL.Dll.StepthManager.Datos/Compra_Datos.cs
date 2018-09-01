@@ -493,7 +493,7 @@ namespace CreativaSL.Dll.StephManager.Datos
             try
             {
                 Datos.Completado = false;
-                SqlDataReader Dr = SqlHelper.ExecuteReader(Datos.Conexion, "spCSLDB_set_ProcesarCompra", Datos.IDCompra, Datos.IDUsuario);
+                SqlDataReader Dr = SqlHelper.ExecuteReader(Datos.Conexion, "Produccion.spCSLDB_set_ProcesarCompra", Datos.IDCompra, Datos.IDUsuario);
                 while (Dr.Read())
                 {
                     Datos.Resultado = !Dr.IsDBNull(Dr.GetOrdinal("Resultado")) ? Dr.GetInt32(Dr.GetOrdinal("Resultado")) : 0;

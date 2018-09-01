@@ -16,7 +16,7 @@ namespace CreativaSL.Dll.StephManager.Datos
             {
                 Datos.Completado = false;
                 object [] Parametros = { Datos.IDProducto, Datos.IDSucursal, Datos.RequiereStock, Datos.StockMinimo, Datos.StockMaximo, Datos.IDUsuario };
-                object Result = SqlHelper.ExecuteScalar(Datos.Conexion, "spCSLDB_set_ActualizarDatosInventario", Parametros);
+                object Result = SqlHelper.ExecuteScalar(Datos.Conexion, "Produccion.spCSLDB_set_ActualizarDatosInventario", Parametros);
                 if (Result != null)
                 {
                     int Resultado = 0;
@@ -37,7 +37,7 @@ namespace CreativaSL.Dll.StephManager.Datos
             {
                 Datos.Completado = false;
                 object[] Parametros = { Datos.IDProducto, Datos.IDSucursal, Datos.EsPositivo, Datos.CantidadAjuste, Datos.MotivoAjuste, Datos.IDUsuario };
-                object Result = SqlHelper.ExecuteScalar(Datos.Conexion, "spCSLDB_set_InventarioAjuste", Parametros);
+                object Result = SqlHelper.ExecuteScalar(Datos.Conexion, "Produccion.spCSLDB_set_InventarioAjuste", Parametros);
                 if (Result != null)
                 {
                     int Resultado = 0;
@@ -59,7 +59,7 @@ namespace CreativaSL.Dll.StephManager.Datos
             {
                 Datos.Completado = false;
                 object[] Parametros = { Datos.IDSucursalOrigen, Datos.IDSucursalDestino, Datos.IDProducto, Datos.Cantidad, Datos.IDUsuario };
-                object Result = SqlHelper.ExecuteScalar(Datos.Conexion, "spCSLDB_set_InventarioTransferencia", Parametros);
+                object Result = SqlHelper.ExecuteScalar(Datos.Conexion, "Produccion.spCSLDB_set_InventarioTransferencia", Parametros);
                 if (Result != null)
                 {
                     int Resultado = 0;

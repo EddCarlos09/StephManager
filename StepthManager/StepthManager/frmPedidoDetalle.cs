@@ -58,7 +58,7 @@ namespace StephManager
             }
         }
 
-        private void CargarDatosAModificar(Pedido Datos)
+        private void IniciarDatos(Pedido Datos)
         {
             try
             {
@@ -68,8 +68,6 @@ namespace StephManager
                     this.txtEstatus.Text = this._DatosPedido.Estatus;
                     this.dgvPedidoDetalle.AutoGenerateColumns = false;
                     this.dgvPedidoDetalle.DataSource = ObtenerDetallePedidoXID(this._DatosPedido.IDPedido);
-                    this.DibujarColoresGrid();
-                    //this.CargarGridPedidoDetalle();
                 }
             }
             catch (Exception ex)
@@ -82,7 +80,7 @@ namespace StephManager
         {
             try
             {
-                this.CargarDatosAModificar(this._DatosPedido);
+                this.IniciarDatos(this._DatosPedido);
                 this.ActiveControl = this.btnCancelar;
                 this.btnCancelar.Focus();
 
@@ -97,65 +95,43 @@ namespace StephManager
             }
         }
 
-        private DataTable ObtenerDetallePedidoXID(string IDPedido)
+        private PedidoDetalle ObtenerDatosGrid(int Row)
+        {
+            try
+            {
+                PedidoDetalle _Datos = new PedidoDetalle();
+                DataGridViewRow Fila = this.dgvPedidoDetalle.Rows[Row];
+                _Datos.IDPedidoDetalle = Fila.Cells["IDPedidoDetalle"].Value.ToString();
+                _Datos.IDProducto = Fila.Cells["IDProducto"].Value.ToString();
+                _Datos.NombreProducto = Fila.Cells["Producto"].Value.ToString();
+                _Datos.ClaveProducto = Fila.Cells["Clave"].Value.ToString();
+                return _Datos;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        private List<PedidoDetalle> ObtenerDetallePedidoXID(string IDPedido)
         {
             try
             {
                 Pedido_Negocio PedNeg = new Pedido_Negocio();
                 Pedido Datos = new Pedido { IDPedido = IDPedido, Conexion = Comun.Conexion };
-                PedNeg.ObtenerPedidoDetalleComparativo(Datos);
-                return Datos.TablaDatos;
+                return PedNeg.ObtenerDetallePedido(Datos);
             }
             catch (Exception ex)
             {
                 throw ex;
             }
         }
-
-        private void DibujarColoresGrid()
-        {
-            try
-            {
-                foreach (DataGridViewRow Fila in this.dgvPedidoDetalle.Rows)
-                {
-                    bool CumpleMetrica = false;
-                    bool.TryParse(Fila.Cells["CumpleMetrica"].Value.ToString(), out CumpleMetrica);
-                    if (CumpleMetrica)
-                    {
-                        //Fila.DefaultCellStyle.BackColor = Color.Green;
-                        Fila.Cells["CantidadMetrica"].Style.BackColor = Color.Green;
-                    }
-                    else
-                    {
-                        //Fila.DefaultCellStyle.BackColor = Color.Red;
-                        Fila.Cells["CantidadMetrica"].Style.BackColor = Color.Red;
-                    }
-                    Fila.Selected = false;
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
+        
         #endregion
 
         #region Eventos
 
-
-        private void dgvPedidoDetalle_Sorted(object sender, EventArgs e)
-        {
-            try
-            {
-                this.DibujarColoresGrid();
-            }
-            catch (Exception ex)
-            {
-                LogError.AddExcFileTxt(ex, "dgvPedidoDetalle_Sorted");
-            }
-        }
-
+        
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
@@ -184,5 +160,26 @@ namespace StephManager
         }
 
         #endregion
+
+        private void dgvPedidoDetalle_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (e.RowIndex >= 0)
+                {
+                    PedidoDetalle DatosFila = this.ObtenerDatosGrid(e.RowIndex);
+                    DatosFila.IDPedido = DatosPedido.IDPedido;
+                    DatosFila.FolioPedido = DatosPedido.FolioPedido;
+                    frmPedidoDetalleClaves DetalleClaves = new frmPedidoDetalleClaves(DatosFila);
+                    DetalleClaves.ShowDialog();
+                    DetalleClaves.Dispose();
+                }
+            }
+            catch (Exception ex)
+            {
+                LogError.AddExcFileTxt(ex, "frmPedidoSurtir ~ dgvPedidoDetalle_CellDoubleClick");
+                MessageBox.Show(Comun.MensajeError, Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

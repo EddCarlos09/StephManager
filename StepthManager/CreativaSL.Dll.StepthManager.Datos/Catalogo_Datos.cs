@@ -105,6 +105,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                       new SqlParameter("@TablaSucursalesHorario", Datos.TablaSucursalesHorario),
                       new SqlParameter("@RFC", Datos.rfc),
                       new SqlParameter("@NombreRepresentante", Datos.Representante),
+                      new SqlParameter("@RegimenFiscal", Datos.RegimenFiscal),
                       new SqlParameter("@IDUsuario", Datos.IDUsuario)
                       );
                 Datos.Completado = false;

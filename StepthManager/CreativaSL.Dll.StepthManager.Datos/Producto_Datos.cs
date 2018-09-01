@@ -19,7 +19,7 @@ namespace CreativaSL.Dll.StephManager.Datos
             {
                 Datos.Completado = false;
                 int Resultado = 0;
-                SqlDataReader dr = SqlHelper.ExecuteReader(Datos.Conexion, CommandType.StoredProcedure, "spCSLDB_abc_CatProductos",
+                SqlDataReader dr = SqlHelper.ExecuteReader(Datos.Conexion, CommandType.StoredProcedure, "Produccion.spCSLDB_abc_CatProductos",
                      new SqlParameter("@Opcion", Datos.Opcion),
                      new SqlParameter("@IDProducto", Datos.IDProducto),
                      new SqlParameter("@IDTipoProducto", Datos.IDTipoProducto),
@@ -51,6 +51,11 @@ namespace CreativaSL.Dll.StephManager.Datos
                      new SqlParameter("@ViernesPrecioEsp", Datos.PrecioEspecialViernes),
                      new SqlParameter("@SabadoPrecioEsp", Datos.PrecioEspecialSabado),
                      new SqlParameter("@DomingoPrecioEsp", Datos.PrecioEspecialDomingo),
+
+                     new SqlParameter("@RequiereStock", Datos.RequiereStock),
+                     new SqlParameter("@StockMaximo", Datos.StockMaximo),
+                     new SqlParameter("@StockMinimo", Datos.StockMinimo),
+
                      new SqlParameter("@UrlImagen", Datos.UrlImagen),
                      new SqlParameter("@Imagen", Datos.Imagen),
                      new SqlParameter("@TablaProveedor", Datos.TablaProveedores),
@@ -135,7 +140,7 @@ namespace CreativaSL.Dll.StephManager.Datos
             try
             {
                 Producto DatosResultado = new Producto();
-                SqlDataReader Dr = SqlHelper.ExecuteReader(Datos.Conexion, "spCSLDB_get_ProductoDetalleXID", Datos.IDProducto);
+                SqlDataReader Dr = SqlHelper.ExecuteReader(Datos.Conexion, "Produccion.spCSLDB_get_ProductoDetalleXID", Datos.IDProducto);
                 while (Dr.Read())
                 {
                     DatosResultado.IDProducto = Datos.IDProducto;
@@ -169,6 +174,10 @@ namespace CreativaSL.Dll.StephManager.Datos
                     DatosResultado.PrecioEspecialSabado = Dr.IsDBNull(Dr.GetOrdinal("AplicaSabado")) ? false : Dr.GetBoolean(Dr.GetOrdinal("AplicaSabado"));
                     DatosResultado.PrecioEspecialDomingo = Dr.IsDBNull(Dr.GetOrdinal("AplicaDomingo")) ? false : Dr.GetBoolean(Dr.GetOrdinal("AplicaDomingo"));
                     DatosResultado.UrlImagen = Dr.IsDBNull(Dr.GetOrdinal("UrlImagen")) ? string.Empty : Dr.GetString(Dr.GetOrdinal("UrlImagen"));
+
+                    DatosResultado.RequiereStock = !Dr.IsDBNull(Dr.GetOrdinal("RequiereStock")) ? Dr.GetBoolean(Dr.GetOrdinal("RequiereStock")) : false;
+                    DatosResultado.StockMaximo = !Dr.IsDBNull(Dr.GetOrdinal("StockMaximo")) ? Dr.GetDecimal(Dr.GetOrdinal("StockMaximo")) : 0;
+                    DatosResultado.StockMaximo = !Dr.IsDBNull(Dr.GetOrdinal("StockMinimo")) ? Dr.GetDecimal(Dr.GetOrdinal("StockMinimo")) : 0;
                     break;
                 }
                 Dr.Close();
@@ -268,7 +277,7 @@ namespace CreativaSL.Dll.StephManager.Datos
         {
             try
             {
-                DataSet Ds = SqlHelper.ExecuteDataset(Datos.Conexion, "spCSLDB_get_InventarioProductosXSuc", Datos.IDSucursal, Datos.NombreProducto);
+                DataSet Ds = SqlHelper.ExecuteDataset(Datos.Conexion, "Produccion.spCSLDB_get_InventarioProductosXSuc", Datos.IDSucursal, Datos.NombreProducto);
                 Datos.TablaDatos = new DataTable();
                 if (Ds != null)
                     if (Ds.Tables.Count == 1)
@@ -284,7 +293,7 @@ namespace CreativaSL.Dll.StephManager.Datos
         {
             try
             {
-                DataSet Ds = SqlHelper.ExecuteDataset(Datos.Conexion, "spCSLDB_get_InventarioProductosMatriz", Datos.IDSucursal);
+                DataSet Ds = SqlHelper.ExecuteDataset(Datos.Conexion, "Produccion.spCSLDB_get_InventarioProductosMatriz", Datos.IDSucursal);
                 Datos.TablaDatos = new DataTable();
                 if (Ds != null)
                     if (Ds.Tables.Count == 1)
@@ -300,7 +309,7 @@ namespace CreativaSL.Dll.StephManager.Datos
             try
             {
                 int Resultado = 0;
-                SqlDataReader Dr = SqlHelper.ExecuteReader(Datos.Conexion, CommandType.StoredProcedure, "spCSLDB_a_InventarioExcel",
+                SqlDataReader Dr = SqlHelper.ExecuteReader(Datos.Conexion, CommandType.StoredProcedure, "Produccion.spCSLDB_a_InventarioExcel",
                      new SqlParameter("@IDSucursal", Datos.IDSucursal),
                      new SqlParameter("@ImportarExcel", Datos.ImportarExcel),
                      new SqlParameter("@IDUsuario", Datos.IDUsuario)
@@ -337,7 +346,7 @@ namespace CreativaSL.Dll.StephManager.Datos
             try
             {
                 object[] Parametros = { Datos.NuevoRegistro, Datos.IDProducto, Datos.Clave, Datos.NombreProducto, Datos.PrecioNormal, Datos.Imagen, Datos.IDUsuario };
-                object Result = SqlHelper.ExecuteScalar(Datos.Conexion, "spCSLDB_get_ACTarjetasRegalo", Parametros);
+                object Result = SqlHelper.ExecuteScalar(Datos.Conexion, "Produccion.spCSLDB_get_ACTarjetasRegalo", Parametros);
                 if (Result != null)
                 {
                     int Resultado = 0;
@@ -416,7 +425,7 @@ namespace CreativaSL.Dll.StephManager.Datos
             try
             {
                 object[] Parametros = { Datos.IDProducto, Datos.IDSucursal, Datos.Cantidad, Datos.IDUsuario };
-                object Result = SqlHelper.ExecuteScalar(Datos.Conexion, "spCSLDB_set_EnviarTarjetasRegalo", Parametros);
+                object Result = SqlHelper.ExecuteScalar(Datos.Conexion, "Produccion.spCSLDB_set_EnviarTarjetasRegalo", Parametros);
                 if (Result != null)
                 {
                     int Resultado = 0;
@@ -461,6 +470,72 @@ namespace CreativaSL.Dll.StephManager.Datos
                         Datos.TablaDatos = ds.Tables[0];
             }
             catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
+        public Producto ObtenerPreciosXIDSucursal(Producto Datos)
+        {
+            try
+            {
+                Producto Resultado = new Producto();
+                SqlDataReader Dr = SqlHelper.ExecuteReader(Datos.Conexion, "Produccion.spCSLDB_get_PreciosXIDSucXIDProd", Datos.IDProducto, Datos.IDSucursal);
+                while(Dr.Read())
+                {
+                    Resultado.IDProducto = !Dr.IsDBNull(Dr.GetOrdinal("IDProducto")) ? Dr.GetString(Dr.GetOrdinal("IDProducto")) : string.Empty;
+                    Resultado.PrecioNormal = Dr.IsDBNull(Dr.GetOrdinal("PrecioNormal")) ? 0 : Dr.GetDecimal(Dr.GetOrdinal("PrecioNormal"));
+                    Resultado.AplicaPrecioMayoreo = Dr.IsDBNull(Dr.GetOrdinal("AplicaPrecioMayoreo")) ? false : Dr.GetBoolean(Dr.GetOrdinal("AplicaPrecioMayoreo"));
+                    Resultado.PrecioMayoreo = Dr.IsDBNull(Dr.GetOrdinal("PrecioMayoreo")) ? 0 : Dr.GetDecimal(Dr.GetOrdinal("PrecioMayoreo"));
+                    Resultado.CantidadMayoreo = Dr.IsDBNull(Dr.GetOrdinal("CantidadMayoreo")) ? 0 : Dr.GetInt32(Dr.GetOrdinal("CantidadMayoreo"));
+                    Resultado.AplicaPrecioTemporada = Dr.IsDBNull(Dr.GetOrdinal("AplicaPrecioTemporada")) ? false : Dr.GetBoolean(Dr.GetOrdinal("AplicaPrecioTemporada"));
+                    Resultado.PrecioTemporada = Dr.IsDBNull(Dr.GetOrdinal("PrecioTemporada")) ? 0 : Dr.GetDecimal(Dr.GetOrdinal("PrecioTemporada"));
+                    Resultado.FechaInicioTemp = Dr.IsDBNull(Dr.GetOrdinal("FechaInicioTemporada")) ? DateTime.Today : Dr.GetDateTime(Dr.GetOrdinal("FechaInicioTemporada"));
+                    Resultado.FechaFinTemp = Dr.IsDBNull(Dr.GetOrdinal("FechaFinTemporada")) ? DateTime.Today : Dr.GetDateTime(Dr.GetOrdinal("FechaFinTemporada"));
+                    Resultado.AplicaPrecioEspecial = Dr.IsDBNull(Dr.GetOrdinal("AplicaPrecioEspecial")) ? false : Dr.GetBoolean(Dr.GetOrdinal("AplicaPrecioEspecial"));
+                    Resultado.PrecioEspecial = Dr.IsDBNull(Dr.GetOrdinal("PrecioEspecial")) ? 0 : Dr.GetDecimal(Dr.GetOrdinal("PrecioEspecial"));
+                    Resultado.PrecioEspecialLunes = Dr.IsDBNull(Dr.GetOrdinal("AplicaLunes")) ? false : Dr.GetBoolean(Dr.GetOrdinal("AplicaLunes"));
+                    Resultado.PrecioEspecialMartes = Dr.IsDBNull(Dr.GetOrdinal("AplicaMartes")) ? false : Dr.GetBoolean(Dr.GetOrdinal("AplicaMartes"));
+                    Resultado.PrecioEspecialMiercoles = Dr.IsDBNull(Dr.GetOrdinal("AplicaMiercoles")) ? false : Dr.GetBoolean(Dr.GetOrdinal("AplicaMiercoles"));
+                    Resultado.PrecioEspecialJueves = Dr.IsDBNull(Dr.GetOrdinal("AplicaJueves")) ? false : Dr.GetBoolean(Dr.GetOrdinal("AplicaJueves"));
+                    Resultado.PrecioEspecialViernes = Dr.IsDBNull(Dr.GetOrdinal("AplicaViernes")) ? false : Dr.GetBoolean(Dr.GetOrdinal("AplicaViernes"));
+                    Resultado.PrecioEspecialSabado = Dr.IsDBNull(Dr.GetOrdinal("AplicaSabado")) ? false : Dr.GetBoolean(Dr.GetOrdinal("AplicaSabado"));
+                    Resultado.PrecioEspecialDomingo = Dr.IsDBNull(Dr.GetOrdinal("AplicaDomingo")) ? false : Dr.GetBoolean(Dr.GetOrdinal("AplicaDomingo"));
+                    break;
+                }
+                Dr.Close();
+                return Resultado;
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public bool GuardarPrecioXIDSucursal(Producto Datos)
+        {
+            try
+            {
+                object[] Parametros = { Datos.IDProducto, Datos.IDSucursal, Datos.PrecioNormal,
+                                        Datos.AplicaPrecioMayoreo, Datos.PrecioMayoreo, Datos.CantidadMayoreo,
+                                        Datos.AplicaPrecioTemporada, Datos.PrecioTemporada, Datos.FechaInicioTemp,
+                                        Datos.FechaFinTemp, Datos.AplicaPrecioEspecial, Datos.PrecioEspecial,
+                                        Datos.PrecioEspecialLunes, Datos.PrecioEspecialMartes, Datos.PrecioEspecialMiercoles,
+                                        Datos.PrecioEspecialJueves, Datos.PrecioEspecialViernes, Datos.PrecioEspecialSabado,
+                                        Datos.PrecioEspecialDomingo, Datos.IDUsuario };
+                object Result = SqlHelper.ExecuteScalar(Datos.Conexion, "Produccion.spCSLDB_set_PreciosXSucursal", Parametros);
+                if(Result!= null)
+                {
+                    int Resultado = 0;
+                    if(int.TryParse(Result.ToString(), out Resultado))
+                    {
+                        return Resultado == 1;
+                    }
+                }
+                return false;
+            }
+            catch(Exception ex)
             {
                 throw ex;
             }

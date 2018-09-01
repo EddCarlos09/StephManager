@@ -93,7 +93,7 @@ namespace CreativaSL.Dll.StephManager.Datos
             try
             {
                 object[] Parametros = { Datos.Opcion, Datos.BuscarTodos };
-                DataSet ds = SqlHelper.ExecuteDataset(Datos.Conexion, "spCSLDB_get_PedidosTab", Parametros);
+                DataSet ds = SqlHelper.ExecuteDataset(Datos.Conexion, "Produccion.spCSLDB_get_PedidosTab", Parametros);
                 Datos.TablaDatos = new DataTable();
                 if (ds != null)
                     if (ds.Tables.Count == 1)
@@ -110,7 +110,7 @@ namespace CreativaSL.Dll.StephManager.Datos
             try
             {
                 object[] Parametros = { Datos.Opcion, Datos.BuscarTodos, Datos.FolioPedido };
-                DataSet ds = SqlHelper.ExecuteDataset(Datos.Conexion, "spCSLDB_get_PedidosTabBusq", Parametros);
+                DataSet ds = SqlHelper.ExecuteDataset(Datos.Conexion, "Produccion.spCSLDB_get_PedidosTabBusq", Parametros);
                 Datos.TablaDatos = new DataTable();
                 if (ds != null)
                     if (ds.Tables.Count == 1)
@@ -122,7 +122,7 @@ namespace CreativaSL.Dll.StephManager.Datos
             }
         }
 
-        public List<PedidoDetalle> ObtenerDetallePedido(Pedido Datos)
+        public List<PedidoDetalle> ObtenerDetallePedidoClaves(Pedido Datos)
         {
             try
             {
@@ -156,12 +156,43 @@ namespace CreativaSL.Dll.StephManager.Datos
             }
         }
 
-        public void ObtenerPedidoDetalleComparativo(Pedido Datos)
+        public List<PedidoDetalle> ObtenerDetallePedido(Pedido Datos)
         {
             try
             {
+                List<PedidoDetalle> Lista = new List<PedidoDetalle>();
+                PedidoDetalle Item;
+                SqlDataReader Dr = SqlHelper.ExecuteReader(Datos.Conexion, "Produccion.spCSLDB_get_PedidoDetalleXID", Datos.IDPedido);
+                while (Dr.Read())
+                {
+                    Item = new PedidoDetalle();
+                    Item.IDPedidoDetalle = Dr.GetString(Dr.GetOrdinal("IDPedidoDetalle"));
+                    Item.IDProducto = Dr.GetString(Dr.GetOrdinal("IDProducto"));
+                    Item.ClaveProducto = Dr.GetString(Dr.GetOrdinal("Clave"));
+                    Item.NombreProducto = Dr.GetString(Dr.GetOrdinal("NombreProducto"));
+                    Item.Cantidad = Dr.GetDecimal(Dr.GetOrdinal("Cantidad"));
+                    Item.Completo = Dr.GetBoolean(Dr.GetOrdinal("Completo"));
+                    Item.CantidadSurtida = Dr.GetDecimal(Dr.GetOrdinal("CantidadSurtida"));
+                    Item.CantidadPendiente = (Item.Cantidad > Item.CantidadSurtida) ? Item.Cantidad - Item.CantidadSurtida : 0;
+                    Item.CantidadASurtir = Item.CantidadPendiente;
+                    Lista.Add(Item);
+                }
+                Dr.Close();
+                return Lista;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public PedidoDetalle ObtenerPedidoDetalleComparativo(string IDPedido, string IDProducto, string Conexion)
+        {
+            try
+            {
+                PedidoDetalle Datos = new PedidoDetalle();
                 Datos.Completado = false;
-                DataSet Ds = SqlHelper.ExecuteDataset(Datos.Conexion, "spCSLDB_get_PedidoDetalleComparativo", Datos.IDPedido);
+                DataSet Ds = SqlHelper.ExecuteDataset(Conexion, "Produccion.spCSLDB_get_PedidoDetalleComparativo", IDPedido, IDProducto);
                 if(Ds != null)
                 {
                     if(Ds.Tables.Count == 1)
@@ -170,6 +201,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                         Datos.TablaDatos = Ds.Tables[0];
                     }
                 }
+                return Datos;
             }
             catch (Exception ex)
             {
@@ -182,7 +214,7 @@ namespace CreativaSL.Dll.StephManager.Datos
             try
             {
                 int Resultado = 0;
-                DataSet Ds = SqlHelper.ExecuteDataset(Datos.Conexion, CommandType.StoredProcedure, "spCSLDB_set_SurtirPedido",
+                DataSet Ds = SqlHelper.ExecuteDataset(Datos.Conexion, CommandType.StoredProcedure, "Produccion.spCSLDB_set_SurtirPedido",
                      new SqlParameter("@IDPedido", Datos.IDPedido),
                      new SqlParameter("@IDSucursalMatriz", Datos.IDSucursal),
                      new SqlParameter("@TablaCant", Datos.TablaDatos),
@@ -302,6 +334,63 @@ namespace CreativaSL.Dll.StephManager.Datos
                 }
             }
             catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
+        public void FinalizarPedido(Pedido Datos)
+        {
+            try
+            {
+                Datos.Completado = false;
+                object Result = SqlHelper.ExecuteScalar(Datos.Conexion, "Produccion.spCSLDB_set_FinalizarPedido", Datos.IDPedido, Datos.IDUsuario);
+                if(Result != null)
+                {
+                    int Resultado = 0;
+                    if(int.TryParse(Result.ToString(), out Resultado))
+                    {
+                        Datos.Completado = (Resultado == 1);
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public void AgregarProducto(PedidoDetalle Datos)
+        {
+            try
+            {
+                Datos.Completado = false;
+                object[] Parametros = { Datos.IDPedido, Datos.IDProducto, Datos.IDUsuario };
+                SqlDataReader Dr = SqlHelper.ExecuteReader(Datos.Conexion, "Produccion.spCSLDB_set_AgregarProductoPedidoAdmin", Parametros);
+                //object Result = SqlHelper.ExecuteScalar(Datos.Conexion, "Produccion.spCSLDB_set_AgregarProductoPedidoAdmin", Parametros);
+                //if(Result!= null)
+                //{
+                //    int Resultado = 0;
+                //    if(int.TryParse(Result.ToString(), out Resultado))
+                //    {
+                //        Datos.Completado = (Resultado == 1);
+                //        Datos.Resultado = Resultado;
+                //    }
+                //}
+                while (Dr.Read())
+                {
+                    int Resultado = !Dr.IsDBNull(Dr.GetOrdinal("Resultado")) ? Dr.GetInt32(Dr.GetOrdinal("Resultado")) : 0;
+                    if (Resultado == 1)
+                    {
+                        Datos.Completado = true;
+                        Datos.Resultado = Resultado;
+                        Datos.IDPedidoDetalle = !Dr.IsDBNull(Dr.GetOrdinal("IDPedidoDetalle")) ? Dr.GetString(Dr.GetOrdinal("IDPedidoDetalle")) : string.Empty;
+                    }
+                }
+                Dr.Close();
+            }
+            catch(Exception ex)
             {
                 throw ex;
             }

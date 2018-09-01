@@ -262,5 +262,32 @@ namespace CreativaSL.Dll.StephManager.Negocio
                 throw ex;
             }
         }
+
+        public Producto ObtenerPreciosXIDSucursal(Producto Datos)
+        {
+            try
+            {
+                Producto_Datos ProdDatos = new Producto_Datos();
+                return ProdDatos.ObtenerPreciosXIDSucursal(Datos);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public bool GuardarPrecioXIDSucursal(Producto Datos)
+        {
+            try
+            {
+                Producto_Datos ProdDatos = new Producto_Datos();
+                return ProdDatos.GuardarPrecioXIDSucursal(Datos);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
     }
 }

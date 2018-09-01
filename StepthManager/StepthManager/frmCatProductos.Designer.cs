@@ -58,6 +58,7 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label42 = new System.Windows.Forms.Label();
+            this.btnPrecios = new CreativaSL.LibControls.WinForms.Button_Creativa();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -227,6 +228,7 @@
             // PanelMenu
             // 
             this.PanelMenu.BackColor = System.Drawing.Color.Gray;
+            this.PanelMenu.Controls.Add(this.btnPrecios);
             this.PanelMenu.Controls.Add(this.btnSalir);
             this.PanelMenu.Controls.Add(this.btnEliminar);
             this.PanelMenu.Controls.Add(this.btnModificar);
@@ -506,7 +508,6 @@
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(1008, 80);
             this.panel6.TabIndex = 2;
-            this.panel6.Paint += new System.Windows.Forms.PaintEventHandler(this.panel6_Paint);
             // 
             // pictureBox1
             // 
@@ -529,6 +530,40 @@
             this.label42.Size = new System.Drawing.Size(250, 55);
             this.label42.TabIndex = 24;
             this.label42.Text = "Productos";
+            // 
+            // btnPrecios
+            // 
+            this.btnPrecios.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnPrecios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(108)))), ((int)(((byte)(114)))));
+            this.btnPrecios.BorderColor = System.Drawing.Color.Red;
+            this.btnPrecios.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(108)))), ((int)(((byte)(114)))));
+            this.btnPrecios.BorderMouseOverColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnPrecios.BorderNoFocusColor = System.Drawing.Color.Red;
+            this.btnPrecios.FocusRectangle = true;
+            this.btnPrecios.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrecios.ForeColor = System.Drawing.Color.White;
+            this.btnPrecios.Image = null;
+            this.btnPrecios.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnPrecios.ImageBorderColor = System.Drawing.Color.Red;
+            this.btnPrecios.ImageFocused = null;
+            this.btnPrecios.ImageInactive = null;
+            this.btnPrecios.ImageMouseOver = global::StephManager.Properties.Resources._0000s_0001s_0011_gastos_a;
+            this.btnPrecios.ImageNormal = global::StephManager.Properties.Resources._0000s_0001s_0011_gastos;
+            this.btnPrecios.ImagePressed = null;
+            this.btnPrecios.ImageSize = new System.Drawing.Size(44, 44);
+            this.btnPrecios.KeyButton = System.Windows.Forms.Keys.F1;
+            this.btnPrecios.KeyButtonView = false;
+            this.btnPrecios.Location = new System.Drawing.Point(580, 5);
+            this.btnPrecios.ModeGradient = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            this.btnPrecios.MouseOverColor = System.Drawing.Color.Red;
+            this.btnPrecios.Name = "btnPrecios";
+            this.btnPrecios.OffsetPressedContent = true;
+            this.btnPrecios.Size = new System.Drawing.Size(80, 70);
+            this.btnPrecios.TabIndex = 21;
+            this.btnPrecios.Text = "Precios ";
+            this.btnPrecios.TextDropShadow = true;
+            this.btnPrecios.UseVisualStyleBackColor = false;
+            this.btnPrecios.Click += new System.EventHandler(this.btnPrecios_Click);
             // 
             // frmCatProductos
             // 
@@ -595,6 +630,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn TipoUso;
         private System.Windows.Forms.DataGridViewTextBoxColumn TipoMetrica;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private CreativaSL.LibControls.WinForms.Button_Creativa btnPrecios;
     }
 }
 

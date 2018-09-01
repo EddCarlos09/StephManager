@@ -76,6 +76,19 @@ namespace CreativaSL.Dll.StephManager.Negocio
             }
         }
 
+        public List<PedidoDetalle> ObtenerDetallePedidoClaves(Pedido Datos)
+        {
+            try
+            {
+                Pedido_Datos PD = new Pedido_Datos();
+                return PD.ObtenerDetallePedidoClaves(Datos);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public List<PedidoDetalle> ObtenerDetallePedido(Pedido Datos)
         {
             try
@@ -89,12 +102,12 @@ namespace CreativaSL.Dll.StephManager.Negocio
             }
         }
 
-        public void ObtenerPedidoDetalleComparativo(Pedido Datos)
+        public PedidoDetalle ObtenerPedidoDetalleComparativo(string IDPedido, string IDProducto, string Conexion)
         {
             try
             {
                 Pedido_Datos PD = new Pedido_Datos();
-                PD.ObtenerPedidoDetalleComparativo(Datos);
+                return PD.ObtenerPedidoDetalleComparativo(IDPedido, IDProducto, Conexion);
             }
             catch (Exception ex)
             {
@@ -167,5 +180,33 @@ namespace CreativaSL.Dll.StephManager.Negocio
                 throw ex;
             }
         }
+
+        public void FinalizarPedido(Pedido Datos)
+        {
+            try
+            {
+                Pedido_Datos PedDat = new Pedido_Datos();
+                PedDat.FinalizarPedido(Datos);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
+        public void AgregarProducto(PedidoDetalle Datos)
+        {
+            try
+            {
+                Pedido_Datos PedDat = new Pedido_Datos();
+                PedDat.AgregarProducto(Datos);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
     }
 }

@@ -218,6 +218,19 @@ namespace StephManager
                         this.pbImagen.SizeMode = PictureBoxSizeMode.Zoom;
                         this.pbImagen.ImageLocation = Path.Combine(System.Windows.Forms.Application.StartupPath, @"Resources\Productos\" + Datos.UrlImagen);
                     }
+
+                    this.chkRequiereStock.Checked = Datos.RequiereStock;
+                    if(Datos.RequiereStock)
+                    {
+                        this.txtStockMaximo.Text = string.Format("{0:F2}", Datos.StockMaximo);
+                        this.txtStockMinimo.Text = string.Format("{0:F2}", Datos.StockMinimo);
+                    }
+                    else
+                    {
+                        this.txtStockMaximo.Text = "0";
+                        this.txtStockMinimo.Text = "0";
+                    }
+
                     this.LlenarTablaMonederos(this._DatosProducto.IDProducto);
                     this.LlenarListaProveedores(this._DatosProducto.IDProducto);
                     this.ObtenerTablaProveedores(this._DatosProducto.IDProducto);
@@ -327,6 +340,9 @@ namespace StephManager
                 this.chkAplicaSabado.Enabled = false;
                 this.chkAplicaDomingo.Checked = false;
                 this.chkAplicaDomingo.Enabled = false;
+
+                this.txtStockMinimo.Text = "0";
+                this.txtStockMaximo.Text = "0";
 
                 this.LlenarTablaMonederos(string.Empty);
                 this.LlenarListaProveedores(string.Empty);
@@ -553,7 +569,10 @@ namespace StephManager
                 DatosAux.PrecioEspecialViernes = this.chkAplicaViernes.Checked;
                 DatosAux.PrecioEspecialSabado = this.chkAplicaSabado.Checked;
                 DatosAux.PrecioEspecialDomingo = this.chkAplicaDomingo.Checked;
-                
+
+                DatosAux.RequiereStock = this.chkRequiereStock.Checked;
+                DatosAux.StockMaximo = DatosAux.RequiereStock ? this.GetStockMaximo() : 0;
+                DatosAux.StockMinimo = DatosAux.RequiereStock ? this.GetStockMinimo() : 0;
                 DatosAux.UrlImagen = string.Empty;
                 DatosAux.Imagen = this.ObtenerImagenByte();
                 
@@ -562,6 +581,34 @@ namespace StephManager
                 DatosAux.Conexion = Comun.Conexion;
                 DatosAux.IDUsuario = Comun.IDUsuario;
                 return DatosAux;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        private decimal GetStockMaximo()
+        {
+            try
+            {
+                decimal _StockMax = 0;
+                decimal.TryParse(this.txtStockMaximo.Text, out _StockMax);
+                return _StockMax;
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        private decimal GetStockMinimo()
+        {
+            try
+            {
+                decimal _StockMin = 0;
+                decimal.TryParse(this.txtStockMinimo.Text, out _StockMin);
+                return _StockMin;
             }
             catch (Exception ex)
             {
@@ -916,6 +963,19 @@ namespace StephManager
                         && !this.chkAplicaDomingo.Checked)
                         Errores.Add(new Error { Numero = (Aux += 1), Descripcion = "Debe seleccionar al menos un día de la semana en Precio Especial", ControlSender = this.txtPrecioEspecial });
                 }
+
+                if (this.chkRequiereStock.Checked)
+                {
+                    decimal StockMinimo = GetStockMinimo();
+                    decimal StockMaximo = GetStockMaximo();
+                    if (StockMinimo < 0)
+                        Errores.Add(new Error { Numero = (Aux += 1), Descripcion = "El stock mínimo no puede ser menor a 0.", ControlSender = this.txtStockMinimo });
+                    if (StockMaximo <= 0)
+                        Errores.Add(new Error { Numero = (Aux += 1), Descripcion = "El stock Máximo debe ser mayor a 0.", ControlSender = this.txtStockMaximo });
+                    if (StockMinimo > StockMaximo)
+                        Errores.Add(new Error { Numero = (Aux += 1), Descripcion = "El stock Mínimo no puede ser mayor al Stock Máximo.", ControlSender = this.txtStockMaximo });
+                }
+
                 return Errores;
             }
             catch (Exception ex)
@@ -1296,7 +1356,7 @@ namespace StephManager
                 //Fila 04
                 this.panel04_01.Size = new Size((WidthPanel * 2) + 20, this.panel3.Height);
                 //Fila 05
-                this.panel05_01.Size = new Size(WidthPanel * 3, this.panel3.Height);
+                this.panel05_01.Size = new Size(WidthPanel * 2, this.panel3.Height);
                 //Fila06
                 this.panel06_01.Size = new Size(WidthPanel, this.panel3.Height);
                 this.panel06_02.Size = new Size(WidthPanel, this.panel3.Height);
@@ -1343,5 +1403,42 @@ namespace StephManager
 
         #endregion
 
+        private void chkRequiereStock_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (this.chkRequiereStock.Checked)
+                {
+                    this.txtStockMinimo.ReadOnly = false;
+                    this.txtStockMaximo.ReadOnly = false;
+                }
+                else
+                {
+                    this.txtStockMinimo.ReadOnly = true;
+                    this.txtStockMaximo.ReadOnly = true;
+                }
+                this.txtStockMinimo.Text = string.Format("{0:F0}", 0);
+                this.txtStockMaximo.Text = string.Format("{0:F0}", 0);
+            }
+            catch (Exception ex)
+            {
+                LogError.AddExcFileTxt(ex, "frmNuevoProducto ~ chkRequiereStock_CheckedChanged");
+            }
+        }
+
+        private void txtStock_Validating(object sender, CancelEventArgs e)
+        {
+            try
+            {
+                TextBox Stock = (TextBox)sender;
+                decimal StockDec = 0;
+                decimal.TryParse(Stock.Text, out StockDec);
+                Stock.Text = string.Format("{0:F0}", StockDec);
+            }
+            catch (Exception ex)
+            {
+                LogError.AddExcFileTxt(ex, "frmInventarioCambiar ~ txtStock_Validating");
+            }
+        }
     }
 }

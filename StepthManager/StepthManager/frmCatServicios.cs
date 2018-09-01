@@ -361,5 +361,32 @@ namespace StephManager
         {
 
         }
+
+        private void btnPrecios_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (this.dgvServicios.SelectedRows.Count == 1)
+                {
+                    Servicio DatosAux = this.ObtenerDatosServicios();
+                    if (!string.IsNullOrEmpty(DatosAux.IDServicio))
+                    {
+                        frmPreciosProductos Precios = new frmPreciosProductos(DatosAux.IDServicio);
+                        this.Visible = false;
+                        Precios.ShowDialog();
+                        Precios.Dispose();
+                        this.Visible = true;
+                    }
+                }
+                else
+                    MessageBox.Show("Seleccione un registro.", Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            catch (Exception ex)
+            {
+                LogError.AddExcFileTxt(ex, "frmCatServicios ~ btnPrecios_Click");
+                MessageBox.Show(Comun.MensajeError, Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Visible = true;
+            }
+        }
     }
 }

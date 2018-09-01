@@ -359,9 +359,31 @@ namespace StephManager
 
         #endregion
 
-        private void panel6_Paint(object sender, PaintEventArgs e)
+        private void btnPrecios_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                if (this.dgvProductos.SelectedRows.Count == 1)
+                {
+                    Producto DatosAux = this.ObtenerDatosProducto();
+                    if (!string.IsNullOrEmpty(DatosAux.IDProducto))
+                    {
+                        frmPreciosProductos Precios = new frmPreciosProductos(DatosAux.IDProducto);
+                        this.Visible = false;
+                        Precios.ShowDialog();
+                        Precios.Dispose();
+                        this.Visible = true;
+                    }
+                }
+                else
+                    MessageBox.Show("Seleccione un registro.", Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            catch (Exception ex)
+            {
+                LogError.AddExcFileTxt(ex, "frmCatProductos ~ btnPrecios_Click");
+                MessageBox.Show(Comun.MensajeError, Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Visible = true;
+            }
         }
     }
 }
