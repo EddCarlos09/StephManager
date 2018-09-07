@@ -226,12 +226,12 @@ namespace CreativaSL.Dll.StephManager.Negocio
             }
         }
 
-        public void EnviarTarjetasRegalo(Producto Datos)
+        public void EnviarTarjetasRegalo(Producto Datos, string IDSucursalMatriz)
         {
             try
             {
                 Producto_Datos PD = new Producto_Datos();
-                PD.EnviarTarjetasRegalo(Datos);
+                PD.EnviarTarjetasRegalo(Datos, IDSucursalMatriz);
             }
             catch (Exception ex)
             {

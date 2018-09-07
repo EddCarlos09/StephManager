@@ -41,6 +41,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                     Datos.PagoDiasVacaciones = Dr.IsDBNull(Dr.GetOrdinal("PagoDiasVacaciones")) ? 0 : Dr.GetDecimal(Dr.GetOrdinal("PagoDiasVacaciones"));
                     Datos.TextoTicket = Dr.IsDBNull(Dr.GetOrdinal("TextoTicket")) ? string.Empty : Dr.GetString(Dr.GetOrdinal("TextoTicket"));
                     Datos.PagoDiasDomingo = Dr.IsDBNull(Dr.GetOrdinal("PagoDiasDomingo")) ? 0 : Dr.GetDecimal(Dr.GetOrdinal("PagoDiasDomingo"));
+                    Datos.DescCumpleaños = Dr.IsDBNull(Dr.GetOrdinal("PorcDesc")) ? 0 : Dr.GetDecimal(Dr.GetOrdinal("PorcDesc"));
                 }
                 Dr.Close();
                 return Datos;
@@ -60,7 +61,7 @@ namespace CreativaSL.Dll.StephManager.Datos
                                        Datos.BufferImagen, Datos.PorcentajeIva, Datos.BandFecha01, Datos.BandFecha02, 
                                        Datos.BandFecha03, Datos.Fecha01, Datos.Fecha02, Datos.Fecha03, Datos.TextoGarantia,
                                        Datos.PagoDiasFestivos, Datos.PagoDiasVacaciones, Datos.PagoDiasDomingo, Datos.TextoTicket, 
-                                       Datos.FaltasRetardos, Datos.IDUsuario};
+                                       Datos.FaltasRetardos,  Datos.DescCumpleaños, Datos.IDUsuario};
                 object Result = SqlHelper.ExecuteScalar(Datos.Conexion, "spCSLDB_set_Configuracion", Parametros);
                 if (Result != null)
                 {

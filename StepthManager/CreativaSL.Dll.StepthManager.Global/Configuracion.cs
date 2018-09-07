@@ -288,6 +288,14 @@ namespace CreativaSL.Dll.StephManager.Global
             get { return _Resultado; }
             set { _Resultado = value; }
         }
-        
+
+        private decimal _DescCumpleaños;
+
+        public decimal DescCumpleaños
+        {
+            get { return _DescCumpleaños; }
+            set { _DescCumpleaños = value; }
+        }
+
     }
 }

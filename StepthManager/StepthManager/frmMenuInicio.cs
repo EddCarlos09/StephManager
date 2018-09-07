@@ -1196,11 +1196,11 @@ namespace StephManager
         {
             try
             {
-                //frmCatTarjetas Tarjetas = new frmCatTarjetas();
-                //this.Visible = false;
-                //Tarjetas.ShowDialog();
-                //this.Visible = true;
-                //Tarjetas.Dispose();
+                frmPromociones Promociones = new frmPromociones();
+                this.Visible = false;
+                Promociones.ShowDialog();
+                this.Visible = true;
+                Promociones.Dispose();
             }
             catch (Exception ex)
             {

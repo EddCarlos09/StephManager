@@ -92,6 +92,7 @@
     <Compile Include="Notificaciones_Datos.cs" />
     <Compile Include="Pedido_Datos.cs" />
     <Compile Include="Producto_Datos.cs" />
+    <Compile Include="Promocion_Datos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Proveedor_Datos.cs" />
     <Compile Include="ReporteComprasPorProveedor_Datos.cs" />

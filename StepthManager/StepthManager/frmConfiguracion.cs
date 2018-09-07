@@ -88,6 +88,7 @@ namespace StephManager
                 this.txtPagosDiaDomingo.Text = string.Format("{0:F2}", Datos.PagoDiasDomingo);
                 this.txtFaltasRetrasos.Text = Datos.FaltasRetardos.ToString();
                 this.txtTextoTicket.Text = Datos.TextoTicket;
+                this.txtPorcDesc.Text = string.Format("{0:F2}", Datos.DescCumpleaños);
                 DatosAux = Datos;
             }
             catch (Exception ex)
@@ -117,6 +118,7 @@ namespace StephManager
                 this.txtPagosDiaDomingo.Text = string.Format("{0:F2}", 0);
                 this.txtPagoDiasVaciones.Text = string.Format("{0:F2}", 0);
                 this.txtPagoDiasFestivos.Text = string.Format("{0:F2}", 0);
+                this.txtPorcDesc.Text = string.Format("{0:F2}", 0);
                 this.txtGarantia.Text = string.Empty;
                 this.txtTextoTicket.Text = string.Empty;
             }
@@ -290,11 +292,26 @@ namespace StephManager
                 Datos.PagoDiasDomingo = this.ObtenerPagoDiaDomingo();
                 Datos.FaltasRetardos = Convert.ToInt32(this.txtFaltasRetrasos.Text.Trim());
                 Datos.TextoTicket = this.txtTextoTicket.Text.Trim();
+                Datos.DescCumpleaños = this.ObtenerPorcDesc();
                 Datos.IDUsuario = Comun.IDUsuario;
                 Datos.Conexion = Comun.Conexion;
                 return Datos;
             }
             catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        private decimal ObtenerPorcDesc()
+        {
+            try
+            {
+                decimal Porcentaje = 0;
+                decimal.TryParse(txtPorcDesc.Text.Trim(), out Porcentaje);
+                return Porcentaje;
+            }
+            catch(Exception ex)
             {
                 throw ex;
             }
@@ -351,6 +368,18 @@ namespace StephManager
                     if (!Validar.IsValidOnlyNumber(this.txtFaltasRetrasos.Text))
                         Errores.Add(new Error { Numero = (Aux += 1), Descripcion = "Ingrese un numero dia válido.", ControlSender = this.txtFaltasRetrasos });
                 }
+
+                if (string.IsNullOrEmpty(this.txtPorcDesc.Text.Trim()))
+                    Errores.Add(new Error { Numero = (Aux += 1), Descripcion = "Ingrese el porcentaje de descuento por cumpleaños.", ControlSender = this.txtPorcDesc });
+                else
+                {
+                    decimal Porc = 0;
+                    if(!decimal.TryParse(this.txtPorcDesc.Text.Trim(), out Porc))
+                    {
+                        Errores.Add(new Error { Numero = (Aux += 1), Descripcion = "Ingrese un dato válido para porcentaje de descuento por cumpleaños.", ControlSender = this.txtPorcDesc });
+                    }
+                }
+
                 return Errores;
             }
             catch (Exception ex)

@@ -177,5 +177,13 @@ namespace CreativaSL.Dll.StephManager.Global
             set { _RegimenFiscal = value; }
         }
 
+        private bool _Seleccionado;
+
+        public bool Seleccionado
+        {
+            get { return _Seleccionado; }
+            set { _Seleccionado = value; }
+        }
+
     }
 }

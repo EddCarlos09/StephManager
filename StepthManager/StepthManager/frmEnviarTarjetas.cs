@@ -201,7 +201,7 @@ namespace StephManager
                 {
                     Producto Datos = this.ObtenerDatos();
                     Producto_Negocio ProdNeg = new Producto_Negocio();
-                    ProdNeg.EnviarTarjetasRegalo(Datos);
+                    ProdNeg.EnviarTarjetasRegalo(Datos, Comun.IDSucursalCaja);
                     if (Datos.Completado)
                     {
                         MessageBox.Show("Datos guardados correctamente.", Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Information);

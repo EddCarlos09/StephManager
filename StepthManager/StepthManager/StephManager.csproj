@@ -131,6 +131,12 @@
     <Compile Include="frmAgregarSucursal.Designer.cs">
       <DependentUpon>frmAgregarSucursal.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmNuevaPromocion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNuevaPromocion.Designer.cs">
+      <DependentUpon>frmNuevaPromocion.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmNuevoReporteComprasCliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -196,6 +202,24 @@
     </Compile>
     <Compile Include="frmPreciosProductos.Designer.cs">
       <DependentUpon>frmPreciosProductos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPromociones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPromociones.Designer.cs">
+      <DependentUpon>frmPromociones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPromocionPrecios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPromocionPrecios.Designer.cs">
+      <DependentUpon>frmPromocionPrecios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPromocionPreciosModificar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPromocionPreciosModificar.Designer.cs">
+      <DependentUpon>frmPromocionPreciosModificar.cs</DependentUpon>
     </Compile>
     <Compile Include="frmReporteMonedero.cs">
       <SubType>Form</SubType>
@@ -1249,6 +1273,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmNuevaPromocion.resx">
+      <DependentUpon>frmNuevaPromocion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmNuevoReporteConsumoMaterial.resx">
       <DependentUpon>frmNuevoReporteConsumoMaterial.cs</DependentUpon>
     </EmbeddedResource>
@@ -1278,6 +1305,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmPreciosProductos.resx">
       <DependentUpon>frmPreciosProductos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPromociones.resx">
+      <DependentUpon>frmPromociones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPromocionPrecios.resx">
+      <DependentUpon>frmPromocionPrecios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPromocionPreciosModificar.resx">
+      <DependentUpon>frmPromocionPreciosModificar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmReportesConsumoMaterial.resx">
       <DependentUpon>frmReportesConsumoMaterial.cs</DependentUpon>

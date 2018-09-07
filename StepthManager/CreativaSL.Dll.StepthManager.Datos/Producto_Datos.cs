@@ -420,11 +420,11 @@ namespace CreativaSL.Dll.StephManager.Datos
         }
 
 
-        public void EnviarTarjetasRegalo(Producto Datos)
+        public void EnviarTarjetasRegalo(Producto Datos, string IDSucursalMatriz)
         {
             try
             {
-                object[] Parametros = { Datos.IDProducto, Datos.IDSucursal, Datos.Cantidad, Datos.IDUsuario };
+                object[] Parametros = { Datos.IDProducto, Datos.IDSucursal, IDSucursalMatriz, Datos.Cantidad, Datos.IDUsuario };
                 object Result = SqlHelper.ExecuteScalar(Datos.Conexion, "Produccion.spCSLDB_set_EnviarTarjetasRegalo", Parametros);
                 if (Result != null)
                 {

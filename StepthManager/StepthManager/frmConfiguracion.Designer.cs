@@ -99,6 +99,9 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label42 = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
+            this.txtPorcDesc = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -158,6 +161,9 @@
             // 
             // panel9
             // 
+            this.panel9.Controls.Add(this.label31);
+            this.panel9.Controls.Add(this.label34);
+            this.panel9.Controls.Add(this.txtPorcDesc);
             this.panel9.Controls.Add(this.label32);
             this.panel9.Controls.Add(this.label33);
             this.panel9.Controls.Add(this.txtFaltasRetrasos);
@@ -383,7 +389,7 @@
             // chkFechaCorte3
             // 
             this.chkFechaCorte3.AutoSize = true;
-            this.chkFechaCorte3.Location = new System.Drawing.Point(718, 78);
+            this.chkFechaCorte3.Location = new System.Drawing.Point(580, 78);
             this.chkFechaCorte3.Name = "chkFechaCorte3";
             this.chkFechaCorte3.Size = new System.Drawing.Size(240, 24);
             this.chkFechaCorte3.TabIndex = 14;
@@ -393,7 +399,7 @@
             // dtpFechaCorte3
             // 
             this.dtpFechaCorte3.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaCorte3.Location = new System.Drawing.Point(718, 108);
+            this.dtpFechaCorte3.Location = new System.Drawing.Point(580, 108);
             this.dtpFechaCorte3.Name = "dtpFechaCorte3";
             this.dtpFechaCorte3.Size = new System.Drawing.Size(178, 25);
             this.dtpFechaCorte3.TabIndex = 15;
@@ -401,7 +407,7 @@
             // chkFechaCorte2
             // 
             this.chkFechaCorte2.AutoSize = true;
-            this.chkFechaCorte2.Location = new System.Drawing.Point(397, 78);
+            this.chkFechaCorte2.Location = new System.Drawing.Point(335, 78);
             this.chkFechaCorte2.Name = "chkFechaCorte2";
             this.chkFechaCorte2.Size = new System.Drawing.Size(240, 24);
             this.chkFechaCorte2.TabIndex = 12;
@@ -411,7 +417,7 @@
             // dtpFechaCorte2
             // 
             this.dtpFechaCorte2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaCorte2.Location = new System.Drawing.Point(397, 108);
+            this.dtpFechaCorte2.Location = new System.Drawing.Point(335, 108);
             this.dtpFechaCorte2.Name = "dtpFechaCorte2";
             this.dtpFechaCorte2.Size = new System.Drawing.Size(178, 25);
             this.dtpFechaCorte2.TabIndex = 13;
@@ -928,6 +934,34 @@
             this.label42.TabIndex = 24;
             this.label42.Text = "Configuración";
             // 
+            // label31
+            // 
+            this.label31.Location = new System.Drawing.Point(846, 76);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(150, 20);
+            this.label31.TabIndex = 141;
+            this.label31.Text = "% Desc. Cumpleaños";
+            this.label31.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label34
+            // 
+            this.label34.Font = new System.Drawing.Font("Trebuchet MS", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label34.ForeColor = System.Drawing.Color.Red;
+            this.label34.Location = new System.Drawing.Point(820, 76);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(29, 20);
+            this.label34.TabIndex = 140;
+            this.label34.Text = "*";
+            this.label34.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // txtPorcDesc
+            // 
+            this.txtPorcDesc.Location = new System.Drawing.Point(870, 99);
+            this.txtPorcDesc.MaxLength = 70;
+            this.txtPorcDesc.Name = "txtPorcDesc";
+            this.txtPorcDesc.Size = new System.Drawing.Size(95, 25);
+            this.txtPorcDesc.TabIndex = 139;
+            // 
             // frmConfiguracion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -1035,6 +1069,9 @@
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.TextBox txtFaltasRetrasos;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.TextBox txtPorcDesc;
     }
 }
 
