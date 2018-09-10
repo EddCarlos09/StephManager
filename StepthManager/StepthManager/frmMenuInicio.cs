@@ -524,6 +524,13 @@ namespace StephManager
                             Aux.Enabled = false;
                         }
                     }
+                    else
+                    {
+                        if (!item.Name.Equals(btnSalir.Name))
+                        {
+                            Aux.Enabled = false;
+                        }
+                    }
                 }
             }
         }
