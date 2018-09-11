@@ -80,6 +80,8 @@
     <Compile Include="ChechkList.cs" />
     <Compile Include="ActividadOpcionesCheckList.cs" />
     <Compile Include="ChechkListResultado.cs" />
+    <Compile Include="EstadoResultados.cs" />
+    <Compile Include="EstadoResultadosDetalle.cs" />
     <Compile Include="Promocion.cs" />
     <Compile Include="PromocionServicios.cs" />
     <Compile Include="PromocionXSucursal.cs" />

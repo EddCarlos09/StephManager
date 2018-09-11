@@ -384,10 +384,63 @@ namespace CreativaSL.Dll.StephManager.Datos
                 }
                 Dr.Close();
                 return Lista;
-        }
+            }
             catch (Exception ex)
             {
 
+                throw ex;
+            }
+        }
+
+        public EstadoResultados ObtenerDetalleEstadoResultados(string Conexion, int IDReporte)
+        {
+            try
+            {
+                EstadoResultados Reporte = new EstadoResultados();
+                DataSet Ds = SqlHelper.ExecuteDataset(Conexion, "Reportes.spCSLDB_get_DetalleEstadoResultados", IDReporte);
+                if (Ds.Tables.Count == 2)
+                {
+                    DataTableReader Dr = Ds.Tables[0].CreateDataReader();
+                    while (Dr.Read())
+                    {
+                        Reporte.Sucursal = !Dr.IsDBNull(Dr.GetOrdinal("Sucursal")) ? Dr.GetString(Dr.GetOrdinal("Sucursal")) : string.Empty;
+                        Reporte.Mes = !Dr.IsDBNull(Dr.GetOrdinal("Mes")) ? Dr.GetString(Dr.GetOrdinal("Mes")) : string.Empty;
+                        Reporte.Año = !Dr.IsDBNull(Dr.GetOrdinal("Year")) ? Dr.GetInt32(Dr.GetOrdinal("Year")) : 0;
+                        Reporte.IngresoMensual = !Dr.IsDBNull(Dr.GetOrdinal("IngresoMensual")) ? Dr.GetDecimal(Dr.GetOrdinal("IngresoMensual")) : 0;
+                        Reporte.IngresoAnual = !Dr.IsDBNull(Dr.GetOrdinal("IngresoAnual")) ? Dr.GetDecimal(Dr.GetOrdinal("IngresoAnual")) : 0;
+                        Reporte.CostoVentasMensual = !Dr.IsDBNull(Dr.GetOrdinal("CostoVentasMensual")) ? Dr.GetDecimal(Dr.GetOrdinal("CostoVentasMensual")) : 0;
+                        Reporte.CostoVentasAnual = !Dr.IsDBNull(Dr.GetOrdinal("CostoVentasAnual")) ? Dr.GetDecimal(Dr.GetOrdinal("CostoVentasAnual")) : 0;
+                        Reporte.ComisionMensual = !Dr.IsDBNull(Dr.GetOrdinal("ComisionMensual")) ? Dr.GetDecimal(Dr.GetOrdinal("ComisionMensual")) : 0;
+                        Reporte.ComisionAnual = !Dr.IsDBNull(Dr.GetOrdinal("ComisionAnual")) ? Dr.GetDecimal(Dr.GetOrdinal("ComisionAnual")) : 0;
+                        Reporte.ImpuestoMensual = !Dr.IsDBNull(Dr.GetOrdinal("ImpuestoMensual")) ? Dr.GetDecimal(Dr.GetOrdinal("ImpuestoMensual")) : 0;
+                        Reporte.ImpuestoAnual = !Dr.IsDBNull(Dr.GetOrdinal("ImpuestoAnual")) ? Dr.GetDecimal(Dr.GetOrdinal("ImpuestoAnual")) : 0;
+                        break;
+                    }
+                    Dr.Close();
+                    
+
+                    DataTableReader Dr2 = Ds.Tables[1].CreateDataReader();
+                    List<EstadoResultadosDetalle> Lista = new List<EstadoResultadosDetalle>();
+                    EstadoResultadosDetalle Item;
+                    while (Dr2.Read())
+                    {
+                        Item = new EstadoResultadosDetalle();
+                        Item.IDRubro = !Dr2.IsDBNull(Dr2.GetOrdinal("IDTipoGasto")) ? Dr2.GetInt32(Dr2.GetOrdinal("IDTipoGasto")) : 0;
+                        Item.TipoGasto = !Dr2.IsDBNull(Dr2.GetOrdinal("TipoGasto")) ? Dr2.GetString(Dr2.GetOrdinal("TipoGasto")) : string.Empty;
+                        Item.IDSubRubro = !Dr2.IsDBNull(Dr2.GetOrdinal("IDCategoria")) ? Dr2.GetString(Dr2.GetOrdinal("IDCategoria")) : string.Empty;
+                        Item.Categoria = !Dr2.IsDBNull(Dr2.GetOrdinal("Categoria")) ? Dr2.GetString(Dr2.GetOrdinal("Categoria")) : string.Empty;
+                        Item.MontoMensual = !Dr2.IsDBNull(Dr2.GetOrdinal("MontoMensual")) ? Dr2.GetDecimal(Dr2.GetOrdinal("MontoMensual")) : 0;
+                        Item.MontoAnual = !Dr2.IsDBNull(Dr2.GetOrdinal("MontoAnual")) ? Dr2.GetDecimal(Dr2.GetOrdinal("MontoAnual")) : 0;
+                        Item.Porcentaje = !Dr2.IsDBNull(Dr2.GetOrdinal("Porcentaje")) ? Dr2.GetDecimal(Dr2.GetOrdinal("Porcentaje")) : 0;
+                        Lista.Add(Item);
+                    }
+                    Reporte.Detalle = Lista;
+                    Dr2.Close();
+                }
+                return Reporte;
+            }
+            catch (Exception ex)
+            {
                 throw ex;
             }
         }

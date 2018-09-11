@@ -1104,6 +1104,23 @@ namespace StephManager
                 LogError.AddExcFileTxt(ex, "frmMenuInicio ~ toolsm_Monedero_Click");
             }
         }
+
+
+        private void toolsm_EstadoResultados_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                frmExcelER EstadoResult = new frmExcelER();
+                EstadoResult.ShowDialog();
+                EstadoResult.Dispose();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(Comun.MensajeError, Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                LogError.AddExcFileTxt(ex, "frmMenuInicio ~ toolsm_EstadoResultados_Click");
+            }
+        }
+
         #endregion
 
         private void ventasPorSucursalToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1294,5 +1311,6 @@ namespace StephManager
         }
 
         #endregion
+
     }
 }

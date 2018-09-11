@@ -183,5 +183,19 @@ namespace CreativaSL.Dll.StephManager.Negocio
                 throw;
             }
         }
+
+        public EstadoResultados ObtenerDetalleEstadoResultados(string Conexion, int IDReporte)
+        {
+            try
+            {
+                Reporte_Datos Datos = new Reporte_Datos();
+                return Datos.ObtenerDetalleEstadoResultados(Conexion, IDReporte);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
     }
 }

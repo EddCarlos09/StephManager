@@ -131,6 +131,12 @@
     <Compile Include="frmAgregarSucursal.Designer.cs">
       <DependentUpon>frmAgregarSucursal.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmExcelER.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmExcelER.Designer.cs">
+      <DependentUpon>frmExcelER.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmNuevaPromocion.cs">
       <SubType>Form</SubType>
     </Compile>
