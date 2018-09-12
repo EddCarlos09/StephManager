@@ -19,16 +19,18 @@ namespace StephManager
     {
         #region Propiedades / Variables
         string IDProducto = string.Empty;
+        bool EsServicio = false;
         #endregion
 
         #region Constructor(es)
 
-        public frmPreciosProductos(string _IDProducto)
+        public frmPreciosProductos(string _IDProducto, bool _EsServicio)
         {
             try
             {
                 InitializeComponent();
                 IDProducto = _IDProducto;
+                EsServicio = _EsServicio;
             }
             catch (Exception ex)
             {
@@ -179,6 +181,11 @@ namespace StephManager
                 this.chkAplicaSabado.Enabled = false;
                 this.chkAplicaDomingo.Checked = false;
                 this.chkAplicaDomingo.Enabled = false;
+
+                if(EsServicio)
+                {
+                    panel06_01.Visible = false;
+                }
             }
             catch (Exception ex)
             {

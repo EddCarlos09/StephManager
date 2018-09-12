@@ -185,11 +185,11 @@ namespace StephManager
                         this.LlenarGridTipoMonedero();
                         this.btnAsignarGerente.Enabled = false;
                         break;
-                    case 4: this.IniciarGrid(this.dataGridView1, 2, this.ObtenerPropiedadesGridPadecimiento());
+                    case 4: this.IniciarGrid(this.dataGridView1, 3, this.ObtenerPropiedadesGridPadecimiento());
                         this.LlenarGridPadecimiento();
                         this.btnAsignarGerente.Enabled = false;
                         break;
-                    case 5: this.IniciarGrid(this.dataGridView1, 3, this.ObtenerPropiedadesGridTagsInteres());
+                    case 5: this.IniciarGrid(this.dataGridView1, 2, this.ObtenerPropiedadesGridTagsInteres());
                         this.LlenarGridTagInteres();
                         this.btnAsignarGerente.Enabled = false;
                         break;

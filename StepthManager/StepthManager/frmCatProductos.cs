@@ -368,7 +368,7 @@ namespace StephManager
                     Producto DatosAux = this.ObtenerDatosProducto();
                     if (!string.IsNullOrEmpty(DatosAux.IDProducto))
                     {
-                        frmPreciosProductos Precios = new frmPreciosProductos(DatosAux.IDProducto);
+                        frmPreciosProductos Precios = new frmPreciosProductos(DatosAux.IDProducto, false);
                         this.Visible = false;
                         Precios.ShowDialog();
                         Precios.Dispose();

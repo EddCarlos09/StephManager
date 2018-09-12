@@ -111,7 +111,6 @@
             this.panel14.SuspendLayout();
             this.panel04.SuspendLayout();
             this.panel19.SuspendLayout();
-            this.panel04_02.SuspendLayout();
             this.panel04_01.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -297,9 +296,9 @@
             this.panel06.Controls.Add(this.panel17);
             this.panel06.Controls.Add(this.panel06_01);
             this.panel06.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel06.Location = new System.Drawing.Point(0, 123);
+            this.panel06.Location = new System.Drawing.Point(0, 161);
             this.panel06.Name = "panel06";
-            this.panel06.Size = new System.Drawing.Size(1008, 405);
+            this.panel06.Size = new System.Drawing.Size(1008, 367);
             this.panel06.TabIndex = 2;
             // 
             // panel17
@@ -309,7 +308,7 @@
             this.panel17.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel17.Location = new System.Drawing.Point(363, 0);
             this.panel17.Name = "panel17";
-            this.panel17.Size = new System.Drawing.Size(645, 405);
+            this.panel17.Size = new System.Drawing.Size(645, 367);
             this.panel17.TabIndex = 1;
             // 
             // panel20
@@ -318,7 +317,7 @@
             this.panel20.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel20.Location = new System.Drawing.Point(374, 0);
             this.panel20.Name = "panel20";
-            this.panel20.Size = new System.Drawing.Size(271, 405);
+            this.panel20.Size = new System.Drawing.Size(271, 367);
             this.panel20.TabIndex = 1;
             // 
             // panelEspecial
@@ -343,7 +342,7 @@
             this.panelEspecial.Controls.Add(this.label33);
             this.panelEspecial.Controls.Add(this.label34);
             this.panelEspecial.Controls.Add(this.txtPrecioEspecial);
-            this.panelEspecial.Location = new System.Drawing.Point(26, 33);
+            this.panelEspecial.Location = new System.Drawing.Point(26, 14);
             this.panelEspecial.Name = "panelEspecial";
             this.panelEspecial.Size = new System.Drawing.Size(185, 160);
             this.panelEspecial.TabIndex = 161;
@@ -539,7 +538,7 @@
             this.panel06_02.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel06_02.Location = new System.Drawing.Point(0, 0);
             this.panel06_02.Name = "panel06_02";
-            this.panel06_02.Size = new System.Drawing.Size(374, 405);
+            this.panel06_02.Size = new System.Drawing.Size(374, 367);
             this.panel06_02.TabIndex = 0;
             // 
             // panelTemporada
@@ -554,7 +553,7 @@
             this.panelTemporada.Controls.Add(this.label25);
             this.panelTemporada.Controls.Add(this.label30);
             this.panelTemporada.Controls.Add(this.txtPrecioTemporada);
-            this.panelTemporada.Location = new System.Drawing.Point(94, 33);
+            this.panelTemporada.Location = new System.Drawing.Point(94, 14);
             this.panelTemporada.Name = "panelTemporada";
             this.panelTemporada.Size = new System.Drawing.Size(185, 160);
             this.panelTemporada.TabIndex = 160;
@@ -652,7 +651,7 @@
             this.panel06_01.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel06_01.Location = new System.Drawing.Point(0, 0);
             this.panel06_01.Name = "panel06_01";
-            this.panel06_01.Size = new System.Drawing.Size(363, 405);
+            this.panel06_01.Size = new System.Drawing.Size(363, 367);
             this.panel06_01.TabIndex = 0;
             // 
             // label43
@@ -672,7 +671,7 @@
             this.panel14.Controls.Add(this.txtCantidadMayoreo);
             this.panel14.Controls.Add(this.label23);
             this.panel14.Controls.Add(this.txtPrecioMayoreo);
-            this.panel14.Location = new System.Drawing.Point(59, 33);
+            this.panel14.Location = new System.Drawing.Point(59, 14);
             this.panel14.Name = "panel14";
             this.panel14.Size = new System.Drawing.Size(185, 160);
             this.panel14.TabIndex = 159;
@@ -739,7 +738,7 @@
             this.panel04.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel04.Location = new System.Drawing.Point(0, 0);
             this.panel04.Name = "panel04";
-            this.panel04.Size = new System.Drawing.Size(1008, 123);
+            this.panel04.Size = new System.Drawing.Size(1008, 161);
             this.panel04.TabIndex = 1;
             // 
             // panel19
@@ -748,23 +747,20 @@
             this.panel19.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel19.Location = new System.Drawing.Point(524, 0);
             this.panel19.Name = "panel19";
-            this.panel19.Size = new System.Drawing.Size(484, 123);
+            this.panel19.Size = new System.Drawing.Size(484, 161);
             this.panel19.TabIndex = 152;
             // 
             // panel04_02
             // 
-            this.panel04_02.Controls.Add(this.label18);
-            this.panel04_02.Controls.Add(this.txtPrecioPublico);
-            this.panel04_02.Controls.Add(this.label19);
             this.panel04_02.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel04_02.Location = new System.Drawing.Point(0, 0);
             this.panel04_02.Name = "panel04_02";
-            this.panel04_02.Size = new System.Drawing.Size(484, 123);
+            this.panel04_02.Size = new System.Drawing.Size(484, 161);
             this.panel04_02.TabIndex = 1;
             // 
             // label18
             // 
-            this.label18.Location = new System.Drawing.Point(41, 22);
+            this.label18.Location = new System.Drawing.Point(55, 95);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(101, 20);
             this.label18.TabIndex = 156;
@@ -774,7 +770,7 @@
             // txtPrecioPublico
             // 
             this.txtPrecioPublico.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtPrecioPublico.Location = new System.Drawing.Point(45, 57);
+            this.txtPrecioPublico.Location = new System.Drawing.Point(59, 118);
             this.txtPrecioPublico.MaxLength = 12;
             this.txtPrecioPublico.Name = "txtPrecioPublico";
             this.txtPrecioPublico.Size = new System.Drawing.Size(185, 25);
@@ -786,7 +782,7 @@
             // 
             this.label19.Font = new System.Drawing.Font("Trebuchet MS", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label19.ForeColor = System.Drawing.Color.Red;
-            this.label19.Location = new System.Drawing.Point(15, 24);
+            this.label19.Location = new System.Drawing.Point(29, 97);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(20, 20);
             this.label19.TabIndex = 155;
@@ -795,13 +791,16 @@
             // 
             // panel04_01
             // 
+            this.panel04_01.Controls.Add(this.label18);
             this.panel04_01.Controls.Add(this.cmbSucursales);
+            this.panel04_01.Controls.Add(this.txtPrecioPublico);
+            this.panel04_01.Controls.Add(this.label19);
             this.panel04_01.Controls.Add(this.label29);
             this.panel04_01.Controls.Add(this.label28);
             this.panel04_01.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel04_01.Location = new System.Drawing.Point(0, 0);
             this.panel04_01.Name = "panel04_01";
-            this.panel04_01.Size = new System.Drawing.Size(524, 123);
+            this.panel04_01.Size = new System.Drawing.Size(524, 161);
             this.panel04_01.TabIndex = 151;
             // 
             // cmbSucursales
@@ -845,7 +844,7 @@
             this.label15.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label15.Font = new System.Drawing.Font("Trebuchet MS", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.Color.Red;
-            this.label15.Location = new System.Drawing.Point(56, -75);
+            this.label15.Location = new System.Drawing.Point(56, -56);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(20, 20);
             this.label15.TabIndex = 150;
@@ -892,9 +891,8 @@
             this.panel14.PerformLayout();
             this.panel04.ResumeLayout(false);
             this.panel19.ResumeLayout(false);
-            this.panel04_02.ResumeLayout(false);
-            this.panel04_02.PerformLayout();
             this.panel04_01.ResumeLayout(false);
+            this.panel04_01.PerformLayout();
             this.ResumeLayout(false);
 
         }

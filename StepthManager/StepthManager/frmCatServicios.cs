@@ -371,7 +371,7 @@ namespace StephManager
                     Servicio DatosAux = this.ObtenerDatosServicios();
                     if (!string.IsNullOrEmpty(DatosAux.IDServicio))
                     {
-                        frmPreciosProductos Precios = new frmPreciosProductos(DatosAux.IDServicio);
+                        frmPreciosProductos Precios = new frmPreciosProductos(DatosAux.IDServicio, true);
                         this.Visible = false;
                         Precios.ShowDialog();
                         Precios.Dispose();

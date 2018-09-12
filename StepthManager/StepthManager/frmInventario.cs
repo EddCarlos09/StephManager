@@ -221,12 +221,19 @@ namespace StephManager
                     {
                         if (!string.IsNullOrEmpty(DatosAux.IDProducto))
                         {
-                            frmInventarioAjuste Ajuste = new frmInventarioAjuste(DatosAux);
-                            Ajuste.ShowDialog();
-                            Ajuste.Dispose();
-                            if (Ajuste.DialogResult == DialogResult.OK)
+                            if (DatosAux.IDTipoProducto == 1)
                             {
-                                this.ModificarExistencia(RowSelected, Ajuste.DatosActuales);
+                                frmInventarioAjuste Ajuste = new frmInventarioAjuste(DatosAux);
+                                Ajuste.ShowDialog();
+                                Ajuste.Dispose();
+                                if (Ajuste.DialogResult == DialogResult.OK)
+                                {
+                                    this.ModificarExistencia(RowSelected, Ajuste.DatosActuales);
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("No es un tipo de producto válido para ajuste.", Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             }
                         }
                         else

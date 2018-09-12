@@ -57,6 +57,7 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label42 = new System.Windows.Forms.Label();
+            this.btnVerTarjetasXSuc = new CreativaSL.LibControls.WinForms.Button_Creativa();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -193,6 +194,7 @@
             // PanelMenu
             // 
             this.PanelMenu.BackColor = System.Drawing.Color.Gray;
+            this.PanelMenu.Controls.Add(this.btnVerTarjetasXSuc);
             this.PanelMenu.Controls.Add(this.btnGenerarFolios);
             this.PanelMenu.Controls.Add(this.btnSalir);
             this.PanelMenu.Controls.Add(this.btnEliminar);
@@ -220,7 +222,7 @@
             this.btnGenerarFolios.ImageBorderColor = System.Drawing.Color.Red;
             this.btnGenerarFolios.ImageFocused = null;
             this.btnGenerarFolios.ImageInactive = null;
-            this.btnGenerarFolios.ImageMouseOver = global::StephManager.Properties.Resources.icons_steph_vino_tarjeta_generar_folio;
+            this.btnGenerarFolios.ImageMouseOver = global::StephManager.Properties.Resources.icons_steph_vino_tarjeta_generar_folio_n;
             this.btnGenerarFolios.ImageNormal = global::StephManager.Properties.Resources.icons_steph_vino_tarjeta_generar_folio;
             this.btnGenerarFolios.ImagePressed = null;
             this.btnGenerarFolios.ImageSize = new System.Drawing.Size(44, 44);
@@ -450,7 +452,7 @@
             this.chkTodos.AutoSize = true;
             this.chkTodos.Location = new System.Drawing.Point(793, 16);
             this.chkTodos.Name = "chkTodos";
-            this.chkTodos.Size = new System.Drawing.Size(92, 24);
+            this.chkTodos.Size = new System.Drawing.Size(91, 24);
             this.chkTodos.TabIndex = 59;
             this.chkTodos.Text = "Ver todos";
             this.chkTodos.UseVisualStyleBackColor = true;
@@ -542,6 +544,40 @@
             this.label42.TabIndex = 24;
             this.label42.Text = "Tarjetas de regalo";
             // 
+            // btnVerTarjetasXSuc
+            // 
+            this.btnVerTarjetasXSuc.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnVerTarjetasXSuc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(108)))), ((int)(((byte)(114)))));
+            this.btnVerTarjetasXSuc.BorderColor = System.Drawing.Color.Red;
+            this.btnVerTarjetasXSuc.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(108)))), ((int)(((byte)(114)))));
+            this.btnVerTarjetasXSuc.BorderMouseOverColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnVerTarjetasXSuc.BorderNoFocusColor = System.Drawing.Color.Maroon;
+            this.btnVerTarjetasXSuc.FocusRectangle = true;
+            this.btnVerTarjetasXSuc.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVerTarjetasXSuc.ForeColor = System.Drawing.Color.White;
+            this.btnVerTarjetasXSuc.Image = null;
+            this.btnVerTarjetasXSuc.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnVerTarjetasXSuc.ImageBorderColor = System.Drawing.Color.Red;
+            this.btnVerTarjetasXSuc.ImageFocused = null;
+            this.btnVerTarjetasXSuc.ImageInactive = null;
+            this.btnVerTarjetasXSuc.ImageMouseOver = global::StephManager.Properties.Resources.icons_steph_vino_pedido_surtir_n;
+            this.btnVerTarjetasXSuc.ImageNormal = global::StephManager.Properties.Resources.icons_steph_vino_pedido_surtir;
+            this.btnVerTarjetasXSuc.ImagePressed = null;
+            this.btnVerTarjetasXSuc.ImageSize = new System.Drawing.Size(44, 44);
+            this.btnVerTarjetasXSuc.KeyButton = System.Windows.Forms.Keys.F1;
+            this.btnVerTarjetasXSuc.KeyButtonView = false;
+            this.btnVerTarjetasXSuc.Location = new System.Drawing.Point(490, 5);
+            this.btnVerTarjetasXSuc.ModeGradient = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            this.btnVerTarjetasXSuc.MouseOverColor = System.Drawing.Color.Red;
+            this.btnVerTarjetasXSuc.Name = "btnVerTarjetasXSuc";
+            this.btnVerTarjetasXSuc.OffsetPressedContent = true;
+            this.btnVerTarjetasXSuc.Size = new System.Drawing.Size(80, 70);
+            this.btnVerTarjetasXSuc.TabIndex = 22;
+            this.btnVerTarjetasXSuc.Text = "Ver Tarjetas";
+            this.btnVerTarjetasXSuc.TextDropShadow = true;
+            this.btnVerTarjetasXSuc.UseVisualStyleBackColor = false;
+            this.btnVerTarjetasXSuc.Visible = false;
+            // 
             // frmCatTarjetas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -605,6 +641,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Monto;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label2;
+        private CreativaSL.LibControls.WinForms.Button_Creativa btnVerTarjetasXSuc;
     }
 }
 
