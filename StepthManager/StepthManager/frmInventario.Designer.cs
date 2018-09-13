@@ -28,18 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel12 = new System.Windows.Forms.Panel();
             this.dgvProductos = new System.Windows.Forms.DataGridView();
+            this.IDProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IDSucursal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NombreSucursal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Clave = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NombreProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ExistenciaAlmacen = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ExistenciaUso = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Existencia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UltimoCosto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RequiereStock = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.StockMaximo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StockMinimo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel7 = new System.Windows.Forms.Panel();
             this.PanelMenu = new System.Windows.Forms.Panel();
             this.lblMessage = new System.Windows.Forms.Label();
@@ -62,18 +74,7 @@
             this.label42 = new System.Windows.Forms.Label();
             this.bgwFormato = new System.ComponentModel.BackgroundWorker();
             this.bgwConteo = new System.ComponentModel.BackgroundWorker();
-            this.IDProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IDSucursal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NombreSucursal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Clave = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NombreProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ExistenciaAlmacen = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ExistenciaUso = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Existencia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UltimoCosto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RequiereStock = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.StockMaximo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.StockMinimo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bgwActualizarExistencias = new System.ComponentModel.BackgroundWorker();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -171,6 +172,124 @@
             this.dgvProductos.Size = new System.Drawing.Size(1008, 478);
             this.dgvProductos.TabIndex = 3;
             this.dgvProductos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductos_CellDoubleClick);
+            // 
+            // IDProducto
+            // 
+            this.IDProducto.DataPropertyName = "IDProducto";
+            this.IDProducto.HeaderText = "IDProducto";
+            this.IDProducto.Name = "IDProducto";
+            this.IDProducto.ReadOnly = true;
+            this.IDProducto.Visible = false;
+            // 
+            // IDSucursal
+            // 
+            this.IDSucursal.DataPropertyName = "IDSucursal";
+            this.IDSucursal.HeaderText = "IDSucursal";
+            this.IDSucursal.Name = "IDSucursal";
+            this.IDSucursal.ReadOnly = true;
+            this.IDSucursal.Visible = false;
+            // 
+            // NombreSucursal
+            // 
+            this.NombreSucursal.DataPropertyName = "NombreSucursal";
+            this.NombreSucursal.HeaderText = "Sucursal";
+            this.NombreSucursal.Name = "NombreSucursal";
+            this.NombreSucursal.ReadOnly = true;
+            this.NombreSucursal.Visible = false;
+            // 
+            // Clave
+            // 
+            this.Clave.DataPropertyName = "Clave";
+            this.Clave.HeaderText = "Clave";
+            this.Clave.Name = "Clave";
+            this.Clave.ReadOnly = true;
+            this.Clave.Width = 110;
+            // 
+            // NombreProducto
+            // 
+            this.NombreProducto.DataPropertyName = "NombreProducto";
+            this.NombreProducto.HeaderText = "Producto";
+            this.NombreProducto.Name = "NombreProducto";
+            this.NombreProducto.ReadOnly = true;
+            this.NombreProducto.Width = 250;
+            // 
+            // ExistenciaAlmacen
+            // 
+            this.ExistenciaAlmacen.DataPropertyName = "ExistenciaAlmacen";
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle7.Format = "N0";
+            this.ExistenciaAlmacen.DefaultCellStyle = dataGridViewCellStyle7;
+            this.ExistenciaAlmacen.HeaderText = "Existencia en almacén";
+            this.ExistenciaAlmacen.Name = "ExistenciaAlmacen";
+            this.ExistenciaAlmacen.ReadOnly = true;
+            this.ExistenciaAlmacen.Width = 120;
+            // 
+            // ExistenciaUso
+            // 
+            this.ExistenciaUso.DataPropertyName = "ExistenciaUso";
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle8.Format = "N0";
+            this.ExistenciaUso.DefaultCellStyle = dataGridViewCellStyle8;
+            this.ExistenciaUso.HeaderText = "Existencia en producción";
+            this.ExistenciaUso.Name = "ExistenciaUso";
+            this.ExistenciaUso.ReadOnly = true;
+            this.ExistenciaUso.Width = 120;
+            // 
+            // Existencia
+            // 
+            this.Existencia.DataPropertyName = "Existencia";
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle9.Format = "N0";
+            dataGridViewCellStyle9.NullValue = "0";
+            this.Existencia.DefaultCellStyle = dataGridViewCellStyle9;
+            this.Existencia.HeaderText = "Existencia total";
+            this.Existencia.Name = "Existencia";
+            this.Existencia.ReadOnly = true;
+            this.Existencia.Width = 120;
+            // 
+            // UltimoCosto
+            // 
+            this.UltimoCosto.DataPropertyName = "UltimoCosto";
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle10.Format = "C2";
+            dataGridViewCellStyle10.NullValue = null;
+            this.UltimoCosto.DefaultCellStyle = dataGridViewCellStyle10;
+            this.UltimoCosto.HeaderText = "UltimoCosto";
+            this.UltimoCosto.Name = "UltimoCosto";
+            this.UltimoCosto.ReadOnly = true;
+            this.UltimoCosto.Width = 120;
+            // 
+            // RequiereStock
+            // 
+            this.RequiereStock.DataPropertyName = "RequiereStock";
+            this.RequiereStock.HeaderText = "¿Requiere Stock?";
+            this.RequiereStock.Name = "RequiereStock";
+            this.RequiereStock.ReadOnly = true;
+            this.RequiereStock.Width = 150;
+            // 
+            // StockMaximo
+            // 
+            this.StockMaximo.DataPropertyName = "StockMaximo";
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle11.Format = "N0";
+            dataGridViewCellStyle11.NullValue = "0";
+            this.StockMaximo.DefaultCellStyle = dataGridViewCellStyle11;
+            this.StockMaximo.HeaderText = "Stock Máximo";
+            this.StockMaximo.Name = "StockMaximo";
+            this.StockMaximo.ReadOnly = true;
+            this.StockMaximo.Width = 120;
+            // 
+            // StockMinimo
+            // 
+            this.StockMinimo.DataPropertyName = "StockMinimo";
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle12.Format = "N0";
+            dataGridViewCellStyle12.NullValue = "0";
+            this.StockMinimo.DefaultCellStyle = dataGridViewCellStyle12;
+            this.StockMinimo.HeaderText = "Stock Mínimo";
+            this.StockMinimo.Name = "StockMinimo";
+            this.StockMinimo.ReadOnly = true;
+            this.StockMinimo.Width = 120;
             // 
             // panel7
             // 
@@ -562,123 +681,10 @@
             // 
             this.bgwConteo.WorkerReportsProgress = true;
             // 
-            // IDProducto
+            // bgwActualizarExistencias
             // 
-            this.IDProducto.DataPropertyName = "IDProducto";
-            this.IDProducto.HeaderText = "IDProducto";
-            this.IDProducto.Name = "IDProducto";
-            this.IDProducto.ReadOnly = true;
-            this.IDProducto.Visible = false;
-            // 
-            // IDSucursal
-            // 
-            this.IDSucursal.DataPropertyName = "IDSucursal";
-            this.IDSucursal.HeaderText = "IDSucursal";
-            this.IDSucursal.Name = "IDSucursal";
-            this.IDSucursal.ReadOnly = true;
-            this.IDSucursal.Visible = false;
-            // 
-            // NombreSucursal
-            // 
-            this.NombreSucursal.DataPropertyName = "NombreSucursal";
-            this.NombreSucursal.HeaderText = "Sucursal";
-            this.NombreSucursal.Name = "NombreSucursal";
-            this.NombreSucursal.ReadOnly = true;
-            this.NombreSucursal.Visible = false;
-            // 
-            // Clave
-            // 
-            this.Clave.DataPropertyName = "Clave";
-            this.Clave.HeaderText = "Clave";
-            this.Clave.Name = "Clave";
-            this.Clave.ReadOnly = true;
-            this.Clave.Width = 110;
-            // 
-            // NombreProducto
-            // 
-            this.NombreProducto.DataPropertyName = "NombreProducto";
-            this.NombreProducto.HeaderText = "Producto";
-            this.NombreProducto.Name = "NombreProducto";
-            this.NombreProducto.ReadOnly = true;
-            this.NombreProducto.Width = 250;
-            // 
-            // ExistenciaAlmacen
-            // 
-            this.ExistenciaAlmacen.DataPropertyName = "ExistenciaAlmacen";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle1.Format = "N0";
-            this.ExistenciaAlmacen.DefaultCellStyle = dataGridViewCellStyle1;
-            this.ExistenciaAlmacen.HeaderText = "Existencia en almacén";
-            this.ExistenciaAlmacen.Name = "ExistenciaAlmacen";
-            this.ExistenciaAlmacen.ReadOnly = true;
-            this.ExistenciaAlmacen.Width = 120;
-            // 
-            // ExistenciaUso
-            // 
-            this.ExistenciaUso.DataPropertyName = "ExistenciaUso";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle2.Format = "N0";
-            this.ExistenciaUso.DefaultCellStyle = dataGridViewCellStyle2;
-            this.ExistenciaUso.HeaderText = "Existencia en producción";
-            this.ExistenciaUso.Name = "ExistenciaUso";
-            this.ExistenciaUso.ReadOnly = true;
-            this.ExistenciaUso.Width = 120;
-            // 
-            // Existencia
-            // 
-            this.Existencia.DataPropertyName = "Existencia";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle3.Format = "N0";
-            dataGridViewCellStyle3.NullValue = "0";
-            this.Existencia.DefaultCellStyle = dataGridViewCellStyle3;
-            this.Existencia.HeaderText = "Existencia total";
-            this.Existencia.Name = "Existencia";
-            this.Existencia.ReadOnly = true;
-            this.Existencia.Width = 120;
-            // 
-            // UltimoCosto
-            // 
-            this.UltimoCosto.DataPropertyName = "UltimoCosto";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle4.Format = "C2";
-            dataGridViewCellStyle4.NullValue = null;
-            this.UltimoCosto.DefaultCellStyle = dataGridViewCellStyle4;
-            this.UltimoCosto.HeaderText = "UltimoCosto";
-            this.UltimoCosto.Name = "UltimoCosto";
-            this.UltimoCosto.ReadOnly = true;
-            this.UltimoCosto.Width = 120;
-            // 
-            // RequiereStock
-            // 
-            this.RequiereStock.DataPropertyName = "RequiereStock";
-            this.RequiereStock.HeaderText = "¿Requiere Stock?";
-            this.RequiereStock.Name = "RequiereStock";
-            this.RequiereStock.ReadOnly = true;
-            this.RequiereStock.Width = 150;
-            // 
-            // StockMaximo
-            // 
-            this.StockMaximo.DataPropertyName = "StockMaximo";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle5.Format = "N0";
-            dataGridViewCellStyle5.NullValue = "0";
-            this.StockMaximo.DefaultCellStyle = dataGridViewCellStyle5;
-            this.StockMaximo.HeaderText = "Stock Máximo";
-            this.StockMaximo.Name = "StockMaximo";
-            this.StockMaximo.ReadOnly = true;
-            this.StockMaximo.Width = 120;
-            // 
-            // StockMinimo
-            // 
-            this.StockMinimo.DataPropertyName = "StockMinimo";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle6.Format = "N0";
-            dataGridViewCellStyle6.NullValue = "0";
-            this.StockMinimo.DefaultCellStyle = dataGridViewCellStyle6;
-            this.StockMinimo.HeaderText = "Stock Mínimo";
-            this.StockMinimo.Name = "StockMinimo";
-            this.StockMinimo.ReadOnly = true;
-            this.StockMinimo.Width = 120;
+            this.bgwActualizarExistencias.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgwActualizarExistencias_DoWork);
+            this.bgwActualizarExistencias.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bgwActualizarExistencias_RunWorkerCompleted);
             // 
             // frmInventario
             // 
@@ -755,6 +761,7 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn RequiereStock;
         private System.Windows.Forms.DataGridViewTextBoxColumn StockMaximo;
         private System.Windows.Forms.DataGridViewTextBoxColumn StockMinimo;
+        private System.ComponentModel.BackgroundWorker bgwActualizarExistencias;
     }
 }
 

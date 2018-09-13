@@ -20,7 +20,7 @@ namespace StephManager
 {
     public partial class frmInventario : Form
     {
-
+        private bool AllowClick = true;
         Producto infoProducto = new Producto();
         #region Constructor
 
@@ -147,6 +147,7 @@ namespace StephManager
             try
             {
                 this.dgvProductos.Rows[Row].Cells["Existencia"].Value = Datos.Existencia;
+                this.dgvProductos.Rows[Row].Cells["ExistenciaAlmacen"].Value = Datos.Existencia;
             }
             catch (Exception ex)
             {
@@ -436,7 +437,27 @@ namespace StephManager
         {
             try
             {
-                this.ImportarExcel();
+                if (AllowClick)
+                {
+                    //this.ImportarExcel();
+                    OpenFileDialog openFileDialogExcel = new OpenFileDialog();
+                    openFileDialogExcel.Filter = "Excel Files|*.xlsx";
+                    openFileDialogExcel.FileName = "";
+                    openFileDialogExcel.Title = "Seleccione el archivo excel";
+                    openFileDialogExcel.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments).ToString();
+                    if (openFileDialogExcel.ShowDialog() == DialogResult.OK)
+                    {
+                        lblMessage.Visible = true;
+                        lblMessage.Text = "Registrando información... Espere un momento...";
+                        this.Cursor = Cursors.WaitCursor;
+                        bgwActualizarExistencias.RunWorkerAsync(openFileDialogExcel.FileName);
+                        AllowClick = false;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("El proceso está en ejecución. Espere un momento...", Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
                 
             catch (Exception ex)
@@ -445,145 +466,6 @@ namespace StephManager
                 MessageBox.Show(Comun.MensajeError, Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        /*private void LeerDocumentoExcel(string Archivo, string Hoja)
-        {
-            try
-            {
-                OleDbConnection conexion = null;
-                DataSet dataSet = null;
-                OleDbDataAdapter dataAdapter = null;
-                string consultaHojaExcel = "Select * from [" + Hoja + "$]";
-                //esta cadena es para archivos excel 2007 y 2010
-                string cadenaConexionArchivoExcel = "provider=Microsoft.ACE.OLEDB.12.0;Data Source='" + Archivo + "';Extended Properties=Excel 12.0;";
-                //para archivos de 97-2003 usar la siguiente cadena
-                //string cadenaConexionArchivoExcel = "provider=Microsoft.Jet.OLEDB.4.0;Data Source='" + archivo + "';Extended Properties=Excel 8.0;";
-                //Validamos que el usuario ingrese el nombre de la hoja del archivo de excel a leer
-                if (!string.IsNullOrEmpty(Hoja))
-                {
-                    try
-                    {
-                        //Si el usuario escribio el nombre de la hoja se procedera con la busqueda
-                        conexion = new OleDbConnection(cadenaConexionArchivoExcel);//creamos la conexion con la hoja de excel
-                        conexion.Open(); //abrimos la conexion
-                        dataAdapter = new OleDbDataAdapter(consultaHojaExcel, conexion); //traemos los datos de la hoja y las guardamos en un dataSdapter
-                        dataSet = new DataSet(); // creamos la instancia del objeto DataSet
-                        dataAdapter.Fill(dataSet, Hoja);//llenamos el dataset
-                        //dataGridView1.DataSource = dataSet.Tables[0]; //le asignamos al DataGridView el contenido del dataSet
-                        if (dataSet.Tables.Count > 0)
-                        {
-                            System.Data.DataTable Aux = dataSet.Tables[0];
-                        }
-                        conexion.Close();//cerramos la conexion
-                        //dataGridView1.AllowUserToAddRows = false;       //eliminamos la ultima fila del datagridview que se autoagrega
-                    }
-                    catch (Exception ex)
-                    {
-                        //en caso de haber una excepcion que nos mande un mensaje de error
-                        MessageBox.Show("Error, Verificar el archivo o el nombre de la hoja", ex.Message);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
-        private void LeerDocumentoExcelInterOp(string Archivo, string Hoja)
-        {
-            try
-            {
-                Workbook exlWbook;
-                Worksheet exlWsheet;
-                var ExcelApp = new Excel.Application();
-                exlWbook = ExcelApp.Workbooks.Open(Archivo, 0, true, 5, "", "", true, Microsoft.Office.Interop.Excel.XlPlatform.xlWindows, "\t", false, false, 0, true, 1, 0);
-                exlWsheet = (Worksheet)exlWbook.Worksheets.get_Item(1);
-                Range exlRange;
-                string sValor;
-                exlRange = exlWsheet.UsedRange;
-                System.Data.DataTable TablaInventario = new System.Data.DataTable();
-                TablaInventario.Columns.Add("Clave", typeof(string));
-                TablaInventario.Columns.Add("Conteo", typeof(decimal));
-                for (int i = 1; i <= exlRange.Rows.Count; i++)
-                {
-                    sValor = "";
-                    sValor += " " + (exlRange.Cells[i, 0] as Range).Value + "";
-
-                    object[] Fila  = { (exlRange.Cells[i, 0] as Range).Value, (exlRange.Cells[i, 3] as Range).Value};
-                    TablaInventario.Rows.Add(Fila);
-                }
-                exlWbook.Close();
-                ExcelApp.Quit();
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
-        private void DescargarPlantilla()
-        {
-            try
-            {
-                var ExcelApp = new Excel.Application();
-                ExcelApp.Visible = true;
-                ExcelApp.Workbooks.Add();
-                Excel._Worksheet WorkSheet = (Excel.Worksheet)ExcelApp.ActiveSheet;
-                WorkSheet.Name = "Inventario";
-                WorkSheet.Cells[1, "A"] = "Clave";
-                WorkSheet.Cells[1, "B"] = "Producto";
-                WorkSheet.Cells[1, "C"] = "Existencia";
-                WorkSheet.Cells[1, "D"] = "Conteo Físico";
-                WorkSheet.Cells[1, "E"] = "Diferencia";
-                WorkSheet.get_Range("A1", "E1").Font.Bold = true;
-                WorkSheet.get_Range("A1", "E1").Font.Color = Color.DarkRed;
-                WorkSheet.get_Range("A1", "E1").Font.Size = 12;
-                int RowIndex = 1;
-                List<Producto> ListaProductos = this.GenerarListaMatriz();
-                WorkSheet.get_Range("A" + RowIndex, "A" + ListaProductos.Count + RowIndex).NumberFormat = "@";
-                foreach (Producto Item in ListaProductos)
-                {
-                    RowIndex++;
-                    WorkSheet.Cells[RowIndex, "A"] = Item.Clave;
-                    WorkSheet.Cells[RowIndex, "B"] = Item.NombreProducto;
-                    WorkSheet.Cells[RowIndex, "C"] = Item.Existencia;
-                    WorkSheet.Cells[RowIndex, "D"] = 0;
-                    string Formula = "=R[0]C[-2] - R[0]C[-1]";
-                    WorkSheet.get_Range("E" + RowIndex).FormulaR1C1 = Formula;
-                    WorkSheet.get_Range("E" + RowIndex).FormulaHidden = true;
-                    WorkSheet.get_Range("E" + RowIndex).Calculate();
-                }
-                WorkSheet.Columns[1].AutoFit();
-                WorkSheet.Columns[2].AutoFit();
-                WorkSheet.Columns[3].AutoFit();
-                WorkSheet.Columns[4].AutoFit();
-                WorkSheet.Columns[5].AutoFit();
-                try
-                {
-                    //string Archivo = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\DatosInventario.xlsx";
-                    //if (File.Exists(Archivo))
-                    //{
-                    //    if (MessageBox.Show("El archivo ya existe, ¿está seguro de reemplazarlo?", Comun.Sistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                    //    {
-                    //        File.Delete(Archivo);
-                    //        WorkSheet.SaveAs(Archivo, Microsoft.Office.Interop.Excel.XlFileFormat.xlWorkbookNormal);
-                    //    }
-                    //}
-                    //else
-                    //    WorkSheet.SaveAs(Archivo, Microsoft.Office.Interop.Excel.XlFileFormat.xlWorkbookNormal);
-                }
-                finally
-                {
-                    ExcelApp.Quit();
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }*/
-
         private void btnDescargarArchivo_Click(object sender, EventArgs e)
         {
             try
@@ -599,7 +481,6 @@ namespace StephManager
                 MessageBox.Show(Comun.MensajeError, Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         private List<Producto> GenerarListaMatriz()
         {
             try
@@ -625,8 +506,6 @@ namespace StephManager
                 throw ex;
             }
         }
-       
-       
         private void ExportarExcel()
         {
             try
@@ -745,6 +624,7 @@ namespace StephManager
                 return false;
             }            
         }
+
         private void releaseObject(object obj)
         {
             try
@@ -857,5 +737,120 @@ namespace StephManager
         }
 
         #endregion
+
+        private void bgwActualizarExistencias_DoWork(object sender, DoWorkEventArgs e)
+        {
+            try
+            {
+                ActualizarExistenciasExcel(e.Argument.ToString());
+            }
+            catch(Exception ex)
+            {
+                LogError.AddExcFileTxt(ex, "frmReporteEstadoResultados ~ bgwActualizarExistencias_DoWork");
+                MessageBox.Show(Comun.MensajeError, Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void bgwActualizarExistencias_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            try
+            {
+                //if (e.Result != null)
+                //{
+                //}
+                //else
+                //{
+                //    MessageBox.Show("Error al generar el reporte. ", Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                //}
+            }
+            catch (Exception ex)
+            {
+                LogError.AddExcFileTxt(ex, "frmReporteEstadoResultados ~ bgwGenerarReporte_RunWorkerCompleted");
+                MessageBox.Show(Comun.MensajeError, Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                lblMessage.Visible = false;
+                lblMessage.Text = string.Empty;
+                this.Cursor = Cursors.Default;
+                AllowClick = true;
+            }
+        }
+
+        private bool ActualizarExistenciasExcel(string FileName)
+        {
+            try
+            {
+                Microsoft.Office.Interop.Excel.Application xlsApp = new Microsoft.Office.Interop.Excel.Application();
+                if (xlsApp == null)
+                {
+                    MessageBox.Show("EXCEL could not be started. Check that your office installation and project references are correct.", Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+                Workbook xlsBook;
+                Worksheet Inventario;
+                Sheets xlHojas;
+                string PathAr = FileName;
+                xlsBook = xlsApp.Workbooks.Open(PathAr);
+                xlHojas = xlsBook.Sheets;
+                Inventario = (Worksheet)xlHojas["Inventario"];
+                try
+                {
+                    xlsApp.DisplayAlerts = false;
+                    xlsApp.Visible = false;                    
+                    int FilaInicio = 4;
+                    infoProducto.ImportarExcel = new System.Data.DataTable();
+                    infoProducto.ImportarExcel.Columns.Add("IDProducto", typeof(string));
+                    infoProducto.ImportarExcel.Columns.Add("Clave", typeof(string));
+                    infoProducto.ImportarExcel.Columns.Add("ConteoFisico", typeof(decimal));
+                    while ((Inventario.Cells[FilaInicio, 1] as Microsoft.Office.Interop.Excel.Range).Value2 != null)
+                    {
+                        string Codigo = "", IDProducto = "";
+                        decimal ConteoFisico = 0;
+                        IDProducto = (Inventario.Cells[FilaInicio, 6] as Microsoft.Office.Interop.Excel.Range).Value2.ToString();
+                        Codigo = (Inventario.Cells[FilaInicio, 1] as Microsoft.Office.Interop.Excel.Range).Value2.ToString();
+                        decimal.TryParse((Inventario.Cells[FilaInicio, 4] as Microsoft.Office.Interop.Excel.Range).Value2.ToString(), NumberStyles.Currency, CultureInfo.CurrentCulture, out ConteoFisico);
+                        infoProducto.ImportarExcel.Rows.Add(new Object[] { IDProducto, Codigo, ConteoFisico });
+                        FilaInicio++;
+                    }
+
+                    Producto AuxProducto = new Producto();
+                    Producto_Negocio ProdNeg = new Producto_Negocio();
+                    AuxProducto.Conexion = Comun.Conexion;
+                    AuxProducto.IDSucursal = Comun.IDSucursalCaja;
+                    AuxProducto.IDUsuario = Comun.IDUsuario;
+                    AuxProducto.ImportarExcel = infoProducto.ImportarExcel;
+                    ProdNeg.AInventarioEXCEL(AuxProducto);
+                    if (AuxProducto.Completado)
+                    {
+                        MessageBox.Show("Datos guardados correctamente.", Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Datos no se guardaron correctamente. Intente mas tarde", Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    LogError.AddExcFileTxt(ex, "Generar Reporte Excel");
+                    return false;
+                }
+                finally
+                {
+                    xlsBook.Close();
+                    xlsApp.Quit();
+                    releaseObject(xlHojas);
+                    releaseObject(xlsBook);
+                    releaseObject(Inventario);
+                    releaseObject(xlsApp);
+                }
+                return true;
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
+
     }
 }

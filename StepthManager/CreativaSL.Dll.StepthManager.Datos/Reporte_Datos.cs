@@ -391,7 +391,6 @@ namespace CreativaSL.Dll.StephManager.Datos
                 throw ex;
             }
         }
-
         public EstadoResultados ObtenerDetalleEstadoResultados(string Conexion, int IDReporte)
         {
             try
@@ -404,8 +403,8 @@ namespace CreativaSL.Dll.StephManager.Datos
                     while (Dr.Read())
                     {
                         Reporte.Sucursal = !Dr.IsDBNull(Dr.GetOrdinal("Sucursal")) ? Dr.GetString(Dr.GetOrdinal("Sucursal")) : string.Empty;
-                        Reporte.Mes = !Dr.IsDBNull(Dr.GetOrdinal("Mes")) ? Dr.GetString(Dr.GetOrdinal("Mes")) : string.Empty;
-                        Reporte.Año = !Dr.IsDBNull(Dr.GetOrdinal("Year")) ? Dr.GetInt32(Dr.GetOrdinal("Year")) : 0;
+                        Reporte.MesDesc = !Dr.IsDBNull(Dr.GetOrdinal("Mes")) ? Dr.GetString(Dr.GetOrdinal("Mes")) : string.Empty;
+                        Reporte.Anio = !Dr.IsDBNull(Dr.GetOrdinal("Year")) ? Dr.GetInt32(Dr.GetOrdinal("Year")) : 0;
                         Reporte.IngresoMensual = !Dr.IsDBNull(Dr.GetOrdinal("IngresoMensual")) ? Dr.GetDecimal(Dr.GetOrdinal("IngresoMensual")) : 0;
                         Reporte.IngresoAnual = !Dr.IsDBNull(Dr.GetOrdinal("IngresoAnual")) ? Dr.GetDecimal(Dr.GetOrdinal("IngresoAnual")) : 0;
                         Reporte.CostoVentasMensual = !Dr.IsDBNull(Dr.GetOrdinal("CostoVentasMensual")) ? Dr.GetDecimal(Dr.GetOrdinal("CostoVentasMensual")) : 0;
@@ -440,6 +439,56 @@ namespace CreativaSL.Dll.StephManager.Datos
                 return Reporte;
             }
             catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public List<EstadoResultados> ObtenerGridReporteER(string Conexion, int IDMes, int Anio)
+        {
+            try
+            {
+                List<EstadoResultados> Lista = new List<EstadoResultados>();
+                EstadoResultados Item;
+                object[] Parametros = { IDMes, Anio };
+                SqlDataReader Dr = SqlHelper.ExecuteReader(Conexion, "Reportes.spCSLDB_get_ReportesEstadoResultados", Parametros);
+                while(Dr.Read())
+                {
+                    Item = new EstadoResultados();
+                    Item.IDReporte = !Dr.IsDBNull(Dr.GetOrdinal("IDReporte")) ? Dr.GetInt32(Dr.GetOrdinal("IDReporte")) : 0;
+                    Item.Sucursal = !Dr.IsDBNull(Dr.GetOrdinal("Sucursal")) ? Dr.GetString(Dr.GetOrdinal("Sucursal")) : string.Empty;
+                    Item.Anio = !Dr.IsDBNull(Dr.GetOrdinal("Anio")) ? Dr.GetInt32(Dr.GetOrdinal("Anio")) : 0;
+                    Item.MesDesc = !Dr.IsDBNull(Dr.GetOrdinal("Mes")) ? Dr.GetString(Dr.GetOrdinal("Mes")) : string.Empty;
+                    Item.FechaReporte = !Dr.IsDBNull(Dr.GetOrdinal("FechaReporte")) ? Dr.GetDateTime(Dr.GetOrdinal("FechaReporte")) : DateTime.MinValue;
+                    Lista.Add(Item);
+                }
+                Dr.Close();
+                return Lista;
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public List<Mes> ObtenerComboMeses(string Conexion)
+        {
+            try
+            {
+                List<Mes> Lista = new List<Mes>();
+                Mes Item;
+                SqlDataReader Dr = SqlHelper.ExecuteReader(Conexion, "Reportes.spCSLDB_get_ComboMeses");
+                while(Dr.Read())
+                {
+                    Item = new Mes();
+                    Item.IDMes = !Dr.IsDBNull(Dr.GetOrdinal("IDMes")) ? Dr.GetInt32(Dr.GetOrdinal("IDMes")) : 0;
+                    Item.MesDesc = !Dr.IsDBNull(Dr.GetOrdinal("MesDesc")) ? Dr.GetString(Dr.GetOrdinal("MesDesc")) : string.Empty;
+                    Lista.Add(Item);
+                }
+                Dr.Close();
+                return Lista;
+            }
+            catch(Exception ex)
             {
                 throw ex;
             }

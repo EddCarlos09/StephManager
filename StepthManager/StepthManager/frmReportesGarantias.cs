@@ -166,8 +166,8 @@ namespace StephManager
             }
             catch (Exception ex)
             {
-
-                throw;
+                LogError.AddExcFileTxt(ex, "frmReportesGarantias ~ btnBuscar_Click");
+                MessageBox.Show(Comun.MensajeError, Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -177,10 +177,10 @@ namespace StephManager
             {
                 LlenarGrid();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                LogError.AddExcFileTxt(ex, "frmReportesGarantias ~ btnCancelarBusq_Click");
+                MessageBox.Show(Comun.MensajeError, Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

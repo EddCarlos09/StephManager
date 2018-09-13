@@ -227,6 +227,12 @@
     <Compile Include="frmPromocionPreciosModificar.Designer.cs">
       <DependentUpon>frmPromocionPreciosModificar.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmReporteEstadoResultados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReporteEstadoResultados.Designer.cs">
+      <DependentUpon>frmReporteEstadoResultados.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmReporteMonedero.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1320,6 +1326,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmPromocionPreciosModificar.resx">
       <DependentUpon>frmPromocionPreciosModificar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReporteEstadoResultados.resx">
+      <DependentUpon>frmReporteEstadoResultados.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmReportesConsumoMaterial.resx">
       <DependentUpon>frmReportesConsumoMaterial.cs</DependentUpon>

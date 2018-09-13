@@ -197,5 +197,40 @@ namespace CreativaSL.Dll.StephManager.Negocio
             }
         }
 
+
+        public List<EstadoResultados> ObtenerGridReporteER(string Conexion, int IDMes, int Anio)
+        {
+            try
+            {
+                Reporte_Datos Datos = new Reporte_Datos();
+                return Datos.ObtenerGridReporteER(Conexion, IDMes, Anio);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
+        public List<Mes> ObtenerComboMeses(string Conexion)
+        {
+            try
+            {
+                try
+                {
+                    Reporte_Datos Datos = new Reporte_Datos();
+                    return Datos.ObtenerComboMeses(Conexion);
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
     }
 }

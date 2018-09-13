@@ -15,8 +15,8 @@ namespace CreativaSL.Dll.StephManager.Global
         {
             IDReporte = -1;
             Sucursal = string.Empty;
-            Mes = string.Empty;
-            Año = -1;
+            MesDesc = string.Empty;
+            Anio = -1;
             Completado = false;
             Detalle = new List<EstadoResultadosDetalle>();
         }
@@ -36,11 +36,11 @@ namespace CreativaSL.Dll.StephManager.Global
         /// <summary>
         /// Mes en el que se genera el reporte
         /// </summary>
-        public string Mes { get; set; }
+        public string MesDesc { get; set; }
         /// <summary>
         /// Año en el que se genera el reporte
         /// </summary>
-        public int Año { get; set; }
+        public int Anio { get; set; }
         public decimal IngresoMensual { get; set; }
         public decimal IngresoAnual { get; set; }
         public decimal CostoVentasMensual { get; set; }
@@ -49,6 +49,7 @@ namespace CreativaSL.Dll.StephManager.Global
         public decimal ComisionAnual { get; set; }
         public decimal ImpuestoMensual { get; set; }
         public decimal ImpuestoAnual { get; set; }
+        public DateTime FechaReporte { get; set; }
         /// <summary>
         /// Indica si se completó el proceso de lectura de datos al obtener el detalle
         /// </summary>

@@ -1110,12 +1110,15 @@ namespace StephManager
         {
             try
             {
-                frmExcelER EstadoResult = new frmExcelER();
+                this.Visible = false;
+                frmReporteEstadoResultados EstadoResult = new frmReporteEstadoResultados();
                 EstadoResult.ShowDialog();
                 EstadoResult.Dispose();
+                this.Visible = true;
             }
             catch (Exception ex)
             {
+                this.Visible = true;
                 MessageBox.Show(Comun.MensajeError, Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 LogError.AddExcFileTxt(ex, "frmMenuInicio ~ toolsm_EstadoResultados_Click");
             }

@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,22 +15,130 @@ using System.Windows.Forms;
 
 namespace StephManager
 {
-    public partial class frmExcelER : Form
+    public partial class frmReporteEstadoResultados : Form
     {
-        public frmExcelER()
+        bool AllowClick = true; 
+
+        #region Constructores
+
+        public frmReporteEstadoResultados()
         {
-            InitializeComponent();
+            try
+            {
+                InitializeComponent();
+            }
+            catch (Exception ex)
+            {
+                LogError.AddExcFileTxt(ex, "frmReporteEstadoResultados ~ frmReporteEstadoResultados()");
+            }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        #endregion
+
+        #region Métodos
+
+        private void IniciarForm()
         {
-            Reporte_Negocio Neg = new Reporte_Negocio();
-            EstadoResultados Datos = Neg.ObtenerDetalleEstadoResultados(Comun.Conexion, 4);
-            GenerarEstadoDeResultados(Datos.Detalle, Datos.IngresoMensual, Datos.IngresoAnual, Datos.CostoVentasMensual, Datos.CostoVentasAnual, 
-                Datos.ComisionMensual, Datos.ComisionAnual, Datos.ImpuestoMensual, Datos.ImpuestoAnual, Datos.Anio, Datos.MesDesc, Datos.Sucursal);
+            try
+            {
+                LlenarComboMeses();
+                cmbMes.SelectedValue = DateTime.Today.Month;
+                txtAnio.Text = DateTime.Today.Year.ToString();
+                LlenarGrid();
+                if (File.Exists(Path.Combine(System.Windows.Forms.Application.StartupPath, @"Resources\Documents\" + Comun.UrlLogo)))
+                {
+                    this.pictureBox1.Image = Image.FromFile(Path.Combine(System.Windows.Forms.Application.StartupPath, @"Resources\Documents\" + Comun.UrlLogo));
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
+        private void LlenarGrid()
+        {
+            try
+            {
+                Reporte_Negocio Neg = new Reporte_Negocio();
+                List<EstadoResultados> Lista = Neg.ObtenerGridReporteER(Comun.Conexion, ObtenerMesSeleccionado().IDMes, ObtenerAnio());
+                this.dgvReporteEstadoResultados.AutoGenerateColumns = false;
+                this.dgvReporteEstadoResultados.DataSource = Lista;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
+        private void LlenarComboMeses()
+        {
+            try
+            {
+                Reporte_Negocio Neg = new Reporte_Negocio();
+                cmbMes.DataSource = Neg.ObtenerComboMeses(Comun.Conexion);
+                cmbMes.DisplayMember = "MesDesc";
+                cmbMes.ValueMember = "IDMes";
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        private Mes ObtenerMesSeleccionado()
+        {
+            try
+            {
+                Mes _Datos = new Mes();
+                if(cmbMes.SelectedIndex != -1)
+                {
+                    _Datos = (Mes)cmbMes.SelectedItem;
+                }
+                return _Datos;
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        private int ObtenerAnio()
+        {
+            try
+            {
+                int _Anio = 0;
+                if(!int.TryParse(txtAnio.Text.Trim(), out _Anio))
+                    _Anio = -1;
+                return _Anio;
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        private EstadoResultados ObtenerDatosReporte()
+        {
+            try
+            {
+                EstadoResultados DatosAux = new EstadoResultados();
+                Int32 RowData = this.dgvReporteEstadoResultados.Rows.GetFirstRow(DataGridViewElementStates.Selected);
+                if (RowData > -1)
+                {
+                    int ID = 0;
+                    DataGridViewRow FilaDatos = this.dgvReporteEstadoResultados.Rows[RowData];
+                    int.TryParse(FilaDatos.Cells["IDReporte"].Value.ToString(), out ID);
+                    DatosAux.IDReporte = ID;
+                }
+                return DatosAux;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        
         private bool GenerarEstadoDeResultados(List<EstadoResultadosDetalle> Detalle, decimal IngresosM, decimal IngresosA, decimal CostoVM, decimal CostoVA, decimal ComisionM, decimal ComisionA, decimal ImpuestoMensual, decimal ImpuestoAnual, int Año, string Mes, string Sucursal)
         {
             try
@@ -251,7 +360,7 @@ namespace StephManager
                     ((Range)wsEstadoResultados.Cells[FilaInicio, ColumnaDatos + 4]).NumberFormat = "0.00%";
 
                     string FormulaUtilidadNeta = string.Format("=(R{0}C - R{1}C)", FilaInicio - 1, FilaInicio);
-                    FilaInicio += 2;                    
+                    FilaInicio += 2;
                     //Utilidad Neta
                     wsEstadoResultados.get_Range("C" + FilaInicio, "E" + FilaInicio).HorizontalAlignment = XlHAlign.xlHAlignRight;
                     Range RangoUtilidadNeta = wsEstadoResultados.get_Range("B" + FilaInicio, "E" + FilaInicio);
@@ -284,6 +393,15 @@ namespace StephManager
                     Revisa.Borders[XlBordersIndex.xlEdgeBottom].Weight = XlBorderWeight.xlThin;
                     // Pie de página (Firmas)
 
+                    SaveFileDialog saveFileDialogExcel = new SaveFileDialog();
+                    saveFileDialogExcel.Filter = "Excel Files|*.xlsx";
+                    saveFileDialogExcel.FileName = "";
+                    saveFileDialogExcel.Title = "Seleccione donde guardar el excel";
+                    saveFileDialogExcel.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments).ToString();
+                    if (saveFileDialogExcel.ShowDialog() == DialogResult.OK)
+                    {
+                        xlsBook.SaveAs(saveFileDialogExcel.FileName);
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -292,9 +410,11 @@ namespace StephManager
                 }
                 finally
                 {
-                    xlsBook.SaveAs(@"C:\CUBOX\Prueba.xlsx");
                     xlsBook.Close();
                     xlsApp.Quit();
+                    releaseObject(xlsBook);
+                    releaseObject(xlsApp);
+                    releaseObject(wsEstadoResultados);
                 }
                 return true;
 
@@ -350,6 +470,24 @@ namespace StephManager
             catch (Exception ex)
             {
                 throw ex;
+            }
+        }
+
+        private void releaseObject(object obj)
+        {
+            try
+            {
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(obj);
+                obj = null;
+            }
+            catch (Exception ex)
+            {
+                LogError.AddExcFileTxt(ex, "frmReporteEstadoResultados ~ releaseObject");
+                obj = null;
+            }
+            finally
+            {
+                GC.Collect();
             }
         }
 
@@ -486,6 +624,174 @@ namespace StephManager
                 throw ex;
             }
         }
-        
+
+
+        #endregion
+
+        #region Eventos
+
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                frmNuevoReporteComprasCliente GenerarReporte = new frmNuevoReporteComprasCliente();
+                GenerarReporte.ShowDialog();
+                if (GenerarReporte.DialogResult == DialogResult.OK)
+                {
+                    LlenarGrid();
+                }
+                GenerarReporte.Dispose();
+            }
+            catch (Exception ex)
+            {
+                LogError.AddExcFileTxt(ex, "frmReporteEstadoResultados ~ btnNuevo_Click");
+                MessageBox.Show(Comun.MensajeError, Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Visible = true;
+            }
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.DialogResult = DialogResult.Abort;
+            }
+            catch (Exception ex)
+            {
+                LogError.AddExcFileTxt(ex, "frmReporteEstadoResultados ~ btnSalir_Click");
+                MessageBox.Show(Comun.MensajeError, Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnDescargar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (AllowClick)
+                {
+                    if (this.dgvReporteEstadoResultados.SelectedRows.Count == 1)
+                    {
+                        EstadoResultados Datos = this.ObtenerDatosReporte();
+                        lblMessage.Visible = true;
+                        lblMessage.Text = "Generando reporte... Espere un momento...";
+                        this.Cursor = Cursors.WaitCursor;                        
+                        bgwGenerarReporte.RunWorkerAsync(Datos.IDReporte);
+                        AllowClick = false;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Seleccione una fila.", Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("El proceso está en ejecución. Espere un momento...", Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                LogError.AddExcFileTxt(ex, "frmReporteEstadoResultados ~ btnDescargar_Click");
+                MessageBox.Show(Comun.MensajeError, Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void frmReporteEstadoResultados_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                this.IniciarForm();
+            }
+            catch (Exception ex)
+            {
+                LogError.AddExcFileTxt(ex, "frmReporteEstadoResultados ~ frmReporteEstadoResultados_Load");
+                MessageBox.Show(Comun.MensajeError, Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //this.Fecha = dtpFechaBusqueda.Value;
+                LlenarGrid();
+            }
+            catch (Exception ex)
+            {
+                LogError.AddExcFileTxt(ex, "frmReporteEstadoResultados ~ button_Creativa1_Click");
+                MessageBox.Show(Comun.MensajeError, Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnCancelarBusq_Click(object sender, EventArgs e)
+        {
+            try
+            {                
+                LlenarGrid();
+            }
+            catch (Exception ex)
+            {
+                LogError.AddExcFileTxt(ex, "frmReporteEstadoResultados ~ btnCancelarBusq_Click");
+                MessageBox.Show(Comun.MensajeError, Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        #endregion
+
+        private void bgwGenerarReporte_DoWork(object sender, DoWorkEventArgs e)
+        {
+            try
+            {
+                int _IDReporte = 0;
+                EstadoResultados _Datos = new EstadoResultados();
+                if (int.TryParse(e.Argument.ToString(), out _IDReporte))
+                {
+                    Reporte_Negocio Neg = new Reporte_Negocio();
+                    _Datos = Neg.ObtenerDetalleEstadoResultados(Comun.Conexion, _IDReporte);
+                }
+                e.Result = _Datos;
+            }
+            catch(Exception ex)
+            {
+                LogError.AddExcFileTxt(ex, "frmReporteEstadoResultados ~ bgwGenerarReporte_DoWork");
+                MessageBox.Show(Comun.MensajeError, Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void bgwGenerarReporte_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            try
+            {
+                if (e.Result != null)
+                {
+                    EstadoResultados Datos = new EstadoResultados();
+                    try
+                    {
+                        Datos = (EstadoResultados)e.Result;
+                        GenerarEstadoDeResultados(Datos.Detalle, Datos.IngresoMensual, Datos.IngresoAnual, Datos.CostoVentasMensual, Datos.CostoVentasAnual,
+                            Datos.ComisionMensual, Datos.ComisionAnual, Datos.ImpuestoMensual, Datos.ImpuestoAnual, Datos.Anio, Datos.MesDesc, Datos.Sucursal);
+
+                    }
+                    catch(Exception)
+                    {
+                        MessageBox.Show("Error al generar el reporte. ", Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Error al generar el reporte. ", Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            catch (Exception ex)
+            {
+                LogError.AddExcFileTxt(ex, "frmReporteEstadoResultados ~ bgwGenerarReporte_RunWorkerCompleted");
+                MessageBox.Show(Comun.MensajeError, Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                lblMessage.Visible = false;
+                lblMessage.Text = "Generando reporte... Espere un momento...";
+                this.Cursor = Cursors.Default;
+                AllowClick = true;
+            }
+        }
     }
 }

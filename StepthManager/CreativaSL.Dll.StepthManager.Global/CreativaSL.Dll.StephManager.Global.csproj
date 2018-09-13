@@ -82,6 +82,7 @@
     <Compile Include="ChechkListResultado.cs" />
     <Compile Include="EstadoResultados.cs" />
     <Compile Include="EstadoResultadosDetalle.cs" />
+    <Compile Include="Mes.cs" />
     <Compile Include="Promocion.cs" />
     <Compile Include="PromocionServicios.cs" />
     <Compile Include="PromocionXSucursal.cs" />
