@@ -274,7 +274,7 @@ namespace StephManager
                     else
                     {
                         MessageBox.Show("Seleccione una sucursal", Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    }                    
+                    }
                 }
                 else
                 {
@@ -459,7 +459,7 @@ namespace StephManager
                     MessageBox.Show("El proceso está en ejecución. Espere un momento...", Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-                
+
             catch (Exception ex)
             {
                 LogError.AddExcFileTxt(ex, "frmInventario ~ btnLeerInventario_Click");
@@ -506,6 +506,14 @@ namespace StephManager
                 throw ex;
             }
         }
+
+        private System.Data.DataTable GenerarTablaAux()
+        {
+            Producto_Negocio ProdNeg = new Producto_Negocio();
+            Producto Datos = new Producto { Conexion = Comun.Conexion, IDSucursal = Comun.IDSucursalCaja };
+            ProdNeg.ObtenerProductosInventarioMatriz(Datos);
+            return Datos.TablaDatos;
+        }             
         private void ExportarExcel()
         {
             try
@@ -552,7 +560,6 @@ namespace StephManager
                     infoProducto.ImportarExcel.Columns.Add("IDProducto", typeof(string));
                     infoProducto.ImportarExcel.Columns.Add("Clave", typeof(string));
                     infoProducto.ImportarExcel.Columns.Add("ConteoFisico", typeof(decimal));
-
 
                     while ((Inventario.Cells[FilaInicio, 1] as Microsoft.Office.Interop.Excel.Range).Value2 != null)
                     {

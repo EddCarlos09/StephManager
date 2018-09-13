@@ -3201,7 +3201,7 @@ namespace StephManager
             {
                 //Buton nuevo de catalogos
                 this.CargarFormNuevo();
-                this.RecargarGridPadecimiento();
+                this.CargarGridCatalogo();
             }
             catch (Exception ex)
             {
