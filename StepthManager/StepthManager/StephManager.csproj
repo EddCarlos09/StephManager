@@ -161,6 +161,12 @@
     <Compile Include="frmNuevaTransferenciaMateriales.Designer.cs">
       <DependentUpon>frmNuevaTransferenciaMateriales.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmNuevoReporteER.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNuevoReporteER.Designer.cs">
+      <DependentUpon>frmNuevoReporteER.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmNuevoReporteFaltas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1293,6 +1299,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmNuevaTransferenciaMateriales.resx">
       <DependentUpon>frmNuevaTransferenciaMateriales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNuevoReporteER.resx">
+      <DependentUpon>frmNuevoReporteER.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmNuevoReporteFaltas.resx">
       <DependentUpon>frmNuevoReporteFaltas.cs</DependentUpon>

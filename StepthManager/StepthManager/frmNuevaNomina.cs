@@ -19,6 +19,7 @@ namespace StephManager
     {
 
         private int IDTipoNomina = 0;
+        private bool AllowClick = true;
 
         #region Constructores
 
@@ -152,35 +153,20 @@ namespace StephManager
         {
             try
             {
-                frmNominaFechas EstablecerFechas = new frmNominaFechas();
-                EstablecerFechas.ShowDialog();
-                EstablecerFechas.Dispose();
-                if (EstablecerFechas.DialogResult == DialogResult.OK)
+                if (AllowClick)
                 {
-                    DateTime FI = EstablecerFechas.FechaInicio;
-                    DateTime FF = EstablecerFechas.FechaFin;
-                    Nomina Datos = new Nomina { Conexion = Comun.Conexion, IDUsuario = Comun.IDUsuario, FechaInicio = FI, FechaFin = FF, IDTipoNomina = this.IDTipoNomina };
-                    Nomina_Negocio NN = new Nomina_Negocio();
-                    NN.GenerarNomina(Datos);
-                    if (Datos.Completado)
+                    frmNominaFechas EstablecerFechas = new frmNominaFechas();
+                    EstablecerFechas.ShowDialog();
+                    EstablecerFechas.Dispose();
+                    if (EstablecerFechas.DialogResult == DialogResult.OK)
                     {
-                        try
-                        {
-                            frmVerListados Reporte = new frmVerListados(3, Datos.IDNomina);
-                            this.Visible = false;
-                            Reporte.ShowDialog();
-                            Reporte.Dispose();
-                            this.Visible = true;
-                        }
-                        catch (Exception exe)
-                        {
-                            LogError.AddExcFileTxt(exe, "frmNuevaNomina ~ btnGenerarNomina_Click ~ ReporteNomina");
-                            this.Visible = true;
-                        }
-                        finally
-                        {
-                            this.DialogResult = DialogResult.OK;
-                        }
+                        DateTime FI = EstablecerFechas.FechaInicio;
+                        DateTime FF = EstablecerFechas.FechaFin;
+                        Nomina Datos = new Nomina { Conexion = Comun.Conexion, IDUsuario = Comun.IDUsuario, FechaInicio = FI, FechaFin = FF, IDTipoNomina = this.IDTipoNomina };
+                        AllowClick = false;
+                        lblMessage.Visible = true;
+                        Cursor = Cursors.WaitCursor;
+                        bgwGenerarNomina.RunWorkerAsync(Datos);
                     }
                 }
             }
@@ -191,9 +177,86 @@ namespace StephManager
             }
         }
 
+        private void bgwGenerarNomina_DoWork(object sender, DoWorkEventArgs e)
+        {
+            try
+            {
+                if (e.Argument != null)
+                {
+                    Nomina Datos = null;
+                    try
+                    {
+                        Datos = (Nomina)e.Argument;
+                    }
+                    catch (Exception) { }
+                    if (Datos != null)
+                    {
+                        Nomina_Negocio NN = new Nomina_Negocio();
+                        NN.GenerarNomina(Datos);
+                        if (Datos.Completado)
+                        {
+                            e.Result = Datos;
+                        }
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                LogError.AddExcFileTxt(ex, "frmNuevaNomina ~ bgwGenerarNomina_DoWork");
+                MessageBox.Show(Comun.MensajeError, Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
-
-
-
+        private void bgwGenerarNomina_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            try
+            {
+                if (e.Result != null)
+                {
+                    Nomina Datos = null;
+                    try
+                    {
+                        Datos = (Nomina)e.Result;
+                    }
+                    catch (Exception) { }
+                    if (Datos != null)
+                    {
+                        if (Datos.Completado)
+                        {
+                            frmVerListados Reporte = new frmVerListados(3, Datos.IDNomina);
+                            this.Visible = false;
+                            Reporte.ShowDialog();
+                            Reporte.Dispose();
+                            this.Visible = true;
+                            this.DialogResult = DialogResult.OK;
+                        }
+                        else
+                        {
+                            MessageBox.Show("No se pudo generar el reporte. (1)", Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se pudo generar el reporte. (2)", Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("No se pudo generar el reporte. (3)", Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception exe)
+            {
+                LogError.AddExcFileTxt(exe, "frmNuevaNomina ~ btnGenerarNomina_Click ~ bgwGenerarNomina_RunWorkerCompleted");
+                MessageBox.Show(Comun.MensajeError, Comun.Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Visible = true;
+            }
+            finally
+            {
+                AllowClick = true;
+                lblMessage.Visible = false;
+                Cursor = Cursors.Default;
+            }
+        }
     }
 }

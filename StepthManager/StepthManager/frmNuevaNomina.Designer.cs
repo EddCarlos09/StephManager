@@ -48,6 +48,7 @@
             this.Conceptos = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel7 = new System.Windows.Forms.Panel();
             this.PanelMenu = new System.Windows.Forms.Panel();
+            this.lblMessage = new System.Windows.Forms.Label();
             this.btnGenerarNomina = new CreativaSL.LibControls.WinForms.Button_Creativa();
             this.btnSalir = new CreativaSL.LibControls.WinForms.Button_Creativa();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -56,6 +57,7 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label42 = new System.Windows.Forms.Label();
+            this.bgwGenerarNomina = new System.ComponentModel.BackgroundWorker();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -243,6 +245,7 @@
             // PanelMenu
             // 
             this.PanelMenu.BackColor = System.Drawing.Color.Gray;
+            this.PanelMenu.Controls.Add(this.lblMessage);
             this.PanelMenu.Controls.Add(this.btnGenerarNomina);
             this.PanelMenu.Controls.Add(this.btnSalir);
             this.PanelMenu.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -250,6 +253,17 @@
             this.PanelMenu.Name = "PanelMenu";
             this.PanelMenu.Size = new System.Drawing.Size(1008, 80);
             this.PanelMenu.TabIndex = 1;
+            // 
+            // lblMessage
+            // 
+            this.lblMessage.BackColor = System.Drawing.Color.SeaShell;
+            this.lblMessage.ForeColor = System.Drawing.Color.Maroon;
+            this.lblMessage.Location = new System.Drawing.Point(71, 8);
+            this.lblMessage.Name = "lblMessage";
+            this.lblMessage.Size = new System.Drawing.Size(729, 65);
+            this.lblMessage.TabIndex = 24;
+            this.lblMessage.Text = "Generando nómina... Espere un momento.";
+            this.lblMessage.Visible = false;
             // 
             // btnGenerarNomina
             // 
@@ -381,6 +395,11 @@
             this.label42.TabIndex = 24;
             this.label42.Text = "Empleados";
             // 
+            // bgwGenerarNomina
+            // 
+            this.bgwGenerarNomina.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgwGenerarNomina_DoWork);
+            this.bgwGenerarNomina.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bgwGenerarNomina_RunWorkerCompleted);
+            // 
             // frmNuevaNomina
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -439,6 +458,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Percepciones;
         private System.Windows.Forms.DataGridViewTextBoxColumn Deducciones;
         private System.Windows.Forms.DataGridViewButtonColumn Conceptos;
+        private System.ComponentModel.BackgroundWorker bgwGenerarNomina;
+        private System.Windows.Forms.Label lblMessage;
     }
 }
 

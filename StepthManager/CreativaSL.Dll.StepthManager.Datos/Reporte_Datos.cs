@@ -471,6 +471,26 @@ namespace CreativaSL.Dll.StephManager.Datos
             }
         }
 
+        public int GenerarReporteEstadoResultados(string Conexion, EstadoResultados _Datos, string IDUsuario)
+        {
+            try
+            {
+                object[] Parametros = { _Datos.Sucursal, _Datos.IDMes, _Datos.Anio, _Datos.ImpuestoMensual, _Datos.ImpuestoAnual, IDUsuario };
+                object Result = SqlHelper.ExecuteScalar(Conexion, "Reportes.spCSLDB_set_GenerarEstadosResultados", Parametros);
+                if(Result != null)
+                {
+                    int IDReporte = 0;
+                    if (int.TryParse(Result.ToString(), out IDReporte))
+                        return IDReporte;
+                }
+                return -1;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public List<Mes> ObtenerComboMeses(string Conexion)
         {
             try

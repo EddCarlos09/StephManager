@@ -634,11 +634,15 @@ namespace StephManager
         {
             try
             {
-                frmNuevoReporteComprasCliente GenerarReporte = new frmNuevoReporteComprasCliente();
+                frmNuevoReporteER GenerarReporte = new frmNuevoReporteER();
                 GenerarReporte.ShowDialog();
                 if (GenerarReporte.DialogResult == DialogResult.OK)
                 {
                     LlenarGrid();
+                    lblMessage.Visible = true;
+                    lblMessage.Text = "Generando reporte... Espere un momento...";
+                    this.Cursor = Cursors.WaitCursor;
+                    bgwGenerarReporte.RunWorkerAsync(GenerarReporte._IDReporte);
                 }
                 GenerarReporte.Dispose();
             }

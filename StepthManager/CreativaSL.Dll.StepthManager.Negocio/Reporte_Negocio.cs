@@ -196,8 +196,7 @@ namespace CreativaSL.Dll.StephManager.Negocio
                 throw ex;
             }
         }
-
-
+        
         public List<EstadoResultados> ObtenerGridReporteER(string Conexion, int IDMes, int Anio)
         {
             try
@@ -211,6 +210,18 @@ namespace CreativaSL.Dll.StephManager.Negocio
             }
         }
 
+        public int GenerarReporteEstadoResultados(string Conexion, EstadoResultados _Datos, string IDUsuario)
+        {
+            try
+            {
+                Reporte_Datos Datos = new Reporte_Datos();
+                return Datos.GenerarReporteEstadoResultados(Conexion, _Datos, IDUsuario);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
         public List<Mes> ObtenerComboMeses(string Conexion)
         {
